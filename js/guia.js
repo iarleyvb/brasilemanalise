@@ -23,7 +23,7 @@
 
   /* ---------- estado ---------- */
   var overlay = null, painel = null, corpo = null, boxPasso = null, listaProg = null, segs = [];
-  var btnX = null, btnPular = null, btnVolta = null, btnProx = null, chk = null, live = null;
+  var cont = null, btnX = null, btnPular = null, btnVolta = null, btnProx = null, chk = null, live = null;
   var aberto = false, auto = false, passo = 0, retorno = null, escondidos = [];
   var memOff = false, memAuto = false, travado = false, padAnt = "";
   var heroBtn = null, footLink = null;
@@ -87,11 +87,11 @@
     var d = lerPesos(), L = d.lista, i, b, w, larg, s = "";
     s += '<svg class="gu-svg" viewBox="0 0 288 172" role="img" aria-label="' + esc(d.alt) + '" focusable="false">';
     s += '<defs><linearGradient id="gu-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" class="gu-s0"/><stop offset="1" class="gu-s1"/></linearGradient></defs>';
-    s += T(0, 15, "0", "gu-n", "start") + T(288, 15, "10", "gu-n", "end");
+    s += T(0, 15, "0", "gu-n", "start") + T(286, 15, "10", "gu-n", "end");
     s += '<rect x="22" y="5" width="244" height="13" rx="6.5" fill="url(#gu-grad)" class="gu-trk"/>';
-    s += T(144, 36, "Nota geral, de 0 a 10", "gu-m", "middle");
+    s += T(144, 35, "Nota geral, de 0 a 10", "gu-m", "middle");
     for (i = 0; i < L.length; i++) {
-      b = 58 + i * 15;
+      b = 55 + i * 15.7;
       w = L[i].w;
       larg = Math.max(2, w * 3.3);
       s += T(0, b, esc(SHORT[L[i].k] || L[i].t), "gu-m", "start");
@@ -109,7 +109,7 @@
     s += '<rect x="0" y="34" width="288" height="6" rx="3" class="gu-fundo"/>';
     s += '<rect x="0" y="34" width="190" height="6" rx="3" class="gu-bar"/>';
     s += '<circle cx="190" cy="37" r="11" class="gu-knob"/>';
-    s += T(0, 62, "menos", "gu-m", "start") + T(144, 62, "peso do pilar", "gu-m", "middle") + T(288, 62, "mais", "gu-m", "end");
+    s += T(0, 62, "menos", "gu-m", "start") + T(144, 62, "peso do pilar", "gu-m", "middle") + T(286, 62, "mais", "gu-m", "end");
     s += '<path d="M144 70v17M138 81l6 7 6-7" class="gu-ln"/>';
     s += T(0, 108, "2. A mesma régua mede todos", "gu-t", "start");
     s += '<rect x="0.75" y="118" width="286.5" height="26" rx="4" class="gu-box"/>';
@@ -181,7 +181,7 @@
     },
     {
       t: "Como ler um gráfico",
-      p: "Cada barra é uma nota de 0 a 10. Piso (vale 0) e meta (vale 10) são fixos e iguais para todos. Nota 5 é o meio do caminho, 8 está perto da meta e 2, perto do piso.",
+      p: "Cada barra de nota vai de 0 a 10. Piso (vale 0) e meta (vale 10) são fixos e iguais para todos. Nota 5 é o meio do caminho; 8, perto da meta; 2, perto do piso.",
       fig: figGrafico,
       links: [{ t: "Ver os gráficos da economia", h: "#economia" }]
     },
@@ -195,7 +195,7 @@
 
   /* ---------- montagem do diálogo (uma vez, na primeira abertura) ---------- */
   function montar() {
-    var i, li, bt;
+    var i, li;
     if (overlay) { return; }
     overlay = el("div", "gu-overlay");
     overlay.id = "gu-overlay";
@@ -204,15 +204,15 @@
     painel = el("div", "gu-painel");
     painel.setAttribute("role", "dialog");
     painel.setAttribute("aria-modal", "true");
-    painel.setAttribute("aria-labelledby", "gu-tit");
+    painel.setAttribute("aria-labelledby", "gu-olho gu-tit");
     painel.setAttribute("aria-describedby", "gu-txt");
     painel.tabIndex = -1;
 
     painel.innerHTML =
       '<div class="gu-topo">' +
-        '<div class="gu-topo-t"><p class="gu-olho">Guia de 60 segundos</p><h2 class="gu-tit" id="gu-tit">Comece aqui</h2></div>' +
+        '<div class="gu-topo-t"><p class="gu-olho" id="gu-olho">Guia de 60 segundos</p><h2 class="gu-tit" id="gu-tit">Comece aqui</h2></div>' +
         '<button type="button" class="gu-x" id="gu-x" aria-label="Fechar o guia"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
-        '<ol class="gu-prog" id="gu-prog" aria-label="Passos do guia"></ol>' +
+        '<div class="gu-passos"><ol class="gu-prog" id="gu-prog" aria-hidden="true"></ol><p class="gu-cont" id="gu-cont"></p></div>' +
       "</div>" +
       '<div class="gu-corpo" id="gu-corpo"><div class="gu-passo" id="gu-passo"></div></div>' +
       '<div class="gu-rodape">' +
@@ -240,15 +240,11 @@
 
     for (i = 0; i < TOTAL; i++) {
       li = D.createElement("li");
-      bt = D.createElement("button");
-      bt.type = "button";
-      bt.className = "gu-seg";
-      bt.setAttribute("data-i", String(i));
-      bt.setAttribute("aria-label", "Passo " + (i + 1) + " de " + TOTAL + ": " + PASSOS[i].t);
-      li.appendChild(bt);
+      li.className = "gu-seg";
       listaProg.appendChild(li);
-      segs.push(bt);
+      segs.push(li);
     }
+    cont = D.getElementById("gu-cont");
 
     /* eventos */
     overlay.addEventListener("click", function (e) { if (e.target === overlay) { fechar({}); } });
@@ -257,13 +253,6 @@
     btnVolta.addEventListener("click", function () { irPara(passo - 1, false); });
     btnProx.addEventListener("click", function () {
       if (passo >= TOTAL - 1) { fechar({ concluiu: true }); } else { irPara(passo + 1, false); }
-    });
-    listaProg.addEventListener("click", function (e) {
-      var t = e.target, n;
-      while (t && t !== listaProg && !(t.getAttribute && t.getAttribute("data-i") != null)) { t = t.parentNode; }
-      if (!t || t === listaProg) { return; }
-      n = parseInt(t.getAttribute("data-i"), 10);
-      if (!isNaN(n)) { irPara(n, false); }
     });
     chk.addEventListener("change", function () { desligar(chk.checked); });
     corpo.addEventListener("click", function (e) {
@@ -291,6 +280,7 @@
     /* evita que a página de trás role junto (iOS) */
     overlay.addEventListener("touchmove", function (e) {
       var t = e.target, dentro = false;
+      if (e.touches && e.touches.length > 1) { return; }   // deixa o zoom por pinça funcionar
       while (t) { if (t === corpo) { dentro = true; break; } t = t.parentNode; }
       if (!dentro || corpo.scrollHeight <= corpo.clientHeight + 1) { e.preventDefault(); }
     }, { passive: false });
@@ -298,7 +288,7 @@
 
   /* ---------- passo atual ---------- */
   function irPara(i, semAnim) {
-    var p, f, cap, h, k, dir, antes, ult, ativo;
+    var p, f, cap, h, k, dir, antes, ult;
     if (i < 0 || i >= TOTAL) { return; }
     antes = D.activeElement;
     dir = i >= passo ? 1 : -1;
@@ -308,7 +298,6 @@
     cap = f.cap;
     h = '<figure class="gu-fig">' + f.svg + '<figcaption class="gu-cap">' + esc(cap) + "</figcaption></figure>" +
         '<div class="gu-passo-t">' +
-          '<p class="gu-cont">Passo ' + (i + 1) + " de " + TOTAL + "</p>" +
           '<h3 class="gu-h" id="gu-h">' + esc(p.t) + "</h3>" +
           '<p class="gu-txt" id="gu-txt">' + esc(p.p) + "</p>";
     if (p.links && p.links.length) {
@@ -320,6 +309,7 @@
     }
     h += "</div>";
     boxPasso.innerHTML = h;
+    cont.textContent = "Passo " + (i + 1) + " de " + TOTAL;
     corpo.scrollTop = 0;
 
     if (!semAnim) {
@@ -333,7 +323,6 @@
 
     for (k = 0; k < segs.length; k++) {
       segs[k].className = "gu-seg" + (k < i ? " gu-feito" : "") + (k === i ? " gu-atual" : "");
-      if (k === i) { segs[k].setAttribute("aria-current", "step"); } else { segs[k].removeAttribute("aria-current"); }
     }
     ult = (i === TOTAL - 1);
     btnProx.textContent = ult ? "Concluir" : "Próximo";
@@ -345,8 +334,6 @@
     if (!semAnim) {
       live.textContent = "Passo " + (i + 1) + " de " + TOTAL + ". " + p.t + ". " + p.p;
     }
-    ativo = segs[i];
-    return ativo;
   }
 
   /* ---------- travar a página atrás ---------- */
@@ -388,7 +375,7 @@
     if (overlay) { overlay.style.setProperty("--gu-vh", (W.innerHeight * 0.01) + "px"); }
   }
 
-  /* ---------- teclado: Esc fecha, Tab fica preso, setas nos passos ---------- */
+  /* ---------- teclado: Esc fecha e Tab fica preso no diálogo ---------- */
   function focaveis() {
     var nodes = painel.querySelectorAll('a[href],button,input,[tabindex]'), out = [], i, n;
     for (i = 0; i < nodes.length; i++) {
@@ -399,7 +386,7 @@
     return out;
   }
   function aoTecla(e) {
-    var k = e.key, f, a, primeiro, ultimo, n;
+    var k = e.key, f, a, primeiro, ultimo;
     if (!aberto) { return; }
     if (k === "Escape" || k === "Esc" || e.keyCode === 27) {
       e.preventDefault(); e.stopPropagation();
@@ -417,14 +404,6 @@
         e.preventDefault(); primeiro.focus();
       }
       return;
-    }
-    if ((k === "ArrowRight" || k === "ArrowLeft") && e.target && e.target.classList && e.target.classList.contains("gu-seg")) {
-      n = passo + (k === "ArrowRight" ? 1 : -1);
-      if (n >= 0 && n < TOTAL) {
-        e.preventDefault();
-        irPara(n, false);
-        try { segs[n].focus(); } catch (er) { }
-      }
     }
   }
   function aoFoco(e) {
@@ -528,7 +507,11 @@
       footLink.href = "#guia";
       footLink.setAttribute("aria-haspopup", "dialog");
       footLink.textContent = "Guia de 60 segundos";
-      footLink.addEventListener("click", function (e) { e.preventDefault(); abrir({}); });
+      footLink.addEventListener("click", function (e) {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button === 1) { return; }   // abrir em nova aba segue o link (#guia)
+        e.preventDefault();
+        abrir({});
+      });
       nav.appendChild(footLink);
     }
   }

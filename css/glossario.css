@@ -1,1 +1,152 @@
-/* estilos do módulo glossario */
+/* Módulo glossario: termos tocáveis, folha inferior (celular), popover (tablet e computador) e lista completa.
+   Prefixo gl-. Só usa as variáveis do site, então o modo escuro vem dos tokens. */
+
+/* ---------- termo no texto ---------- */
+.gl-t{
+  appearance:none;-webkit-appearance:none;
+  display:inline;position:relative;margin:0;padding:0;border:0;border-radius:3px;background:none;
+  font:inherit;letter-spacing:inherit;text-transform:inherit;text-align:inherit;color:inherit;
+  -webkit-text-decoration:underline dotted;text-decoration:underline dotted;
+  text-decoration-color:var(--ink-2);text-underline-offset:3px;
+  cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  -webkit-user-select:text;user-select:text
+}
+/* área de toque maior que o texto, sem mexer no layout (alvo de 44 px de altura em linhas de 24 px) */
+.gl-t::after{content:"";position:absolute;top:-11px;bottom:-11px;left:-2px;right:-2px}
+.gl-t:hover{background:var(--surface-2);-webkit-text-decoration-style:solid;text-decoration-style:solid}
+.gl-t:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.gl-t[aria-expanded="true"]{background:var(--line);-webkit-text-decoration-style:solid;text-decoration-style:solid}
+
+/* ---------- fundo e caixa (folha inferior no celular) ---------- */
+.gl-fundo{position:fixed;left:0;right:0;top:0;bottom:0;z-index:78;background:rgba(8,9,9,.5);opacity:0;transition:opacity .2s ease;touch-action:none}
+.gl-fundo.gl-aberto{opacity:1}
+.gl-fundo[hidden],.gl-box[hidden]{display:none}
+
+.gl-box{
+  box-sizing:border-box;position:fixed;left:0;right:0;bottom:0;z-index:80;
+  display:flex;flex-direction:column;
+  max-width:620px;max-height:80vh;margin:0 auto;
+  background:var(--surface);color:var(--ink);
+  border:1px solid var(--line-2);border-bottom:0;border-radius:16px 16px 0 0;
+  box-shadow:0 -10px 34px rgba(0,0,0,.28);
+  font-family:var(--font);font-size:15px;line-height:1.5;
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  -webkit-transform:translateY(100%);transform:translateY(100%);transition:transform .22s ease;
+  overscroll-behavior:contain;outline:none
+}
+.gl-box.gl-aberto{-webkit-transform:none;transform:none}
+.gl-box *{box-sizing:border-box}
+
+.gl-grab{flex:none;width:44px;height:5px;margin:8px auto 0;border-radius:3px;background:var(--line-2)}
+.gl-head{flex:none;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:6px 6px 2px 16px;touch-action:none}
+.gl-tit{min-width:0;padding-top:6px}
+.gl-box .gl-kick{margin:0;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.gl-box .gl-titulo{margin:2px 0 0;font-family:var(--font);font-size:20px;font-weight:760;font-stretch:normal;line-height:1.2;letter-spacing:0;color:var(--ink);text-wrap:balance;overflow-wrap:anywhere}
+
+.gl-x{
+  flex:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-width:44px;min-height:44px;margin:0;padding:0 12px;
+  font:inherit;font-size:14px;font-weight:650;color:var(--ink);
+  background:var(--surface);border:1px solid var(--ctl,var(--line-2));border-radius:9px;
+  cursor:pointer;touch-action:manipulation
+}
+.gl-x:hover{background:var(--surface-2)}
+.gl-x:focus-visible,.gl-lk:focus-visible,.gl-box:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.gl-x svg{width:14px;height:14px;flex:none}
+
+.gl-corpo{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:4px 16px 16px}
+.gl-box p{margin:0}
+.gl-def{margin:6px 0 0;font-size:16px}
+.gl-ex,.gl-st{margin:12px 0 0;padding-left:11px;border-left:3px solid var(--line-2);font-size:14.5px;color:var(--ink-2)}
+.gl-ex b,.gl-st b{color:var(--ink);font-weight:700}
+.gl-ln{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.gl-lk{
+  display:inline-flex;align-items:center;min-height:44px;padding:4px 14px;
+  font-size:14px;font-weight:650;line-height:1.25;color:var(--ink);text-decoration:none;
+  background:var(--surface);border:1px solid var(--ctl,var(--line-2));border-radius:999px
+}
+.gl-lk:hover{background:var(--surface-2);border-color:var(--ink-2)}
+.gl-lk.gl-lk-lista{color:var(--ink-2)}
+
+.gl-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- popover ancorado (tablet e computador) ---------- */
+@media (min-width:700px){
+  .gl-fundo{display:none}
+  .gl-fundo.gl-modal:not([hidden]){display:block}
+  .gl-box{
+    position:absolute;left:0;top:0;right:auto;bottom:auto;width:380px;max-width:none;max-height:min(70vh,560px);margin:0;
+    border:1px solid var(--line-2);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.24);
+    padding-bottom:0;-webkit-transform:none;transform:none;opacity:0;transition:opacity .12s ease
+  }
+  .gl-box.gl-aberto{opacity:1}
+  .gl-grab{display:none}
+  .gl-head{touch-action:auto;padding-left:16px}
+  .gl-box .gl-titulo{font-size:19px}
+  /* setinha que aponta para o termo */
+  .gl-box.gl-seta::before{
+    content:"";position:absolute;left:var(--gl-seta-x,40px);width:12px;height:12px;margin-left:-6px;
+    background:var(--surface);border:1px solid var(--line-2);-webkit-transform:rotate(45deg);transform:rotate(45deg);pointer-events:none
+  }
+  .gl-box.gl-seta.gl-abaixo::before{top:-7px;border-right:0;border-bottom:0}
+  .gl-box.gl-seta.gl-acima::before{bottom:-7px;border-left:0;border-top:0}
+}
+
+/* ---------- lista completa (#glLista) ---------- */
+.gl-lista{display:grid;gap:12px;max-width:760px}
+.gl-barra{display:grid;gap:10px}
+.gl-busca label{display:block;margin:0 0 4px;font-size:14px;font-weight:650}
+.gl-busca input{
+  display:block;width:100%;min-height:44px;margin:0;padding:8px 12px;
+  font:inherit;font-size:16px;color:var(--ink);background:var(--surface);
+  border:1px solid var(--ctl,var(--line-2));border-radius:9px
+}
+.gl-busca input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.gl-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.gl-acoes .btn{min-height:44px}
+.gl-pref{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:14px;color:var(--ink-2);cursor:pointer}
+.gl-pref input{width:22px;height:22px;margin:0;flex:none;accent-color:var(--ink)}
+.gl-ajuda{margin:0;font-size:14px;color:var(--ink-2);max-width:62ch}
+.gl-contagem{margin:0;font-size:13.5px;color:var(--muted)}
+.gl-vazio{margin:0;padding:12px 0;font-size:15px;color:var(--ink-2)}
+.gl-grupo[hidden],.gl-item[hidden],.gl-vazio[hidden]{display:none}
+.gl-lista .gl-letra{margin:14px 0 4px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.08em;line-height:1.2;color:var(--ink-2)}
+.gl-itens{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.gl-item{margin:0;border-bottom:1px solid var(--line)}
+.gl-det>summary{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  min-height:48px;padding:8px 2px;list-style:none;cursor:pointer;
+  font-size:16px;font-weight:650;line-height:1.3;touch-action:manipulation
+}
+.gl-det>summary::-webkit-details-marker{display:none}
+.gl-det>summary::after{
+  content:"";flex:none;width:9px;height:9px;margin-right:6px;
+  border-right:2px solid var(--ink-2);border-bottom:2px solid var(--ink-2);
+  -webkit-transform:rotate(45deg);transform:rotate(45deg);transition:transform .15s ease
+}
+.gl-det[open]>summary::after{-webkit-transform:rotate(-135deg);transform:rotate(-135deg)}
+.gl-det>summary:focus-visible{outline:2px solid var(--ink);outline-offset:-2px;border-radius:4px}
+.gl-det-c{padding:0 2px 16px}
+.gl-det-c p{margin:0}
+.gl-det-c .gl-def{margin:0;font-size:15.5px}
+
+/* ---------- link no rodapé (fundo escuro nos dois temas) ---------- */
+.foot-extra{display:flex;flex-wrap:wrap;gap:0 16px}
+#glRodapeLink{display:inline-flex;align-items:center;min-height:44px;color:var(--mast-ink,var(--ink));font-weight:600;text-decoration:none}
+#glRodapeLink:hover{text-decoration:underline}
+#glRodapeLink:focus-visible{outline:2px solid var(--mast-ink,var(--ink));outline-offset:2px}
+
+/* ---------- movimento reduzido, impressão e telas muito estreitas ---------- */
+@media (prefers-reduced-motion:reduce){
+  .gl-box,.gl-fundo,.gl-det>summary::after{transition:none}
+}
+@media (max-width:360px){
+  .gl-head{padding-left:14px}
+  .gl-corpo{padding-inline:14px}
+  .gl-x span{display:none}
+}
+@media print{
+  .gl-box,.gl-fundo,.gl-sr{display:none!important}
+  .gl-t{-webkit-text-decoration:none;text-decoration:none}
+  .gl-t::after{display:none}
+}
