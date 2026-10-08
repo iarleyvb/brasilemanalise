@@ -1,0 +1,5418 @@
+{
+ "versao": "1.1",
+ "data_referencia": "2026-10-08",
+ "escala": {
+  "min": 0,
+  "max": 100,
+  "convencao": "0 = esquerda máxima; 50 = ponto médio; 100 = direita máxima"
+ },
+ "faixas": [
+  {
+   "id": "faixa_esq_alta",
+   "rotulo": "Esquerda de alta intensidade",
+   "de": 0,
+   "ate": 14,
+   "inicio": 0,
+   "fim": 14.5,
+   "lado": "esquerda",
+   "numero": 1
+  },
+  {
+   "id": "faixa_esq",
+   "rotulo": "Esquerda",
+   "de": 15,
+   "ate": 29,
+   "inicio": 14.5,
+   "fim": 29.5,
+   "lado": "esquerda",
+   "numero": 2
+  },
+  {
+   "id": "faixa_c_esq",
+   "rotulo": "Centro-esquerda",
+   "de": 30,
+   "ate": 44,
+   "inicio": 29.5,
+   "fim": 44.5,
+   "lado": "esquerda",
+   "numero": 3
+  },
+  {
+   "id": "faixa_centro",
+   "rotulo": "Centro",
+   "de": 45,
+   "ate": 55,
+   "inicio": 44.5,
+   "fim": 55.5,
+   "lado": "centro",
+   "numero": 4
+  },
+  {
+   "id": "faixa_c_dir",
+   "rotulo": "Centro-direita",
+   "de": 56,
+   "ate": 70,
+   "inicio": 55.5,
+   "fim": 70.5,
+   "lado": "direita",
+   "numero": 5
+  },
+  {
+   "id": "faixa_dir",
+   "rotulo": "Direita",
+   "de": 71,
+   "ate": 85,
+   "inicio": 70.5,
+   "fim": 85.5,
+   "lado": "direita",
+   "numero": 6
+  },
+  {
+   "id": "faixa_dir_alta",
+   "rotulo": "Direita de alta intensidade",
+   "de": 86,
+   "ate": 100,
+   "inicio": 85.5,
+   "fim": 100,
+   "lado": "direita",
+   "numero": 7
+  }
+ ],
+ "faixas_regra": "Classificar a média não arredondada: arredondar ao inteiro em direção ao centro (14,5 e 85,5 vão para as faixas menos extremas) e procurar a faixa pelos inteiros de/ate. Bordas contínuas para desenho: inicio e fim de cada faixa (0, 14.5, 29.5, 44.5, 55.5, 70.5, 85.5, 100). Faixas simétricas em torno de 50.",
+ "lados": [
+  {
+   "id": "lado_esquerda",
+   "rotulo": "Lado esquerdo",
+   "de": 0,
+   "ate": 44
+  },
+  {
+   "id": "lado_centro",
+   "rotulo": "Centro",
+   "de": 45,
+   "ate": 55
+  },
+  {
+   "id": "lado_direita",
+   "rotulo": "Lado direito",
+   "de": 56,
+   "ate": 100
+  }
+ ],
+ "lados_uso": "Rótulos rápidos (esquerda, centro, direita) para a tela de resumo; não substituem as sete faixas.",
+ "margem_por_metodo": {
+  "publicada": 5,
+  "derivada": 6,
+  "estimada": 8,
+  "unidade": "pontos"
+ },
+ "regra_metodo": {
+  "publicada": "Existe número em pesquisa ou obra; convertido para 0-100 pela escala registrada. Fica marcada como não conferida enquanto o valor não for verificado na tabela primária.",
+  "derivada": "Critério explícito do autor (ou fórmula aplicada a valores publicados) mais ao menos um item documental citado na justificativa (votação, programa, política, composição de coalizão). Atores que o autor não analisa e réguas cujo critério não é do autor ficam em estimada.",
+  "estimada": "Julgamento do site que operacionaliza o conceito, sem item documental conferido.",
+  "ancora": "Ator centro: vale 50 por construção; não entra em contagens.",
+  "sem_dado": "A fonte não cobre o ator ou a fase; a nota fica em branco e o ator sai da média daquele autor."
+ },
+ "atores": [
+  {
+   "id": "pstu",
+   "nome": "PSTU",
+   "tipo": "partido"
+  },
+  {
+   "id": "pco",
+   "nome": "PCO",
+   "tipo": "partido"
+  },
+  {
+   "id": "psol",
+   "nome": "PSOL",
+   "tipo": "partido"
+  },
+  {
+   "id": "pcdob",
+   "nome": "PCdoB",
+   "tipo": "partido"
+  },
+  {
+   "id": "pt",
+   "nome": "PT",
+   "tipo": "partido"
+  },
+  {
+   "id": "psb",
+   "nome": "PSB",
+   "tipo": "partido"
+  },
+  {
+   "id": "pdt",
+   "nome": "PDT",
+   "tipo": "partido"
+  },
+  {
+   "id": "rede",
+   "nome": "Rede",
+   "tipo": "partido"
+  },
+  {
+   "id": "pv",
+   "nome": "PV",
+   "tipo": "partido"
+  },
+  {
+   "id": "mdb",
+   "nome": "MDB",
+   "tipo": "partido"
+  },
+  {
+   "id": "psd",
+   "nome": "PSD",
+   "tipo": "partido"
+  },
+  {
+   "id": "psdb",
+   "nome": "PSDB",
+   "tipo": "partido"
+  },
+  {
+   "id": "cidadania",
+   "nome": "Cidadania",
+   "tipo": "partido"
+  },
+  {
+   "id": "podemos",
+   "nome": "Podemos",
+   "tipo": "partido"
+  },
+  {
+   "id": "uniao",
+   "nome": "União Brasil",
+   "tipo": "partido"
+  },
+  {
+   "id": "pp",
+   "nome": "PP",
+   "tipo": "partido"
+  },
+  {
+   "id": "republicanos",
+   "nome": "Republicanos",
+   "tipo": "partido"
+  },
+  {
+   "id": "pl",
+   "nome": "PL",
+   "tipo": "partido"
+  },
+  {
+   "id": "novo",
+   "nome": "Novo",
+   "tipo": "partido"
+  },
+  {
+   "id": "centrao",
+   "nome": "Centrão",
+   "tipo": "bloco",
+   "composicao": "Núcleo com peso igual: MDB, PSD, PP, Republicanos e União Brasil (inteiro). O PL fica fora e entra só como teste de sensibilidade (fases de 2019-2022); PTB, Solidariedade, Avante e outros menores ficam fora por instabilidade. Regra única nas seis réguas da média."
+  },
+  {
+   "id": "fhc",
+   "nome": "Governo FHC (1995-2002)",
+   "tipo": "governo"
+  },
+  {
+   "id": "lula12",
+   "nome": "Governo Lula 1 e 2 (2003-2010)",
+   "tipo": "governo"
+  },
+  {
+   "id": "dilma",
+   "nome": "Governo Dilma (2011-2016)",
+   "tipo": "governo"
+  },
+  {
+   "id": "temer",
+   "nome": "Governo Temer (2016-2018)",
+   "tipo": "governo"
+  },
+  {
+   "id": "bolsonaro",
+   "nome": "Governo Bolsonaro (2019-2022)",
+   "tipo": "governo"
+  },
+  {
+   "id": "lula3",
+   "nome": "Governo Lula 3 (2023-2026)",
+   "tipo": "governo"
+  },
+  {
+   "id": "comunismo-marxista-leninista",
+   "nome": "Comunismo marxista-leninista",
+   "tipo": "ideologia"
+  },
+  {
+   "id": "socialismo-democratico",
+   "nome": "Socialismo democrático",
+   "tipo": "ideologia"
+  },
+  {
+   "id": "social-democracia",
+   "nome": "Social-democracia",
+   "tipo": "ideologia"
+  },
+  {
+   "id": "liberalismo-social",
+   "nome": "Liberalismo social",
+   "tipo": "ideologia"
+  },
+  {
+   "id": "centro",
+   "nome": "Centro",
+   "tipo": "ideologia"
+  },
+  {
+   "id": "liberalismo-economico",
+   "nome": "Liberalismo econômico",
+   "tipo": "ideologia"
+  },
+  {
+   "id": "conservadorismo",
+   "nome": "Conservadorismo",
+   "tipo": "ideologia"
+  },
+  {
+   "id": "direita-radical",
+   "nome": "Direita radical",
+   "tipo": "ideologia"
+  }
+ ],
+ "bases_governo": {
+  "regra": "nota_governo = round(0,5 x nota do partido do presidente + 0,5 x média simples das notas da base + ajuste de políticas). O ajuste de políticas é o desvio entre o julgamento do autor (coalizão + políticas documentadas) e a fórmula, limitado a +/- 5 pontos, igual para os dois lados, e fica registrado em cada justificativa. Nas réguas Votações e Bolognesi o ajuste é zero (réguas posicionais). A base lista só atores desta lista de 34; partidos fora dela (PTB e outros) não entram.",
+  "governos": {
+   "fhc": {
+    "partido": "psdb",
+    "base": [
+     "uniao",
+     "mdb",
+     "pp"
+    ],
+    "nota": "União Brasil entra como herdeiro de PFL/DEM (anacronismo); PTB fora da lista."
+   },
+   "lula12": {
+    "partido": "pt",
+    "base": [
+     "psb",
+     "pdt",
+     "pcdob",
+     "mdb",
+     "pp"
+    ],
+    "nota": "PL/PR e PTB (fase anterior a 2021) fora da lista."
+   },
+   "dilma": {
+    "partido": "pt",
+    "base": [
+     "psb",
+     "pdt",
+     "pcdob",
+     "mdb",
+     "pp",
+     "psd",
+     "republicanos"
+    ],
+    "nota": "PSB saiu da base em 2013; mantido pela média do mandato."
+   },
+   "temer": {
+    "partido": "mdb",
+    "base": [
+     "psdb",
+     "uniao",
+     "pp",
+     "psd",
+     "republicanos",
+     "cidadania"
+    ],
+    "nota": "União Brasil entra como herdeiro de DEM."
+   },
+   "bolsonaro": {
+    "partido": "pl",
+    "base": [
+     "pp",
+     "republicanos",
+     "mdb",
+     "psd",
+     "uniao"
+    ],
+    "nota": "Partido do presidente: PL (filiação desde nov./2021; antes PSL, hoje parte do União Brasil). O PL de 2019-2020 era Centrão (cerca de 65 a 70 nas réguas): a nota do partido refere-se à fase atual, o que acentua a distância ao centro."
+   },
+   "lula3": {
+    "partido": "pt",
+    "base": [
+     "psb",
+     "pdt",
+     "pcdob",
+     "psol",
+     "rede",
+     "pv",
+     "mdb",
+     "psd",
+     "uniao",
+     "pp"
+    ],
+    "nota": "Em curso; saídas de União Brasil e PP da base em 2025 (a conferir) não entram: média do período."
+   }
+  }
+ },
+ "autores": [
+  {
+   "id": "bobbio",
+   "nome": "Norberto Bobbio",
+   "papel": "base",
+   "entra_na_media": true,
+   "obras": [
+    {
+     "titulo": "Direita e Esquerda: razões e significados de uma distinção política (Editora UNESP)",
+     "ano": "1995",
+     "verificado": true,
+     "origem_verificacao": "busca_rodada_atual"
+    },
+    {
+     "titulo": "Destra e sinistra: ragioni e significati di una distinzione politica (Donzelli)",
+     "ano": "1994",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Il futuro della democrazia",
+     "ano": "1984",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Liberalismo e democrazia",
+     "ano": "1985",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Quale socialismo? Discussione di un'alternativa",
+     "ano": "1976",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Teoria generale della politica",
+     "ano": "1999",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    }
+   ],
+   "criterio": "Atitude diante da igualdade: esquerda = orientação igualitária (desigualdades vistas como em grande parte sociais e corrigíveis); direita = orientação não igualitária (desigualdades vistas em maior grau como resultado de diferenças, ou como custo aceitável de outros valores). Critério relativo e histórico. O eixo 2, liberdade (moderados x extremistas), fica fora da nota. Síntese de leitura do site, não citação.",
+   "escala_original": "Qualitativa e bidimensional (igualdade x liberdade, quatro posições), sem números. Só o eixo 1 vira nota: 0 = máxima orientação igualitária; 100 = máxima orientação não igualitária. Margem de cerca de 6 pontos nas notas derivadas e 8 nas estimadas.",
+   "cortes_nativos": "0-33 / 34-66 / 67-100 (terços, convenção do site; Bobbio não define cortes numéricos). A grade de sete faixas do site vale para todas as réguas.",
+   "vinculos_e_perfil": "Filósofo do direito e cientista político italiano (1909-2004), professor em Turim, senador vitalício desde 1984; associado à tradição liberal-socialista. Dados biográficos a conferir.",
+   "criticas_ao_criterio": "O critério da igualdade é contestado: parte da literatura propõe a liberdade, a ordem ou a dimensão cultural como eixo primário, e vê na igualdade uma escolha que favorece a leitura da esquerda. O site mantém o critério de Bobbio e registra o eixo 2 (liberdade) à parte.",
+   "contagem_metodo": {
+    "publicada": 0,
+    "derivada": 27,
+    "estimada": 6
+   },
+   "contagem_ancora": 1,
+   "contagem_sem_dado": 0,
+   "posicoes": {
+    "pstu": {
+     "nota": 6,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Programa de ruptura socialista; intensidade igualitária máxima; sem bancada."
+    },
+    "pco": {
+     "nota": 5,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Estatização de bancos e grandes empresas; governo operário; sem bancada."
+    },
+    "psol": {
+     "nota": 14,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Socialismo democrático; votou contra teto de gastos e reformas de 2017 e 2019."
+    },
+    "pcdob": {
+     "nota": 17,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Socialismo como objetivo, reformismo na prática; votos contra as reformas."
+    },
+    "pt": {
+     "nota": 25,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Programa socialista democrático, prática social-democrata com macro convencional."
+    },
+    "psb": {
+     "nota": 31,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Socialismo democrático no programa; social-democracia na prática; coalizão com o centro."
+    },
+    "pdt": {
+     "nota": 33,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Trabalhismo brizolista; contra as reformas de 2017 e 2019; fronteira com o centro."
+    },
+    "rede": {
+     "nota": 37,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Eixo ambiental é ortogonal à igualdade; a fonte não cobre o partido."
+    },
+    "pv": {
+     "nota": 40,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Agenda ambiental, alianças variadas; sem posição firme na igualdade."
+    },
+    "mdb": {
+     "nota": 52,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Partido de coalizão; votou teto e reformas, mas sustentou programas sociais; pivô."
+    },
+    "psd": {
+     "nota": 55,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Sem doutrina; votou reformas de mercado de 2017 e 2019 e a reforma tributária."
+    },
+    "psdb": {
+     "nota": 56,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Origem social-democrata; privatizações com política social; apoia reformas desde 2016."
+    },
+    "cidadania": {
+     "nota": 51,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Ex-PPS, deslocado ao centro liberal; a fonte não cobre o partido."
+    },
+    "podemos": {
+     "nota": 62,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Identidade anticorrupção; posições heterogêneas; sem série de votações."
+    },
+    "uniao": {
+     "nota": 65,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Fusão de DEM e PSL; pondera as duas origens; bancada heterogênea."
+    },
+    "pp": {
+     "nota": 69,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Linhagem ARENA/PDS/PPB; votou reformas e privatizações de 2016 a 2021."
+    },
+    "republicanos": {
+     "nota": 70,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Costumes conservadores e pragmatismo econômico; votou reformas de 2016 a 2019."
+    },
+    "pl": {
+     "nota": 77,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Programa de privatizações, redução de impostos e costumes conservadores; bancada votou a favor das reformas de 2017 e 2019 (a conferir nos dados abertos). Nota da fase atual; o PL/PR anterior a 2021 era de Centrão."
+    },
+    "novo": {
+     "nota": 86,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Programa de menor tributação e redistribuição estatal limitada a um piso (igualdade perante a lei e de oportunidades); espelho do PSOL no eixo 1."
+    },
+    "centrao": {
+     "nota": 62,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Média simples de MDB, PSD, PP, Republicanos e União Brasil nesta régua (62,2); com o PL a peso pleno, 64,7. Tática de governo, não doutrina.",
+     "decomposicao": {
+      "composicao": [
+       "mdb",
+       "psd",
+       "pp",
+       "republicanos",
+       "uniao"
+      ],
+      "media": 62.2,
+      "sensibilidade_com_pl": 64.7
+     }
+    },
+    "fhc": {
+     "nota": 57,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Privatizações, metas de inflação e LRF, com Fundef, Bolsa Escola e genéricos. Partido do presidente PSDB (56); base (União Brasil, MDB, PP) = 62,0; fórmula 0,5/0,5 = 59,0; ajuste de políticas −2,0 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "psdb",
+      "nota_partido": 56,
+      "base": [
+       "uniao",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 62.0,
+      "formula_50_50": 59.0,
+      "ajuste_politicas": -2.0,
+      "julgamento_anterior_do_analista": 57,
+      "residuo_bruto": -2.0
+     }
+    },
+    "lula12": {
+     "nota": 29,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Bolsa Família, salário mínimo, ProUni; continuidade fiscal e coalizão ampla. Partido do presidente PT (25); base (PSB, PDT, PCdoB, MDB, PP) = 40,4; fórmula 0,5/0,5 = 32,7; ajuste de políticas −3,7 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 25,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 40.4,
+      "formula_50_50": 32.7,
+      "ajuste_politicas": -3.7,
+      "julgamento_anterior_do_analista": 29,
+      "residuo_bruto": -3.7
+     }
+    },
+    "dilma": {
+     "nota": 31,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Brasil Sem Miséria, cotas, Mais Médicos; desonerações; ajuste fiscal de 2015. Partido do presidente PT (25); base (PSB, PDT, PCdoB, MDB, PP, PSD, Republicanos) = 46,7; fórmula 0,5/0,5 = 35,9; ajuste de políticas −4,9 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 25,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp",
+       "psd",
+       "republicanos"
+      ],
+      "centroide_base": 46.7,
+      "formula_50_50": 35.9,
+      "ajuste_politicas": -4.9,
+      "julgamento_anterior_do_analista": 31,
+      "residuo_bruto": -4.9
+     }
+    },
+    "temer": {
+     "nota": 62,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Teto de gastos, reforma trabalhista e terceirização; manteve o Bolsa Família. Partido do presidente MDB (52); base (PSDB, União Brasil, PP, PSD, Republicanos, Cidadania) = 61,0; fórmula 0,5/0,5 = 56,5; ajuste de políticas +5,0 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "mdb",
+      "nota_partido": 52,
+      "base": [
+       "psdb",
+       "uniao",
+       "pp",
+       "psd",
+       "republicanos",
+       "cidadania"
+      ],
+      "centroide_base": 61.0,
+      "formula_50_50": 56.5,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 68,
+      "residuo_bruto": 11.5
+     }
+    },
+    "bolsonaro": {
+     "nota": 75,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Previdência, Liberdade Econômica, Eletrobras, armas; Auxílio Brasil como contrapeso. Partido do presidente PL (77); base (PP, Republicanos, MDB, PSD, União Brasil) = 62,2; fórmula 0,5/0,5 = 69,6; ajuste de políticas +5,0 (limite de 5 pontos). O PL de 2019-2020 era Centrão: a nota do partido é da fase atual.",
+     "decomposicao": {
+      "partido": "pl",
+      "nota_partido": 77,
+      "base": [
+       "pp",
+       "republicanos",
+       "mdb",
+       "psd",
+       "uniao"
+      ],
+      "centroide_base": 62.2,
+      "formula_50_50": 69.6,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 76,
+      "residuo_bruto": 6.4
+     }
+    },
+    "lula3": {
+     "nota": 32,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Parcial. Bolsa Família, salário mínimo, reforma tributária; arcabouço fiscal e coalizão ampla. Partido do presidente PT (25); base (PSB, PDT, PCdoB, PSOL, Rede, PV, MDB, PSD, União Brasil, PP) = 41,3; fórmula 0,5/0,5 = 33,1; ajuste de políticas −1,1 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 25,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "psol",
+       "rede",
+       "pv",
+       "mdb",
+       "psd",
+       "uniao",
+       "pp"
+      ],
+      "centroide_base": 41.3,
+      "formula_50_50": 33.2,
+      "ajuste_politicas": -1.1,
+      "julgamento_anterior_do_analista": 32,
+      "residuo_bruto": -1.1
+     }
+    },
+    "comunismo-marxista-leninista": {
+     "nota": 4,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Propriedade coletiva e partido único: extrema-esquerda bobbiana; nota da doutrina, não dos regimes."
+    },
+    "socialismo-democratico": {
+     "nota": 15,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Igualdade material por vias democráticas e pluralismo (socialismo liberal)."
+    },
+    "social-democracia": {
+     "nota": 30,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Capitalismo regulado com bem-estar e tributação progressiva."
+    },
+    "liberalismo-social": {
+     "nota": 43,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Mercado com igualdade de oportunidades; a fonte não cobre a família."
+    },
+    "centro": {
+     "nota": 50,
+     "metodo": "ancora",
+     "confianca": "alta",
+     "justificativa": "Âncora: vale 50 por construção (equidistância), não é medida e não entra nas contagens de método."
+    },
+    "liberalismo-economico": {
+     "nota": 74,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Mercado e Estado mínimo; desigualdade de resultado vista como não injusta."
+    },
+    "conservadorismo": {
+     "nota": 75,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Tradição e hierarquias; igualdade limitada à igualdade perante a lei."
+    },
+    "direita-radical": {
+     "nota": 88,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Nativismo, autoritarismo, populismo; alta intensidade no eixo 1; não equivale a fascismo."
+    }
+   },
+   "zonas_nota": "Em Bobbio o extremismo é definido pelo eixo 2 (liberdade); a nota mede só a igualdade. As pontas desta régua são marcadores de distância e de referência histórica, não de extremismo.",
+   "zonas_limiares": {
+    "socialismo_ate": 20,
+    "comunismo_ate": 10,
+    "socialismo_real_ate": 2,
+    "direita_distante_desde": 80,
+    "fascismo_desde": 90,
+    "nazismo_desde": 98
+   },
+   "zonas": [
+    {
+     "tipo": "socialismo",
+     "rotulo": "Socialismo (alta intensidade igualitária)",
+     "lado": "esquerda",
+     "par": "A",
+     "a_partir_de": 20,
+     "comparador": "<=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"direita distante\". Inclui socialismo democrático e de Estado; o eixo 2 os distingue. Estar na zona não classifica o ator.",
+     "espelho_de": "direita_distante"
+    },
+    {
+     "tipo": "comunismo",
+     "rotulo": "Comunismo (marcador histórico)",
+     "lado": "esquerda",
+     "par": "B",
+     "a_partir_de": 10,
+     "comparador": "<=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência. O rótulo só se aplica com eixo 2 autoritário (partido único) e objetivo de abolir a propriedade privada dos meios de produção; estar na zona não classifica o ator (PSTU e PCO, que disputam eleições e criticam o modelo soviético, não são equiparados a regime).",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "fascismo"
+    },
+    {
+     "tipo": "socialismo_real",
+     "rotulo": "Socialismo real (regimes de partido único)",
+     "lado": "esquerda",
+     "par": "C",
+     "a_partir_de": 2,
+     "comparador": "<=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Zona de regime (Estados de partido único com economia planificada); nenhum partido de democracia competitiva é pontuado aqui. Par de \"nazismo\" por regra de desenho (100 - x), sem equivalência histórica ou moral.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "nazismo"
+    },
+    {
+     "tipo": "direita_distante",
+     "rotulo": "Direita distante do centro (alta intensidade não igualitária)",
+     "lado": "direita",
+     "par": "A",
+     "a_partir_de": 80,
+     "comparador": ">=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"socialismo\" (limiar = 100 - x). Pode incluir famílias democráticas e não democráticas; não é \"direita radical\" nem regime. Estar na zona não classifica o ator.",
+     "espelho_de": "socialismo"
+    },
+    {
+     "tipo": "fascismo",
+     "rotulo": "Fascismo (marcador histórico)",
+     "lado": "direita",
+     "par": "B",
+     "a_partir_de": 90,
+     "comparador": ">=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência, par de \"comunismo\". O rótulo exige partido único, ultranacionalismo, culto ao líder, violência contra o pluralismo e ruptura com a democracia; estar perto da zona não classifica nenhum ator atual.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "comunismo"
+    },
+    {
+     "tipo": "nazismo",
+     "rotulo": "Nazismo (caso histórico)",
+     "lado": "direita",
+     "par": "C",
+     "a_partir_de": 98,
+     "comparador": ">=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Caso histórico de natureza distinta (hierarquia racial biológica, extermínio), não grau maior que o fascismo; ocupa a ponta por regra de desenho. Sem analogia com atores que disputam eleições dentro da lei.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "socialismo_real"
+    }
+   ],
+   "limites": [
+    "Nenhuma nota é publicada: todas aplicam o critério da igualdade a evidências documentais, com margem de cerca de 6 pontos (derivadas) e 8 (estimadas). Bobbio (morto em 2004) não tratou do Brasil.",
+    "Mede só a dimensão igualdade, não democracia, qualidade ou desempenho. O eixo 2 (liberdade) não é pontuado nesta régua e nenhum selo por ator é exibido nesta versão; ver o campo eixo2 do JSON e a seção 4.5 do documento.",
+    "Não conferidos no original: 'terceiro incluído', o par excludente e exaustivo e as quatro posições (fontes secundárias); Quale socialismo? e Teoria generale della politica citadas de memória. A busca confirmou a edição UNESP (1995) e o critério da igualdade, em fontes secundárias.",
+    "Em Bobbio o extremismo é definido pelo eixo 2 (liberdade). As zonas numéricas desta régua medem distância ao centro no eixo da igualdade; os rótulos históricos (comunismo, fascismo e outros) são marcadores de referência, condicionados ao eixo 2 autoritário, e nunca classificam um ator só pelo número."
+   ]
+  },
+  {
+   "id": "sartori",
+   "nome": "Giovanni Sartori",
+   "papel": "base",
+   "entra_na_media": true,
+   "obras": [
+    {
+     "titulo": "Parties and Party Systems: A Framework for Analysis (vol. 1)",
+     "ano": "1976",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "The Theory of Democracy Revisited",
+     "ano": "1987",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Comparative Constitutional Engineering",
+     "ano": "1994",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "A Teoria da Democracia Revisitada (ed. brasileira, Ática; título, editora e ano a conferir)",
+     "ano": "",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Mainwaring e Scully (orgs.): Building Democratic Institutions",
+     "ano": "1995",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Laakso e Taagepera: Effective Number of Parties",
+     "ano": "1979",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Mainwaring: Rethinking Party Systems in the Third Wave of Democratization (Stanford University Press)",
+     "ano": "1999",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    }
+   ],
+   "criterio": "Eixo esquerda-direita como heurística espacial e ordinal. De Sartori vêm a ordem entre atores relevantes (relevância por potencial de coalizão e de chantagem), a relação com o regime (leal ou antissistema) e a mentalidade (ideológica ou pragmática). A distância em pontos é leitura do site (polarização), não conceito do autor. A nota combina posição programática e intensidade ideológica; o caráter antissistêmico fica fora da nota.",
+   "escala_original": "Nenhuma (eixo ordinal, sem unidades). Para surveys: nota = (x - 1) / 9 x 100 em escalas de 1 a 10; nota = x x 10 em escalas de 0 a 10. Nenhuma nota é publicada.",
+   "cortes_nativos": "0-39 / 40-60 / 61-100 (convenção do site; Sartori não fixa limites numéricos).",
+   "vinculos_e_perfil": "Cientista político italiano (1924-2017), professor em Florença e na Universidade Columbia; associado à tradição liberal-democrática. Dados biográficos a conferir.",
+   "criticas_ao_criterio": "A leitura ordinal do eixo é contestada por quem trata esquerda-direita como escala de intervalo (como fazem as pesquisas com deputados e especialistas). O site usa a ordem como dado mais robusto e a distância em pontos como aproximação.",
+   "contagem_metodo": {
+    "publicada": 0,
+    "derivada": 12,
+    "estimada": 21
+   },
+   "contagem_ancora": 1,
+   "contagem_sem_dado": 0,
+   "posicoes": {
+    "pstu": {
+     "nota": 8,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Ruptura anticapitalista; irrelevante pelo critério de relevância (sem bancada)."
+    },
+    "pco": {
+     "nota": 7,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Marxismo revolucionário; sem bancada; disputa eleições."
+    },
+    "psol": {
+     "nota": 18,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Socialismo democrático; leal ao regime; mais distante do centro que o PT."
+    },
+    "pcdob": {
+     "nota": 14,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Tradição marxista-leninista, atuação eleitoral e aliança com o PT."
+    },
+    "pt": {
+     "nota": 26,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Macro convencional com transferências e salário mínimo; esquerda acomodada ao regime."
+    },
+    "psb": {
+     "nota": 36,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Rótulo socialista, prática social-democrata; bases de Lula e Dilma."
+    },
+    "pdt": {
+     "nota": 37,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Trabalhismo nacional-desenvolvimentista; bancada com divergências."
+    },
+    "rede": {
+     "nota": 37,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Eixo econômico pouco definido; posição mais incerta da centro-esquerda."
+    },
+    "pv": {
+     "nota": 42,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Agenda ambiental sem eixo econômico distintivo; inferido de alianças."
+    },
+    "mdb": {
+     "nota": 55,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Catch-all pragmático em todas as bases; leve inclinação à direita."
+    },
+    "psd": {
+     "nota": 57,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Pragmático de centro-direita, sem programa distintivo (leitura do site)."
+    },
+    "psdb": {
+     "nota": 50,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Rótulo social-democrata e prática de centro-direita se compensam."
+    },
+    "cidadania": {
+     "nota": 47,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Ex-PPS, do comunismo ao liberalismo social de centro."
+    },
+    "podemos": {
+     "nota": 60,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Anticorrupção e pragmatismo; centro-direita inferida de alianças."
+    },
+    "uniao": {
+     "nota": 68,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Fusão de DEM e PSL; identidade heterogênea; direita pragmática."
+    },
+    "pp": {
+     "nota": 72,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Linhagem ARENA/PDS/PPB; pauta fiscal liberalizante e de costumes."
+    },
+    "republicanos": {
+     "nota": 73,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Ex-PRB; costumes conservadores e pragmatismo; pesa o eixo de valores."
+    },
+    "pl": {
+     "nota": 80,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Partido de Bolsonaro; costumes, armas, menos Estado; caráter antissistema exige análise de conduta."
+    },
+    "novo": {
+     "nota": 78,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Liberalismo econômico explícito; menos centrado em costumes que o PL."
+    },
+    "centrao": {
+     "nota": 65,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Média simples de MDB, PSD, PP, Republicanos e União Brasil nesta régua (65,0); com o PL a peso pleno, 67,5. Tática de governo, não doutrina.",
+     "decomposicao": {
+      "composicao": [
+       "mdb",
+       "psd",
+       "pp",
+       "republicanos",
+       "uniao"
+      ],
+      "media": 65.0,
+      "sensibilidade_com_pl": 67.5
+     }
+    },
+    "fhc": {
+     "nota": 58,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Coalizão PSDB, PFL, PMDB, PTB, PPB; privatizações e LRF com Bolsa Escola. Partido do presidente PSDB (50); base (União Brasil, MDB, PP) = 65,0; fórmula 0,5/0,5 = 57,5; ajuste de políticas +0,5 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "psdb",
+      "nota_partido": 50,
+      "base": [
+       "uniao",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 65.0,
+      "formula_50_50": 57.5,
+      "ajuste_politicas": 0.5,
+      "julgamento_anterior_do_analista": 58,
+      "residuo_bruto": 0.5
+     }
+    },
+    "lula12": {
+     "nota": 38,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Coalizão ampla, macro convencional; Bolsa Família, Prouni, salário mínimo. Partido do presidente PT (26); base (PSB, PDT, PCdoB, MDB, PP) = 42,8; fórmula 0,5/0,5 = 34,4; ajuste de políticas +3,6 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 26,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 42.8,
+      "formula_50_50": 34.4,
+      "ajuste_politicas": 3.6,
+      "julgamento_anterior_do_analista": 38,
+      "residuo_bruto": 3.6
+     }
+    },
+    "dilma": {
+     "nota": 36,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Base PT, PMDB, PSD, PP; intervencionismo e ajuste de 2015. Partido do presidente PT (26); base (PSB, PDT, PCdoB, MDB, PP, PSD, Republicanos) = 49,1; fórmula 0,5/0,5 = 37,6; ajuste de políticas −1,6 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 26,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp",
+       "psd",
+       "republicanos"
+      ],
+      "centroide_base": 49.1,
+      "formula_50_50": 37.6,
+      "ajuste_politicas": -1.6,
+      "julgamento_anterior_do_analista": 36,
+      "residuo_bruto": -1.6
+     }
+    },
+    "temer": {
+     "nota": 63,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Base MDB, PSDB, DEM, PP; EC 95 e reforma trabalhista. Partido do presidente MDB (55); base (PSDB, União Brasil, PP, PSD, Republicanos, Cidadania) = 61,2; fórmula 0,5/0,5 = 58,1; ajuste de políticas +5,0 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "mdb",
+      "nota_partido": 55,
+      "base": [
+       "psdb",
+       "uniao",
+       "pp",
+       "psd",
+       "republicanos",
+       "cidadania"
+      ],
+      "centroide_base": 61.2,
+      "formula_50_50": 58.1,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 65,
+      "residuo_bruto": 6.9
+     }
+    },
+    "bolsonaro": {
+     "nota": 78,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Previdência, Liberdade Econômica, Eletrobras, armas; relação com instituições fica fora da nota. Partido do presidente PL (80); base (PP, Republicanos, MDB, PSD, União Brasil) = 65,0; fórmula 0,5/0,5 = 72,5; ajuste de políticas +5,0 (limite de 5 pontos). O PL de 2019-2020 era Centrão: a nota do partido é da fase atual.",
+     "decomposicao": {
+      "partido": "pl",
+      "nota_partido": 80,
+      "base": [
+       "pp",
+       "republicanos",
+       "mdb",
+       "psd",
+       "uniao"
+      ],
+      "centroide_base": 65.0,
+      "formula_50_50": 72.5,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 81,
+      "residuo_bruto": 8.5
+     }
+    },
+    "lula3": {
+     "nota": 35,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Coalizão ampla; Bolsa Família, arcabouço fiscal, reforma tributária; em curso. Partido do presidente PT (26); base (PSB, PDT, PCdoB, PSOL, Rede, PV, MDB, PSD, União Brasil, PP) = 43,6; fórmula 0,5/0,5 = 34,8; ajuste de políticas +0,2 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 26,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "psol",
+       "rede",
+       "pv",
+       "mdb",
+       "psd",
+       "uniao",
+       "pp"
+      ],
+      "centroide_base": 43.6,
+      "formula_50_50": 34.8,
+      "ajuste_politicas": 0.2,
+      "julgamento_anterior_do_analista": 35,
+      "residuo_bruto": 0.2
+     }
+    },
+    "comunismo-marxista-leninista": {
+     "nota": 5,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Partido de vanguarda e abolição da propriedade privada; extrínseco ao regime liberal-democrático."
+    },
+    "socialismo-democratico": {
+     "nota": 16,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Controle público de setores-chave por vias eleitorais e pluralistas."
+    },
+    "social-democracia": {
+     "nota": 30,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Mercado regulado com bem-estar; esquerda acomodada ao regime."
+    },
+    "liberalismo-social": {
+     "nota": 42,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Liberalismo político com redistribuição moderada; família não tratada por Sartori."
+    },
+    "centro": {
+     "nota": 50,
+     "metodo": "ancora",
+     "confianca": "alta",
+     "justificativa": "Âncora: vale 50 por construção (equidistância), não é medida e não entra nas contagens de método."
+    },
+    "liberalismo-economico": {
+     "nota": 74,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Mercado e Estado mínimo; a posição vem do eixo econômico."
+    },
+    "conservadorismo": {
+     "nota": 70,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Tradição e ordem; família heterogênea, dispersão alta."
+    },
+    "direita-radical": {
+     "nota": 90,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Nativismo, autoritarismo, populismo; abaixo de fascismo porque disputa eleições."
+    }
+   },
+   "zonas_nota": "Sartori distingue pela relação com o regime (leal ou antissistema) e pela mentalidade, não pelo rótulo; o caráter antissistêmico é conduta, não posição na régua.",
+   "zonas_limiares": {
+    "socialismo_ate": 20,
+    "comunismo_ate": 8,
+    "socialismo_real_ate": 2,
+    "direita_distante_desde": 80,
+    "fascismo_desde": 92,
+    "nazismo_desde": 98
+   },
+   "zonas": [
+    {
+     "tipo": "socialismo",
+     "rotulo": "Socialismo (família ampla)",
+     "lado": "esquerda",
+     "par": "A",
+     "a_partir_de": 20,
+     "comparador": "<=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"direita distante\". Inclui socialismo democrático e de Estado; o eixo 2 os distingue. Estar na zona não classifica o ator.",
+     "espelho_de": "direita_distante"
+    },
+    {
+     "tipo": "comunismo",
+     "rotulo": "Comunismo (marcador histórico)",
+     "lado": "esquerda",
+     "par": "B",
+     "a_partir_de": 8,
+     "comparador": "<=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência. O rótulo só se aplica com eixo 2 autoritário (partido único) e objetivo de abolir a propriedade privada dos meios de produção; estar na zona não classifica o ator (PSTU e PCO, que disputam eleições e criticam o modelo soviético, não são equiparados a regime).",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "fascismo"
+    },
+    {
+     "tipo": "socialismo_real",
+     "rotulo": "Socialismo real (regimes de partido único)",
+     "lado": "esquerda",
+     "par": "C",
+     "a_partir_de": 2,
+     "comparador": "<=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Zona de regime (Estados de partido único com economia planificada); nenhum partido de democracia competitiva é pontuado aqui. Par de \"nazismo\" por regra de desenho (100 - x), sem equivalência histórica ou moral.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "nazismo"
+    },
+    {
+     "tipo": "direita_distante",
+     "rotulo": "Direita distante do centro",
+     "lado": "direita",
+     "par": "A",
+     "a_partir_de": 80,
+     "comparador": ">=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"socialismo\" (limiar = 100 - x). Pode incluir famílias democráticas e não democráticas; não é \"direita radical\" nem regime. Estar na zona não classifica o ator.",
+     "espelho_de": "socialismo"
+    },
+    {
+     "tipo": "fascismo",
+     "rotulo": "Fascismo (marcador histórico)",
+     "lado": "direita",
+     "par": "B",
+     "a_partir_de": 92,
+     "comparador": ">=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência, par de \"comunismo\". O rótulo exige partido único, ultranacionalismo, culto ao líder, violência contra o pluralismo e ruptura com a democracia; estar perto da zona não classifica nenhum ator atual.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "comunismo"
+    },
+    {
+     "tipo": "nazismo",
+     "rotulo": "Nazismo (caso histórico)",
+     "lado": "direita",
+     "par": "C",
+     "a_partir_de": 98,
+     "comparador": ">=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Caso histórico de natureza distinta (hierarquia racial biológica, extermínio), não grau maior que o fascismo; ocupa a ponta por regra de desenho. Sem analogia com atores que disputam eleições dentro da lei.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "socialismo_real"
+    }
+   ],
+   "limites": [
+    "Sartori não posicionou nenhum ator desta lista: nenhuma nota é publicada. O eixo é ordinal (ordem entre atores); a distância em pontos é interpretação do site, e a ordem é mais robusta que a diferença em pontos.",
+    "Pluralismo polarizado foi formulado a partir de casos como a Alemanha de Weimar, a Quarta República francesa, a Itália e o Chile de Allende; sua aplicação ao Brasil é por analogia, não testada aqui. Mainwaring (1999) trata da baixa institucionalização do sistema partidário brasileiro. O número efetivo de partidos é de Laakso e Taagepera, não de Sartori.",
+    "Caráter antissistêmico é conduta de delegitimação do regime, verificada caso a caso; não é posição na régua. Os limiares das zonas são espelhados por regra de desenho (100 - x), sem equivalência histórica ou moral."
+   ]
+  },
+  {
+   "id": "singer",
+   "nome": "André Singer",
+   "papel": "base",
+   "entra_na_media": true,
+   "obras": [
+    {
+     "titulo": "Esquerda e Direita no Eleitorado Brasileiro: a identificação ideológica nas disputas presidenciais de 1989 e 1994 (EdUSP)",
+     "ano": "2000 (alguns catálogos indicam 1999)",
+     "verificado": true,
+     "origem_verificacao": "busca_rodada_atual"
+    },
+    {
+     "titulo": "Os Sentidos do Lulismo: reforma gradual e pacto conservador",
+     "ano": "2012",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "O Lulismo em Crise: um quebra-cabeça do período Dilma (2011-2016)",
+     "ano": "2018",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "A Segunda Alma do Partido dos Trabalhadores (Novos Estudos CEBRAP)",
+     "ano": "2010",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Cutucando onças com varas curtas (Novos Estudos CEBRAP, n. 102)",
+     "ano": "2015",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "A reativação da direita no Brasil (Opinião Pública, v. 27, n. 3, p. 705-729)",
+     "ano": "2021 (DOI de 2021; algumas páginas do número trazem 2022)",
+     "verificado": true,
+     "origem_verificacao": "busca_rodada_atual"
+    }
+   ],
+   "criterio": "Três critérios, com pesos indicativos escolhidos pelo site (não são de Singer): papel do Estado na economia e na redistribuição (cerca de 50%); ordem, autoridade e direitos (30%); prática efetiva em relação ao discurso (20%). Pacto conservador, em Singer, significa aversão à ruptura, não posição à direita. O conceito de 'primeira alma' do PT (Singer, 2010) designa o programa socialista fundador.",
+   "escala_original": "Singer não publicou notas. O livro de 2000 usa o autoposicionamento esquerda-direita do eleitorado (Datafolha, 1989 e 1994), com ancoragem em Sartori e em índice de identificação de Levitin e Miller (segundo fontes secundárias); escala e valores não verificados. Nenhuma nota é conversão de número publicado.",
+   "cortes_nativos": "0-39 / 40-60 / 61-100 (convenção do site, sem base em Singer).",
+   "vinculos_e_perfil": "Cientista político brasileiro, professor da USP; foi porta-voz da Presidência da República no primeiro governo Lula (2003-2007), segundo informação a conferir. Autor da tese do lulismo.",
+   "criticas_ao_criterio": "A tese do lulismo (reformismo fraco e pacto conservador) é contestada na literatura, tanto por quem vê o período como ruptura maior quanto por quem o vê como continuidade liberal. O site usa a tese só como critério de prática efetiva, sem adotá-la como verdade.",
+   "contagem_metodo": {
+    "publicada": 0,
+    "derivada": 11,
+    "estimada": 22
+   },
+   "contagem_ancora": 1,
+   "contagem_sem_dado": 0,
+   "posicoes": {
+    "pstu": {
+     "nota": 3,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Trotskista, ruptura socialista, recusa coalizões; Singer não o analisa."
+    },
+    "pco": {
+     "nota": 5,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Trotskista, ruptura socialista; não coberto por Singer."
+    },
+    "psol": {
+     "nota": 13,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Abriga a primeira alma do PT, que o lulismo deixou de representar."
+    },
+    "pcdob": {
+     "nota": 19,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Programa socialista, mas aliado do PT desde 1989; conduta mais moderada."
+    },
+    "pt": {
+     "nota": 29,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Duas almas (socialista e pragmática, 2002); partido à esquerda de seus governos. Apoio em obras de Singer conhecidas por resumos (texto integral não lido)."
+    },
+    "psb": {
+     "nota": 34,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Tradição socialista-democrática; nos governos Lula e Dilma; por analogia."
+    },
+    "pdt": {
+     "nota": 35,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Trabalhismo brizolista; oscila entre oposição e base; estimada."
+    },
+    "rede": {
+     "nota": 33,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Eixo socioambiental; aliada de Lula em 2022; não coberta por Singer."
+    },
+    "pv": {
+     "nota": 40,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Heterogêneo, agenda ambiental; menor confiança da faixa."
+    },
+    "mdb": {
+     "nota": 55,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Viga do arranjo lulista; base de todos os governos; leve inclinação à direita."
+    },
+    "psd": {
+     "nota": 58,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Centro-direita pragmática em coalizões de orientações diversas."
+    },
+    "psdb": {
+     "nota": 58,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Social-democrata na origem, centro-direita na prática; perde o subproletariado em 2006."
+    },
+    "cidadania": {
+     "nota": 51,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Sucessor do PPS; centro liberal; apoiou o impeachment e Temer."
+    },
+    "podemos": {
+     "nota": 60,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Pragmático e heterogêneo; votações de centro-direita."
+    },
+    "uniao": {
+     "nota": 66,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Fusão de DEM e PSL; média estimada das duas origens."
+    },
+    "pp": {
+     "nota": 67,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Linha ARENA/PDS/PPB; votações liberais e de ordem; parte do bloco conservador."
+    },
+    "republicanos": {
+     "nota": 69,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Ex-PRB; pauta moral conservadora e governabilidade pragmática."
+    },
+    "pl": {
+     "nota": 80,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Partido de Bolsonaro desde 2021 (antes PL/PR, cerca de 65, Centrão). Singer analisou a reativação da direita e o bolsonarismo de 2018, não o PL: nota estimada pelo site a partir dessa leitura."
+    },
+    "novo": {
+     "nota": 76,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Liberalismo econômico radical, sem ênfase em ordem e autoridade."
+    },
+    "centrao": {
+     "nota": 63,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Média simples de MDB, PSD, PP, Republicanos e União Brasil nesta régua (63,0); com o PL a peso pleno, 65,8. Tática de governo, não doutrina.",
+     "decomposicao": {
+      "composicao": [
+       "mdb",
+       "psd",
+       "pp",
+       "republicanos",
+       "uniao"
+      ],
+      "media": 63.0,
+      "sensibilidade_com_pl": 65.8
+     }
+    },
+    "fhc": {
+     "nota": 62,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Real, privatizações, LRF, EC 20/1998; a nota reflete a prática, não o discurso. Partido do presidente PSDB (58); base (União Brasil, MDB, PP) = 62,7; fórmula 0,5/0,5 = 60,3; ajuste de políticas +1,7 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "psdb",
+      "nota_partido": 58,
+      "base": [
+       "uniao",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 62.7,
+      "formula_50_50": 60.3,
+      "ajuste_politicas": 1.7,
+      "julgamento_anterior_do_analista": 62,
+      "residuo_bruto": 1.7
+     }
+    },
+    "lula12": {
+     "nota": 36,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Caso central da tese: reformismo fraco e pacto conservador (apoio em resumos; texto integral não lido). Partido do presidente PT (29); base (PSB, PDT, PCdoB, MDB, PP) = 42,0; fórmula 0,5/0,5 = 35,5; ajuste de políticas +0,5 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 29,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 42.0,
+      "formula_50_50": 35.5,
+      "ajuste_politicas": 0.5,
+      "julgamento_anterior_do_analista": 36,
+      "residuo_bruto": 0.5
+     }
+    },
+    "dilma": {
+     "nota": 35,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Ensaio desenvolvimentista 2011-14 (cerca de 31) e ajuste de 2015-16 (cerca de 44). Partido do presidente PT (29); base (PSB, PDT, PCdoB, MDB, PP, PSD, Republicanos) = 48,1; fórmula 0,5/0,5 = 38,6; ajuste de políticas −3,6 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 29,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp",
+       "psd",
+       "republicanos"
+      ],
+      "centroide_base": 48.1,
+      "formula_50_50": 38.6,
+      "ajuste_politicas": -3.6,
+      "julgamento_anterior_do_analista": 35,
+      "residuo_bruto": -3.6
+     }
+    },
+    "temer": {
+     "nota": 63,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Fim do arranjo lulista; EC 95, reforma trabalhista, terceirização. Partido do presidente MDB (55); base (PSDB, União Brasil, PP, PSD, Republicanos, Cidadania) = 61,5; fórmula 0,5/0,5 = 58,2; ajuste de políticas +5,0 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "mdb",
+      "nota_partido": 55,
+      "base": [
+       "psdb",
+       "uniao",
+       "pp",
+       "psd",
+       "republicanos",
+       "cidadania"
+      ],
+      "centroide_base": 61.5,
+      "formula_50_50": 58.3,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 68,
+      "residuo_bruto": 9.8
+     }
+    },
+    "bolsonaro": {
+     "nota": 77,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Reativação da direita (2018); agenda liberal, ordem e armas; transferências ampliadas. Partido do presidente PL (80); base (PP, Republicanos, MDB, PSD, União Brasil) = 63,0; fórmula 0,5/0,5 = 71,5; ajuste de políticas +5,0 (limite de 5 pontos). O PL de 2019-2020 era Centrão: a nota do partido é da fase atual.",
+     "decomposicao": {
+      "partido": "pl",
+      "nota_partido": 80,
+      "base": [
+       "pp",
+       "republicanos",
+       "mdb",
+       "psd",
+       "uniao"
+      ],
+      "centroide_base": 63.0,
+      "formula_50_50": 71.5,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 82,
+      "residuo_bruto": 10.5
+     }
+    },
+    "lula3": {
+     "nota": 37,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Posterior às análises conferidas de Singer; extrapola os critérios dele. Partido do presidente PT (29); base (PSB, PDT, PCdoB, PSOL, Rede, PV, MDB, PSD, União Brasil, PP) = 42,0; fórmula 0,5/0,5 = 35,5; ajuste de políticas +1,5 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 29,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "psol",
+       "rede",
+       "pv",
+       "mdb",
+       "psd",
+       "uniao",
+       "pp"
+      ],
+      "centroide_base": 42.0,
+      "formula_50_50": 35.5,
+      "ajuste_politicas": 1.5,
+      "julgamento_anterior_do_analista": 37,
+      "residuo_bruto": 1.5
+     }
+    },
+    "comunismo-marxista-leninista": {
+     "nota": 3,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Posição ideal-típica da doutrina no eixo econômico."
+    },
+    "socialismo-democratico": {
+     "nota": 14,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Aproxima-se da 'primeira alma' do PT (programa socialista fundador), por analogia do site: igualdade por ruptura gradual e vias democráticas."
+    },
+    "social-democracia": {
+     "nota": 28,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Mercado com bem-estar amplo; o lulismo é reformismo mais fraco."
+    },
+    "liberalismo-social": {
+     "nota": 40,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Mercado com Estado garantindo direitos; família não tratada por Singer."
+    },
+    "centro": {
+     "nota": 50,
+     "metodo": "ancora",
+     "confianca": "alta",
+     "justificativa": "Âncora: vale 50 por construção (equidistância), não é medida e não entra nas contagens de método."
+    },
+    "liberalismo-economico": {
+     "nota": 70,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Eixo econômico entre 80 e 90, mas pouco ligado ao eixo de ordem."
+    },
+    "conservadorismo": {
+     "nota": 68,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Ordem, tradição e mudança gradual; não é o pacto conservador."
+    },
+    "direita-radical": {
+     "nota": 88,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Nacionalismo, ordem e autoridade, conflito com instituições; não equivale a fascismo."
+    }
+   },
+   "zonas_nota": "Pelo eixo de ordem e autoridade de Singer, regimes de partido único seriam lidos como autoritários; aqui prevalece o eixo econômico-igualitário. A classificação do bolsonarismo segue em debate; o artigo de 2021 não analisa o PL.",
+   "zonas_limiares": {
+    "socialismo_ate": 20,
+    "comunismo_ate": 8,
+    "socialismo_real_ate": 2,
+    "direita_distante_desde": 80,
+    "fascismo_desde": 92,
+    "nazismo_desde": 98
+   },
+   "zonas": [
+    {
+     "tipo": "socialismo",
+     "rotulo": "Socialismo (família ampla)",
+     "lado": "esquerda",
+     "par": "A",
+     "a_partir_de": 20,
+     "comparador": "<=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"direita distante\". Inclui socialismo democrático e de Estado; o eixo 2 os distingue. Estar na zona não classifica o ator.",
+     "espelho_de": "direita_distante"
+    },
+    {
+     "tipo": "comunismo",
+     "rotulo": "Comunismo (marcador histórico)",
+     "lado": "esquerda",
+     "par": "B",
+     "a_partir_de": 8,
+     "comparador": "<=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência. O rótulo só se aplica com eixo 2 autoritário (partido único) e objetivo de abolir a propriedade privada dos meios de produção; estar na zona não classifica o ator (PSTU e PCO, que disputam eleições e criticam o modelo soviético, não são equiparados a regime).",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "fascismo"
+    },
+    {
+     "tipo": "socialismo_real",
+     "rotulo": "Socialismo real (regimes de partido único)",
+     "lado": "esquerda",
+     "par": "C",
+     "a_partir_de": 2,
+     "comparador": "<=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Zona de regime (Estados de partido único com economia planificada); nenhum partido de democracia competitiva é pontuado aqui. Par de \"nazismo\" por regra de desenho (100 - x), sem equivalência histórica ou moral.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "nazismo"
+    },
+    {
+     "tipo": "direita_distante",
+     "rotulo": "Direita distante do centro",
+     "lado": "direita",
+     "par": "A",
+     "a_partir_de": 80,
+     "comparador": ">=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"socialismo\" (limiar = 100 - x). Pode incluir famílias democráticas e não democráticas; não é \"direita radical\" nem regime. Estar na zona não classifica o ator.",
+     "espelho_de": "socialismo"
+    },
+    {
+     "tipo": "fascismo",
+     "rotulo": "Fascismo (marcador histórico)",
+     "lado": "direita",
+     "par": "B",
+     "a_partir_de": 92,
+     "comparador": ">=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência, par de \"comunismo\". O rótulo exige partido único, ultranacionalismo, culto ao líder, violência contra o pluralismo e ruptura com a democracia; estar perto da zona não classifica nenhum ator atual.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "comunismo"
+    },
+    {
+     "tipo": "nazismo",
+     "rotulo": "Nazismo (caso histórico)",
+     "lado": "direita",
+     "par": "C",
+     "a_partir_de": 98,
+     "comparador": ">=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Caso histórico de natureza distinta (hierarquia racial biológica, extermínio), não grau maior que o fascismo; ocupa a ponta por regra de desenho. Sem analogia com atores que disputam eleições dentro da lei.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "socialismo_real"
+    }
+   ],
+   "limites": [
+    "Das notas desta régua, nenhuma é publicada; a contagem por método está no campo contagem_metodo. Margem sugerida: cerca de 6 pontos (derivadas) e 8 (estimadas).",
+    "Textos integrais não lidos. A tese de que a diferença no eleitorado diz mais respeito à autoridade estatal que à igualdade (livro de 2000) vem de resumos secundários e é contraposta por outras fontes, que apontam o ideal igualitário no eleitorado independentemente da posição ideológica e o uso da distinção de Bobbio em entrevista de 2016. O ano do livro varia entre 1999 e 2000. Os pesos 50/30/20 do critério são escolha do site.",
+    "O artigo de 2021 trata de predisposições do eleitorado (Datafolha, ESEB) e é anterior à filiação de Bolsonaro ao PL (novembro de 2021); não é análise de Singer sobre o PL. O dado de direita com 45% em 2018 aparece no resumo desse artigo.",
+    "Não permite concluir que o PT seja de direita ou de esquerda em sentido absoluto, que pacto conservador signifique direita, nem que o bolsonarismo seja fascista. Os cortes das zonas são do site."
+   ]
+  },
+  {
+   "id": "nicolau",
+   "nome": "Jairo Nicolau",
+   "papel": "base",
+   "entra_na_media": true,
+   "obras": [
+    {
+     "titulo": "Multipartidarismo e Democracia: um estudo sobre o sistema partidário brasileiro (1985-94)",
+     "ano": "1996",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Sistemas Eleitorais",
+     "ano": "1999 (1ª edição)",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Eleições no Brasil: do Império aos dias atuais",
+     "ano": "2012",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Representantes de Quem? Os (des)caminhos do seu voto da urna à Câmara dos Deputados",
+     "ano": "2017",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "O Brasil Dobrou à Direita: uma radiografia da eleição de Bolsonaro em 2018 (Zahar)",
+     "ano": "2020",
+     "verificado": true,
+     "origem_verificacao": "busca_rodada_atual"
+    },
+    {
+     "titulo": "Os quatro fundamentos da competição política no Brasil (1994-2014)",
+     "ano": "2017",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Dados Eleitorais do Brasil (1982-1996)",
+     "ano": "1998",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    }
+   ],
+   "criterio": "Operacionalização do site, inspirada no autoposicionamento 0-10 do eleitorado (ESEB, Datafolha) x 10 e na estrutura da competição (lado em que o ator se coliga e governa, perfil da base). Nicolau não é autor de escala partidária: o critério de posição é do site, não do autor.",
+   "escala_original": "Autoposicionamento 0-10 (0 = esquerda, 10 = direita); nota = valor x 10. Nicolau não publica notas partidárias nessa escala; a conversão é do site.",
+   "cortes_nativos": "0-33 / 34-66 / 67-100 (posições 0 a 3, 4 a 6 e 7 a 10; convenção do site).",
+   "vinculos_e_perfil": "Cientista político brasileiro, professor de ciência política (UFRJ), especialista em sistemas eleitorais e partidários. Dados institucionais a conferir.",
+   "criticas_ao_criterio": "O autoposicionamento 0-10 é criticado por misturar significados de esquerda e direita entre eleitores; a leitura do site por coalizões herda essa limitação e acrescenta a do governismo, que não é ideologia.",
+   "contagem_metodo": {
+    "publicada": 0,
+    "derivada": 0,
+    "estimada": 33
+   },
+   "contagem_ancora": 1,
+   "contagem_sem_dado": 0,
+   "posicoes": {
+    "pstu": {
+     "nota": 4,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Socialista revolucionário, votação presidencial residual; estimada pelo programa."
+    },
+    "pco": {
+     "nota": 5,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Marxista, sem representação relevante; estimada pelo programa."
+    },
+    "psol": {
+     "nota": 13,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Dissidência do PT em 2004; à esquerda do PT em votações; ministra em Lula 3."
+    },
+    "pcdob": {
+     "nota": 17,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Aliado do PT em candidaturas e governos; vota alinhado e à esquerda dele pelo programa."
+    },
+    "pt": {
+     "nota": 30,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Polo da competição presidencial; no governo incorporou partidos de centro e direita."
+    },
+    "psb": {
+     "nota": 36,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Nos governos Lula e Lula 3; candidatura própria em 2014."
+    },
+    "pdt": {
+     "nota": 37,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Herdeiro do trabalhismo; nos governos do PT; oposição a Temer e Bolsonaro."
+    },
+    "rede": {
+     "nota": 32,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Em torno de Marina Silva; nota pela federação e pelo alinhamento de governo."
+    },
+    "pv": {
+     "nota": 40,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Agenda ambiental, alianças nos dois campos; federado ao PT e PCdoB."
+    },
+    "mdb": {
+     "nota": 56,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Em governos de todos os campos; pivô do presidencialismo de coalizão."
+    },
+    "psd": {
+     "nota": 58,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Base de Dilma e Temer, ministros em Bolsonaro e Lula 3; governismo."
+    },
+    "psdb": {
+     "nota": 60,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Polo opositor ao PT em 1994-2014, depois governo Temer; centro-direita."
+    },
+    "cidadania": {
+     "nota": 52,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Sucessor do PPS; do polo de esquerda ao centro; federado ao PSDB."
+    },
+    "podemos": {
+     "nota": 60,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Antigo PTN; bancada heterogênea sem alinhamento estável."
+    },
+    "uniao": {
+     "nota": 67,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Fusão de DEM e PSL; herda base de direita (leitura do site)."
+    },
+    "pp": {
+     "nota": 71,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Linhagem ARENA/PDS/PPB; governos de Lula a Bolsonaro; núcleo do Centrão."
+    },
+    "republicanos": {
+     "nota": 73,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Ex-PRB; governos do PT, Temer, Bolsonaro e Lula 3; conservador e pragmático."
+    },
+    "pl": {
+     "nota": 80,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Até 2020, Centrão; desde 2021, polo da direita e maior bancada; fase atual."
+    },
+    "novo": {
+     "nota": 83,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Menos Estado, privatizações, austeridade; reflete a dimensão econômica."
+    },
+    "centrao": {
+     "nota": 65,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Média simples de MDB, PSD, PP, Republicanos e União Brasil nesta régua (65,0); com o PL a peso pleno, 67,5. Tática de governo, não doutrina.",
+     "decomposicao": {
+      "composicao": [
+       "mdb",
+       "psd",
+       "pp",
+       "republicanos",
+       "uniao"
+      ],
+      "media": 65.0,
+      "sensibilidade_com_pl": 67.5
+     }
+    },
+    "fhc": {
+     "nota": 58,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Coalizão PSDB, PFL, PTB, PMDB, PPB; Real e privatizações, com Fundef e Bolsa Escola. Partido do presidente PSDB (60); base (União Brasil, MDB, PP) = 64,7; fórmula 0,5/0,5 = 62,3; ajuste de políticas −4,3 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "psdb",
+      "nota_partido": 60,
+      "base": [
+       "uniao",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 64.7,
+      "formula_50_50": 62.3,
+      "ajuste_politicas": -4.3,
+      "julgamento_anterior_do_analista": 58,
+      "residuo_bruto": -4.3
+     }
+    },
+    "lula12": {
+     "nota": 39,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Coalizão ampla; superávit primário mantido; Bolsa Família e salário mínimo. Partido do presidente PT (30); base (PSB, PDT, PCdoB, MDB, PP) = 43,4; fórmula 0,5/0,5 = 36,7; ajuste de políticas +2,3 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 30,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 43.4,
+      "formula_50_50": 36.7,
+      "ajuste_politicas": 2.3,
+      "julgamento_anterior_do_analista": 39,
+      "residuo_bruto": 2.3
+     }
+    },
+    "dilma": {
+     "nota": 37,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Coalizão PT, MDB, PP, PR, PSD; nova matriz 2011-14 e ajuste de 2015. Partido do presidente PT (30); base (PSB, PDT, PCdoB, MDB, PP, PSD, Republicanos) = 49,7; fórmula 0,5/0,5 = 39,9; ajuste de políticas −2,9 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 30,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp",
+       "psd",
+       "republicanos"
+      ],
+      "centroide_base": 49.7,
+      "formula_50_50": 39.9,
+      "ajuste_politicas": -2.9,
+      "julgamento_anterior_do_analista": 37,
+      "residuo_bruto": -2.9
+     }
+    },
+    "temer": {
+     "nota": 65,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Coalizão MDB, PSDB, DEM, PP, PSD; teto de gastos e reforma trabalhista. Partido do presidente MDB (56); base (PSDB, União Brasil, PP, PSD, Republicanos, Cidadania) = 63,5; fórmula 0,5/0,5 = 59,8; ajuste de políticas +5,0 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "mdb",
+      "nota_partido": 56,
+      "base": [
+       "psdb",
+       "uniao",
+       "pp",
+       "psd",
+       "republicanos",
+       "cidadania"
+      ],
+      "centroide_base": 63.5,
+      "formula_50_50": 59.8,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 66,
+      "residuo_bruto": 6.3
+     }
+    },
+    "bolsonaro": {
+     "nota": 78,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Eleito pelo PSL, filiado ao PL; apoiado pelo Centrão; base centrista puxa a nota para baixo. Partido do presidente PL (80); base (PP, Republicanos, MDB, PSD, União Brasil) = 65,0; fórmula 0,5/0,5 = 72,5; ajuste de políticas +5,0 (limite de 5 pontos). O PL de 2019-2020 era Centrão: a nota do partido é da fase atual.",
+     "decomposicao": {
+      "partido": "pl",
+      "nota_partido": 80,
+      "base": [
+       "pp",
+       "republicanos",
+       "mdb",
+       "psd",
+       "uniao"
+      ],
+      "centroide_base": 65.0,
+      "formula_50_50": 72.5,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 82,
+      "residuo_bruto": 9.5
+     }
+    },
+    "lula3": {
+     "nota": 35,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Coalizão ampla com saídas no mandato; Congresso mais à direita; provisória. Partido do presidente PT (30); base (PSB, PDT, PCdoB, PSOL, Rede, PV, MDB, PSD, União Brasil, PP) = 42,7; fórmula 0,5/0,5 = 36,4; ajuste de políticas −1,4 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 30,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "psol",
+       "rede",
+       "pv",
+       "mdb",
+       "psd",
+       "uniao",
+       "pp"
+      ],
+      "centroide_base": 42.7,
+      "formula_50_50": 36.4,
+      "ajuste_politicas": -1.4,
+      "julgamento_anterior_do_analista": 35,
+      "residuo_bruto": -1.3
+     }
+    },
+    "comunismo-marxista-leninista": {
+     "nota": 3,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Partido único e propriedade coletiva; fora da leitura eleitoral."
+    },
+    "socialismo-democratico": {
+     "nota": 15,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Socialismo por vias eleitorais e pluripartidárias; posição convencional."
+    },
+    "social-democracia": {
+     "nota": 30,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Mercado com bem-estar; coincide com a faixa de PT e PSB."
+    },
+    "liberalismo-social": {
+     "nota": 42,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Mercado e liberdades civis com políticas universais; convencional."
+    },
+    "centro": {
+     "nota": 50,
+     "metodo": "ancora",
+     "confianca": "alta",
+     "justificativa": "Âncora: ponto 5 do autoposicionamento 0-10 vezes 10; vale 50 por construção."
+    },
+    "liberalismo-economico": {
+     "nota": 68,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Primazia do mercado e menor tributação; costumes variados."
+    },
+    "conservadorismo": {
+     "nota": 74,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Tradição, ordem e instituições religiosas e familiares."
+    },
+    "direita-radical": {
+     "nota": 90,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Nacionalismo, autoritarismo ou populismo dentro das regras; distinta do fascismo."
+    }
+   },
+   "zonas_nota": "Convenção gráfica: a leitura eleitoral de Nicolau não mede esses polos.",
+   "zonas_limiares": {
+    "socialismo_ate": 20,
+    "comunismo_ate": 8,
+    "socialismo_real_ate": 2,
+    "direita_distante_desde": 80,
+    "fascismo_desde": 92,
+    "nazismo_desde": 98
+   },
+   "zonas": [
+    {
+     "tipo": "socialismo",
+     "rotulo": "Socialismo (família ampla)",
+     "lado": "esquerda",
+     "par": "A",
+     "a_partir_de": 20,
+     "comparador": "<=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"direita distante\". Inclui socialismo democrático e de Estado; o eixo 2 os distingue. Estar na zona não classifica o ator.",
+     "espelho_de": "direita_distante"
+    },
+    {
+     "tipo": "comunismo",
+     "rotulo": "Comunismo (marcador histórico)",
+     "lado": "esquerda",
+     "par": "B",
+     "a_partir_de": 8,
+     "comparador": "<=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência. O rótulo só se aplica com eixo 2 autoritário (partido único) e objetivo de abolir a propriedade privada dos meios de produção; estar na zona não classifica o ator (PSTU e PCO, que disputam eleições e criticam o modelo soviético, não são equiparados a regime).",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "fascismo"
+    },
+    {
+     "tipo": "socialismo_real",
+     "rotulo": "Socialismo real (regimes de partido único)",
+     "lado": "esquerda",
+     "par": "C",
+     "a_partir_de": 2,
+     "comparador": "<=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Zona de regime (Estados de partido único com economia planificada); nenhum partido de democracia competitiva é pontuado aqui. Par de \"nazismo\" por regra de desenho (100 - x), sem equivalência histórica ou moral.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "nazismo"
+    },
+    {
+     "tipo": "direita_distante",
+     "rotulo": "Direita distante do centro",
+     "lado": "direita",
+     "par": "A",
+     "a_partir_de": 80,
+     "comparador": ">=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"socialismo\" (limiar = 100 - x). Pode incluir famílias democráticas e não democráticas; não é \"direita radical\" nem regime. Estar na zona não classifica o ator.",
+     "espelho_de": "socialismo"
+    },
+    {
+     "tipo": "fascismo",
+     "rotulo": "Fascismo (marcador histórico)",
+     "lado": "direita",
+     "par": "B",
+     "a_partir_de": 92,
+     "comparador": ">=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência, par de \"comunismo\". O rótulo exige partido único, ultranacionalismo, culto ao líder, violência contra o pluralismo e ruptura com a democracia; estar perto da zona não classifica nenhum ator atual.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "comunismo"
+    },
+    {
+     "tipo": "nazismo",
+     "rotulo": "Nazismo (caso histórico)",
+     "lado": "direita",
+     "par": "C",
+     "a_partir_de": 98,
+     "comparador": ">=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Caso histórico de natureza distinta (hierarquia racial biológica, extermínio), não grau maior que o fascismo; ocupa a ponta por regra de desenho. Sem analogia com atores que disputam eleições dentro da lei.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "socialismo_real"
+    }
+   ],
+   "limites": [
+    "Nicolau não atribui notas 0-100 nem posiciona partidos: todas as notas desta régua são estimativas do site, inspiradas no tema do autor. Sua contribuição é sobre eleitorado, regras eleitorais, coligações e fragmentação, não sobre programa.",
+    "Sem tabelas de autoposicionamento por partido (ESEB, Datafolha) e sem acesso ao texto das obras; a busca confirmou título, editora e data de O Brasil Dobrou à Direita (Zahar, 2020).",
+    "Dados de contexto de terceiros, não conferidos na origem: direita no ESEB de 27% (2014) a 43% (2018); NEP de 16,5 em 2019 (segundo Nicolau citado pela imprensa). O dado de 45% em 2018 aparece no resumo do artigo de Singer (2021), não em Nicolau. O Datafolha de 2026 não foi usado."
+   ]
+  },
+  {
+   "id": "bolognesi",
+   "nome": "Bolognesi, Ribeiro e Codato (survey de especialistas)",
+   "papel": "complementar",
+   "entra_na_media": true,
+   "status_notas_publicadas": "publicada_nao_conferida_na_tabela_primaria",
+   "obras": [
+    {
+     "titulo": "Uma nova classificação ideológica dos partidos políticos brasileiros (Bolognesi, Ribeiro e Codato), Dados 66(2), e20210164",
+     "ano": "2023",
+     "verificado": true,
+     "origem_verificacao": "busca_rodada_atual"
+    },
+    {
+     "titulo": "O desaparecimento do centro ideológico no sistema partidário brasileiro (Bolognesi, Ribeiro, Codato e Silva), Opinião Pública 31",
+     "ano": "2025",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Database on the ideological classification of all Brazilian political parties (2018-2022), Harvard Dataverse, doi 10.7910/DVN/MFIXKW (acesso bloqueado nesta rodada)",
+     "ano": "2025",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Os partidos brasileiros segundo seus estudiosos: análise de um expert survey (Tarouco e Madeira), Civitas",
+     "ano": "2015",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Manifesto Project (MARPOR): cobertura do Brasil não confirmada",
+     "ano": "",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    }
+   ],
+   "criterio": "Especialistas da ABCP posicionam cada partido de 0 (extrema esquerda) a 10 (extrema direita); publica-se a média. Régua posicional e relativa (percepção na coleta), não índice de políticas nem de votações.",
+   "escala_original": "0 a 10; nota = média x 10, sem inversão. Onda de julho de 2018 (35 partidos; 435 a 512 respostas por partido) e de 2022 (32 partidos). Usada a de 2022 para PL, PV, Cidadania e Rede e a de 2018 para os demais; o campo onda registra a escolha e valor_onda_alternativa traz a outra onda quando conhecida.",
+   "cortes_nativos": "Reportados em trechos de busca, a conferir: extrema esquerda até 1,5 e extrema direita acima de 8,5; a faixa de centro de 4,5 a 5,5 é mencionada em texto de divulgação de coautor; os demais cortes (3,5 e 7,0) são reconstruídos pelo site.",
+   "vinculos_e_perfil": "Pesquisadores acadêmicos de universidades brasileiras (UFPR e UEM, a conferir); pesquisa conduzida com membros da ABCP.",
+   "criticas_ao_criterio": "Percepção de especialistas depende do perfil do painel e do momento da coleta (2018, pós-impeachment) e é relativa ao sistema partidário, não absoluta; os autores descrevem um deslocamento do sistema para a direita no período (a conferir).",
+   "contagem_metodo": {
+    "publicada": 17,
+    "derivada": 12,
+    "estimada": 4
+   },
+   "contagem_ancora": 1,
+   "contagem_sem_dado": 0,
+   "posicoes": {
+    "pstu": {
+     "nota": 5.1,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 0,51 (0-10) em 2018; nota = média x 10 (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "pco": {
+     "nota": 6.1,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 0,61 em 2018 (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "psol": {
+     "nota": 12.8,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 1,28 em 2018, abaixo do corte de extrema esquerda (1,5) (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "pcdob": {
+     "nota": 19.2,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 1,92 em 2018 (512 respostas) (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "pt": {
+     "nota": 29.7,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 2,97 em 2018; valor de 2022 não recuperado (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "psb": {
+     "nota": 40.5,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 4,05 em 2018 (468 respostas) (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "pdt": {
+     "nota": 39.2,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 3,92 em 2018 (483 respostas) (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "rede": {
+     "nota": 36.9,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Onda de 2022: média 3,69 (2018: 4,77); via texto de divulgação de coautor (fonte secundária).",
+     "verificacao": "fonte_secundaria",
+     "onda": "2022",
+     "valor_onda_alternativa": {
+      "onda": "2018",
+      "nota": 47.7
+     }
+    },
+    "pv": {
+     "nota": 41.2,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Onda de 2022: média 4,12 (2018: 5,29); via texto de divulgação de coautor (fonte secundária).",
+     "verificacao": "fonte_secundaria",
+     "onda": "2022",
+     "valor_onda_alternativa": {
+      "onda": "2018",
+      "nota": 52.9
+     }
+    },
+    "mdb": {
+     "nota": 70.1,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 7,01 em 2018 (trecho de busca), colada ao corte reconstruído de 7,0.",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "psd": {
+     "nota": 70.9,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 7,09 em 2018 (479 respostas); a uma décima do corte (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "psdb": {
+     "nota": 71.1,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 7,11 em 2018; outras bases o rotulam como centro (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "cidadania": {
+     "nota": 61.7,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Onda de 2022: média 6,17 (2018, como PPS: 4,93); via texto de divulgação de coautor (fonte secundária).",
+     "verificacao": "fonte_secundaria",
+     "onda": "2022",
+     "valor_onda_alternativa": {
+      "onda": "2018",
+      "nota": 49.3
+     }
+    },
+    "podemos": {
+     "nota": 72.4,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 7,24 em 2018 (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "uniao": {
+     "nota": 83.4,
+     "metodo": "derivada",
+     "confianca": "baixa",
+     "justificativa": "Derivada: média de DEM 8,57 e PSL 8,11 (2018); sem valor próprio.",
+     "verificacao": "derivada_de_valores_nao_conferidos"
+    },
+    "pp": {
+     "nota": 82,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 8,20 em 2018, perto do corte de extrema direita (8,5) (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "republicanos": {
+     "nota": 78,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Valor próprio não confirmado (trecho sugeria 7,78, possível erro); estimada."
+    },
+    "pl": {
+     "nota": 88,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Onda de 2022: média 8,80 (2018, como PR: 7,78); via texto de divulgação (trecho de busca).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2022",
+     "valor_onda_alternativa": {
+      "onda": "2018",
+      "nota": 77.8
+     }
+    },
+    "novo": {
+     "nota": 81.3,
+     "metodo": "publicada",
+     "confianca": "media",
+     "justificativa": "Média 8,13 em 2018 (474 respostas) (trecho de busca, não conferido na tabela).",
+     "verificacao": "trecho_de_busca",
+     "onda": "2018"
+    },
+    "centrao": {
+     "nota": 76.9,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Média simples de MDB, PSD, PP, Republicanos e União Brasil nesta régua (76,9); com o PL a peso pleno, 78,7. Tática de governo, não doutrina.",
+     "verificacao": "derivada_de_valores_nao_conferidos",
+     "decomposicao": {
+      "composicao": [
+       "mdb",
+       "psd",
+       "pp",
+       "republicanos",
+       "uniao"
+      ],
+      "media": 76.9,
+      "sensibilidade_com_pl": 78.7
+     }
+    },
+    "fhc": {
+     "nota": 74.8,
+     "metodo": "derivada",
+     "confianca": "baixa",
+     "justificativa": "Partido do presidente PSDB (71,1); base (União Brasil, MDB, PP) = 78,5; fórmula 0,5/0,5 = 74,8; sem termo de políticas (régua posicional).",
+     "verificacao": "derivada_de_valores_nao_conferidos",
+     "decomposicao": {
+      "partido": "psdb",
+      "nota_partido": 71.1,
+      "base": [
+       "uniao",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 78.5,
+      "formula_50_50": 74.8,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "lula12": {
+     "nota": 40.0,
+     "metodo": "derivada",
+     "confianca": "baixa",
+     "justificativa": "Partido do presidente PT (29,7); base (PSB, PDT, PCdoB, MDB, PP) = 50,2; fórmula 0,5/0,5 = 40,0; sem termo de políticas (régua posicional).",
+     "verificacao": "derivada_de_valores_nao_conferidos",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 29.7,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 50.2,
+      "formula_50_50": 40.0,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "dilma": {
+     "nota": 43.4,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Partido do presidente PT (29,7); base (PSB, PDT, PCdoB, MDB, PP, PSD, Republicanos) = 57,1; fórmula 0,5/0,5 = 43,4; sem termo de políticas (régua posicional).",
+     "verificacao": "derivada_de_valores_nao_conferidos",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 29.7,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp",
+       "psd",
+       "republicanos"
+      ],
+      "centroide_base": 57.1,
+      "formula_50_50": 43.4,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "temer": {
+     "nota": 72.3,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Partido do presidente MDB (70,1); base (PSDB, União Brasil, PP, PSD, Republicanos, Cidadania) = 74,5; fórmula 0,5/0,5 = 72,3; sem termo de políticas (régua posicional).",
+     "verificacao": "derivada_de_valores_nao_conferidos",
+     "decomposicao": {
+      "partido": "mdb",
+      "nota_partido": 70.1,
+      "base": [
+       "psdb",
+       "uniao",
+       "pp",
+       "psd",
+       "republicanos",
+       "cidadania"
+      ],
+      "centroide_base": 74.5,
+      "formula_50_50": 72.3,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "bolsonaro": {
+     "nota": 82.4,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Partido do presidente PL (88); base (PP, Republicanos, MDB, PSD, União Brasil) = 76,9; fórmula 0,5/0,5 = 82,4; sem termo de políticas (régua posicional). O PL de 2019-2020 era Centrão: a nota do partido é da fase atual.",
+     "verificacao": "derivada_de_valores_nao_conferidos",
+     "decomposicao": {
+      "partido": "pl",
+      "nota_partido": 88,
+      "base": [
+       "pp",
+       "republicanos",
+       "mdb",
+       "psd",
+       "uniao"
+      ],
+      "centroide_base": 76.9,
+      "formula_50_50": 82.4,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "lula3": {
+     "nota": 39.7,
+     "metodo": "derivada",
+     "confianca": "baixa",
+     "justificativa": "Partido do presidente PT (29,7); base (PSB, PDT, PCdoB, PSOL, Rede, PV, MDB, PSD, União Brasil, PP) = 49,6; fórmula 0,5/0,5 = 39,7; sem termo de políticas (régua posicional).",
+     "verificacao": "derivada_de_valores_nao_conferidos",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 29.7,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "psol",
+       "rede",
+       "pv",
+       "mdb",
+       "psd",
+       "uniao",
+       "pp"
+      ],
+      "centroide_base": 49.6,
+      "formula_50_50": 39.7,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "comunismo-marxista-leninista": {
+     "nota": 7,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Âncoras PCB 0,91, PCO 0,61 e PSTU 0,51; a tabela mede partidos, não regimes.",
+     "verificacao": "derivada_de_valores_nao_conferidos"
+    },
+    "socialismo-democratico": {
+     "nota": 15,
+     "metodo": "derivada",
+     "confianca": "baixa",
+     "justificativa": "Âncora única: PSOL (12,8) e o corte de extrema esquerda (15).",
+     "verificacao": "derivada_de_valores_nao_conferidos"
+    },
+    "social-democracia": {
+     "nota": 36.5,
+     "metodo": "derivada",
+     "confianca": "baixa",
+     "justificativa": "Média de PT, PSB e PDT; o PSDB, que usa o nome, fica em 71,1.",
+     "verificacao": "derivada_de_valores_nao_conferidos"
+    },
+    "liberalismo-social": {
+     "nota": 47,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Média de Rede, PV e Cidadania (2022); âncoras escolhidas pelo analista."
+    },
+    "centro": {
+     "nota": 50,
+     "metodo": "ancora",
+     "confianca": "alta",
+     "justificativa": "Âncora: vale 50 por construção (equidistância), não é medida e não entra nas contagens de método."
+    },
+    "liberalismo-economico": {
+     "nota": 81,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Âncora no Novo (8,13); intervalo plausível de 71 a 86.",
+     "verificacao": "derivada_de_valores_nao_conferidos"
+    },
+    "conservadorismo": {
+     "nota": 78,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Ponto médio entre MDB/PSD/PSDB (70-71) e PP/DEM (82-86)."
+    },
+    "direita-radical": {
+     "nota": 90,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Acima do maior valor de partido (PL 88,0) e do corte de extrema direita (85)."
+    }
+   },
+   "zonas_nota": "Convenção do site; mede posição percebida por especialistas, não adesão a modelo. PL, PP, União Brasil e Novo ficam na zona \"direita distante\" sem que a fonte lhes atribua caráter antidemocrático.",
+   "zonas_limiares": {
+    "socialismo_ate": 20,
+    "comunismo_ate": 8,
+    "socialismo_real_ate": 2,
+    "direita_distante_desde": 80,
+    "fascismo_desde": 92,
+    "nazismo_desde": 98
+   },
+   "zonas": [
+    {
+     "tipo": "socialismo",
+     "rotulo": "Socialismo (família ampla)",
+     "lado": "esquerda",
+     "par": "A",
+     "a_partir_de": 20,
+     "comparador": "<=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"direita distante\". Inclui socialismo democrático e de Estado; o eixo 2 os distingue. Estar na zona não classifica o ator.",
+     "espelho_de": "direita_distante"
+    },
+    {
+     "tipo": "extremo_posicional",
+     "rotulo": "Extrema esquerda (corte do survey)",
+     "lado": "esquerda",
+     "par": "N",
+     "a_partir_de": 15,
+     "comparador": "<=",
+     "natureza": "corte_nativo_a_conferir",
+     "classifica_ator": false,
+     "aviso": "Corte de 0 a 1,5 reportado em trechos do artigo (a conferir). Não designa ideologia, regime nem caráter antidemocrático.",
+     "espelho_de": "extremo_posicional"
+    },
+    {
+     "tipo": "comunismo",
+     "rotulo": "Comunismo (marcador histórico)",
+     "lado": "esquerda",
+     "par": "B",
+     "a_partir_de": 8,
+     "comparador": "<=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência. O rótulo só se aplica com eixo 2 autoritário (partido único) e objetivo de abolir a propriedade privada dos meios de produção; estar na zona não classifica o ator (PSTU e PCO, que disputam eleições e criticam o modelo soviético, não são equiparados a regime).",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "fascismo"
+    },
+    {
+     "tipo": "socialismo_real",
+     "rotulo": "Socialismo real (regimes de partido único)",
+     "lado": "esquerda",
+     "par": "C",
+     "a_partir_de": 2,
+     "comparador": "<=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Zona de regime (Estados de partido único com economia planificada); nenhum partido de democracia competitiva é pontuado aqui. Par de \"nazismo\" por regra de desenho (100 - x), sem equivalência histórica ou moral.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "nazismo"
+    },
+    {
+     "tipo": "direita_distante",
+     "rotulo": "Direita distante do centro",
+     "lado": "direita",
+     "par": "A",
+     "a_partir_de": 80,
+     "comparador": ">=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"socialismo\" (limiar = 100 - x). Pode incluir famílias democráticas e não democráticas; não é \"direita radical\" nem regime. Estar na zona não classifica o ator.",
+     "espelho_de": "socialismo"
+    },
+    {
+     "tipo": "fascismo",
+     "rotulo": "Fascismo (marcador histórico)",
+     "lado": "direita",
+     "par": "B",
+     "a_partir_de": 92,
+     "comparador": ">=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência, par de \"comunismo\". O rótulo exige partido único, ultranacionalismo, culto ao líder, violência contra o pluralismo e ruptura com a democracia; estar perto da zona não classifica nenhum ator atual.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "comunismo"
+    },
+    {
+     "tipo": "nazismo",
+     "rotulo": "Nazismo (caso histórico)",
+     "lado": "direita",
+     "par": "C",
+     "a_partir_de": 98,
+     "comparador": ">=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Caso histórico de natureza distinta (hierarquia racial biológica, extermínio), não grau maior que o fascismo; ocupa a ponta por regra de desenho. Sem analogia com atores que disputam eleições dentro da lei.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "socialismo_real"
+    },
+    {
+     "tipo": "extremo_posicional",
+     "rotulo": "Extrema direita (corte do survey)",
+     "lado": "direita",
+     "par": "N",
+     "a_partir_de": 85,
+     "comparador": ">=",
+     "natureza": "corte_nativo_a_conferir",
+     "classifica_ator": false,
+     "aviso": "Corte acima de 8,5 reportado em trechos do artigo (a conferir). Não designa ideologia, regime nem caráter antidemocrático.",
+     "espelho_de": "extremo_posicional"
+    }
+   ],
+   "limites": [
+    "As 17 notas 'publicada' foram copiadas de trechos de busca e de texto de divulgação de coautor: PDFs, tabela primária e Dataverse estavam bloqueados. Nenhuma foi conferida na tabela do artigo (Dados 66(2)); só PV, Rede e Cidadania (onda de 2022) e a descrição do método foram reencontrados em fonte secundária. Conferir antes de ir ao ar. Por isso a confiança fica limitada a 'media' ou 'baixa'.",
+    "Governos: 0,5 x partido do presidente + 0,5 x média da base (lista pública do site), com valores de 2018 e 2022 aplicados a 1995-2022 (anacronismo); não distingue Lula 1-2, Dilma e Lula 3.",
+    "Em relação à média das demais réguas, esta fica mais à direita para os partidos do centro e da centro-esquerda (diferença por ator no campo sensibilidade). Republicanos é estimado; a mistura de ondas (2018 e 2022) cria saltos entre partidos."
+   ]
+  },
+  {
+   "id": "votacoes",
+   "nome": "Votações nominais (método do site)",
+   "papel": "complementar",
+   "entra_na_media": true,
+   "obras": [
+    {
+     "titulo": "Distinguishing between influences on Brazilian legislative behavior (Zucco e Lauderdale, Legislative Studies Quarterly 36(3)) - base metodológica",
+     "ano": "2011",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Ideology or what? (Zucco, Journal of Politics 71(3)) - base metodológica",
+     "ano": "2009",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Executivo e Legislativo na Nova Ordem Constitucional (Figueiredo e Limongi, FGV) - contexto do presidencialismo de coalizão",
+     "ano": "1999",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Presidencialismo de coalizão: o dilema institucional brasileiro (Abranches, Dados 31(1)) - contexto",
+     "ano": "1988",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Bases institucionais do presidencialismo de coalizão (Figueiredo e Limongi, Lua Nova 44) - contexto",
+     "ano": "1998",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Presidencialismo de coalizão: raízes e evolução do modelo político brasileiro (Abranches) - contexto",
+     "ano": "2018",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    }
+   ],
+   "criterio": "Posição revelada no voto, isolada do efeito governo x oposição (segunda dimensão, a conferir). Método do site: Zucco (2009) e Zucco e Lauderdale (2011) estimam pontos ideais; Figueiredo e Limongi e Abranches tratam do presidencialismo de coalizão e não medem posição esquerda-direita. Governo = 0,5 x partido do presidente + 0,5 x média da base (regra única do site), sem termo de políticas.",
+   "escala_original": "Nenhuma publicada em 0-100. Pontos ideais de Zucco e Lauderdale são escala latente sem unidade natural; pesquisas BLS usam 1-10 (conversão (x - 1) / 9 x 100, não confirmada nas tabelas). Transformação ordinal e aproximada.",
+   "cortes_nativos": "0-33 / 34-66 / 67-100 (convenção do site).",
+   "vinculos_e_perfil": "Estimativas do site; os autores citados são pesquisadores acadêmicos de ciência política. Dados institucionais a conferir.",
+   "criticas_ao_criterio": "Voto revelado não é ideologia declarada: o governismo e a disciplina de coalizão podem se sobrepor à posição programática, e o legislador mediano fica acima de 50.",
+   "contagem_metodo": {
+    "publicada": 0,
+    "derivada": 0,
+    "estimada": 33
+   },
+   "contagem_ancora": 1,
+   "contagem_sem_dado": 0,
+   "posicoes": {
+    "pstu": {
+     "nota": 5,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Nunca elegeu deputado federal; nota pelo programa e pela ordenação relativa."
+    },
+    "pco": {
+     "nota": 4,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Sem bancada federal; nota pelo programa e pela ordenação relativa."
+    },
+    "psol": {
+     "nota": 7,
+     "metodo": "estimada",
+     "confianca": "alta",
+     "justificativa": "Polo esquerdo entre os partidos com bancada; alta coesão contra as reformas."
+    },
+    "pcdob": {
+     "nota": 13,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Vota com o PT em quase tudo; esquerda reformista nas coalizões."
+    },
+    "pt": {
+     "nota": 20,
+     "metodo": "estimada",
+     "confianca": "alta",
+     "justificativa": "Contra privatizações dos anos 1990, EC 95, reforma trabalhista e Previdência de 2019."
+    },
+    "psb": {
+     "nota": 26,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Base de Lula e Dilma; bancada menos coesa; à direita de PT e PCdoB."
+    },
+    "pdt": {
+     "nota": 30,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Oposição a FHC; base de Lula em fases; votos divididos em 2019."
+    },
+    "rede": {
+     "nota": 24,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Bancada muito pequena; estimada pelo alinhamento com a esquerda."
+    },
+    "pv": {
+     "nota": 28,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Historicamente ambíguo; federado ao PT desde 2022; sem série de votações."
+    },
+    "mdb": {
+     "nota": 54,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Coalizões amplas; disciplina acompanha o líder do governo."
+    },
+    "psd": {
+     "nota": 57,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Governismo dominante; bases de Dilma a Lula 3; série curta."
+    },
+    "psdb": {
+     "nota": 49,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Estimativa do site, a conferir nos dados abertos: posição revelada migrou de cerca de 40 (anos 1990) para cerca de 55 (anos 2010); nota = média do período."
+    },
+    "cidadania": {
+     "nota": 46,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Ex-PPS; do campo petista à oposição e apoio a Temer; bancada pequena."
+    },
+    "podemos": {
+     "nota": 60,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Bancada pequena e instável; centro-direita inferida."
+    },
+    "uniao": {
+     "nota": 67,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Fusão de DEM e PSL; bancada dividida; governismo; série curta."
+    },
+    "pp": {
+     "nota": 70,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Bases de FHC a Bolsonaro; centro-direita a direita nas pautas econômicas."
+    },
+    "republicanos": {
+     "nota": 68,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Bases de Dilma a Lula 3; conservador em costumes, governista nas demais."
+    },
+    "pl": {
+     "nota": 81,
+     "metodo": "estimada",
+     "confianca": "alta",
+     "justificativa": "Base de Lula 1; depois Bolsonaro; maior bancada em 2022; antes de 2018, perto de 70."
+    },
+    "novo": {
+     "nota": 84,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Votos de agenda liberal; independente de Bolsonaro; oposição a Lula 3."
+    },
+    "centrao": {
+     "nota": 63,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Média simples de MDB, PSD, PP, Republicanos e União Brasil nesta régua (63,2); com o PL a peso pleno, 66,2. Tática de governo, não doutrina.",
+     "decomposicao": {
+      "composicao": [
+       "mdb",
+       "psd",
+       "pp",
+       "republicanos",
+       "uniao"
+      ],
+      "media": 63.2,
+      "sensibilidade_com_pl": 66.2
+     }
+    },
+    "fhc": {
+     "nota": 53,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Partido do presidente PSDB (42); base (União Brasil, MDB, PP) = 63,7; fórmula 0,5/0,5 = 52,8; sem termo de políticas (régua posicional).",
+     "decomposicao": {
+      "partido": "psdb",
+      "nota_partido": 42.0,
+      "base": [
+       "uniao",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 63.7,
+      "formula_50_50": 52.8,
+      "ajuste_politicas": 0.0,
+      "observacao": "Nota do PSDB no período (42) é estimativa do site da própria ficha (anos 1990), não a nota geral do partido."
+     }
+    },
+    "lula12": {
+     "nota": 29,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Partido do presidente PT (20); base (PSB, PDT, PCdoB, MDB, PP) = 38,6; fórmula 0,5/0,5 = 29,3; sem termo de políticas (régua posicional).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 20,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 38.6,
+      "formula_50_50": 29.3,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "dilma": {
+     "nota": 33,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Partido do presidente PT (20); base (PSB, PDT, PCdoB, MDB, PP, PSD, Republicanos) = 45,4; fórmula 0,5/0,5 = 32,7; sem termo de políticas (régua posicional).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 20,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp",
+       "psd",
+       "republicanos"
+      ],
+      "centroide_base": 45.4,
+      "formula_50_50": 32.7,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "temer": {
+     "nota": 57,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Partido do presidente MDB (54); base (PSDB, União Brasil, PP, PSD, Republicanos, Cidadania) = 59,5; fórmula 0,5/0,5 = 56,8; sem termo de políticas (régua posicional).",
+     "decomposicao": {
+      "partido": "mdb",
+      "nota_partido": 54,
+      "base": [
+       "psdb",
+       "uniao",
+       "pp",
+       "psd",
+       "republicanos",
+       "cidadania"
+      ],
+      "centroide_base": 59.5,
+      "formula_50_50": 56.8,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "bolsonaro": {
+     "nota": 72,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Partido do presidente PL (81); base (PP, Republicanos, MDB, PSD, União Brasil) = 63,2; fórmula 0,5/0,5 = 72,1; sem termo de políticas (régua posicional). O PL de 2019-2020 era Centrão: a nota do partido é da fase atual.",
+     "decomposicao": {
+      "partido": "pl",
+      "nota_partido": 81,
+      "base": [
+       "pp",
+       "republicanos",
+       "mdb",
+       "psd",
+       "uniao"
+      ],
+      "centroide_base": 63.2,
+      "formula_50_50": 72.1,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "lula3": {
+     "nota": 29,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Partido do presidente PT (20); base (PSB, PDT, PCdoB, PSOL, Rede, PV, MDB, PSD, União Brasil, PP) = 37,6; fórmula 0,5/0,5 = 28,8; sem termo de políticas (régua posicional).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 20,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "psol",
+       "rede",
+       "pv",
+       "mdb",
+       "psd",
+       "uniao",
+       "pp"
+      ],
+      "centroide_base": 37.6,
+      "formula_50_50": 28.8,
+      "ajuste_politicas": 0.0
+     }
+    },
+    "comunismo-marxista-leninista": {
+     "nota": 4,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Votações não observam ideologias; ancorada em PCO e PSTU."
+    },
+    "socialismo-democratico": {
+     "nota": 10,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Não coberta; ancorada em PSOL e PCdoB (7 a 13)."
+    },
+    "social-democracia": {
+     "nota": 27,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Não coberta; ancorada entre PT, PSB e PDT (20 a 30)."
+    },
+    "liberalismo-social": {
+     "nota": 40,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Não coberta; ancorada no PSDB dos anos 1990 (cerca de 40)."
+    },
+    "centro": {
+     "nota": 50,
+     "metodo": "ancora",
+     "confianca": "alta",
+     "justificativa": "Âncora: vale 50 por construção (equidistância), não é medida e não entra nas contagens de método."
+    },
+    "liberalismo-economico": {
+     "nota": 76,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Não coberta; ancorada no Novo (84) e em parte de PP, União e PL."
+    },
+    "conservadorismo": {
+     "nota": 72,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Não coberta; ancorada em PP, Republicanos e União (67 a 70)."
+    },
+    "direita-radical": {
+     "nota": 91,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Não coberta; nenhum partido com bancada chega à faixa."
+    }
+   },
+   "zonas_nota": "Convenção do site: votações medem posição relativa, não doutrina; a fonte não observa ator nos marcadores de regime.",
+   "zonas_limiares": {
+    "socialismo_ate": 12,
+    "comunismo_ate": 7,
+    "socialismo_real_ate": 2,
+    "direita_distante_desde": 88,
+    "fascismo_desde": 93,
+    "nazismo_desde": 98
+   },
+   "zonas": [
+    {
+     "tipo": "socialismo",
+     "rotulo": "Socialismo (família ampla)",
+     "lado": "esquerda",
+     "par": "A",
+     "a_partir_de": 12,
+     "comparador": "<=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"direita distante\". Inclui socialismo democrático e de Estado; o eixo 2 os distingue. Estar na zona não classifica o ator.",
+     "espelho_de": "direita_distante"
+    },
+    {
+     "tipo": "comunismo",
+     "rotulo": "Comunismo (marcador histórico)",
+     "lado": "esquerda",
+     "par": "B",
+     "a_partir_de": 7,
+     "comparador": "<=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência. O rótulo só se aplica com eixo 2 autoritário (partido único) e objetivo de abolir a propriedade privada dos meios de produção; estar na zona não classifica o ator (PSTU e PCO, que disputam eleições e criticam o modelo soviético, não são equiparados a regime).",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "fascismo"
+    },
+    {
+     "tipo": "socialismo_real",
+     "rotulo": "Socialismo real (regimes de partido único)",
+     "lado": "esquerda",
+     "par": "C",
+     "a_partir_de": 2,
+     "comparador": "<=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Zona de regime (Estados de partido único com economia planificada); nenhum partido de democracia competitiva é pontuado aqui. Par de \"nazismo\" por regra de desenho (100 - x), sem equivalência histórica ou moral.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "nazismo"
+    },
+    {
+     "tipo": "direita_distante",
+     "rotulo": "Direita distante do centro",
+     "lado": "direita",
+     "par": "A",
+     "a_partir_de": 88,
+     "comparador": ">=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"socialismo\" (limiar = 100 - x). Pode incluir famílias democráticas e não democráticas; não é \"direita radical\" nem regime. Estar na zona não classifica o ator.",
+     "espelho_de": "socialismo"
+    },
+    {
+     "tipo": "fascismo",
+     "rotulo": "Fascismo (marcador histórico)",
+     "lado": "direita",
+     "par": "B",
+     "a_partir_de": 93,
+     "comparador": ">=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência, par de \"comunismo\". O rótulo exige partido único, ultranacionalismo, culto ao líder, violência contra o pluralismo e ruptura com a democracia; estar perto da zona não classifica nenhum ator atual.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "comunismo"
+    },
+    {
+     "tipo": "nazismo",
+     "rotulo": "Nazismo (caso histórico)",
+     "lado": "direita",
+     "par": "C",
+     "a_partir_de": 98,
+     "comparador": ">=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Caso histórico de natureza distinta (hierarquia racial biológica, extermínio), não grau maior que o fascismo; ocupa a ponta por regra de desenho. Sem analogia com atores que disputam eleições dentro da lei.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "socialismo_real"
+    }
+   ],
+   "limites": [
+    "Nenhum número é publicado e nenhuma nota foi derivada de consulta aos dados abertos da Câmara: todas são estimativas do site (de memória de votações conhecidas, a conferir). Margem de cerca de 8 pontos, maior para PSTU, PCO, Rede, PV, Cidadania, Podemos e famílias.",
+    "Voto revelado não é ideologia declarada, e a fonte não separa fisiologismo de convicção. Mede o Legislativo, não o que o Executivo implementou. A afirmação de que a dimensão dominante nas votações é governo x oposição (Zucco e Lauderdale) está a conferir.",
+    "Tabelas de Zucco e Power (2024) e de Zucco e Lauderdale não foram acessadas; recomenda-se recalcular com os dados de replicação (Dataverse) e converter para 0-100, o que permitiria reclassificar parte das notas como derivadas."
+   ]
+  },
+  {
+   "id": "power_zucco",
+   "nome": "Estimativa do site (referência: Power e Zucco, pesquisas com deputados) - provisória",
+   "papel": "complementar_provisoria",
+   "entra_na_media": false,
+   "provisoria": true,
+   "ligavel_pelo_usuario": true,
+   "motivo_provisoria": "As 23 notas são estimativas do analista: as tabelas primárias (médias por partido, Tabela C1 de 2024, Dataverse do BLS) não puderam ser abertas. Atores e fases posteriores a 2017 ou sem bancada ficam sem nota. Zucco e Power (2024) publicam estimativas revisadas de partidos e posições de presidentes desde 1985: a régua deve ser refeita com esses valores e só então entrar na média.",
+   "obras": [
+    {
+     "titulo": "The Ideology of Brazilian Parties and Presidents: A Research Note on Coalitional Presidentialism Under Stress (Zucco e Power, Latin American Politics and Society 66(1), p. 178-188, DOI 10.1017/lap.2023.24)",
+     "ano": "2024",
+     "verificado": true,
+     "origem_verificacao": "busca_rodada_atual"
+    },
+    {
+     "titulo": "Estimating Ideology of Brazilian Legislative Parties, 1990-2005 (Power e Zucco, LARR 44(1))",
+     "ano": "2009",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Elite Preferences in a Consolidating Democracy (Power e Zucco, LAPS)",
+     "ano": "2012",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Fragmentation without Cleavages? (Zucco e Power, Comparative Politics 53(3))",
+     "ano": "2021",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Brazilian Legislative Surveys, Waves 1-8 (Harvard Dataverse)",
+     "ano": "1990-2017",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Ideology or What? (Zucco, Journal of Politics)",
+     "ano": "2009",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    }
+   ],
+   "criterio": "Referência: percepção de deputados federais, que posicionam partidos de 1 (esquerda) a 10 (direita) nas ondas do BLS. Nesta versão as notas são estimativas do site calibradas pela ordem esperada, não valores da pesquisa; a régua é provisória até a troca pelos valores da tabela primária.",
+   "escala_original": "1 a 10 nas ondas do BLS (1990 a 2017); versões posteriores padronizam entre -1 e +1. Conversão prevista: nota = (média - 1) / 9 x 100; para z, nota = (z + 1) x 50. Nenhum valor desta régua foi convertido de tabela.",
+   "cortes_nativos": "0-33 / 34-66 / 67-100 (convenção do site).",
+   "vinculos_e_perfil": "Pesquisadores acadêmicos em ciência política; vínculos partidários não conhecidos pelo site. Dados institucionais a conferir.",
+   "criticas_ao_criterio": "Percepção de deputados mistura economia, costumes e posição de governo; a escala unidimensional é criticada por isso. Os próprios autores tratam o eixo governo x oposição como dimensão concorrente (a conferir).",
+   "contagem_metodo": {
+    "publicada": 0,
+    "derivada": 0,
+    "estimada": 23
+   },
+   "contagem_ancora": 1,
+   "contagem_sem_dado": 10,
+   "posicoes": {
+    "pstu": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "PSTU nunca elegeu deputado federal: fora da cobertura do BLS."
+    },
+    "pco": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "PCO nunca elegeu deputado federal: fora da cobertura do BLS."
+    },
+    "psol": {
+     "nota": 6,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Entre os partidos percebidos mais à esquerda pelos deputados; estimativa do site, não conferida na tabela."
+    },
+    "pcdob": {
+     "nota": 8,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Entre os partidos mais à esquerda nas ondas do BLS; estimativa do site, não conferida."
+    },
+    "pt": {
+     "nota": 14,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Partido mais estável à esquerda entre os grandes na série do BLS; estimativa do site, não conferida."
+    },
+    "psb": {
+     "nota": 28,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Centro-esquerda nas ondas do BLS; estimativa do site, não conferida."
+    },
+    "pdt": {
+     "nota": 30,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Centro-esquerda nas ondas do BLS; estimativa do site, não conferida."
+    },
+    "rede": {
+     "nota": 34,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Bancada pequena e cobertura limitada; sem série para ancorar."
+    },
+    "pv": {
+     "nota": 38,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Percebido no centro-esquerda; pouca base de bancada."
+    },
+    "mdb": {
+     "nota": 53,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Partido mais central nas ondas do BLS; estimativa do site, não conferida."
+    },
+    "psd": {
+     "nota": 60,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Governismo pragmático; poucas ondas do BLS."
+    },
+    "psdb": {
+     "nota": 56,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Do centro-esquerda/centro ao centro-direita; a nota resume o período."
+    },
+    "cidadania": {
+     "nota": 46,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "PPS migra do centro-esquerda ao centro; mudança de nome quebra a série."
+    },
+    "podemos": {
+     "nota": 54,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Cobertura limitada; centro, levemente à direita do ponto médio."
+    },
+    "uniao": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "União Brasil é de 2022, posterior às ondas do BLS (os antecessores DEM e PSL não foram usados)."
+    },
+    "pp": {
+     "nota": 75,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Entre os mais à direita nas ondas do BLS; governista."
+    },
+    "republicanos": {
+     "nota": 70,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Direita moderada nas ondas do BLS; cobertura parcial (ex-PRB)."
+    },
+    "pl": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "A nota refere-se à fase atual do PL, posterior às ondas do BLS (até 2017); a fase PR/PL anterior era de Centrão."
+    },
+    "novo": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "Novo é posterior às ondas do BLS (primeira bancada em 2019)."
+    },
+    "centrao": {
+     "nota": 65,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Média simples de MDB, PSD, PP e Republicanos nesta régua (64,5); União Brasil sem nota nesta régua; PL sem nota nesta régua. Tática de governo, não doutrina.",
+     "decomposicao": {
+      "composicao": [
+       "mdb",
+       "psd",
+       "pp",
+       "republicanos"
+      ],
+      "media": 64.5,
+      "sensibilidade_com_pl": null
+     }
+    },
+    "fhc": {
+     "nota": 56,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Julgamento do analista a partir da posição do PSDB e da coalizão. Partido do presidente PSDB (56); base (MDB, PP) = 64,0; fórmula 0,5/0,5 = 60,0 (sem União Brasil nesta régua); ajuste de políticas −4,0 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "psdb",
+      "nota_partido": 56,
+      "base": [
+       "uniao",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 64.0,
+      "formula_50_50": 60.0,
+      "ajuste_politicas": -4.0,
+      "julgamento_anterior_do_analista": 56,
+      "residuo_bruto": -4.0,
+      "base_sem_nota": [
+       "uniao"
+      ]
+     }
+    },
+    "lula12": {
+     "nota": 28,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "PT (14) com coalizão ampliada e ortodoxia fiscal; à direita do PT. Partido do presidente PT (14); base (PSB, PDT, PCdoB, MDB, PP) = 38,8; fórmula 0,5/0,5 = 26,4; ajuste de políticas +1,6 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 14,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp"
+      ],
+      "centroide_base": 38.8,
+      "formula_50_50": 26.4,
+      "ajuste_politicas": 1.6,
+      "julgamento_anterior_do_analista": 28,
+      "residuo_bruto": 1.6
+     }
+    },
+    "dilma": {
+     "nota": 29,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "PT, PMDB e aliados; política industrial e ajuste de 2015. Partido do presidente PT (14); base (PSB, PDT, PCdoB, MDB, PP, PSD, Republicanos) = 46,3; fórmula 0,5/0,5 = 30,1; ajuste de políticas −1,1 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "pt",
+      "nota_partido": 14,
+      "base": [
+       "psb",
+       "pdt",
+       "pcdob",
+       "mdb",
+       "pp",
+       "psd",
+       "republicanos"
+      ],
+      "centroide_base": 46.3,
+      "formula_50_50": 30.1,
+      "ajuste_politicas": -1.1,
+      "julgamento_anterior_do_analista": 29,
+      "residuo_bruto": -1.1
+     }
+    },
+    "temer": {
+     "nota": 62,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "MDB, PSDB, DEM, PP, PSD; EC 95 e reforma trabalhista. Partido do presidente MDB (53); base (PSDB, PP, PSD, Republicanos, Cidadania) = 61,4; fórmula 0,5/0,5 = 57,2 (sem União Brasil nesta régua); ajuste de políticas +5,0 (limite de 5 pontos).",
+     "decomposicao": {
+      "partido": "mdb",
+      "nota_partido": 53,
+      "base": [
+       "psdb",
+       "uniao",
+       "pp",
+       "psd",
+       "republicanos",
+       "cidadania"
+      ],
+      "centroide_base": 61.4,
+      "formula_50_50": 57.2,
+      "ajuste_politicas": 5.0,
+      "julgamento_anterior_do_analista": 66,
+      "residuo_bruto": 8.8,
+      "base_sem_nota": [
+       "uniao"
+      ]
+     }
+    },
+    "bolsonaro": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "Governo posterior às ondas do BLS (até 2017)."
+    },
+    "lula3": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "Governo posterior às ondas do BLS (até 2017)."
+    },
+    "comunismo-marxista-leninista": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "Família ancorada em PSTU e PCO, sem cobertura."
+    },
+    "socialismo-democratico": {
+     "nota": 10,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Família não coberta; ancorada em PSOL e PCdoB."
+    },
+    "social-democracia": {
+     "nota": 28,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Família não coberta; ancorada em PSB e PDT."
+    },
+    "liberalismo-social": {
+     "nota": 42,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Família não coberta; ancorada em Rede, Cidadania e PSDB das origens."
+    },
+    "centro": {
+     "nota": 50,
+     "metodo": "ancora",
+     "confianca": "alta",
+     "justificativa": "Âncora: vale 50 por construção; empiricamente MDB (53) e Podemos (54)."
+    },
+    "liberalismo-economico": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "Família ancorada no Novo, sem cobertura."
+    },
+    "conservadorismo": {
+     "nota": 72,
+     "metodo": "estimada",
+     "confianca": "baixa",
+     "justificativa": "Família não coberta; ancorada em PP e Republicanos."
+    },
+    "direita-radical": {
+     "nota": null,
+     "metodo": "sem_dado",
+     "confianca": null,
+     "justificativa": "Família ancorada em PL e Bolsonaro, posteriores às ondas."
+    }
+   },
+   "zonas_nota": "Sobreposição editorial do site, não achado da fonte; régua provisória.",
+   "zonas_limiares": {
+    "socialismo_ate": 12,
+    "comunismo_ate": 7,
+    "socialismo_real_ate": 2,
+    "direita_distante_desde": 88,
+    "fascismo_desde": 93,
+    "nazismo_desde": 98
+   },
+   "zonas": [
+    {
+     "tipo": "socialismo",
+     "rotulo": "Socialismo (família ampla)",
+     "lado": "esquerda",
+     "par": "A",
+     "a_partir_de": 12,
+     "comparador": "<=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"direita distante\". Inclui socialismo democrático e de Estado; o eixo 2 os distingue. Estar na zona não classifica o ator.",
+     "espelho_de": "direita_distante"
+    },
+    {
+     "tipo": "comunismo",
+     "rotulo": "Comunismo (marcador histórico)",
+     "lado": "esquerda",
+     "par": "B",
+     "a_partir_de": 7,
+     "comparador": "<=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência. O rótulo só se aplica com eixo 2 autoritário (partido único) e objetivo de abolir a propriedade privada dos meios de produção; estar na zona não classifica o ator (PSTU e PCO, que disputam eleições e criticam o modelo soviético, não são equiparados a regime).",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "fascismo"
+    },
+    {
+     "tipo": "socialismo_real",
+     "rotulo": "Socialismo real (regimes de partido único)",
+     "lado": "esquerda",
+     "par": "C",
+     "a_partir_de": 2,
+     "comparador": "<=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Zona de regime (Estados de partido único com economia planificada); nenhum partido de democracia competitiva é pontuado aqui. Par de \"nazismo\" por regra de desenho (100 - x), sem equivalência histórica ou moral.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "nazismo"
+    },
+    {
+     "tipo": "direita_distante",
+     "rotulo": "Direita distante do centro",
+     "lado": "direita",
+     "par": "A",
+     "a_partir_de": 88,
+     "comparador": ">=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"socialismo\" (limiar = 100 - x). Pode incluir famílias democráticas e não democráticas; não é \"direita radical\" nem regime. Estar na zona não classifica o ator.",
+     "espelho_de": "socialismo"
+    },
+    {
+     "tipo": "fascismo",
+     "rotulo": "Fascismo (marcador histórico)",
+     "lado": "direita",
+     "par": "B",
+     "a_partir_de": 93,
+     "comparador": ">=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência, par de \"comunismo\". O rótulo exige partido único, ultranacionalismo, culto ao líder, violência contra o pluralismo e ruptura com a democracia; estar perto da zona não classifica nenhum ator atual.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "comunismo"
+    },
+    {
+     "tipo": "nazismo",
+     "rotulo": "Nazismo (caso histórico)",
+     "lado": "direita",
+     "par": "C",
+     "a_partir_de": 98,
+     "comparador": ">=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Caso histórico de natureza distinta (hierarquia racial biológica, extermínio), não grau maior que o fascismo; ocupa a ponta por regra de desenho. Sem analogia com atores que disputam eleições dentro da lei.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "socialismo_real"
+    }
+   ],
+   "limites": [
+    "PROVISÓRIA: as notas são estimativas do analista, calibradas pela ordem e pela grandeza esperadas, e não valores de Power e Zucco. Substituir pelos valores da tabela, convertidos pela fórmula, antes de atribuí-los aos autores. Fora da média por padrão.",
+    "Sem nota: PSTU e PCO (nunca elegeram deputado federal), Novo e União Brasil (posteriores às ondas), PL na fase atual, governos Bolsonaro e Lula 3 (posteriores a 2017), e as famílias comunismo, liberalismo econômico e direita radical (ancoradas em atores sem cobertura).",
+    "Mede percepção de deputados, não conduta, votos ou políticas. A escala unidimensional mistura economia, costumes e regime. Partidos pequenos, novos ou sem bancada têm pouca ou nenhuma observação; mudanças de nome quebram séries. Existe número publicado para governos (Zucco e Power, 2024), ainda não incorporado."
+   ]
+  },
+  {
+   "id": "extremos",
+   "nome": "Teoria dos extremos (Bobbio, Linz, Arendt, Paxton, Mudde e outros)",
+   "papel": "auxiliar",
+   "entra_na_media": false,
+   "motivo_fora_da_media": "Reaproveita o critério de Bobbio (igualdade) e acrescenta tipologias de regime; entrar na média contaria duas vezes o mesmo critério. Serve para calibrar as zonas e a seção de extremos.",
+   "obras": [
+    {
+     "titulo": "Destra e sinistra (Bobbio)",
+     "ano": "1994",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Totalitarian and Authoritarian Regimes (Linz)",
+     "ano": "2000 (reedição de texto de 1975)",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "The Origins of Totalitarianism (Arendt)",
+     "ano": "1951",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Totalitarian Dictatorship and Autocracy (Friedrich e Brzezinski)",
+     "ano": "1956",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "The Anatomy of Fascism (Paxton)",
+     "ano": "2004",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    },
+    {
+     "titulo": "Ur-Fascism (Eco), The New York Review of Books",
+     "ano": "1995",
+     "verificado": true,
+     "origem_verificacao": "busca_rodada_atual"
+    },
+    {
+     "titulo": "Bolsonaro and Brazil's Illiberal Backlash (Hunter e Power), Journal of Democracy",
+     "ano": "2019",
+     "verificado": false,
+     "origem_verificacao": "memoria"
+    }
+   ],
+   "criterio": "Critério primário de Bobbio (igualdade) e secundário e ortogonal (liberdade: moderação x extremismo), que só desloca as pontas e define as zonas; tipologias de regime (Linz, Arendt) e de radicalismo (Mudde para a direita; March para a esquerda).",
+   "escala_original": "Nenhuma numérica; conversão 0-100 do site. Os limiares das zonas são espelhados (100 - x) por regra de desenho, sem afirmar equivalência histórica ou moral.",
+   "cortes_nativos": "Esquerda 0-42, centro 43-57, direita 58-100 (convenção do site).",
+   "vinculos_e_perfil": "Autores de teoria política, história e sociologia política de tradições diversas; sem vínculo partidário conhecido pelo site. A bibliografia brasileira sobre a direita (Hunter e Power) não tem contrapartida na lista sobre conduta democrática da esquerda; ver referencias_complementares.",
+   "criticas_ao_criterio": "A teoria da ferradura é criticada por equiparar fins distintos (igualdade x hierarquia). O site a cita apenas para dizer que descreve convergência de método.",
+   "contagem_metodo": {
+    "publicada": 0,
+    "derivada": 5,
+    "estimada": 2
+   },
+   "contagem_ancora": 1,
+   "contagem_sem_dado": 0,
+   "posicoes": {
+    "comunismo-marxista-leninista": {
+     "nota": 4,
+     "metodo": "derivada",
+     "confianca": "alta",
+     "justificativa": "Extrema-esquerda bobbiana; Linz classifica os regimes como totalitários ou pós-totalitários."
+    },
+    "socialismo-democratico": {
+     "nota": 19,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Igualitário e libertário; eleições e pluralismo."
+    },
+    "social-democracia": {
+     "nota": 34,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Igualitária e libertária; mercado com Estado de bem-estar."
+    },
+    "liberalismo-social": {
+     "nota": 42,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Mercado e liberdades com igualdade de oportunidades."
+    },
+    "centro": {
+     "nota": 50,
+     "metodo": "ancora",
+     "confianca": "alta",
+     "justificativa": "Âncora: vale 50 por construção (equidistância), não é medida e não entra nas contagens de método."
+    },
+    "liberalismo-economico": {
+     "nota": 66,
+     "metodo": "estimada",
+     "confianca": "media",
+     "justificativa": "Libertário e não igualitário no sentido econômico."
+    },
+    "conservadorismo": {
+     "nota": 72,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Centro-direita libertária e não igualitária."
+    },
+    "direita-radical": {
+     "nota": 84,
+     "metodo": "derivada",
+     "confianca": "media",
+     "justificativa": "Mudde: nativismo, autoritarismo e populismo; aceita eleições."
+    }
+   },
+   "zonas_nota": "Limiares espelhados por regra de desenho (100 - x); não afirma equivalência histórica, moral ou de natureza. \"Extrema direita\" (Mudde, 2000) é conceito definido pelo eixo 2 e não tem limiar numérico.",
+   "zonas": [
+    {
+     "tipo": "social_democracia",
+     "rotulo": "Social-democracia",
+     "lado": "esquerda",
+     "par": "A",
+     "a_partir_de": 40,
+     "comparador": "<=",
+     "natureza": "familia_democratica",
+     "classifica_ator": false,
+     "aviso": "Centro-esquerda libertária de Bobbio (igualitária e libertária).",
+     "espelho_de": "direita_democratica"
+    },
+    {
+     "tipo": "socialismo",
+     "rotulo": "Socialismo (família ampla)",
+     "lado": "esquerda",
+     "par": "B",
+     "a_partir_de": 22,
+     "comparador": "<=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Descreve o programa, não o regime. Marcador de distância ao centro, par de \"direita distante\". Inclui socialismo democrático e de Estado; o eixo 2 os distingue. Estar na zona não classifica o ator.",
+     "espelho_de": "direita_distante"
+    },
+    {
+     "tipo": "esquerda_radical",
+     "rotulo": "Esquerda radical",
+     "lado": "esquerda",
+     "par": "C",
+     "a_partir_de": 16,
+     "comparador": "<=",
+     "natureza": "categoria_da_literatura",
+     "classifica_ator": false,
+     "aviso": "Categoria de March e Mudde; exige evidência dos traços, o limiar só sinaliza onde procurar.",
+     "exige_eixo2": "tracos_da_literatura",
+     "espelho_de": "direita_radical"
+    },
+    {
+     "tipo": "comunismo",
+     "rotulo": "Comunismo (marcador histórico)",
+     "lado": "esquerda",
+     "par": "D",
+     "a_partir_de": 8,
+     "comparador": "<=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Marcador histórico de referência. O rótulo só se aplica com eixo 2 autoritário (partido único) e objetivo de abolir a propriedade privada dos meios de produção; estar na zona não classifica o ator (PSTU e PCO, que disputam eleições e criticam o modelo soviético, não são equiparados a regime).",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "fascismo"
+    },
+    {
+     "tipo": "socialismo_real",
+     "rotulo": "Socialismo real (regimes de partido único)",
+     "lado": "esquerda",
+     "par": "E",
+     "a_partir_de": 3,
+     "comparador": "<=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Linz distingue totalitário (URSS estalinista, China maoísta) de pós-totalitário (Europa Oriental tardia). Zona de regime (Estados de partido único com economia planificada); nenhum partido de democracia competitiva é pontuado aqui. Par de \"nazismo\" por regra de desenho (100 - x), sem equivalência histórica ou moral.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "nazismo"
+    },
+    {
+     "tipo": "direita_democratica",
+     "rotulo": "Direita democrática (conservadorismo e liberalismo econômico)",
+     "lado": "direita",
+     "par": "A",
+     "a_partir_de": 60,
+     "comparador": ">=",
+     "natureza": "familia_democratica",
+     "classifica_ator": false,
+     "aviso": "Centro-direita libertária de Bobbio (libertária e não igualitária).",
+     "espelho_de": "social_democracia"
+    },
+    {
+     "tipo": "direita_distante",
+     "rotulo": "Direita distante do centro",
+     "lado": "direita",
+     "par": "B",
+     "a_partir_de": 78,
+     "comparador": ">=",
+     "natureza": "marcador_de_distancia",
+     "classifica_ator": false,
+     "aviso": "Marcador de distância ao centro, par de \"socialismo\" (limiar = 100 - x). Pode incluir famílias democráticas e não democráticas; não é \"direita radical\" nem regime. Estar na zona não classifica o ator.",
+     "espelho_de": "socialismo"
+    },
+    {
+     "tipo": "direita_radical",
+     "rotulo": "Direita radical",
+     "lado": "direita",
+     "par": "C",
+     "a_partir_de": 84,
+     "comparador": ">=",
+     "natureza": "categoria_da_literatura",
+     "classifica_ator": false,
+     "aviso": "Mudde: nativismo, autoritarismo e populismo; exige evidência nos três traços; aceita eleições.",
+     "exige_eixo2": "tracos_da_literatura",
+     "espelho_de": "esquerda_radical"
+    },
+    {
+     "tipo": "fascismo",
+     "rotulo": "Fascismo (marcador histórico)",
+     "lado": "direita",
+     "par": "D",
+     "a_partir_de": 92,
+     "comparador": ">=",
+     "natureza": "marcador_historico",
+     "classifica_ator": false,
+     "aviso": "Paxton: mobilização nacionalista de massas de militantes comprometidos; Griffin: ultranacionalismo palingenético; Gentile: partido-milícia; Eco: o Ur-fascismo é um conjunto de traços sem sistema, em que um único traço pode bastar para o fascismo se cristalizar, por isso a lista serve de alerta cultural e não de definição operacional; Arendt: a Itália fascista não foi plenamente totalitária.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "comunismo"
+    },
+    {
+     "tipo": "nazismo",
+     "rotulo": "Nazismo (caso histórico)",
+     "lado": "direita",
+     "par": "E",
+     "a_partir_de": 97,
+     "comparador": ">=",
+     "natureza": "marcador_de_regime",
+     "classifica_ator": false,
+     "aviso": "Caso histórico de natureza distinta (hierarquia racial biológica, extermínio), não grau maior que o fascismo; ocupa a ponta por regra de desenho. Sem analogia com atores que disputam eleições dentro da lei.",
+     "exige_eixo2": "autoritario",
+     "espelho_de": "socialismo_real"
+    }
+   ],
+   "limites": [
+    "Nenhum dos autores atribuiu notas 0-100: todas são operacionalização do site. Esta ficha reaproveita o critério de Bobbio e por isso não entra na média.",
+    "Os limiares espelhados (40/60, 22/78, 16/84, 8/92, 3/97) são regra de desenho: o espelho vale para a posição na linha (mesma distância ao centro), não para a natureza histórica das categorias. A ferradura descreve convergência de método, não de fins.",
+    "Pertencer a uma zona não significa identidade com o regime homônimo: PCO e PSTU na zona 'comunismo' não equivalem ao estalinismo, e o PL na zona 'direita distante' não equivale a fascismo."
+   ],
+   "cobertura": "Régua auxiliar: exibe só as 8 famílias ideológicas. As notas desta ficha para partidos e governos não foram calculadas para exibição."
+  }
+ ],
+ "zonas_tipos": {
+  "socialismo": "Família ampla de propostas de propriedade social ampliada ou de planejamento econômico. Inclui o socialismo democrático (pluralismo e eleições) e o socialismo de Estado, que a nota não distingue; quem os distingue é o eixo 2. Marcador de distância ao centro no eixo da igualdade, par de 'direita distante' (mesma distância a 50). Não equivale a comunismo nem a socialismo real.",
+  "direita_distante": "Marcador de distância ao centro no eixo da igualdade, espelho de 'socialismo' (limiar = 100 - x). Famílias democráticas (liberalismo econômico de Estado mínimo, conservadorismo) e não democráticas podem estar na zona; o eixo 2 as distingue. Não é rótulo doutrinário nem de regime e não equivale a 'direita radical' (Mudde), que exige nativismo, autoritarismo e populismo.",
+  "comunismo": "Três sentidos distintos: horizonte teórico (sociedade sem classes e sem Estado), doutrina marxista-leninista (partido de vanguarda, abolição da propriedade privada dos meios de produção) e regimes que se declararam comunistas. Marcador histórico de referência: pontua doutrina e programa, não o nome do partido; partido que disputa eleições nesta zona não é equiparado a regime de partido único.",
+  "fascismo": "Movimento e regime histórico do entreguerras (Itália, 1922-1943): partido único, ultranacionalismo, culto ao líder, corporativismo, violência contra o pluralismo e ambição totalitária, com economia mista e forte intervenção estatal. Define-se por esses traços, não só pela posição no eixo. O rótulo não vale para partidos ou governos que competem em democracia, nem para conservadores e liberais. Fascismo e nazismo não são sinônimos.",
+  "socialismo_real": "Zona de regime, não de partido: Estados de partido único com economia planificada e restrição ao pluralismo (URSS, Leste Europeu, China, Cuba), que diferem muito entre si e no tempo (Linz: totalitário, pós-totalitário). Nenhum partido de democracia competitiva deve ser pontuado aqui. Ocupa a ponta por regra de desenho (mesma distância a 0 que o nazismo a 100); isso não afirma equivalência histórica, moral ou de natureza.",
+  "nazismo": "Alemanha, 1933-1945: hierarquia racial biológica, antissemitismo exterminista, expansionismo, partido único e genocídio. Caso histórico específico, tratado por muitos autores como variante do fascismo e por outros como categoria própria; estar acima do fascismo na régua é notação de posição, não medida de intensidade nem de grau: a diferença é de natureza. Nacional-socialismo é nome de movimento, não classificação: o regime reprimiu sindicatos e partidos de esquerda e não é socialismo.",
+  "social_democracia": "Aceita mercado e propriedade privada e corrige desigualdades por tributação progressiva, regulação e Estado de bem-estar, com pluralismo pleno. Não é sinônimo de socialismo.",
+  "direita_democratica": "Aceita pluralismo e eleições; limita a igualdade em grande parte à igualdade perante a lei e valoriza mercado, tradição ou ordem. Reúne conservadorismo e liberalismo econômico democráticos; não é fascismo nem direita radical. Par simétrico de 'social-democracia'.",
+  "esquerda_radical": "Categoria da literatura (March e Mudde): alta intensidade igualitária, em geral dentro da democracia. Radical mede intensidade e posição diante do sistema; não é sinônimo de extremo, de revolucionário armado nem de antidemocrático. A aplicação a atores concretos exige evidência dos traços; o limiar numérico só sinaliza onde procurar.",
+  "direita_radical": "Categoria da literatura (Mudde): combina nativismo, autoritarismo e populismo, aceita eleições e contesta o liberalismo constitucional. Não equivale a fascismo. A aplicação a atores concretos exige evidência dos três traços; o limiar numérico só sinaliza onde procurar. Par simétrico de 'esquerda radical'.",
+  "extremo_posicional": "Corte de posição relativa extrema entre os partidos pesquisados (Bolognesi et al.); não designa ideologia histórica, regime nem caráter antidemocrático.",
+  "extrema_direita": "Conceito sem limiar numérico: rejeita a soberania popular e a regra da maioria e pode legitimar violência política (Mudde, 2000); vai além da direita radical por rejeitar o método democrático. Ainda não implica fascismo. Definida pelo eixo 2, não pela nota."
+ },
+ "eixo2": {
+  "status": "em_conferencia",
+  "natureza": "Indicador do site, separado da nota e fora da régua de Bobbio: Bobbio define moderados e extremistas por doutrinas e orientações, não por conduta partidária. Nenhum selo por partido ou governo é exibido nesta versão.",
+  "regra_de_publicacao": "Um selo por ator só é exibido quando a rubrica abaixo estiver preenchida para os 19 partidos e os 6 governos, com data, fonte e checagem de cada item, no mesmo registro verbal para os dois lados, e depois de revisão jurídica das frases que citam decisões judiciais (atenção ao período eleitoral de 2026).",
+  "rubrica": [
+   {
+    "id": "r1",
+    "criterio": "Eleições competitivas e alternância no poder",
+    "evidencia_aceita": "Participação em eleições competitivas e aceitação da alternância (registros do TSE)."
+   },
+   {
+    "id": "r2",
+    "criterio": "Reconhecimento de resultados eleitorais",
+    "evidencia_aceita": "Atos do ator como instituição (nota oficial do diretório nacional, ação judicial, voto de bancada) ou decisão judicial definitiva. A contestação por via jurídica (por exemplo, pedido ao TSE) é distinguida da ruptura extrainstitucional."
+   },
+   {
+    "id": "r3",
+    "criterio": "Estado de direito e liberdades civis",
+    "evidencia_aceita": "Atos de governo ou de bancada documentados e decisões judiciais definitivas que envolvam o ator como instituição; condutas de pessoas não são atribuídas ao partido sem ato do partido."
+   }
+  ],
+  "familias": {
+   "criterio": "doutrina (o mesmo critério para todas as famílias, dos dois lados)",
+   "valores": {
+    "comunismo-marxista-leninista": "autoritária na doutrina clássica (partido de vanguarda e partido único)",
+    "socialismo-democratico": "democrática na doutrina (pluralismo e eleições)",
+    "social-democracia": "democrática na doutrina",
+    "liberalismo-social": "democrática na doutrina",
+    "centro": "não determinado (âncora, sem doutrina própria)",
+    "liberalismo-economico": "democrática na doutrina",
+    "conservadorismo": "democrática na doutrina",
+    "direita-radical": "autoritária na definição de Mudde (nativismo, autoritarismo e populismo), mas aceita eleições"
+   }
+  },
+  "partidos_e_governos": "sem_registro_publicado",
+  "fatos_candidatos_a_registro": [
+   {
+    "lado": "direita",
+    "ator": "pl, bolsonaro",
+    "fato": "Decisão do STF de 2025 que condenou o ex-presidente por crimes ligados à tentativa de abolição violenta do Estado democrático de direito (a defesa e aliados contestam).",
+    "criterio": "r3",
+    "data": "a conferir",
+    "fonte": "a conferir"
+   },
+   {
+    "lado": "direita",
+    "ator": "pl, bolsonaro",
+    "fato": "Contestação pública do sistema eletrônico de votação por lideranças em 2021 e 2022 (quem, quando e se ato do partido: a conferir).",
+    "criterio": "r2",
+    "data": "a conferir",
+    "fonte": "a conferir"
+   },
+   {
+    "lado": "direita",
+    "ator": "pl",
+    "fato": "Atos de 8 de janeiro de 2023: fato público; a atribuição ao partido como instituição não está estabelecida.",
+    "criterio": "r3",
+    "data": "a conferir",
+    "fonte": "a conferir"
+   },
+   {
+    "lado": "centro-direita",
+    "ator": "psdb",
+    "fato": "Pedido de auditoria do resultado eleitoral de 2014 ao TSE (via jurídica).",
+    "criterio": "r2",
+    "data": "a conferir",
+    "fonte": "a conferir"
+   },
+   {
+    "lado": "esquerda",
+    "ator": "pt, pcdob",
+    "fato": "Caracterização do impeachment de 2016 como 'golpe' em notas e discursos (questão contestada no debate público).",
+    "criterio": "r3",
+    "data": "a conferir",
+    "fonte": "a conferir"
+   },
+   {
+    "lado": "esquerda",
+    "ator": "pt, pcdob, pco, pstu",
+    "fato": "Declarações de solidariedade a governos de partido dominante no exterior (Cuba, Venezuela, Nicarágua), registradas como posição de política externa (texto, data e autoria a conferir).",
+    "criterio": "r1, r3",
+    "data": "a conferir",
+    "fonte": "a conferir"
+   },
+   {
+    "lado": "esquerda",
+    "ator": "pcdob",
+    "fato": "Tradição marxista-leninista declarada no programa partidário (a conferir).",
+    "criterio": "r3",
+    "data": "a conferir",
+    "fonte": "a conferir"
+   }
+  ]
+ },
+ "referencias_complementares": [
+  {
+   "titulo": "Hunter, W. The Transformation of the Workers' Party in Brazil, 1989-2009 (Cambridge University Press) - sobre o PT no poder",
+   "ano": "2010",
+   "verificado": false,
+   "origem_verificacao": "memoria"
+  },
+  {
+   "titulo": "Samuels, D. e Zucco, C. Partisans, Antipartisans, and Nonpartisans: Voting Behavior in Brazil (Cambridge University Press)",
+   "ano": "2018",
+   "verificado": false,
+   "origem_verificacao": "memoria"
+  },
+  {
+   "titulo": "Rodrigues, L. M. Partidos, ideologia e composição social: um estudo das bancadas partidárias na Câmara dos Deputados (EdUSP; título, editora e ano a conferir)",
+   "ano": "2002",
+   "verificado": false,
+   "origem_verificacao": "memoria"
+  },
+  {
+   "titulo": "Lamounier, B. (obras sobre o sistema partidário brasileiro, tradição liberal; títulos a conferir)",
+   "ano": "",
+   "verificado": false,
+   "origem_verificacao": "memoria"
+  }
+ ],
+ "media": {
+  "metodo": "Média aritmética simples entre as réguas incluídas que têm nota para o ator (peso igual, sem reescalonar). Mínimo e máximo sobre as mesmas réguas mostram a dispersão, lida como incerteza. Mediana e média ponderada por método (publicada 1,0; derivada 0,75; estimada 0,5) servem só de teste de sensibilidade e não são exibidas. A faixa é calculada uma só vez, sobre a média não arredondada; a média é guardada com uma casa decimal e exibida como inteiro.",
+  "autores_incluidos": [
+   "bobbio",
+   "sartori",
+   "singer",
+   "nicolau",
+   "bolognesi",
+   "votacoes"
+  ],
+  "autores_fora_da_media_por_padrao": [
+   {
+    "id": "power_zucco",
+    "motivo": "As 23 notas são estimativas do analista: as tabelas primárias (médias por partido, Tabela C1 de 2024, Dataverse do BLS) não puderam ser abertas. Atores e fases posteriores a 2017 ou sem bancada ficam sem nota. Zucco e Power (2024) publicam estimativas revisadas de partidos e posições de presidentes desde 1985: a régua deve ser refeita com esses valores e só então entrar na média.",
+    "ligavel_pelo_usuario": true
+   },
+   {
+    "id": "extremos",
+    "motivo": "Reaproveita o critério de Bobbio (igualdade) e acrescenta tipologias de regime; entrar na média contaria duas vezes o mesmo critério. Serve para calibrar as zonas e a seção de extremos.",
+    "ligavel_pelo_usuario": false
+   }
+  ],
+  "regras": {
+   "formula": "media = soma(nota_autor) / n; min e max entre as mesmas réguas; n = réguas incluídas com nota válida para o ator",
+   "autor_sem_dado": "Régua sem nota válida para o ator sai do cálculo daquele ator (nunca entra como 0 ou 50) e a interface avisa 'média de n autores'.",
+   "n_minimo_para_exibir": 3,
+   "aviso_se_n_menor_que": 5,
+   "faixa_do_ator": "Classificar a média não arredondada: arredonda-se ao inteiro em direção ao centro (14,5 vai para a faixa Esquerda; 85,5 para a faixa Direita) e procura-se a faixa. faixaDe(x) e faixaDe(100 - x) são espelhos.",
+   "dispersao": {
+    "baixa": "amplitude até 10 pontos",
+    "media": "amplitude acima de 10 e até 20",
+    "alta": "amplitude acima de 20"
+   },
+   "exibicao": "Interface: média como inteiro, com o intervalo mínimo-máximo também inteiro; o JSON guarda uma casa decimal.",
+   "ancora": "O ator centro vale 50 em todas as réguas por construção: é âncora, não medida; fica fora de contagens de método, correlações e vieses."
+  },
+  "sensibilidade": {
+   "max_dif_simples_ponderada": {
+    "pontos": 1.6,
+    "ator": "psdb",
+    "mudam_de_faixa": []
+   },
+   "max_dif_simples_mediana": {
+    "pontos": 2.5,
+    "ator": "fhc",
+    "mudam_de_faixa": [
+     "mdb",
+     "pp",
+     "socialismo-democratico"
+    ]
+   },
+   "retirar_autor": {
+    "bobbio": {
+     "max_mudanca": 1.2,
+     "ator": "lula12",
+     "mudam_de_faixa": []
+    },
+    "sartori": {
+     "max_mudanca": 1.4,
+     "ator": "psdb",
+     "mudam_de_faixa": []
+    },
+    "singer": {
+     "max_mudanca": 1.1,
+     "ator": "novo",
+     "mudam_de_faixa": []
+    },
+    "nicolau": {
+     "max_mudanca": 1.2,
+     "ator": "liberalismo-economico",
+     "mudam_de_faixa": []
+    },
+    "bolognesi": {
+     "max_mudanca": 2.9,
+     "ator": "fhc",
+     "mudam_de_faixa": [
+      "mdb",
+      "psdb",
+      "pp",
+      "social-democracia"
+     ]
+    },
+    "votacoes": {
+     "max_mudanca": 2.1,
+     "ator": "pv",
+     "mudam_de_faixa": [
+      "socialismo-democratico"
+     ]
+    }
+   },
+   "vies_medio_pontos": {
+    "bobbio": -1.3,
+    "sartori": -0.2,
+    "singer": -1.1,
+    "nicolau": 0.1,
+    "bolognesi": 6.2,
+    "votacoes": -3.7,
+    "power_zucco": -3.7
+   },
+   "vies_base": "33 atores, sem a âncora centro; média de cada régua menos a média das seis réguas",
+   "spearman_entre_reguas": {
+    "media": 0.982,
+    "minimo": 0.97,
+    "maximo": 0.991,
+    "pares": {
+     "bobbio|sartori": 0.986,
+     "bobbio|singer": 0.985,
+     "bobbio|nicolau": 0.985,
+     "bobbio|bolognesi": 0.97,
+     "bobbio|votacoes": 0.979,
+     "sartori|singer": 0.99,
+     "sartori|nicolau": 0.989,
+     "sartori|bolognesi": 0.976,
+     "sartori|votacoes": 0.98,
+     "singer|nicolau": 0.991,
+     "singer|bolognesi": 0.981,
+     "singer|votacoes": 0.982,
+     "nicolau|bolognesi": 0.979,
+     "nicolau|votacoes": 0.984,
+     "bolognesi|votacoes": 0.973
+    },
+    "nota": "Mede coerência interna do analista, não concordância independente; calculado sem a âncora."
+   }
+  },
+  "posicoes": {
+   "pstu": {
+    "media": 5.2,
+    "min": 3,
+    "max": 8,
+    "n": 6,
+    "faixa": "faixa_esq_alta",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 5.2,
+      "faixa": "faixa_esq_alta"
+     },
+     "com_provisoria": {
+      "media": 5.2,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 5.4
+     },
+     "mediana": {
+      "valor": 5.1
+     },
+     "retirando_autor": {
+      "bobbio": 5.0,
+      "sartori": 4.6,
+      "singer": 5.6,
+      "nicolau": 5.4,
+      "bolognesi": 5.2,
+      "votacoes": 5.2
+     }
+    }
+   },
+   "pco": {
+    "media": 5.4,
+    "min": 4,
+    "max": 7,
+    "n": 6,
+    "faixa": "faixa_esq_alta",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 5.2,
+      "faixa": "faixa_esq_alta"
+     },
+     "com_provisoria": {
+      "media": 5.4,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 5.5
+     },
+     "mediana": {
+      "valor": 5.0
+     },
+     "retirando_autor": {
+      "bobbio": 5.4,
+      "sartori": 5.0,
+      "singer": 5.4,
+      "nicolau": 5.4,
+      "bolognesi": 5.2,
+      "votacoes": 5.6
+     }
+    }
+   },
+   "psol": {
+    "media": 13.0,
+    "min": 7,
+    "max": 18,
+    "n": 6,
+    "faixa": "faixa_esq_alta",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 13.0,
+      "faixa": "faixa_esq_alta"
+     },
+     "com_provisoria": {
+      "media": 12.0,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 13.0
+     },
+     "mediana": {
+      "valor": 13.0
+     },
+     "retirando_autor": {
+      "bobbio": 12.8,
+      "sartori": 12.0,
+      "singer": 13.0,
+      "nicolau": 13.0,
+      "bolognesi": 13.0,
+      "votacoes": 14.2
+     }
+    }
+   },
+   "pcdob": {
+    "media": 16.5,
+    "min": 13,
+    "max": 19.2,
+    "n": 6,
+    "faixa": "faixa_esq",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 16.0,
+      "faixa": "faixa_esq"
+     },
+     "com_provisoria": {
+      "media": 15.3,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 17.1
+     },
+     "mediana": {
+      "valor": 17.0
+     },
+     "retirando_autor": {
+      "bobbio": 16.4,
+      "sartori": 17.0,
+      "singer": 16.0,
+      "nicolau": 16.4,
+      "bolognesi": 16.0,
+      "votacoes": 17.2
+     }
+    }
+   },
+   "pt": {
+    "media": 26.6,
+    "min": 20,
+    "max": 30,
+    "n": 6,
+    "faixa": "faixa_esq",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 26.0,
+      "faixa": "faixa_esq"
+     },
+     "com_provisoria": {
+      "media": 24.8,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 27.1
+     },
+     "mediana": {
+      "valor": 27.5
+     },
+     "retirando_autor": {
+      "bobbio": 26.9,
+      "sartori": 26.7,
+      "singer": 26.1,
+      "nicolau": 25.9,
+      "bolognesi": 26.0,
+      "votacoes": 27.9
+     }
+    }
+   },
+   "psb": {
+    "media": 33.9,
+    "min": 26,
+    "max": 40.5,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 32.6,
+      "faixa": "faixa_c_esq"
+     },
+     "com_provisoria": {
+      "media": 33.1,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 34.6
+     },
+     "mediana": {
+      "valor": 35.0
+     },
+     "retirando_autor": {
+      "bobbio": 34.5,
+      "sartori": 33.5,
+      "singer": 33.9,
+      "nicolau": 33.5,
+      "bolognesi": 32.6,
+      "votacoes": 35.5
+     }
+    }
+   },
+   "pdt": {
+    "media": 35.2,
+    "min": 30,
+    "max": 39.2,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 34.4,
+      "faixa": "faixa_c_esq"
+     },
+     "com_provisoria": {
+      "media": 34.5,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 35.6
+     },
+     "mediana": {
+      "valor": 36.0
+     },
+     "retirando_autor": {
+      "bobbio": 35.6,
+      "sartori": 34.8,
+      "singer": 35.2,
+      "nicolau": 34.8,
+      "bolognesi": 34.4,
+      "votacoes": 36.2
+     }
+    }
+   },
+   "rede": {
+    "media": 33.3,
+    "min": 24,
+    "max": 37,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 32.6,
+      "faixa": "faixa_c_esq"
+     },
+     "com_provisoria": {
+      "media": 33.4,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 33.8
+     },
+     "mediana": {
+      "valor": 35.0
+     },
+     "retirando_autor": {
+      "bobbio": 32.6,
+      "sartori": 32.6,
+      "singer": 33.4,
+      "nicolau": 33.6,
+      "bolognesi": 32.6,
+      "votacoes": 35.2
+     }
+    }
+   },
+   "pv": {
+    "media": 38.5,
+    "min": 28,
+    "max": 42,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 38.0,
+      "faixa": "faixa_c_esq"
+     },
+     "com_provisoria": {
+      "media": 38.5,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 38.9
+     },
+     "mediana": {
+      "valor": 40.0
+     },
+     "retirando_autor": {
+      "bobbio": 38.2,
+      "sartori": 37.8,
+      "singer": 38.2,
+      "nicolau": 38.2,
+      "bolognesi": 38.0,
+      "votacoes": 40.6
+     }
+    }
+   },
+   "mdb": {
+    "media": 57.0,
+    "min": 52,
+    "max": 70.1,
+    "n": 6,
+    "faixa": "faixa_c_dir",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 54.4,
+      "faixa": "faixa_centro"
+     },
+     "com_provisoria": {
+      "media": 56.4,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 58.0
+     },
+     "mediana": {
+      "valor": 55.0
+     },
+     "retirando_autor": {
+      "bobbio": 58.0,
+      "sartori": 57.4,
+      "singer": 57.4,
+      "nicolau": 57.2,
+      "bolognesi": 54.4,
+      "votacoes": 57.6
+     }
+    }
+   },
+   "psd": {
+    "media": 59.3,
+    "min": 55,
+    "max": 70.9,
+    "n": 6,
+    "faixa": "faixa_c_dir",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 57.0,
+      "faixa": "faixa_c_dir"
+     },
+     "com_provisoria": {
+      "media": 59.4,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 60.6
+     },
+     "mediana": {
+      "valor": 57.5
+     },
+     "retirando_autor": {
+      "bobbio": 60.2,
+      "sartori": 59.8,
+      "singer": 59.6,
+      "nicolau": 59.6,
+      "bolognesi": 57.0,
+      "votacoes": 59.8
+     }
+    }
+   },
+   "psdb": {
+    "media": 57.4,
+    "min": 49,
+    "max": 71.1,
+    "n": 6,
+    "faixa": "faixa_c_dir",
+    "dispersao": "alta",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 54.6,
+      "faixa": "faixa_centro"
+     },
+     "com_provisoria": {
+      "media": 57.2,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 59.0
+     },
+     "mediana": {
+      "valor": 57.0
+     },
+     "retirando_autor": {
+      "bobbio": 57.6,
+      "sartori": 58.8,
+      "singer": 57.2,
+      "nicolau": 56.8,
+      "bolognesi": 54.6,
+      "votacoes": 59.0
+     }
+    }
+   },
+   "cidadania": {
+    "media": 51.5,
+    "min": 46,
+    "max": 61.7,
+    "n": 6,
+    "faixa": "faixa_centro",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 49.4,
+      "faixa": "faixa_centro"
+     },
+     "com_provisoria": {
+      "media": 50.7,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 52.9
+     },
+     "mediana": {
+      "valor": 51.0
+     },
+     "retirando_autor": {
+      "bobbio": 51.5,
+      "sartori": 52.3,
+      "singer": 51.5,
+      "nicolau": 51.3,
+      "bolognesi": 49.4,
+      "votacoes": 52.5
+     }
+    }
+   },
+   "podemos": {
+    "media": 62.4,
+    "min": 60,
+    "max": 72.4,
+    "n": 6,
+    "faixa": "faixa_c_dir",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 60.4,
+      "faixa": "faixa_c_dir"
+     },
+     "com_provisoria": {
+      "media": 61.2,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 63.8
+     },
+     "mediana": {
+      "valor": 60.0
+     },
+     "retirando_autor": {
+      "bobbio": 62.5,
+      "sartori": 62.9,
+      "singer": 62.9,
+      "nicolau": 62.9,
+      "bolognesi": 60.4,
+      "votacoes": 62.9
+     }
+    }
+   },
+   "uniao": {
+    "media": 69.4,
+    "min": 65,
+    "max": 83.4,
+    "n": 6,
+    "faixa": "faixa_c_dir",
+    "dispersao": "media",
+    "no_limite": true,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 66.6,
+      "faixa": "faixa_c_dir"
+     },
+     "com_provisoria": {
+      "media": 69.4,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 70.5
+     },
+     "mediana": {
+      "valor": 67.0
+     },
+     "retirando_autor": {
+      "bobbio": 70.3,
+      "sartori": 69.7,
+      "singer": 70.1,
+      "nicolau": 69.9,
+      "bolognesi": 66.6,
+      "votacoes": 69.9
+     }
+    }
+   },
+   "pp": {
+    "media": 71.8,
+    "min": 67,
+    "max": 82,
+    "n": 6,
+    "faixa": "faixa_dir",
+    "dispersao": "media",
+    "no_limite": true,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 69.8,
+      "faixa": "faixa_c_dir"
+     },
+     "com_provisoria": {
+      "media": 72.3,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 73.0
+     },
+     "mediana": {
+      "valor": 70.5
+     },
+     "retirando_autor": {
+      "bobbio": 72.4,
+      "sartori": 71.8,
+      "singer": 72.8,
+      "nicolau": 72.0,
+      "bolognesi": 69.8,
+      "votacoes": 72.2
+     }
+    }
+   },
+   "republicanos": {
+    "media": 71.8,
+    "min": 68,
+    "max": 78,
+    "n": 6,
+    "faixa": "faixa_dir",
+    "dispersao": "baixa",
+    "no_limite": true,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 70.6,
+      "faixa": "faixa_dir"
+     },
+     "com_provisoria": {
+      "media": 71.6,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 71.7
+     },
+     "mediana": {
+      "valor": 71.5
+     },
+     "retirando_autor": {
+      "bobbio": 72.2,
+      "sartori": 71.6,
+      "singer": 72.4,
+      "nicolau": 71.6,
+      "bolognesi": 70.6,
+      "votacoes": 72.6
+     }
+    }
+   },
+   "pl": {
+    "media": 81.0,
+    "min": 77,
+    "max": 88,
+    "n": 6,
+    "faixa": "faixa_dir",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 79.6,
+      "faixa": "faixa_dir"
+     },
+     "com_provisoria": {
+      "media": 81.0,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 81.7
+     },
+     "mediana": {
+      "valor": 80.0
+     },
+     "retirando_autor": {
+      "bobbio": 81.8,
+      "sartori": 81.2,
+      "singer": 81.2,
+      "nicolau": 81.2,
+      "bolognesi": 79.6,
+      "votacoes": 81.0
+     }
+    }
+   },
+   "novo": {
+    "media": 81.4,
+    "min": 76,
+    "max": 86,
+    "n": 6,
+    "faixa": "faixa_dir",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 81.4,
+      "faixa": "faixa_dir"
+     },
+     "com_provisoria": {
+      "media": 81.4,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 81.7
+     },
+     "mediana": {
+      "valor": 82.2
+     },
+     "retirando_autor": {
+      "bobbio": 80.5,
+      "sartori": 82.1,
+      "singer": 82.5,
+      "nicolau": 81.1,
+      "bolognesi": 81.4,
+      "votacoes": 80.9
+     }
+    }
+   },
+   "centrao": {
+    "media": 65.8,
+    "min": 62,
+    "max": 76.9,
+    "n": 6,
+    "faixa": "faixa_c_dir",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 63.6,
+      "faixa": "faixa_c_dir"
+     },
+     "com_provisoria": {
+      "media": 65.7,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 66.0
+     },
+     "mediana": {
+      "valor": 64.0
+     },
+     "retirando_autor": {
+      "bobbio": 66.6,
+      "sartori": 66.0,
+      "singer": 66.4,
+      "nicolau": 66.0,
+      "bolognesi": 63.6,
+      "votacoes": 66.4
+     }
+    }
+   },
+   "fhc": {
+    "media": 60.5,
+    "min": 53,
+    "max": 74.8,
+    "n": 6,
+    "faixa": "faixa_c_dir",
+    "dispersao": "alta",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 57.6,
+      "faixa": "faixa_c_dir"
+     },
+     "com_provisoria": {
+      "media": 59.8,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 61.1
+     },
+     "mediana": {
+      "valor": 58.0
+     },
+     "retirando_autor": {
+      "bobbio": 61.2,
+      "sartori": 61.0,
+      "singer": 60.2,
+      "nicolau": 61.0,
+      "bolognesi": 57.6,
+      "votacoes": 62.0
+     }
+    }
+   },
+   "lula12": {
+    "media": 35.2,
+    "min": 29,
+    "max": 40.0,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 34.2,
+      "faixa": "faixa_c_esq"
+     },
+     "com_provisoria": {
+      "media": 34.1,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 35.3
+     },
+     "mediana": {
+      "valor": 37.0
+     },
+     "retirando_autor": {
+      "bobbio": 36.4,
+      "sartori": 34.6,
+      "singer": 35.0,
+      "nicolau": 34.4,
+      "bolognesi": 34.2,
+      "votacoes": 36.4
+     }
+    }
+   },
+   "dilma": {
+    "media": 35.9,
+    "min": 31,
+    "max": 43.4,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 34.4,
+      "faixa": "faixa_c_esq"
+     },
+     "com_provisoria": {
+      "media": 34.9,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 36.0
+     },
+     "mediana": {
+      "valor": 35.5
+     },
+     "retirando_autor": {
+      "bobbio": 36.9,
+      "sartori": 35.9,
+      "singer": 36.1,
+      "nicolau": 35.7,
+      "bolognesi": 34.4,
+      "votacoes": 36.5
+     }
+    }
+   },
+   "temer": {
+    "media": 63.7,
+    "min": 57,
+    "max": 72.3,
+    "n": 6,
+    "faixa": "faixa_c_dir",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 62.0,
+      "faixa": "faixa_c_dir"
+     },
+     "com_provisoria": {
+      "media": 63.5,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 64.1
+     },
+     "mediana": {
+      "valor": 63.0
+     },
+     "retirando_autor": {
+      "bobbio": 64.1,
+      "sartori": 63.9,
+      "singer": 63.9,
+      "nicolau": 63.5,
+      "bolognesi": 62.0,
+      "votacoes": 65.1
+     }
+    }
+   },
+   "bolsonaro": {
+    "media": 77.1,
+    "min": 72,
+    "max": 82.4,
+    "n": 6,
+    "faixa": "faixa_dir",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 76.0,
+      "faixa": "faixa_dir"
+     },
+     "com_provisoria": {
+      "media": 77.1,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 77.3
+     },
+     "mediana": {
+      "valor": 77.5
+     },
+     "retirando_autor": {
+      "bobbio": 77.5,
+      "sartori": 76.9,
+      "singer": 77.1,
+      "nicolau": 76.9,
+      "bolognesi": 76.0,
+      "votacoes": 78.1
+     }
+    }
+   },
+   "lula3": {
+    "media": 34.6,
+    "min": 29,
+    "max": 39.7,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 33.6,
+      "faixa": "faixa_c_esq"
+     },
+     "com_provisoria": {
+      "media": 34.6,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 34.8
+     },
+     "mediana": {
+      "valor": 35.0
+     },
+     "retirando_autor": {
+      "bobbio": 35.1,
+      "sartori": 34.5,
+      "singer": 34.1,
+      "nicolau": 34.5,
+      "bolognesi": 33.6,
+      "votacoes": 35.7
+     }
+    }
+   },
+   "comunismo-marxista-leninista": {
+    "media": 4.3,
+    "min": 3,
+    "max": 7,
+    "n": 6,
+    "faixa": "faixa_esq_alta",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 3.8,
+      "faixa": "faixa_esq_alta"
+     },
+     "com_provisoria": {
+      "media": 4.3,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 4.5
+     },
+     "mediana": {
+      "valor": 4.0
+     },
+     "retirando_autor": {
+      "bobbio": 4.4,
+      "sartori": 4.2,
+      "singer": 4.6,
+      "nicolau": 4.6,
+      "bolognesi": 3.8,
+      "votacoes": 4.4
+     }
+    }
+   },
+   "socialismo-democratico": {
+    "media": 14.2,
+    "min": 10,
+    "max": 16,
+    "n": 6,
+    "faixa": "faixa_esq_alta",
+    "dispersao": "baixa",
+    "no_limite": true,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 14.0,
+      "faixa": "faixa_esq_alta"
+     },
+     "com_provisoria": {
+      "media": 13.6,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 14.3
+     },
+     "mediana": {
+      "valor": 15.0
+     },
+     "retirando_autor": {
+      "bobbio": 14.0,
+      "sartori": 13.8,
+      "singer": 14.2,
+      "nicolau": 14.0,
+      "bolognesi": 14.0,
+      "votacoes": 15.0
+     }
+    }
+   },
+   "social-democracia": {
+    "media": 30.3,
+    "min": 27,
+    "max": 36.5,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "baixa",
+    "no_limite": true,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 29.0,
+      "faixa": "faixa_esq"
+     },
+     "com_provisoria": {
+      "media": 29.9,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 30.7
+     },
+     "mediana": {
+      "valor": 30.0
+     },
+     "retirando_autor": {
+      "bobbio": 30.3,
+      "sartori": 30.3,
+      "singer": 30.7,
+      "nicolau": 30.3,
+      "bolognesi": 29.0,
+      "votacoes": 30.9
+     }
+    }
+   },
+   "liberalismo-social": {
+    "media": 42.3,
+    "min": 40,
+    "max": 47,
+    "n": 6,
+    "faixa": "faixa_c_esq",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 41.4,
+      "faixa": "faixa_c_esq"
+     },
+     "com_provisoria": {
+      "media": 42.3,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 42.3
+     },
+     "mediana": {
+      "valor": 42.0
+     },
+     "retirando_autor": {
+      "bobbio": 42.2,
+      "sartori": 42.4,
+      "singer": 42.8,
+      "nicolau": 42.4,
+      "bolognesi": 41.4,
+      "votacoes": 42.8
+     }
+    }
+   },
+   "centro": {
+    "media": 50.0,
+    "min": 50,
+    "max": 50,
+    "n": 6,
+    "faixa": "faixa_centro",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": true,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 50.0,
+      "faixa": "faixa_centro"
+     },
+     "com_provisoria": {
+      "media": 50.0,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 50.0
+     },
+     "mediana": {
+      "valor": 50.0
+     },
+     "retirando_autor": {
+      "bobbio": 50.0,
+      "sartori": 50.0,
+      "singer": 50.0,
+      "nicolau": 50.0,
+      "bolognesi": 50.0,
+      "votacoes": 50.0
+     }
+    }
+   },
+   "liberalismo-economico": {
+    "media": 73.8,
+    "min": 68,
+    "max": 81,
+    "n": 6,
+    "faixa": "faixa_dir",
+    "dispersao": "media",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 72.4,
+      "faixa": "faixa_dir"
+     },
+     "com_provisoria": {
+      "media": 73.8,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 74.4
+     },
+     "mediana": {
+      "valor": 74.0
+     },
+     "retirando_autor": {
+      "bobbio": 73.8,
+      "sartori": 73.8,
+      "singer": 74.6,
+      "nicolau": 75.0,
+      "bolognesi": 72.4,
+      "votacoes": 73.4
+     }
+    }
+   },
+   "conservadorismo": {
+    "media": 72.8,
+    "min": 68,
+    "max": 78,
+    "n": 6,
+    "faixa": "faixa_dir",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 71.8,
+      "faixa": "faixa_dir"
+     },
+     "com_provisoria": {
+      "media": 72.7,
+      "n": 7
+     },
+     "ponderada_metodo": {
+      "media": 73.0
+     },
+     "mediana": {
+      "valor": 73.0
+     },
+     "retirando_autor": {
+      "bobbio": 72.4,
+      "sartori": 73.4,
+      "singer": 73.8,
+      "nicolau": 72.6,
+      "bolognesi": 71.8,
+      "votacoes": 73.0
+     }
+    }
+   },
+   "direita-radical": {
+    "media": 89.5,
+    "min": 88,
+    "max": 91,
+    "n": 6,
+    "faixa": "faixa_dir_alta",
+    "dispersao": "baixa",
+    "no_limite": false,
+    "ancora": false,
+    "sensibilidade": {
+     "sem_bolognesi": {
+      "media": 89.4,
+      "faixa": "faixa_dir_alta"
+     },
+     "com_provisoria": {
+      "media": 89.5,
+      "n": 6
+     },
+     "ponderada_metodo": {
+      "media": 89.4
+     },
+     "mediana": {
+      "valor": 90.0
+     },
+     "retirando_autor": {
+      "bobbio": 89.8,
+      "sartori": 89.4,
+      "singer": 89.8,
+      "nicolau": 89.4,
+      "bolognesi": 89.4,
+      "votacoes": 89.2
+     }
+    }
+   }
+  }
+ },
+ "avisos": [
+  {
+   "id": "nao_publicadas",
+   "onde": "faixa fixa no topo e toda régua",
+   "texto": "Nenhum dos cientistas políticos citados publicou notas de 0 a 100 para partidos, governos ou ideologias do Brasil. As notas são conversões, derivações ou estimativas do site, conforme o método indicado em cada ponto."
+  },
+  {
+   "id": "legenda_metodo",
+   "onde": "legenda fixa sob cada régua de autor",
+   "texto": "Método da nota. Publicada: há número em pesquisa ou obra, convertido para 0-100. Derivada: critério explícito do autor aplicado a ao menos um item documental citado (votação, programa, política, coalizão). Estimada: julgamento do site que operacionaliza o conceito. Âncora: o ator centro vale 50 por construção e não é medido."
+  },
+  {
+   "id": "margem",
+   "onde": "sob cada régua",
+   "texto": "A margem de cada nota é de cerca de 5 pontos (publicada), 6 (derivada) e 8 (estimada): diferenças menores que isso entre atores não são conclusivas. A confiança indica a solidez da ordem e da zona, não a precisão do número. A posição não mede qualidade, desempenho, honestidade nem grau de democracia."
+  },
+  {
+   "id": "media",
+   "onde": "acima da régua-média",
+   "texto": "Média simples das réguas dos autores. A barra clara vai do menor ao maior valor entre eles e indica incerteza, não erro: ator com barra larga é situado de modo diferente conforme o critério."
+  },
+  {
+   "id": "zonas_convencao",
+   "onde": "sob cada régua de autor",
+   "texto": "Zonas de extremo são convenções gráficas de cada régua, não medidas. Valem nota menor ou igual ao valor (lado esquerdo) ou maior ou igual a 100 menos o valor (lado direito). Rótulos históricos só se aplicam a regimes e movimentos com os traços que os definem; estar numa zona ou perto dela não classifica nenhum ator atual."
+  },
+  {
+   "id": "governos_formula",
+   "onde": "governos",
+   "texto": "A nota de um governo descreve a coalizão e o conjunto de políticas do período, não a pessoa do presidente: 0,5 x partido do presidente + 0,5 x média da base + ajuste de políticas limitado a 5 pontos, a mesma regra para todos. O governo Lula 3 está em curso e sua nota é provisória."
+  },
+  {
+   "id": "centrao_composicao",
+   "onde": "Centrão",
+   "texto": "Centrão = MDB, PSD, PP, Republicanos e União Brasil (inteiro), partidos de centro e centro-direita que governam por coalizão; o PL fica fora e entra só como teste de sensibilidade. É tática de governo, não doutrina."
+  },
+  {
+   "id": "eixo2_fora",
+   "onde": "página de metodologia",
+   "texto": "O eixo 2 (liberdade: democrático x antidemocrático) não entra na nota nem aparece como selo por ator nesta versão. A rubrica única, igual para os dois lados, e a tabela de evidências com data e fonte dos 19 partidos e 6 governos estão em conferência."
+  },
+  {
+   "id": "provisoria_pz",
+   "onde": "régua 'Estimativa do site (referência: Power e Zucco)'",
+   "texto": "Régua provisória, fora da média por padrão: as notas são estimativas do site, não valores de Power e Zucco, e faltam atores sem cobertura. O visitante pode incluí-la."
+  },
+  {
+   "id": "verificacao",
+   "onde": "página de metodologia",
+   "texto": "Os valores atribuídos a Bolognesi et al. foram copiados de trechos de busca e não foram conferidos na tabela primária; fatos de 2023 a 2026 e votações nominais devem ser conferidos nos dados abertos da Câmara e do Senado antes de publicar."
+  },
+  {
+   "id": "independencia",
+   "onde": "página de metodologia",
+   "texto": "Cinco das seis réguas da média são operacionalizações do site de critérios dos autores; só a de Bolognesi et al. traz números publicados (17 de 33 notas, não conferidos). O acordo entre as réguas mede a coerência do analista e não equivale a seis confirmações independentes."
+  },
+  {
+   "id": "rodape",
+   "onde": "rodapé de todas as páginas com régua",
+   "texto": "Como ler as réguas. Nenhum dos cientistas políticos citados publicou notas de 0 a 100 para partidos, governos ou ideologias brasileiros. As notas são conversões de escalas publicadas (quando indicadas como publicada), aplicações dos critérios de cada autor a votações, programas e políticas (derivada) ou julgamento do site (estimada). A régua-média é a média simples de seis réguas; a barra clara mostra o menor e o maior valor entre os autores e indica incerteza. A posição mede apenas onde cada ator se situa no eixo esquerda-direita segundo o critério de cada autor: não mede qualidade, desempenho nem grau de democracia. Diferenças menores que 5 a 8 pontos não são conclusivas. O governo Lula 3 está em curso. Veja o método completo."
+  }
+ ],
+ "historico_revisao": [
+  "v1.1 (8/10/2026): aplicadas as correções de três revisões (rigor acadêmico, neutralidade, especificação).",
+  "Eco corrigido (um único traço pode bastar para cristalizar o fascismo); critérios de Sartori e cortes de Bolognesi reatribuídos; Paxton/Gentile e Mudde/March reatribuídos.",
+  "Régua de Power e Zucco renomeada como estimativa provisória do site, sem valores brutos, com atores sem cobertura em branco e fora da média por padrão; a média passa a ter seis réguas.",
+  "Rótulos de método reclassificados por regra objetiva (Nicolau, Votações e Power-Zucco 100% estimadas; PL em Singer e PSD em Sartori estimadas); âncora criada para o centro.",
+  "Notas de Bolognesi marcadas como publicadas não conferidas, com confiança limitada, onda e valor da outra onda; Cidadania 2018 corrigido para 4,93.",
+  "Zonas refeitas: limiares espelhados (100 - x) em todas as réguas, mesmo vocabulário nos dois lados, \"direita radical\" retirada das zonas numéricas, socialismo real e nazismo em todas as réguas.",
+  "Eixo 2 retirado da ficha de Bobbio e tratado como indicador separado, com rubrica única e sem selo por ator até a conferência.",
+  "Governos: regra única (0,5 partido + 0,5 base + ajuste de políticas limitado a 5 pontos), decomposição exibida; Centrão com composição única.",
+  "Faixas com ids próprios e limites numéricos; arredondamento em direção ao centro; margem por método; textos de aviso unificados."
+ ]
+}
