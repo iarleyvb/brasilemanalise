@@ -14,14 +14,16 @@ Para cada medida `i` de um governo `g`, depois dos fatores que já existiam (est
 ```
 pts_efetivo(i, g) = pts(i) · e(i, g)
 
-se a medida tem resultados ligados R(i) com dado em g:
+se a medida foi classificada como não verificável:
+    e = F_naoverif                 (padrão 0,25)
+senão se tem resultados ligados R(i) com dado em g:
     e = média, sobre r em R(i), de f(status(r, g))
         f(melhorou) = F_melhorou   (padrão 1)
         f(parado)   = F_parado     (padrão 0,5)
         f(piorou)   = F_piorou     (padrão 0)
-senão se a medida é verificável por evidência independente (campo ver = ok, ress, div):
+senão se é verificável por fonte independente:
     e = 1
-senão (implementada, mas efeito não medido, ou não verificável):
+senão (implementada, mas efeito não medido):
     e = F_naoverif                 (padrão 0,25)
 ```
 
