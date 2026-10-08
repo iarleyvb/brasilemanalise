@@ -1228,7 +1228,15 @@ table.flmap{min-width:400px}
 .cc-sel select{font:inherit;font-size:16px;min-height:44px;padding:6px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink)}
 #ccBody h4{margin:14px 0 6px;font-size:15px}
 #ccBody code{font-family:var(--mono);font-size:13px}
-</style></head><body>
+</style>
+<link rel="stylesheet" href="css/guia.css">
+<link rel="stylesheet" href="css/glossario.css">
+<link rel="stylesheet" href="css/comoler.css">
+<link rel="stylesheet" href="css/quiz.css">
+<link rel="stylesheet" href="css/compartilhar.css">
+<link rel="stylesheet" href="css/sobre.css">
+<link rel="stylesheet" href="css/dados.css">
+</head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <noscript><p style="margin:0;padding:14px 16px;background:#fff3cd;color:#1a1a1a;font:16px/1.4 system-ui,sans-serif">Este site precisa de JavaScript para calcular as notas e desenhar os gráficos. Ative o JavaScript no navegador e recarregue a página.</p></noscript>
 
@@ -1267,6 +1275,7 @@ table.flmap{min-width:400px}
     <h1 id="hero-h">Você escolhe a régua. <span>A régua vale para todos.</span></h1>
     <p class="dek">Economia, pobreza, saúde, educação, segurança, meio ambiente, direitos de mulheres e minorias, corrupção, promessas e o que cada governo deixou, medidos com números públicos e com fonte em cada item. Você decide quanto pesa cada coisa, e o mesmo peso vale para todos os lados.</p>
     <div class="cta"><a class="btn primary" href="#governos-hex">Ver a nota de cada governo</a><a class="btn" href="#regua">Ajustar a minha régua</a></div>
+    <div id="slotHero" class="slot"></div>
   </div>
   <figure class="hero-hex" id="hexFig" aria-labelledby="hx-cap">
     <figcaption id="hx-cap"><span class="eyebrow">Nota geral na sua régua</span><span class="hr-sub">Oito pilares, de 0 a 10, cada um com o seu peso. A corrupção não é descontada: ela é o pilar Integridade. A força no Congresso e no STF pesa no que cada governo entregou.</span></figcaption>
@@ -1278,6 +1287,7 @@ table.flmap{min-width:400px}
     <div class="hx-notes"><div class="hn" id="hexNA"><span class="hn-name"></span><span class="hn-sub"></span><b class="hn-val"></b></div><div class="hn b" id="hexNB"><span class="hn-name"></span><span class="hn-sub"></span><b class="hn-val"></b></div></div>
     <div class="tblwrap" id="hexTbl"></div>
     <p class="hr-note" id="hexCorrNote"></p>
+    <div id="slotHex" class="slot"></div>
   </figure>
 </section>
 
@@ -1882,6 +1892,7 @@ table.flmap{min-width:400px}
   </div>
   <div class="panel" id="pilPanel"></div>
   <div class="row-actions"><button type="button" class="btn" id="resetPil">Voltar ao padrão</button><a class="btn" href="#inicio">Ver o hexágono</a></div>
+  <div id="slotPesos" class="slot"></div>
 </section>
 <section class="wrap" id="pesos" aria-labelledby="pesos-h">
   <div class="sec-head">
@@ -2194,6 +2205,10 @@ table.flmap{min-width:400px}
   <div id="ccBody"></div>
 </section>
 </div>
+<div class="page" data-page="quiz" hidden><div id="modQuiz"></div></div>
+<div class="page" data-page="sobre" hidden><div id="modSobre"></div></div>
+<div class="page" data-page="dados" hidden><div id="modDados"></div></div>
+<div class="page" data-page="novidades" hidden><div id="modNovidades"></div></div>
 <div class="page" data-page="fontes" hidden>
 <header class="wrap page-head">
   <p class="eyebrow">Bibliografia</p>
@@ -2225,6 +2240,7 @@ table.flmap{min-width:400px}
       <a href="#inicio">Início</a><a href="#pt-x-pl">Placar PT × PL</a><a href="#economia">Economia</a><a href="#servicos">Serviços e ambiente</a><a href="#sociedade">Direitos e minorias</a><a href="#falas">Falas e gastos</a><a href="#poderes">Três Poderes</a><a href="#eleicao">Eleição 2026</a><a href="#regua-politica">Régua política</a><a href="#regua">Ajuste os pesos</a><a href="#metodo">Como calculamos</a><a href="#fontes">Fontes</a>
     </nav>
     <div class="foot-about">
+      <div id="slotRodape" class="slot"></div>
       <h3>Sobre</h3>
       <p>Página informativa e apartidária, sem recomendação de voto. Os dados vêm de órgãos públicos, da imprensa e de agências de checagem, citados em cada item. Investigação não é condenação, e os citados em casos abertos negam irregularidades.</p>
       <p>Os pesos e as notas que você escolher ficam salvos só neste navegador.</p>
@@ -5914,7 +5930,7 @@ function renderConta(){
   var run = $("ccRun"); if(run) run.addEventListener("click", function(){ run.disabled = true; run.textContent = "Calculando…"; setTimeout(function(){ ccMC = ccRobust(); renderConta(); }, 30); });
 }
 
-var PAGES = ["inicio","pt-x-pl","economia","servicos","sociedade","falas","poderes","eleicao","regua-politica","regua","metodo","fontes"];
+var PAGES = ["inicio","pt-x-pl","economia","servicos","sociedade","falas","poderes","eleicao","regua-politica","regua","metodo","quiz","sobre","dados","novidades","fontes"];
 var curPage = null, firstShow = true, BASE_TITLE = document.title, RESTORE_Y = null;
 // a barra Saldo só entra na altura da navegação enquanto estiver no fluxo do navbar; fixa ou absoluta, ela fica de fora
 function setNavH(){ var nb = $("navbar"), st = $("stick"); if(!nb) return; var hgt = nb.offsetHeight; if(st && !st.hidden){ var ps = window.getComputedStyle(st).position; if(ps !== "absolute" && ps !== "fixed") hgt -= st.offsetHeight; } document.documentElement.style.setProperty("--navh", hgt + "px"); }
@@ -5943,6 +5959,7 @@ function showPage(p, targetId){
   if(p === "pt-x-pl"){ renderA(R); renderB(); renderSeries("corrSeries"); }
   if(p === "regua-politica") buildRP();
   if(p === "metodo") renderConta();
+  beaEmit("page", p);
   fixTables();
   var cur = document.querySelector('.sitenav a[aria-current="page"]'), nav = document.querySelector(".sitenav");
   if(cur && nav){ var l = cur.offsetLeft - nav.offsetLeft, r = l + cur.offsetWidth; if(l < nav.scrollLeft || r > nav.scrollLeft + nav.clientWidth) nav.scrollLeft = Math.max(0, l - 24); }
@@ -5972,6 +5989,7 @@ function update(){
   if(curPage === "inicio") renderHome(R);
   if(curPage === "metodo") renderConta();
   fixTables();
+  beaEmit("update");
 }
 function bind(){
   document.querySelectorAll(".seg[data-key]").forEach(function(seg){
@@ -6013,6 +6031,68 @@ function bind(){
   });
 }
 
+/* ---------- API interna para os módulos (guia, glossário, quiz, compartilhar, dados...) ---------- */
+var BEA_HOOKS = {page:[], update:[]};
+function beaEmit(ev, arg){ var l = BEA_HOOKS[ev] || []; for(var i = 0; i < l.length; i++){ try{ l[i](arg); }catch(e){} } }
+function beaClampW(v, lo, hi, d){ return (typeof v === "number" && isFinite(v) && v >= lo && v <= hi) ? v : d; }
+function beaGeral(opts){
+  opts = opts || {};
+  var keep = S; S = clone(S);
+  try{
+    if(opts.pilW) PIL.forEach(function(p){ if(opts.pilW[p.k] != null) S.pilW[p.k] = beaClampW(opts.pilW[p.k], 0, 40, DEF.pilW[p.k]); });
+    if(opts.intW){ if(opts.intW.c != null) S.intW.c = beaClampW(opts.intW.c, 0, 1, DEF.intW.c); if(opts.intW.w != null) S.intW.w = beaClampW(opts.intW.w, 0, 1, DEF.intW.w); }
+    if(opts.forK != null) S.forK = beaClampW(opts.forK, 0, 1, DEF.forK);
+    var G = geralScores(compute()), all = G.concat([G.agg]);
+    return all.map(function(x){ return {id:x.fr, nome:x.g.n, bloco:x.g.b, partido:x.g.p, anos:govYears(x.g), nota:x.nota, p:clone(x.p), cAno:x.cAno, wgi:x.wgi, mult:x.mult, dur:x.dur}; });
+  } finally { S = keep; }
+}
+function beaDataset(){
+  var E = ecoScores(), P = povScores(), Se = serScores(), Am = ambScores(), Fu = futScores(), So = socScores(), tot = PIL.reduce(function(sum, p){ return sum + S.pilW[p.k]; }, 0);
+  var ind = [];
+  [["eco","Economia",ECO_IND,E],["pov","Pobreza e desigualdade",POV_IND,P],["ser","Serviços públicos",SER_IND,Se],["amb","Meio ambiente",AMB_IND,Am],["fut","Contas para o futuro",FUT_IND,Fu]].forEach(function(g){
+    g[2].forEach(function(i){
+      var a = NG.anc[g[0]][i.k], porGov = {};
+      GOVS.forEach(function(gv, gi){ porGov[gv.fr || gv.n] = {governo:gv.n, valor:g[3][gi].raw[i.k], nota:g[3][gi].sub[i.k]}; });
+      ind.push({pilar:g[0], pilarNome:g[1], indicador:i.k, titulo:i.t, unidade:i.u, piso:a[0], meta:a[1], referencia:NG.ref[g[0] + "." + i.k] || "", governos:porGov});
+    });
+  });
+  SOC_GR.forEach(function(gr){
+    var porGov = {}; GOVS.forEach(function(gv, gi){ porGov[gv.fr || gv.n] = {governo:gv.n, valor:So[gi].pts[gr.k], nota:So[gi].sub[gr.k]}; });
+    ind.push({pilar:"soc", pilarNome:"Direitos e minorias", indicador:gr.k, titulo:gr.t, unidade:"pontos", piso:-NG.socMeta[gr.k]*NG.socPiso, meta:NG.socMeta[gr.k], referencia:NG.ref.soc, governos:porGov});
+  });
+  var gs = beaGeral();
+  return {
+    versao:NG.ver, gerado_em:"8/10/2026", escala:"0 a 10",
+    pilares:PIL.map(function(p){ return {pilar:p.k, nome:p.t, descricao:p.d, peso:S.pilW[p.k], parte:tot ? S.pilW[p.k]/tot : 0, peso_padrao:DEF.pilW[p.k]}; }),
+    integridade:{peso_casos:S.intW.c, peso_wgi:S.intW.w, piso_pontos_por_ano:NG.intPiso, wgi_piso:NG.wgiAnc[0], wgi_meta:NG.wgiAnc[1]},
+    forca:{kappa:S.forK, pesos:clone(S.forW)},
+    indicadores:ind,
+    notas:gs.map(function(x){ return {id:x.id, governo:x.nome, partido:x.partido, anos:x.anos, nota_geral:x.nota, pilares:x.p, pontos_corrupcao_por_ano:x.cAno, wgi:x.wgi, multiplicador:x.mult}; })
+  };
+}
+window.BEA = {
+  versao: NG.ver,
+  pages: PAGES.slice(),
+  pilares: function(){ return PIL.map(function(p){ return {k:p.k, t:p.t, d:p.d, href:p.href}; }); },
+  governos: function(){ return GOVS.map(function(g){ return {id:g.fr || null, nome:g.n, partido:g.p, bloco:g.b, anos:g.ys.slice()}; }); },
+  estado: function(){ return {pilW:clone(S.pilW), intW:clone(S.intW), forK:S.forK, pilW_padrao:clone(DEF.pilW)}; },
+  /* aplica pesos (validados) e atualiza o site; opts: {pilW:{eco:18,...}, intW:{c,w}, forK} */
+  aplicarPesos: function(o){
+    if(!o) return;
+    if(o.pilW) PIL.forEach(function(p){ if(o.pilW[p.k] != null) S.pilW[p.k] = Math.round(beaClampW(o.pilW[p.k], 0, 40, S.pilW[p.k])); });
+    if(o.intW){ if(o.intW.c != null) S.intW.c = beaClampW(o.intW.c, 0, 1, S.intW.c); if(o.intW.w != null) S.intW.w = beaClampW(o.intW.w, 0, 1, S.intW.w); }
+    if(o.forK != null) S.forK = beaClampW(o.forK, 0, 1, S.forK);
+    save(); update();
+  },
+  restaurarPesos: function(){ S.pilW = clone(DEF.pilW); S.intW = clone(DEF.intW); S.forK = DEF.forK; save(); update(); },
+  /* notas gerais (6 governos + "ptall") com pesos opcionais, sem alterar o estado do site */
+  geral: beaGeral,
+  dataset: beaDataset,
+  on: function(ev, cb){ if(BEA_HOOKS[ev] && typeof cb === "function") BEA_HOOKS[ev].push(cb); },
+  ir: function(h){ location.hash = h; },
+  paginaAtual: function(){ return curPage; }
+};
+
 buildCases(); buildLegado(); buildPromessas(); buildCarteira(); buildCandidatos(); buildEcoPanel(); buildSocList(); buildSocPanel(); buildPilPanel(); buildSerPanel(); buildHexSelects(); bind(); bindTempo();
 $("socN").textContent = SOC.length;
 (function(){ function fill(id, keys){ var el = $(id); if(!el) return; keys.forEach(function(k){ var ul = srcList(EXT_SRC[k]); while(ul.firstChild) el.appendChild(ul.firstChild); }); }
@@ -6021,4 +6101,13 @@ buildFalas(); buildGastos(); buildPoderes(); buildFut();
 buildSources(); update(); route();
 })();
 </script>
+<script src="js/guia.js" defer></script>
+<script src="js/glossario.js" defer></script>
+<script src="js/comoler.js" defer></script>
+<script src="js/quiz.js" defer></script>
+<script src="js/compartilhar.js" defer></script>
+<script src="js/sobre.js" defer></script>
+<script src="js/correcoes.js" defer></script>
+<script src="js/dados.js" defer></script>
+<script src="js/novidades.js" defer></script>
 </body></html>
