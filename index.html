@@ -1,7 +1,44 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Brasil em Análise: governos do Brasil de 1995 a 2026 comparados com números públicos e fontes. Você escolhe a régua; a régua vale para todos."><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><title>Brasil em Análise</title>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Brasil em Análise: governos de 1995 a 2026 na sua régua</title>
+<meta name="description" content="Brasil em Análise: governos do Brasil de 1995 a 2026 comparados com números públicos e fontes. Você escolhe a régua; a régua vale para todos.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://www.brasilemanalise.com/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#151718" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1b1c1b" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="application-name" content="Brasil em Análise">
+<meta name="apple-mobile-web-app-title" content="Brasil em Análise">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brasil em Análise">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://www.brasilemanalise.com/">
+<meta property="og:title" content="Brasil em Análise: você escolhe a régua. A régua vale para todos.">
+<meta property="og:description" content="Brasil em Análise: governos do Brasil de 1995 a 2026 comparados com números públicos e fontes. Você escolhe a régua; a régua vale para todos.">
+<meta property="og:image" content="https://www.brasilemanalise.com/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Brasil em Análise: você escolhe a régua. A régua vale para todos.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brasil em Análise: você escolhe a régua. A régua vale para todos.">
+<meta name="twitter:description" content="Brasil em Análise: governos do Brasil de 1995 a 2026 comparados com números públicos e fontes. Você escolhe a régua; a régua vale para todos.">
+<meta name="twitter:image" content="https://www.brasilemanalise.com/og.png">
+<meta name="twitter:image:alt" content="Brasil em Análise: você escolhe a régua. A régua vale para todos.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Brasil em Análise","url":"https://www.brasilemanalise.com/","inLanguage":"pt-BR","description":"Governos do Brasil de 1995 a 2026 comparados com números públicos e fontes. Você escolhe a régua; a régua vale para todos."}</script>
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
 <style>
 :root{
   /* Layout: livro-caixa de prestação de contas — colunas PT | PL, formulário de pesos, gráficos e "autos" de cada caso com régua processual */
@@ -117,7 +154,7 @@ section{padding-block:26px}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--c)}
 .legend i.round{border-radius:50%}
 .legend i.soft{opacity:var(--soft-op)}
-.legend .pair{gap:3px}
+.legend .pair{gap:3px;background:none;border:0;border-radius:0;padding:0}
 .legend i.split{background:linear-gradient(90deg,var(--pt) 50%,var(--pl) 50%);border-radius:50%}
 .note{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
 svg text{font-family:var(--font)}
@@ -137,6 +174,9 @@ svg text{font-family:var(--font)}
 .ring{fill:var(--surface)}
 .hit{fill:transparent;cursor:pointer;outline:none}
 .hit:hover + g, .hit:focus + g{opacity:.85}
+.hit + g{pointer-events:none}
+.hit:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.escbar:focus-visible .hit{fill:var(--surface-2);stroke:var(--ink);stroke-width:1.5}
 .rowhl{fill:var(--surface-2)}
 g.off{opacity:.3}
 details.tbl{margin-top:4px;border-top:1px solid var(--line)}
@@ -180,7 +220,7 @@ details.case > summary::-webkit-details-marker{display:none}
 .ladder li i{display:block;height:5px;border-radius:3px;background:var(--line)}
 .ladder li.on i{background:var(--ink-2)}
 .ladder li.cur i{background:var(--ink)}
-.ladder li span{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ladder li span{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ladder li.cur span{color:var(--ink);font-weight:500}
 @media (max-width:520px){.ladder li span{display:none}}
 .ladder-cap{font-size:12.5px;color:var(--ink-2);margin-top:-4px}
@@ -217,7 +257,9 @@ details.case[open] .more{display:none}
 .stars{display:inline-flex;flex-wrap:wrap;align-items:center;gap:1px}
 .stars button{appearance:none;border:0;background:none;font-size:21px;line-height:1;padding:3px 2px;cursor:pointer;color:var(--line-2);font-family:system-ui,sans-serif}
 .stars button.on{color:var(--ink)}
-.stars button:hover{color:var(--ink-2)}
+.stars button{position:relative}
+.stars button::after{content:"";position:absolute;inset:-9px -1px}
+@media (hover:hover){.stars button:hover{color:var(--ink-2)}}
 .stars .sv{font-size:12px;color:var(--muted);margin-left:6px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .inst-wrap.dim .leg-item{opacity:.7}
 
@@ -227,7 +269,7 @@ details.case[open] .more{display:none}
 .mbox{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:10px;min-width:0}
 .mbox p,.mbox li{font-size:15px;color:var(--ink-2)}
 .mbox ul{margin:0;padding-left:18px;display:grid;gap:6px}
-.formula{font-family:var(--mono);font-size:12.5px;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;line-height:1.6;overflow-x:auto;white-space:pre-wrap}
+.formula{font-family:var(--mono);font-size:12.5px;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;line-height:1.6;overflow-x:auto;white-space:normal}
 .gtable{width:100%;min-width:0;font-size:13.5px}
 .gtable td{padding:7px 6px}
 [hidden]{display:none!important}
@@ -277,6 +319,7 @@ details.more-d .inner{display:grid;gap:10px;padding:8px 0 2px}
 .kpi b{display:flex;align-items:center;gap:7px;font-size:30px;font-weight:820;font-stretch:semi-expanded;line-height:1.05;font-variant-numeric:tabular-nums}
 .kpi span{font-size:12.5px;color:var(--ink-2);line-height:1.3}
 @media (max-width:520px){.kpi{padding:9px}.kpi b{font-size:24px}.kpi span{font-size:12px}}
+@media (max-width:520px){.kpis{grid-template-columns:1fr 1fr}.kpi:first-child{grid-column:1 / -1}.wlegend .mlab{flex:1 1 100%}}
 .wlegend{margin-bottom:2px}
 .clt-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 14px 6px;margin-top:10px;min-width:0}
 .clt-card h3{margin-bottom:6px}
@@ -397,7 +440,7 @@ table.clt{min-width:0;font-size:13.5px}
 .tlcross{stroke:var(--ink);stroke-width:1;stroke-dasharray:2 3}
 .tlsl{fill:var(--ink-2);font-size:11px;font-weight:650}
 .brk{stroke:var(--muted);stroke-width:1;stroke-dasharray:1 3}
-.esclbl{fill:var(--ink-2);font-size:10.5px}
+.esclbl{fill:var(--ink-2);font-size:11px;paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
 .escbar{cursor:pointer;outline:none}
 .escbar:hover .esclbl,.escbar:focus .esclbl{fill:var(--ink);font-weight:650}
 .bandkey{display:inline-block;width:12px;height:10px;border-radius:2px;vertical-align:-1px}
@@ -418,7 +461,7 @@ table.clt{min-width:0;font-size:13.5px}
 :root[data-theme="dark"]{ --mast:#1b1c1b; --mast-ink:#f1f1ee; --mast-2:#9b9a92; --mast-line:#323230; --pt-ink:#f08a89; --pl-ink:#79adf0; }
 .f-ou{fill:var(--muted)}
 [id]{scroll-margin-top:calc(var(--navh,48px) + 14px)}
-.page[data-page="pt-x-pl"] [id]{scroll-margin-top:calc(var(--navh,48px) + 56px)}
+.page[data-page="pt-x-pl"] [id],.page[data-page="regua"] [id]{scroll-margin-top:calc(var(--navh,48px) + 56px)}
 
 /* marca */
 .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--mast-ink);min-width:0}
@@ -444,8 +487,8 @@ header.site .mast{background:var(--mast);color:var(--mast-ink)}
 .sitenav a{flex:none;text-decoration:none;font-weight:680;font-size:14.5px;color:var(--ink-2);padding:13px 10px 10px;border-bottom:3px solid transparent;white-space:nowrap}
 .sitenav a:hover{color:var(--ink)}
 .sitenav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
-@media (max-width:719px){.sitenav{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent);padding-right:24px}}
-.navbar .stick{position:static;padding-top:0;border-bottom:0;border-top:1px solid var(--line);box-shadow:none;background:var(--surface-2)}
+.sitenav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);padding-right:48px;overscroll-behavior-x:contain}
+.navbar .stick{position:absolute;top:100%;left:0;right:0;padding-top:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 4px 10px -6px rgba(0,0,0,.25);background:var(--surface-2)}
 
 /* cabeça de cada página */
 .page-head{padding-block:30px 4px}
@@ -574,7 +617,7 @@ header.site .mast :focus-visible{outline-color:var(--mast-ink)}
 .hc-v{font-size:24px;font-weight:820;font-stretch:semi-expanded;font-variant-numeric:tabular-nums;line-height:1.1}
 /* mapa de notas da sociedade */
 .swipe{display:none;font-size:12.5px;color:var(--muted);margin-bottom:6px}
-@media (max-width:820px){.swipe{display:block}}
+@media (max-width:899px){.swipe{display:block}}
 .heatwrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 4px}
 table.heat{border-collapse:collapse;min-width:760px;width:100%;font-size:13px}
 table.heat th{font-size:12px;font-weight:650;color:var(--ink-2);text-align:right;padding:8px 8px;vertical-align:bottom;line-height:1.25}
@@ -587,12 +630,17 @@ table.heat td.gov small{font-size:11px;color:var(--muted)}
 table.heat th:first-child,table.heat td.gov{position:sticky;left:0;background:var(--surface);z-index:1}
 .hv{display:grid;justify-items:end;gap:3px;font-variant-numeric:tabular-nums}
 .hv b{font-size:14px}
-.hv small{font-size:10.5px;color:var(--muted)}
+.hv small{font-size:11.5px;color:var(--muted)}
 .hb{display:block;width:100%;max-width:84px;height:5px;border-radius:3px;background:var(--line)}
 .hb i{display:block;height:100%;border-radius:3px;background:var(--ink-2)}
 td.tot .hv b{font-size:16px;font-weight:820}
 td.tot .hb i{background:var(--ink)}
 table.heat .off{opacity:.45}
+.heatwrap{padding-inline:0}
+table.heat{min-width:640px}
+table.heat th.n{white-space:normal;min-width:72px}
+table.heat th:first-child,table.heat td.gov{box-shadow:1px 0 0 var(--line)}
+.eco-cap + .note{margin-top:10px}
 /* medidas */
 .socgrid{display:grid;gap:14px}
 .socgov{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px 6px;min-width:0}
@@ -755,6 +803,7 @@ table.flmap{border-collapse:collapse;font-size:13.5px;min-width:520px;width:100%
 .gs-b span{color:var(--ink-2);line-height:1.2}
 .gs-b i{display:block;height:14px;border-radius:3px;background:var(--c);min-width:2px}
 .gs-b b{font-variant-numeric:tabular-nums;white-space:nowrap;font-size:14px}
+@supports (grid-template-columns:subgrid){.gs-bars{grid-template-columns:minmax(0,7.5em) minmax(0,1fr) auto}.gs-b{grid-template-columns:subgrid;grid-column:1/-1}}
 .gs-grp{margin-top:22px}
 .gs-grp > h3{display:flex;align-items:center;gap:8px;font-size:19px;margin-bottom:10px}
 .gs-grp > h3::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--c)}
@@ -883,7 +932,195 @@ table.gt th.n,table.gt td.n{text-align:right;font-variant-numeric:tabular-nums;w
 table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid var(--ink-2)}
 .mbox h3 + ul,.mbox h3 + p{margin-top:6px}
 .mbox h3:not(:first-child){margin-top:14px}
+
+/* ponte do lote HTML: pular para o conteúdo, voltar ao topo, fórmula do Método e áreas seguras do celular */
+.skip{position:fixed;left:8px;top:-80px;z-index:100;background:var(--ink);color:var(--surface);padding:10px 14px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none}
+.skip:focus{top:max(8px,env(safe-area-inset-top,0px));outline:2px solid var(--surface);outline-offset:-4px}
+#conteudo:focus{outline:none}
+.totop{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:40;width:44px;height:44px;padding:0;border-radius:50%;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font:700 20px/1 var(--font);cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.18);-webkit-tap-highlight-color:transparent}
+.totop:hover{background:var(--surface-2)}
+.formula span{display:block;padding-left:2ch;text-indent:-2ch}
+.formula .fc{margin-left:2ch}
+.formula .fg{margin-top:.9em}
+header.site .mast{padding-top:env(safe-area-inset-top,0px)}
+.wrap{padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-inline:max(28px,env(safe-area-inset-left,0px)) max(28px,env(safe-area-inset-right,0px))}}
+
+/* ===== lote celular: layout, toque, contraste e impressão ===== */
+/* cores de controles (bordas com contraste de componente) e texto sobre a cor do partido */
+:root{--ctl:#878b86;--on-acc:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ctl:#74746d;--on-acc:#121314}}
+:root[data-theme="dark"]{--ctl:#74746d;--on-acc:#121314}
+.pty.pt{background:var(--pt-ink);border-color:var(--pt-ink);color:var(--on-acc)}
+.pty.pl{background:var(--pl-ink);border-color:var(--pl-ink);color:var(--on-acc)}
+#tlp-gov .f-pt{fill:var(--pt-ink)}#tlp-gov .f-pl{fill:var(--pl-ink)}
+.govlbl{fill:var(--on-acc)}
+.v-ok{--vt:#111314}
+.pw-h .eyebrow{opacity:.92}
+.stars button{color:var(--ctl)}.stars button.on{color:var(--ink)}
+.btn,.seg,.hx-sel select,.fl-f select,.srcsearch input,.totop{border-color:var(--ctl)}
+
+/* toque: sem zoom por duplo toque e realce discreto */
+a,button,summary,label,select,input,[role="button"]{touch-action:manipulation}
+html{-webkit-tap-highlight-color:rgba(128,128,128,.18)}
+.tblwrap,.formula{overscroll-behavior-x:contain}
+
+/* foco: pular para o conteúdo, foco programático e tabelas roláveis */
+.skip{background:var(--mast);color:var(--mast-ink);border:2px solid var(--mast-ink);box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.skip:focus-visible{outline:2px solid var(--mast-ink);outline-offset:2px}
+main:focus,.page h1[tabindex="-1"]:focus{outline:none}
+.tblwrap[tabindex="0"]:focus-visible{outline-offset:-2px}
+
+/* telas estreitas: colunas que não podem crescer além do cartão, rótulo do hexágono inteiro */
+.hero-hex,.fl-f{grid-template-columns:minmax(0,1fr)}
+.fl-f select{width:100%}
+#hexChart svg{overflow:visible}
+
+/* barra Saldo fora do fluxo: reserva o espaço dela na Régua */
+.page[data-page="regua"]{padding-top:40px}
+
+/* poderes, rodapé e detalhes de leitura */
+.hemi .h-l{font-size:16px}
+.seat .role{font-size:11.5px}
+.lead + .note{margin-top:10px}
+.hleg li:focus{background:var(--surface-2)}
+.foot-base{font-size:12px}
+.srccat[open] > summary{position:sticky;top:var(--navh,48px);z-index:5;background:var(--bg)}
+table.flmap{min-width:400px}
+.flmap th,.flmap td{vertical-align:middle}
+.flmap th[scope="row"]{min-width:118px;position:sticky;left:0;background:var(--bg);z-index:1}
+.flmap thead th:first-child{position:sticky;left:0;background:var(--bg);z-index:2}
+.flmap tr.grp th{background:var(--bg)}
+.flmap tr.grp th span{position:sticky;left:8px;display:inline-block}
+@media (min-width:600px){#mapa-falas .swipe{display:none}}
+
+@media (max-width:480px){
+  .hx-pick{grid-template-columns:minmax(0,1fr)}
+  .ob-list li{grid-template-columns:minmax(0,1fr)}
+  .ob-list li b{text-align:left}
+}
+@media (max-width:520px){
+  table.gt{min-width:0;font-size:13px}
+  table.gt th,table.gt td{padding:7px 5px}
+  table.gt th.n{white-space:normal;line-height:1.2;vertical-align:bottom}
+  table.gt td.n{padding-left:3px;padding-right:3px}
+}
+@media (max-width:400px){
+  .stick .wrap{gap:8px;font-size:13px}
+  .stick .sk{gap:2px 10px;flex-wrap:nowrap}
+  .stick .sk span{gap:4px}
+}
+@media (max-width:340px){.stick .sk > span:first-child{display:none}}
+.stick a{padding:12px 6px;margin:-12px -6px}
+
+/* celular e tablet: faixa de abas, controles e tabelas */
+@media (max-width:719px){
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding:2px 28px 6px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent)}
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{flex:none;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px;padding:0 15px;font-size:13.5px}
+
+  .seg{display:flex;width:100%;border:0;background:none;padding:0;gap:6px}
+  .seg button{flex:1 1 auto;min-height:44px;line-height:1.2;padding:8px 14px;border:1px solid var(--ctl,var(--line-2));background:var(--surface)}
+  .seg button[aria-pressed="true"]{border-color:var(--sel-bg);background:var(--sel-bg)}
+  .page[data-page="economia"] .seg button{flex:1 1 0;padding:8px}
+
+  .tlinfo{padding:8px 10px;margin:4px 0 8px}
+  .tli-head b{font-size:20px}
+  .tli-nav{width:44px;height:44px}
+  .tli-grid{display:flex;gap:0 18px;overflow-x:auto;scrollbar-width:none;margin:4px -10px 0;padding:0 10px 2px;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .tli-grid div{flex:none;min-width:max-content}
+  .tli-grid span{white-space:nowrap}
+  .tli-grid b{font-size:14px;white-space:nowrap}
+  .tli-ev{font-size:12px;margin-top:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .tli-ev::-webkit-scrollbar,.tli-grid::-webkit-scrollbar{display:none}
+
+  :is(#tblEco,#tblPov,#tblFut,#tblSer,#tblAmb,#tlGov){-webkit-overflow-scrolling:touch;background:linear-gradient(270deg,var(--bg) 30%,transparent) 100% 0/32px 100% no-repeat local,linear-gradient(270deg,rgba(0,0,0,.10),transparent) 100% 0/8px 100% no-repeat scroll}
+  :is(#tblEco,#tblPov,#tblFut,#tblSer,#tblAmb,#tlGov) th.n{white-space:normal;min-width:92px;vertical-align:bottom;line-height:1.25}
+  :is(#tblEco,#tblPov,#tblFut,#tblSer,#tblAmb,#tlGov) :is(th,td):first-child{position:sticky;left:0;z-index:1;background:var(--bg);box-shadow:1px 0 0 var(--line-2)}
+  #tlGov table{min-width:0}
+  #tlGov th.n{min-width:104px}
+  #tlGov :is(th,td):first-child{white-space:normal;min-width:112px;max-width:132px}
+  :is(#tblA,#tblB) :is(th,td):first-child{position:sticky;left:0;z-index:1;background:var(--surface);box-shadow:1px 0 0 var(--line)}
+  :is(#tblA,#tblB) td:first-child{min-width:9.5em}
+
+  .lrow .k{text-wrap:balance}
+  @supports (grid-template-rows:subgrid){
+    .ledger{grid-template-rows:repeat(7,auto);gap:0 10px}
+    .lcol{display:grid;grid-row:span 7;grid-template-rows:subgrid;row-gap:0;align-content:start}
+    .lsub{min-height:0}
+  }
+
+  svg .ax,svg .sub,svg .axh,svg .val{font-size:12px}
+  .lrow small,.tag,.per,.leg-item .yr{font-size:12px}
+  .note{font-size:13.5px;line-height:1.5}
+
+  .foot-nav{grid-template-columns:1fr 1fr;gap:0 12px}
+  .foot-nav a{display:flex;align-items:center;min-height:44px}
+}
+@media (max-width:719px),(pointer:coarse){
+  .rangerow input,.rate-row input{height:44px}
+  .btn,a.btn{min-height:44px}
+  .incl,.switch{min-height:44px}
+  .incl input{width:22px;height:22px}
+  details.tbl summary,details.more-d > summary{padding-block:12px}
+  .srccat summary{min-height:48px}
+  .hxt td a{display:block;padding:7px 0}
+  .hx-sel select,.fl-f select{font-size:16px;min-height:44px}
+
+  .src{gap:0}
+  .src li{padding-block:6px}
+  .src a{position:relative}
+  .src a::after{content:"";position:absolute;inset:-6px -4px}
+  .srcl{gap:2px}
+  .srcl a{display:inline-block;padding-block:8px 4px}
+  .fl-src,.plist .psrc{line-height:2.1}
+  .fl-src a,.plist .psrc a,.ledger-note a,.eco-cap a{padding-block:6px}
+
+  .fl-bar .btn{min-height:40px;padding:8px 14px}
+  .fl-tags{gap:8px}
+  button.fl-tag{min-height:36px;padding:5px 10px;text-align:left}
+  .flmap th,.flmap td{padding:3px 6px}
+  .flmap td button{min-width:44px;min-height:38px}
+  .flmap thead th button{min-width:44px;min-height:44px;justify-content:center}
+}
+
+/* desempenho de layout em telas médias e pequenas: cartões repetidos só pintam quando chegam perto da tela */
+@media (max-width:899px){
+  .case,.leg-item,.socitem,.fala{content-visibility:auto}
+  .case{contain-intrinsic-size:auto 225px}
+  .leg-item{contain-intrinsic-size:auto 350px}
+  .socitem{contain-intrinsic-size:auto 147px}
+  .fala{contain-intrinsic-size:auto 311px}
+  .page[data-page="economia"] > section.wrap ~ section.wrap,
+  .page[data-page="poderes"] > section.wrap ~ section.wrap{content-visibility:auto;contain-intrinsic-size:auto 1330px}
+}
+@media (max-width:519px){
+  .case{contain-intrinsic-size:auto 248px}
+  .leg-item{contain-intrinsic-size:auto 526px}
+  .socitem{contain-intrinsic-size:auto 201px}
+  .fala{contain-intrinsic-size:auto 447px}
+  .page[data-page="economia"] > section.wrap ~ section.wrap,
+  .page[data-page="poderes"] > section.wrap ~ section.wrap{contain-intrinsic-size:auto 1900px}
+}
+
+/* impressão */
+@media print{
+  :root:root:root{--bg:#fff;--surface:#fff;--surface-2:#f3f3f3;--ink:#000;--ink-2:#333;--muted:#555;--line:#ccc;--line-2:#999;--mast:#fff;--mast-ink:#000;--mast-2:#444;--mast-line:#999;--sel-bg:#000;--sel-fg:#fff;color-scheme:light}
+  body{background:#fff;color:#000;font-size:11pt}
+  .navbar,.stick,.tip,.swipe,.skip,.totop,.ruler{display:none!important}
+  header.site .mast,footer.site-foot{background:#fff;color:#000;border-bottom:1px solid #999}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .chart,.pcard,.leg-item,.fala,.kpi,.cand,.pair,.socgov,.seat,.hcard,.prog,.mbox,.socitem,figure,tr{break-inside:avoid}
+  .tblwrap{overflow:visible}
+  table{min-width:0!important}
+  .tlinfo{position:static;box-shadow:none}
+}
+@media (min-width:1000px){.sitenav{flex-wrap:wrap;overflow:visible;-webkit-mask-image:none;mask-image:none;padding-right:0}}
+@media (min-width:720px){.seg[data-key="socGrp"]{gap:2px}.seg[data-key="socGrp"] button{padding-inline:7px}}
+@media (max-height:500px) and (orientation:landscape){.tlinfo{position:static}}
 </style></head><body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<noscript><p style="margin:0;padding:14px 16px;background:#fff3cd;color:#1a1a1a;font:16px/1.4 system-ui,sans-serif">Este site precisa de JavaScript para calcular as notas e desenhar os gráficos. Ative o JavaScript no navegador e recarregue a página.</p></noscript>
 
 <header class="site" id="topo">
   <div class="mast">
@@ -897,7 +1134,8 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
     </div>
     <div class="ruler" aria-hidden="true"></div>
   </div>
-  <div class="navbar" id="navbar">
+</header>
+<div class="navbar" id="navbar">
     <div class="wrap">
       <nav class="sitenav" aria-label="Páginas">
         <a href="#inicio" data-page="inicio">Início</a><a href="#pt-x-pl" data-page="pt-x-pl">Placar PT × PL</a><a href="#economia" data-page="economia">Economia</a><a href="#servicos" data-page="servicos">Serviços e ambiente</a><a href="#sociedade" data-page="sociedade">Direitos e minorias</a><a href="#falas" data-page="falas">Falas e gastos</a><a href="#poderes" data-page="poderes">Três Poderes</a><a href="#eleicao" data-page="eleicao">Eleição 2026</a><a href="#regua" data-page="regua">Ajuste os pesos</a><a href="#metodo" data-page="metodo">Como calculamos</a><a href="#fontes" data-page="fontes">Fontes</a>
@@ -909,10 +1147,9 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
         <a href="#regua" id="stickGo">Ajustar os pesos</a>
       </div>
     </div>
-  </div>
-</header>
+</div>
 
-<main id="conteudo">
+<main id="conteudo" tabindex="-1">
 <div class="page" data-page="inicio">
 <section class="wrap hero" aria-labelledby="hero-h">
   <div class="hero-txt">
@@ -1002,7 +1239,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
       <div class="t"><h3>Placar por governo</h3><p id="subA">Corrupção à esquerda, legado à direita, saldo na coluna final. Em pontos (1 ponto = R$ 1 bilhão).</p></div>
       <div class="seg" role="group" aria-label="Modo do placar" data-key="porAno"><button type="button" data-v="0">Total</button><button type="button" data-v="1">Por ano de mandato</button></div>
     </div>
-    <div class="legend"><span class="pair"><i style="--c:var(--pt)"></i><i class="soft" style="--c:var(--pt)"></i>&nbsp;PT</span><span class="pair"><i style="--c:var(--pl)"></i><i class="soft" style="--c:var(--pl)"></i>&nbsp;PL / Bolsonaro</span><span>Cor cheia: corrupção · cor clara: legado</span><span><i class="hatchkey"></i>Listras: promessas (descumpridas à esquerda, cumpridas à direita)</span></div>
+    <div class="legend"><span class="pair"><i style="--c:var(--pt)"></i><i class="soft" style="--c:var(--pt)"></i>&nbsp;PT</span><span class="pair"><i style="--c:var(--pl)"></i><i class="soft" style="--c:var(--pl)"></i>&nbsp;PL / Bolsonaro</span><span>Cor cheia: corrupção · cor suave: legado</span><span><i class="hatchkey"></i>Listras: promessas (descumpridas à esquerda, cumpridas à direita)</span></div>
     <div class="canvas" id="chartA"></div>
     <p class="note" id="noteA"></p>
     <details class="tbl"><summary>Ver como tabela</summary><div class="tblwrap" id="tblA"></div></details>
@@ -1010,7 +1247,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
   <figure class="chart" id="figB" style="margin-inline:0">
     <div class="chart-head">
       <div class="t"><h3>Quanto custou cada escândalo</h3><p id="subB">Em reais. Ponto: estimativa escolhida; linha: da mínima à máxima; círculo vazio: estimativa zero. Escala logarítmica (cada marca vale 10 vezes a anterior).</p></div>
-      <div class="seg" role="group" aria-label="Ordem" data-key="ordemB"><button type="button" data-v="data">Por data</button><button type="button" data-v="valor">Por valor</button></div>
+      <div class="seg" role="group" aria-label="Ordenar escândalos" data-key="ordemB"><button type="button" data-v="data">Por data</button><button type="button" data-v="valor">Por valor</button></div>
     </div>
     <div class="legend"><span><i class="round" style="--c:var(--pt)"></i>Ligado ao PT</span><span><i class="round" style="--c:var(--pl)"></i>Ligado ao PL / Bolsonaro</span><span><i class="split"></i>Dividido entre os dois governos</span></div>
     <div class="canvas" id="chartB"></div>
@@ -1088,7 +1325,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
     <div id="chartEco"></div>
     <figcaption class="eco-cap"><span id="ecoWeights"></span><a href="#pesos-eco">Mudar os pesos</a></figcaption>
   </figure>
-  <p class="note">Cada governo é medido do último ano antes da posse ao último ano completo de mandato (Lula 1, por exemplo, de 2002 a 2006; FHC começa em 1995, primeiro ano da série), e a inflação é a média dos anos governados. Dilma 2 tem só 2015, ano de recessão, e Lula 3 usa dados até 2025. O desemprego não tem dado em 2010 (ano de censo), por isso Lula 2 vai até 2009; Dilma 1 começa em 2012, primeiro ano da Pnad Contínua. A dívida líquida só existe desde 2001, e a nota de FHC usa os outros quatro itens. Nenhum governo controla sozinho esses números: preços de commodities, crises externas, a pandemia e o Congresso pesam em todos. Por isso, na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da conta, e o ano anterior se liga ao seguinte; dá para mudar isso em Sua régua.</p>
+  <p class="note">Cada governo é medido do último ano antes da posse ao último ano completo de mandato (Lula 1, por exemplo, de 2002 a 2006; FHC começa em 1995, primeiro ano da série), e a inflação é a média dos anos governados. Dilma 2 tem só 2015, ano de recessão, e Lula 3 usa dados até 2025. O desemprego não tem dado em 2010 (ano de censo), por isso Lula 2 vai até 2009; Dilma 1 começa em 2012, primeiro ano da Pnad Contínua. A dívida líquida só existe desde 2001, e a nota de FHC usa os outros quatro itens. Nenhum governo controla sozinho esses números: preços de commodities, crises externas, a pandemia e o Congresso pesam em todos. Por isso, na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da conta, e o ano anterior se liga ao seguinte; dá para mudar isso na página <a href="#regua">Ajuste os pesos</a>.</p>
   <details class="tbl"><summary>Os números por trás de cada nota</summary><div class="tblwrap" id="tblEco"></div></details>
 </section>
 <section class="wrap" id="pobreza" aria-labelledby="pov-h">
@@ -1208,11 +1445,11 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
     <p class="lead"><span id="socN"></span> medidas de 1995 a 2026, com o governo que fez, de onde veio a proposta, a situação em 2026, os pontos na sua régua e a fonte.</p>
   </div>
   <div class="filters">
-    <div class="seg" role="group" aria-label="Grupo" data-key="socGrp"><button type="button" data-v="todos">Todos</button><button type="button" data-v="mul">Mulheres</button><button type="button" data-v="neg">População negra</button><button type="button" data-v="ind">Indígenas e quilombolas</button><button type="button" data-v="pcd">Pessoas com deficiência</button><button type="button" data-v="lgb">LGBT+</button><button type="button" data-v="ger">Idosos e crianças</button></div>
-    <div class="seg" role="group" aria-label="Governos" data-key="socLado"><button type="button" data-v="todos">Todos os governos</button><button type="button" data-v="pt">PT</button><button type="button" data-v="pl">PL</button><button type="button" data-v="ou">PSDB e MDB</button></div>
+    <div class="seg" role="group" aria-label="Filtrar por grupo" data-key="socGrp"><button type="button" data-v="todos">Todos</button><button type="button" data-v="mul">Mulheres</button><button type="button" data-v="neg">População negra</button><button type="button" data-v="ind">Indígenas e quilombolas</button><button type="button" data-v="pcd">Pessoas com deficiência</button><button type="button" data-v="lgb">Pessoas LGBT+</button><button type="button" data-v="ger">Idosos, crianças e adolescentes</button></div>
+    <div class="seg" role="group" aria-label="Filtrar por governo" data-key="socLado"><button type="button" data-v="todos">Todos os governos</button><button type="button" data-v="pt">PT</button><button type="button" data-v="pl">PL</button><button type="button" data-v="ou">PSDB e MDB</button></div>
   </div>
   <div class="socgrid" id="socList"></div>
-  <p class="note" id="socEmpty" hidden>Nenhuma medida neste filtro.</p>
+  <p class="note" id="socEmpty" role="status" hidden>Nenhuma medida neste filtro.</p>
 </section>
 <section class="wrap" id="carteira" aria-labelledby="clt-h">
   <div class="sec-head">
@@ -1291,7 +1528,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
     <div class="fl-f"><span class="fl-l" id="flC-l">Quando</span><div class="seg" id="flC" role="group" aria-labelledby="flC-l"><button type="button" data-v="todos">Todas</button><button type="button" data-v="pres">Na Presidência</button><button type="button" data-v="fora">Fora dela</button></div></div>
     <div class="fl-f"><label class="fl-l" for="flT">Etiqueta ou desfecho</label><select id="flT"></select></div>
   </div>
-  <div class="fl-bar"><p class="count" id="flCount" aria-live="polite"></p><div class="seg" id="flO" role="group" aria-label="Ordem"><button type="button" data-v="rec">Mais recentes</button><button type="button" data-v="ant">Mais antigas</button></div><button type="button" class="btn" id="flClear" hidden>Limpar filtros</button></div>
+  <div class="fl-bar"><p class="count" id="flCount" aria-live="polite"></p><div class="seg" id="flO" role="group" aria-label="Ordenar falas"><button type="button" data-v="rec">Mais recentes</button><button type="button" data-v="ant">Mais antigas</button></div><button type="button" class="btn" id="flClear" hidden>Limpar filtros</button></div>
   <div class="fl-list" id="flList"></div>
 </section>
 <section class="wrap" id="frases-falsas" aria-labelledby="ff-h">
@@ -1479,7 +1716,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
         <li><b>Emendas à Constituição</b> por 3/5 nas duas Casas, em dois turnos, menos as cláusulas pétreas (art. 60).</li>
       </ul></div>
       <div class="pdir"><h4>O Judiciário sobre o Congresso</h4><ul>
-        <li><b>Julgar deputados e senadores</b> por crime comum, no STF (art. 102, I, b).<span class="ex-r">Em 2018, a 1ª Turma do STF rejeitou por 3 a 2 a denúncia de racismo contra o então deputado Jair Bolsonaro (veja em Falas e gastos).</span></li>
+        <li><b>Julgar deputados e senadores</b> por crime comum, no STF (art. 102, I, b).<span class="ex-r">Em 2018, a 1ª Turma do STF rejeitou por 3 a 2 a denúncia de racismo contra o então deputado Jair Bolsonaro (veja em <a href="#lista-falas">Falas e gastos</a>).</span></li>
         <li><b>Controle de constitucionalidade</b> das leis aprovadas pelo Congresso (art. 102).</li>
       </ul></div>
     </article>
@@ -1508,7 +1745,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
 </header>
 <section class="wrap" id="candidatos" aria-labelledby="cand-h">
   <div class="sec-head">
-    <h2 id="cand-h">Os candidatos do 2º turno</h2>
+    <h2 id="cand-h">Fichas dos candidatos</h2>
     <p class="lead">Flávio Bolsonaro (PL) e Lula (PT) disputam o 2º turno em 25 de outubro de 2026. No 1º turno, em 4 de outubro, Flávio teve 47,0% dos votos válidos e Lula, 45,2%, segundo o TSE.</p>
     <p class="lead">Aqui não há nota nossa para os candidatos: com a eleição em andamento, ela funcionaria como recomendação de voto. As fichas abaixo, em ordem alfabética, reúnem cargos, situação na Justiça e o que cada um tem neste placar, e você pode dar a sua própria nota. Para comparar os governos de cada partido, use o <a href="#graficos">placar por governo</a>.</p>
   </div>
@@ -1533,7 +1770,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
     <p class="lead">Quanto cada pilar pesa no hexágono da página inicial, quanto a corrupção desconta e quanto a força política multiplica. Os mesmos pesos valem para os seis governos do PT e do PL.</p>
   </div>
   <div class="panel" id="pilPanel"></div>
-  <div class="row-actions"><button type="button" class="btn" id="resetPil">Pesos iguais</button><a class="btn" href="#inicio">Ver o hexágono</a></div>
+  <div class="row-actions"><button type="button" class="btn" id="resetPil">Voltar ao padrão</button><a class="btn" href="#inicio">Ver o hexágono</a></div>
 </section>
 <section class="wrap" id="pesos" aria-labelledby="pesos-h">
   <div class="sec-head">
@@ -1627,7 +1864,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
   <p class="eyebrow">Método</p>
   <h1>Como calculamos</h1>
   <p class="dek">De onde vem cada número, como ele vira ponto e o que a conta não consegue medir.</p>
-  <nav class="chips" aria-label="Nesta página"><a href="#imparcialidade">Revisão de imparcialidade</a><a href="#metodo">Placar PT × PL</a><a href="#metodo-eco">Nota da economia</a><a href="#metodo-geral">Direitos, pobreza e nota geral</a></nav>
+  <nav class="chips" aria-label="Nesta página"><a href="#imparcialidade">Revisão de imparcialidade</a><a href="#metodo-placar">Placar PT × PL</a><a href="#metodo-eco">Nota da economia</a><a href="#metodo-geral">Direitos, pobreza e nota geral</a></nav>
 </header>
 <section class="wrap" id="imparcialidade" aria-labelledby="imp-h">
   <div class="sec-head"><h2 id="imp-h">Revisão de imparcialidade, outubro de 2026</h2><p class="lead">Revisamos toda a conta atrás de regras que puxavam o resultado para um lado. A regra de cada correção é a mesma para todos os governos; o resultado mudou porque as regras antigas não eram iguais para os dois lados.</p></div>
@@ -1677,7 +1914,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
   </div></div>
 </section>
 
-<section class="wrap" id="metodo" aria-labelledby="met-h">
+<section class="wrap" id="metodo-placar" aria-labelledby="met-h">
   <div class="sec-head">
     <h2 id="met-h">Como a conta é feita</h2>
     <p class="lead">Este placar não é sentença judicial. Ele organiza estimativas públicas e mostra quanto cada uma está comprovada.</p>
@@ -1685,15 +1922,7 @@ table.gt thead th{font-size:12.5px;color:var(--ink-2);border-bottom:1.5px solid 
   <div class="method">
     <div class="mbox">
       <h3>A fórmula</h3>
-      <div class="formula">Corrupção = Σ valor do caso × correção pelo IPCA × peso da comprovação × fatia do bloco
-          + pessoas lesadas (milhões) × peso da comprovação × fatia × valor de 1 milhão de pessoas
-          + estrelas de gravidade × valor da estrela (ligado por padrão)
-
-Legado = Σ estrelas × parte do mérito do governo × situação em 2026 × valor de 1 estrela
-
-Promessas = Σ por campanha: valor × (cumpridas − não cumpridas) ÷ nº de promessas
-
-Saldo = Legado + Promessas − Corrupção</div>
+      <div class="formula"><span>Corrupção = Σ valor do caso × correção pelo IPCA × peso da comprovação × fatia do bloco</span><span class="fc">+ pessoas lesadas (milhões) × peso da comprovação × fatia × valor de 1 milhão de pessoas</span><span class="fc">+ estrelas de gravidade × valor da estrela (ligado por padrão)</span><span class="fg">Legado = Σ estrelas × parte do mérito do governo × situação em 2026 × valor de 1 estrela</span><span class="fg">Promessas = Σ por campanha: valor × (cumpridas − não cumpridas) ÷ nº de promessas</span><span class="fg">Saldo = Legado + Promessas − Corrupção</span></div>
       <p>Um ponto equivale a R$ 1 bilhão desviado, em valores de agosto de 2026 quando a correção está ligada. Pessoas e estrelas viram pontos pelos controles de peso.</p>
     </div>
     <div class="mbox">
@@ -1768,13 +1997,15 @@ Saldo = Legado + Promessas − Corrupção</div>
   <div class="sec-head"><h2 id="me-h">Como a nota da economia é feita</h2></div>
   <div class="method">
     <div class="mbox">
-      <h3>Os cinco indicadores</h3>
+      <h3>Os seis indicadores</h3>
       <ul>
-        <li>Renda por pessoa: crescimento médio anual do PIB por pessoa a preços constantes (Banco Mundial).</li>
+        <li>PIB por pessoa: crescimento médio anual do PIB por pessoa a preços constantes (Banco Mundial).</li>
+        <li>Renda das famílias: variação real da renda média diária por pessoa, por ano (Banco Mundial, base PIP, via Our World in Data).</li>
         <li>Salário mínimo: ganho real médio por ano, com o mínimo corrigido pelo IPCA (DIEESE e IBGE).</li>
         <li>Inflação: média do IPCA nos anos de governo.</li>
         <li>Desemprego: variação média por ano da taxa de desemprego (IBGE, via Banco Mundial).</li>
-        <li>Dívida: variação média por ano da dívida líquida do setor público, em pontos do PIB (Banco Central).</li>
+        <li>Carga tributária: variação média por ano, em pontos do PIB (Tesouro Nacional e UNU-WIDER).</li>
+        <li>Dívida e resultado primário ficam no pilar Contas para o futuro.</li>
       </ul>
     </div>
     <div class="mbox">
@@ -1804,10 +2035,10 @@ Saldo = Legado + Promessas − Corrupção</div>
       <h3>Pobreza e nota geral</h3>
       <ul>
         <li>Pobreza e desigualdade: queda média por ano da pobreza extrema (US$ 3 por dia, Banco Mundial) e do índice de Gini, do último ano antes da posse ao último ano com dado.</li>
-        <li>Corrupção: desconta direto da nota geral. Na régua padrão, cada R$ 1 bilhão desviado (corrigido pela inflação e ponderado pela prova) ou 1 milhão de pessoas lesadas tira 0,3 ponto. Para dar uma ideia do tamanho, o site compara os desvios com o orçamento do Bolsa Família em 2026 (cerca de R$ 158 bi por ano).</li>
+        <li>Corrupção: desconta direto da nota geral. Na régua padrão, cada R$ 1 bilhão desviado (corrigido pela inflação e ponderado pela prova) e cada estrela de gravidade dos casos sem valor em R$ tiram 0,3 ponto. Para dar uma ideia do tamanho, o site compara os desvios com o orçamento do Bolsa Família em 2026 (cerca de R$ 158 bi por ano).</li>
         <li>Promessas: nota 10 se todas foram cumpridas, 0 se nenhuma, 5 no empate entre cumpridas e descumpridas.</li>
         <li>Legado: pontos dos feitos de cada governo, com os descontos de mérito de terceiros e da ótica de 2026.</li>
-        <li>A nota geral é a média de sete pilares (economia, pobreza e desigualdade, direitos e minorias, serviços públicos, meio ambiente, contas para o futuro, que pesa o dobro por padrão, e feitos e promessas), com os pesos da sua régua, menos a corrupção. A corrupção tem duas partes: os escândalos do placar e o índice de controle da corrupção do Banco Mundial (o governo com o pior índice entre os seis perde até 1,5 ponto).</li><li>Força política: a média da base do governo na Câmara e no Senado (partidos com ministérios) e dos ministros do STF indicados pelo mesmo partido vira um índice de força. Sociedade e Promessas e legado são multiplicados pela razão entre a força média e a do governo, elevada a 0,5 na régua padrão: quem tinha mais força precisava entregar mais.</li><li>Serviços públicos: variação por ano de homicídios (UNODC), mortalidade infantil e expectativa de vida (Banco Mundial), Ideb (Inep) e Pisa (OCDE). Meio ambiente: nível e tendência do desmatamento (Prodes/Inpe). Ela cobre só os governos do PT e do PL, os únicos com dados em todos os pilares. “PT, todos” é a média dos cinco governos do partido, ponderada pelo tempo de mandato.</li><li>Choques externos: na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da economia e da pobreza, para todos os governos. O boom das commodities (cerca de 2003–2011) ajudou os governos da época e não é descontado, porque durou quase uma década.</li>
+        <li>A nota geral é a média de sete pilares (economia, pobreza e desigualdade, direitos e minorias, serviços públicos, meio ambiente, contas para o futuro, que pesa o dobro por padrão, e feitos e promessas), com os pesos da sua régua, menos a corrupção. A corrupção tem duas partes: os escândalos do placar e o índice de controle da corrupção do Banco Mundial (o governo com o pior índice entre os seis perde até 1,5 ponto).</li><li>Força política: a média da base do governo na Câmara e no Senado (partidos com ministérios) e dos ministros do STF indicados pelo mesmo partido vira um índice de força. Sociedade e Promessas e legado são multiplicados pela razão entre a força média e a do governo, elevada a 0,5 na régua padrão: quem tinha mais força precisava entregar mais.</li><li>Serviços públicos: variação por ano de homicídios (UNODC), mortalidade infantil e expectativa de vida (Banco Mundial), Ideb (Inep) e Pisa (OCDE). Meio ambiente: nível e tendência do desmatamento (Prodes/Inpe). A nota geral cobre só os governos do PT e do PL, os únicos com dados em todos os pilares. “PT, todos” é a média dos cinco governos do partido, ponderada pelo tempo de mandato.</li><li>Choques externos: na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da economia e da pobreza, para todos os governos. O boom das commodities (cerca de 2003–2011) ajudou os governos da época e não é descontado, porque durou quase uma década.</li>
       </ul>
     </div>
   </div>
@@ -1821,8 +2052,8 @@ Saldo = Legado + Promessas − Corrupção</div>
   <nav class="chips" aria-label="Tipos de fonte" id="srcChips"></nav>
 </header>
 <section class="wrap" id="bibliografia" aria-label="Lista de fontes">
-  <div class="srcsearch"><label for="srcQ">Buscar nas fontes</label><input type="search" id="srcQ" placeholder="Ex.: TCU, Poder360, Bolsa Família" autocomplete="off"></div>
-  <p class="note" id="srcEmpty" hidden>Nenhuma fonte com esse termo.</p>
+  <div class="srcsearch"><label for="srcQ">Buscar nas fontes</label><input type="search" id="srcQ" placeholder="Ex.: TCU, Poder360, Bolsa Família" autocomplete="off" enterkeyhint="search" autocapitalize="off" spellcheck="false"></div>
+  <p class="note" id="srcEmpty" role="status" hidden>Nenhuma fonte com esse termo.</p>
   <div id="srcList"></div>
   <p class="note" style="margin-top:14px">Os links levam aos sites originais e podem mudar ou sair do ar com o tempo. Leis e decretos estão no site do Planalto; dados de séries, no Banco Central, no IBGE, no Banco Mundial e no Our World in Data.</p>
 </section>
@@ -1854,6 +2085,7 @@ Saldo = Legado + Promessas − Corrupção</div>
 
 
 <div class="tip" id="tip" role="tooltip" hidden></div>
+<button type="button" class="totop" id="totop" hidden aria-label="Voltar ao topo">↑</button>
 
 <script>
 (function(){
@@ -1879,7 +2111,7 @@ var GR = {
   A:{nome:"Comprovado na Justiça", desc:"Condenações definitivas, acordos ou devoluções que reconhecem o desvio"},
   B:{nome:"Condenação recorrível ou auditoria oficial", desc:"Sentença ainda sujeita a recurso, ou TCU/CGU reconhecendo o dano"},
   C:{nome:"Investigação formal", desc:"Inquérito com indiciamento, denúncia ou réus, sem condenação"},
-  D:{nome:"Suspeita ou caso arquivado", desc:"Alegação, delação não confirmada, reportagem, ou processo arquivado/anulado"}
+  D:{nome:"Suspeita ou caso arquivado", desc:"Alegação, delação não confirmada, reportagem ou processo arquivado/anulado"}
 };
 var PRESETS = {
   julgado:{A:1,B:1,C:0,D:0},
@@ -2108,13 +2340,13 @@ var LEG = [
  txt:"Reduziu a extrema pobreza em 25% e a pobreza em 15%, segundo o Ipea (2019). Atendia 14 mi de famílias com cerca de 0,4% do PIB.",
  mr:"Unificou programas criados no governo FHC (Bolsa Escola e Bolsa Alimentação, de 2001, e Auxílio-Gás, de 2002) e o Cartão Alimentação de 2003, e multiplicou o alcance.",
  chk:"O efeito na pobreza é confirmado pelo Ipea, e estudos citados pelo Banco Mundial não acharam “efeito preguiça” no programa original. Ressalva: o FGV Ibre (2025) concluiu que a versão ampliada a partir de 2023 reduziu em 11% a participação de jovens homens beneficiários no mercado de trabalho e em 13% a formalização.",
- src:[["Poder360: orçamento de 2026 para o Bolsa Família", "https://www.poder360.com.br/poder-governo/orcamento-de-2026-permite-a-lula-subir-bolsa-familia-para-r-700-na-media/"],["Poder360: Bolsa Família faz 20 anos","https://www.poder360.com.br/governo/bolsa-familia-completa-20-anos-entenda-o-que-e-e-como-funciona/"],["Money Times: estudo do Ipea","https://www.moneytimes.com.br/bolsa-familia-reduziu-25-da-taxa-de-extrema-pobreza-aponta-ipea/"],["Banco Mundial: estudos descartam “efeito preguiça”","https://www.worldbank.org/pt/news/opinion/2021/06/17/estudos-descartam-que-beneficio-social-provoca-efeito-preguica-nos-mais-pobres"],["FGV Ibre: Bolsa Família ampliado reduz oferta de trabalho","https://blogdoibre.fgv.br/posts/bolsa-familia-ampliado-reduz-oferta-de-trabalho-mas-pode-ser-aperfeicoado"],["Wikipédia: Bolsa Família","https://en.wikipedia.org/wiki/Bolsa_Fam%C3%ADlia"]]},
+ src:[["Poder360: orçamento de 2026 para o Bolsa Família", "https://www.poder360.com.br/poder-governo/orcamento-de-2026-permite-a-lula-subir-bolsa-familia-para-r-700-na-media/"],["Poder360: Bolsa Família faz 20 anos","https://www.poder360.com.br/governo/bolsa-familia-completa-20-anos-entenda-o-que-e-e-como-funciona/"],["Money Times: estudo do Ipea","https://www.moneytimes.com.br/bolsa-familia-reduziu-25-da-taxa-de-extrema-pobreza-aponta-ipea/"],["Banco Mundial: estudos descartam “efeito preguiça”","https://www.worldbank.org/pt/news/opinion/2021/06/17/estudos-descartam-que-beneficio-social-provoca-efeito-preguica-nos-mais-pobres"],["FGV Ibre: Bolsa Família ampliado reduz oferta de trabalho","https://blogdoibre.fgv.br/posts/bolsa-familia-ampliado-reduz-oferta-de-trabalho-mas-pode-ser-aperfeicoado"],["Wikipédia: Bolsa Família (em inglês)","https://en.wikipedia.org/wiki/Bolsa_Fam%C3%ADlia"]]},
 
 {id:"luz", b:"pt", fr:{lula1:0.5, lula2:0.5}, ano:"2003", t:"Luz para Todos", s:4, m:75, ver:"ok",
  txt:"Quase 3 mi de ligações de energia até 2012 e cerca de 10 mi de pessoas atendidas já em 2011, com R$ 11,8 bi investidos (TCU).",
  mr:"Substituiu o Luz no Campo, do governo FHC (1999), que financiava as ligações com juros; o Luz para Todos passou a ligar de graça e em escala bem maior.",
  chk:"Os números do TCU e os do governo batem. O TCU apontou atraso em 2012, quando só 55% da meta do ano foi cumprida.",
- src:[["TCU: ficha do programa (2012)","https://sites.tcu.gov.br/contas-do-governo-2012/fichas/9.5%20-%20Infraestrutura%20-%20Energia%20Programa%20Luz%20para%20Todos.pdf"],["Agência Brasil (2002): Luz no Campo","https://memoria.ebc.com.br/agenciabrasil//noticia/2002-07-05/rural-electrification-program-now-reaches-over-400000"],["IEA: Luz no Campo","https://www.iea.org/policies/4021-national-rural-electrification-programme-programa-nacional-de-electrificacao-rural"]]},
+ src:[["TCU: ficha do programa (2012)","https://sites.tcu.gov.br/contas-do-governo-2012/fichas/9.5%20-%20Infraestrutura%20-%20Energia%20Programa%20Luz%20para%20Todos.pdf"],["Agência Brasil (2002): Luz no Campo (em inglês)","https://memoria.ebc.com.br/agenciabrasil//noticia/2002-07-05/rural-electrification-program-now-reaches-over-400000"],["IEA: Luz no Campo (em inglês)","https://www.iea.org/policies/4021-national-rural-electrification-programme-programa-nacional-de-electrificacao-rural"]]},
 
 {id:"prouni", b:"pt", fr:{lula1:1}, ano:"2005", t:"ProUni", s:3, m:100, ver:"ress",
  txt:"Cerca de 1,5 mi de bolsas em faculdades privadas nos 10 primeiros anos; 69% integrais de 2005 a 2013.",
@@ -2132,13 +2364,13 @@ var LEG = [
  txt:"Acordos de leniência já somam R$ 19,3 bi pactuados e R$ 10 bi devolvidos (mai/2025). A Ficha Limpa barrou quase 5 mil candidaturas entre 2014 e 2024.",
  mr:"A CGU nasceu no governo FHC (2001) e foi rebatizada e ampliada por Lula em 2003; a Ficha Limpa veio de iniciativa popular; a Lei das Organizações Criminosas, de projeto de uma senadora do PT; a Lei Anticorrupção, de projeto do governo Lula aprovado após os protestos de 2013.",
  chk:"Mérito dividido com o Congresso e a sociedade. Em 2023, Lula disse ter criado a CGU, e uma checagem mostrou que o órgão nasceu sob FHC. Essas leis deram base à Lava Jato, que atingiu o próprio PT.",
- src:[["Poder360: Lula erra ao dizer que criou a CGU","https://www.poder360.com.br/governo/lula-erra-ao-dizer-que-criou-a-cgu-orgao-nasceu-sob-fhc/"],["Congresso em Foco: 15 anos de Ficha Limpa","https://www.congressoemfoco.com.br/noticia/109828/15-anos-de-ficha-limpa-a-lei-popular-que-sacudiu-a-politica"],["Wikipédia: Lei Anticorrupção","https://en.wikipedia.org/wiki/Brazilian_Anti-Corruption_Act"],["Senado: PLS 150/2006","https://www25.senado.leg.br/web/atividade/materias/-/materia/77859"],["Congresso em Foco: leniência já devolveu R$ 10 bi","https://www.congressoemfoco.com.br/noticia/108418/acordos-de-leniencia-ja-devolveram-r-10-bilhoes-aos-cofres-publicos"]]},
+ src:[["Poder360: Lula erra ao dizer que criou a CGU","https://www.poder360.com.br/governo/lula-erra-ao-dizer-que-criou-a-cgu-orgao-nasceu-sob-fhc/"],["Congresso em Foco: 15 anos de Ficha Limpa","https://www.congressoemfoco.com.br/noticia/109828/15-anos-de-ficha-limpa-a-lei-popular-que-sacudiu-a-politica"],["Wikipédia: Lei Anticorrupção (em inglês)","https://en.wikipedia.org/wiki/Brazilian_Anti-Corruption_Act"],["Senado: PLS 150/2006","https://www25.senado.leg.br/web/atividade/materias/-/materia/77859"],["Congresso em Foco: leniência já devolveu R$ 10 bi","https://www.congressoemfoco.com.br/noticia/108418/acordos-de-leniencia-ja-devolveram-r-10-bilhoes-aos-cofres-publicos"]]},
 
 {id:"desmat1", res:1, b:"pt", fr:{lula1:0.4, lula2:0.4, dilma1:0.2}, ano:"2004–2012", t:"Queda do desmatamento na Amazônia", s:4, m:75, ver:"ok",
  txt:"A área desmatada caiu de 27.772 km² (2004) para 4.571 km² (2012), segundo o Inpe.",
  mr:"Política própria (plano de combate ao desmatamento de 2004, monitoramento por satélite do Inpe e corte de crédito a desmatadores a partir de 2008), ajudada pelos preços agrícolas.",
  chk:"Estudo do Climate Policy Initiative estimou que as políticas evitaram cerca de 73 mil km² de desmatamento entre 2005 e 2009, quase 60% do que teria sido derrubado sem elas. Preços agrícolas também pesaram.",
- src:[["Inpe/TerraBrasilis: taxas do Prodes","http://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/rates"],["Olhar Digital: série recente do Inpe","https://olhardigital.com.br/2025/10/30/ciencia-e-espaco/area-desmatada-na-amazonia-e-a-menor-em-11-anos-diz-inpe/"],["Climate Policy Initiative: preços ou políticas?","https://www.climatepolicyinitiative.org/wp-content/uploads/2012/03/Queda-do-Desmatamento-na-Amazônia-Preços-ou-Políticas.pdf"]]},
+ src:[["Inpe/TerraBrasilis: taxas do Prodes","https://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/rates"],["Olhar Digital: série recente do Inpe","https://olhardigital.com.br/2025/10/30/ciencia-e-espaco/area-desmatada-na-amazonia-e-a-menor-em-11-anos-diz-inpe/"],["Climate Policy Initiative: preços ou políticas?","https://www.climatepolicyinitiative.org/wp-content/uploads/2012/03/Queda-do-Desmatamento-na-Amazônia-Preços-ou-Políticas.pdf"]]},
 
 {id:"mcmv", b:"pt", fr:{lula2:0.3, dilma1:0.5, dilma2:0.2}, ano:"2009", t:"Minha Casa, Minha Vida", s:3, m:100, ver:"ress",
  txt:"5,48 mi de imóveis financiados pela Caixa com recursos do FGTS de 2009 a 2023 (inclui os anos Temer e Bolsonaro).",
@@ -2293,7 +2525,7 @@ var XSRC = {
  greenfield:[["CartaCapital: Greenfield segue se arrastando na Justiça","https://www.cartacapital.com.br/politica/no-limbo/"]],
  inss:[["Poder360: maioria dos acordos foi antes de Lula","https://www.poder360.com.br/poder-governo/maioria-dos-acordos-do-inss-foi-antes-de-lula-diz-governo/"],["InfoMoney: entidades suspeitas ampliaram arrecadação em 253%","https://www.infomoney.com.br/politica/entidades-suspeitas-de-fraudes-no-inss-ampliam-arrecadacao-em-253-sob-governo-lula/"],["Diário do Nordeste: CGU diz que denúncias vinham desde 2019","https://diariodonordeste.verdesmares.com.br/pontopoder/denuncias-de-fraudes-no-inss-foram-ignoradas-desde-2019-diz-diretora-da-cgu-em-cpi-1.3687751"],["Revista Oeste: vice de Flávio pediu prisão de Lulinha","https://revistaoeste.com/politica/vice-de-flavio-alfredo-gaspar-pediu-prisao-de-lulinha/"]],
  joias:[["Mais Goiás: PF corrige valor para R$ 6,8 mi","https://www.maisgoias.com.br/brasil/pf-diz-que-errou-em-relatorio-e-desvio-de-bolsonaro-em-joias-foi-de-r-68-mi-nao-r-25-mi/"]],
- masterpl:[["Correio da Manhã: Mendonça autoriza PF a investigar repasses ao filme","https://www.correiodamanha.com.br/politica/2026/07/304680-mendonca-autoriza-pf-a-investigar-repasses-de-vorcaro-para-dark-horse.html"],["Wikipédia: Flávio Bolsonaro e o caso Dark Horse","https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro"]]
+ masterpl:[["Correio da Manhã: Mendonça autoriza PF a investigar repasses ao filme","https://www.correiodamanha.com.br/politica/2026/07/304680-mendonca-autoriza-pf-a-investigar-repasses-de-vorcaro-para-dark-horse.html"],["Wikipédia: Flávio Bolsonaro e o caso Dark Horse (em inglês)","https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro"]]
 };
 
 var ICHK = {
@@ -2361,7 +2593,7 @@ var CSRC = [
  ["Agência Senado: Casa Verde e Amarela","https://www12.senado.leg.br/noticias/materias/2021/01/13/programa-casa-verde-e-amarela-e-sancionado-com-veto-a-unificacao-de-tributos"],
  ["Agência Brasil: inscrição automática na Tarifa Social","https://agenciabrasil.ebc.com.br/geral/noticia/2021-09/lei-da-inscricao-automatica-em-tarifa-social-de-energia-e-sancionada"],
  ["Casa Civil: MP do Gás do Povo","https://www.gov.br/casacivil/pt-br/assuntos/noticias/2025/setembro/governo-do-brasil-publica-mp-que-cria-o-2018gas-do-povo2019-para-ampliar-acesso-ao-botijao-de-gas/dou-secao1-edicao-extra-a-168-04092025_mp1313"],
- ["Agência Brasil (2002): Luz no Campo","https://memoria.ebc.com.br/agenciabrasil//noticia/2002-07-05/rural-electrification-program-now-reaches-over-400000"]
+ ["Agência Brasil (2002): Luz no Campo (em inglês)","https://memoria.ebc.com.br/agenciabrasil//noticia/2002-07-05/rural-electrification-program-now-reaches-over-400000"]
 ];
 
 /* candidatos do 2º turno, em ordem alfabética */
@@ -2373,7 +2605,7 @@ var CAND = [
    ["Neste placar",["Aparece pessoalmente nas rachadinhas e no caso Master. Os escândalos do governo do pai (2019–2022) contam para o bloco PL, mas ele não era ministro.","Os feitos do governo do pai, como Pix, Auxílio Emergencial e Reforma da Previdência, também contam para o bloco PL."]],
    ["Trabalho no Senado",["Apresentou 57 projetos de lei e 92 propostas de emenda à Constituição; nenhum de autoria principal dele virou lei até mai/2026.","Foi coautor da emenda que isentou de IPVA veículos com mais de 20 anos e de uma lei de microcrédito, e relator da lei que acabou com as “saidinhas” de presos (2024)."]]
   ],
-  src:[["TSE: Flávio Bolsonaro e Lula vão ao 2º turno", "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/flavio-bolsonaro-e-lula-vao-disputar-o-2o-turno-para-a-presidencia-da-republica"],["Diário do Nordeste: quem é Flávio Bolsonaro","https://diariodonordeste.verdesmares.com.br/pontopoder/quem-e-flavio-bolsonaro-principal-nome-da-oposicao-e-candidato-a-presidencia-da-republica-em-2026-1.3778221"],["Wikipédia: Flávio Bolsonaro","https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro"],["Jornal de Brasília (Folhapress): projetos de Flávio","https://jornaldebrasilia.com.br/noticias/politica-e-poder/flavio-bolsonaro-mirou-seguranca-mas-nao-teve-projetos-proprios-transformados-em-lei/"],["Brasil de Fato: um projeto aprovado em sete anos","https://www.brasildefato.com.br/2026/04/02/em-sete-anos-flavio-bolsonaro-teve-apenas-um-projeto-de-lei-aprovado-no-congresso/"],["Gazeta do Povo: rachadinhas arquivadas","https://www.gazetadopovo.com.br/republica/gilmar-mendes-nega-reabertura-rachadinhas-flavio-bolsonaro/"],["Diario de Pernambuco: inquérito Dark Horse","https://www.diariodepernambuco.com.br/politica/2026/09/11723630-flavio-bolsonaro-e-alvo-de-inquerito-da-pf-no-stf-no-caso-dark-horse.html"],["Correio da Manhã: repasses de Vorcaro ao filme","https://www.correiodamanha.com.br/politica/2026/07/304680-mendonca-autoriza-pf-a-investigar-repasses-de-vorcaro-para-dark-horse.html"]]},
+  src:[["TSE: Flávio Bolsonaro e Lula vão ao 2º turno", "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/flavio-bolsonaro-e-lula-vao-disputar-o-2o-turno-para-a-presidencia-da-republica"],["Diário do Nordeste: quem é Flávio Bolsonaro","https://diariodonordeste.verdesmares.com.br/pontopoder/quem-e-flavio-bolsonaro-principal-nome-da-oposicao-e-candidato-a-presidencia-da-republica-em-2026-1.3778221"],["Wikipédia: Flávio Bolsonaro (em inglês)","https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro"],["Jornal de Brasília (Folhapress): projetos de Flávio","https://jornaldebrasilia.com.br/noticias/politica-e-poder/flavio-bolsonaro-mirou-seguranca-mas-nao-teve-projetos-proprios-transformados-em-lei/"],["Brasil de Fato: um projeto aprovado em sete anos","https://www.brasildefato.com.br/2026/04/02/em-sete-anos-flavio-bolsonaro-teve-apenas-um-projeto-de-lei-aprovado-no-congresso/"],["Gazeta do Povo: rachadinhas arquivadas","https://www.gazetadopovo.com.br/republica/gilmar-mendes-nega-reabertura-rachadinhas-flavio-bolsonaro/"],["Diario de Pernambuco: inquérito Dark Horse","https://www.diariodepernambuco.com.br/politica/2026/09/11723630-flavio-bolsonaro-e-alvo-de-inquerito-da-pf-no-stf-no-caso-dark-horse.html"],["Correio da Manhã: repasses de Vorcaro ao filme","https://www.correiodamanha.com.br/politica/2026/07/304680-mendonca-autoriza-pf-a-investigar-repasses-de-vorcaro-para-dark-horse.html"]]},
  {id:"lula", nome:"Lula", partido:"PT", b:"pt", info:"80 anos · presidente da República · vice: Geraldo Alckmin (PSB)",
   blocos:[
    ["Cargos",["Deputado federal constituinte (1987–1991) e presidente da República em 2003–2010 e desde 2023, quase 12 anos no cargo."]],
@@ -2472,7 +2704,7 @@ var PROG26 = {
  "Gás de cozinha":[["2026","Hoje: o Gás do Povo substituiu o Auxílio Gás e dá o botijão de graça (meta de 15,5 mi de famílias)","hoje"]],
  "Moradia popular":[["2026","Hoje: Minha Casa, Minha Vida ativo","hoje"]],
  "Energia no campo":[["2022","Bolsonaro prorroga o Luz para Todos até 2026","pl"],["2026","Hoje: ativo, com recursos estendidos até 2028","hoje"]],
- "Médicos no interior":[["2024","Governo anuncia a integração do Médicos pelo Brasil ao Mais Médicos","pt"],["2026","Hoje: Mais Médicos ativo (cerca de 25 mil médicos em 2025)","hoje"]],
+ "Médicos no interior":[["2026","Hoje: Mais Médicos ativo (cerca de 25 mil médicos em 2025)","hoje"]],
  "Ensino superior":[["2026","Hoje: ProUni e Fies ativos","hoje"]],
  "Conta de luz mais barata":[["2026","Hoje: conta grátis até 80 kWh por mês para famílias de baixa renda","hoje"]],
  "Idosos e pessoas com deficiência pobres (BPC)":[["2026","Hoje: segue ativo","hoje"]],
@@ -2581,9 +2813,9 @@ function load(){
   if(s.tlSM !== "real") s.tlSM = "usd";
   if(s.tlPIB !== "idx") s.tlPIB = "usd";
   if(s.ecoOrd !== "nota") s.ecoOrd = "tempo";
-  function wmap(o, keys, mx){ var r = {}; keys.forEach(function(k){ var v = o && o[k]; r[k] = (typeof v === "number" && v >= 0 && v <= mx) ? v : 1; }); return r; }
+  function wmap(o, keys, mx, dflt){ var r = {}; keys.forEach(function(k){ var v = o && o[k]; r[k] = (typeof v === "number" && v >= 0 && v <= mx) ? v : (dflt && dflt[k] != null ? dflt[k] : 1); }); return r; }
   s.socW = wmap(s.socW, ["mul","neg","ind","pcd","lgb","ger"], 3);
-  s.pilW = wmap(s.pilW, ["eco","pov","soc","ser","amb","fut","prl"], 3); if(!(s.pilW.fut >= 0)) s.pilW.fut = 2;
+  s.pilW = wmap(s.pilW, ["eco","pov","soc","ser","amb","fut","prl"], 3, DEF.pilW);
   s.serW = wmap(s.serW, ["hom","mi","ev","ideb","pisa"], 3);
   var fw = s.forW || {}; s.forW = {cam:(typeof fw.cam === "number" && fw.cam >= 0 && fw.cam <= 3) ? fw.cam : 1, sen:(typeof fw.sen === "number" && fw.sen >= 0 && fw.sen <= 3) ? fw.sen : 1, stf:(typeof fw.stf === "number" && fw.stf >= 0 && fw.stf <= 3) ? fw.stf : 0.25};
   if(!(typeof s.idxMax === "number" && s.idxMax >= 0 && s.idxMax <= 5)) s.idxMax = 1.5;
@@ -2599,6 +2831,16 @@ function load(){
   if(s.choque !== "contar") s.choque = "tirar";
   var ew = {}; ["pib","renda","sm","inf","des","div","prim","carga"].forEach(function(k){ var v = s.ecoW && s.ecoW[k]; ew[k] = (typeof v === "number" && v >= 0 && v <= 3) ? v : 1; }); s.ecoW = ew;
   if(!s.notas || typeof s.notas !== "object" || Array.isArray(s.notas)) s.notas = {};
+  function isObj(v){ return !!v && typeof v === "object" && !Array.isArray(v); }
+  function numIn(v, lo, hi, d){ return (typeof v === "number" && isFinite(v) && v >= lo && v <= hi) ? v : d; }
+  ["excl","stars","istars"].forEach(function(k){ if(!isObj(s[k])) s[k] = {}; });
+  ["stars","istars"].forEach(function(k){ Object.keys(s[k]).forEach(function(id){ if(numIn(s[k][id], 0, 5, -1) < 0) delete s[k][id]; }); });
+  s.wVid = numIn(s.wVid, 0, 5, DEF.wVid); s.wLeg = numIn(s.wLeg, 0, 5, DEF.wLeg); s.wInst = numIn(s.wInst, 0, 5, DEF.wInst); s.wProm = numIn(s.wProm, 0, 10, DEF.wProm);
+  s.ipca = s.ipca !== false; s.inst = s.inst !== false;
+  s.porAno = String(s.porAno) === "1" ? "1" : "0";
+  if(["todos","pt","pl","ab"].indexOf(s.filtro) < 0) s.filtro = "todos";
+  if(["data","recentes","valor"].indexOf(s.ordem) < 0) s.ordem = "data";
+  if(["data","valor"].indexOf(s.ordemB) < 0) s.ordemB = "data";
   return s;
 }
 function save(){ try{ window.localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
@@ -2611,10 +2853,10 @@ var NF2 = new Intl.NumberFormat("pt-BR",{minimumFractionDigits:0, maximumFractio
 var MINUS = "−";
 function money(v){
   if(!(v > 0)) return "R$ 0";
-  if(v >= 1) return "R$ " + NF1.format(v) + " bi";
   var mi = v*1000;
-  if(mi >= 10) return "R$ " + NF0.format(mi) + " mi";
-  if(mi >= 1) return "R$ " + NF1.format(mi) + " mi";
+  if(mi >= 999.5) return "R$ " + NF1.format(v) + " bi";
+  if(mi >= 9.95) return "R$ " + NF0.format(mi) + " mi";
+  if(mi >= 0.9995) return "R$ " + NF1.format(mi) + " mi";
   return "R$ " + NF0.format(v*1e6) + " mil";
 }
 function pts(v){ return NF1.format(Math.abs(v) < 0.05 ? 0 : v).replace("-", MINUS); }
@@ -2681,6 +2923,7 @@ function sv(tag, attrs, parent){ var n = document.createElementNS(SVGNS, tag); i
 function stext(parent, x, y, str, cls, anchor){ var t = sv("text", {x:x, y:y, "class":cls||"", "text-anchor":anchor||"start"}, parent); t.textContent = str; return t; }
 function h(tag, cls, text){ var n = document.createElement(tag); if(cls) n.className = cls; if(text != null) n.textContent = text; return n; }
 function $(id){ return document.getElementById(id); }
+function lcw(t){ return t.replace(/^[A-ZÀ-Ý](?![A-Z]|deb\b|isa\b)/, function(c){ return c.toLowerCase(); }); }
 
 var tip = $("tip");
 function showTip(evt, build){
@@ -2696,11 +2939,14 @@ function showTip(evt, build){
   tip.style.left = left + "px"; tip.style.top = top + "px";
 }
 function hideTip(){ tip.hidden = true; }
+function leaveTip(e){ if(e.pointerType !== "touch") hideTip(); }
+document.addEventListener("pointerdown", function(e){ if(!tip.hidden && !(e.target.closest && e.target.closest(".hit"))) hideTip(); }, true);
 function tipRow(parent, k, v){ var r = h("div","tr"); r.appendChild(h("span",null,k)); r.appendChild(h("span",null,v)); parent.appendChild(r); }
 
 /* ---------- placar ---------- */
 function descTxt(){ var a = []; if(S.merito) a.push("o mérito de terceiros"); if(S.hoje) a.push("o que não existe mais"); return a.length ? ", descontado" + (a.length > 1 ? "s " : " ") + a.join(" e ") : ", sem descontos"; }
 function legNote(){ var a = []; if(S.merito) a.push("sem o mérito de terceiros"); if(S.hoje) a.push("sem o que não existe mais em 2026"); return a.length ? "Legado " + a.join(" e ") + ". " : "Legado sem descontos. "; }
+function ptsW(v){ return NF2.format(v) + (v > 0 && v <= 1 ? " ponto" : " pontos"); }
 function renderLedger(R){
   [["pt","PT","Governos Lula 1, Lula 2, Dilma e Lula 3 (cerca de 17 anos) e o partido"],["pl","PL","Governo Bolsonaro (2019–2022) e o partido, inclusive como aliado do PT"]].forEach(function(cfg){
     var b = cfg[0], B = R.bl[b], col = $("lcol-" + b);
@@ -2708,8 +2954,8 @@ function renderLedger(R){
     var hd = h("div","lhead"); var d = h("i","dot"); d.style.setProperty("--c","var(--" + b + ")"); hd.appendChild(d); hd.appendChild(h("span","lname",cfg[1])); col.appendChild(hd);
     col.appendChild(h("p","lsub",cfg[2]));
     function row(k, sub, v, cls){ var r = h("div","lrow" + (cls ? " " + cls : "")); r.appendChild(h("span","k",k)); r.appendChild(h("span","v",v)); if(sub){ r.appendChild(h("small",null,sub)); } col.appendChild(r); }
-    var subC = money(B.din) + " em desvios (ponderados), o mesmo que " + bfEquiv(B.din) + " em 2026" + (B.pessoas > 0 ? ", + " + mi(B.pessoas) + " de pessoas lesadas" : "");
-    row("Corrupção", subC, (B.corr > 0.04 ? MINUS : "") + NF1.format(B.din + B.vid));
+    var subC = money(B.din) + " em desvios (ponderados)" + (B.din > 0 ? ", o mesmo que " + bfEquiv(B.din) + " em 2026" : "") + (B.pessoas > 0 ? ", mais " + mi(B.pessoas) + " de pessoas lesadas" : "");
+    row("Corrupção", subC, ((B.din + B.vid) > 0.04 ? MINUS : "") + NF1.format(B.din + B.vid));
     if(S.inst) row("Sem valor em R$", B.ninst + " casos, por gravidade", (B.inst > 0.04 ? MINUS : "") + NF1.format(B.inst));
     row("Legado", NF2.format(B.estrelas) + " estrelas em " + B.nleg + " feitos" + descTxt(), (B.leg > 0.04 ? "+" : "") + NF1.format(B.leg));
     row("Promessas", S.wProm > 0 ? B.pOk + " cumpridas, " + B.pParte + " em parte e " + B.pNao + " não cumpridas, em " + B.nCamp + (B.nCamp === 1 ? " campanha" : " campanhas") : "fora da conta", signed(B.prom));
@@ -2717,9 +2963,9 @@ function renderLedger(R){
   });
   var wt = PRESETS[S.preset];
   var estN = {min:"mínima", central:"central", max:"máxima"}[S.est];
-  var presetN = {julgado:"só o julgado", equilibrado:"equilibrado", tudo:"tudo igual"}[S.preset];
+  var presetN = {julgado:"só o julgado", equilibrado:"equilibrada", tudo:"tudo igual"}[S.preset];
   var note = $("ledgerNote"); while(note.firstChild) note.removeChild(note.firstChild);
-  note.appendChild(document.createTextNode("Pontos: 1 ponto = R$ 1 bilhão" + (S.ipca ? " corrigido pela inflação" : " sem correção") + ". Pesos atuais: estimativa " + estN + ", comprovação " + presetN + ", 1 milhão de pessoas = " + NF2.format(S.wVid) + " ponto(s), 1 estrela de legado = " + NF2.format(S.wLeg) + " ponto(s)" + (S.merito ? " com desconto do mérito de terceiros" : " sem desconto de mérito") + (S.hoje ? ", só o que ainda existe em 2026" : ", contando também o que acabou") + ", campanha com todas as promessas cumpridas = " + NF2.format(S.wProm) + " ponto(s)" + (S.inst ? ", casos sem valor em R$ incluídos" : ", casos sem valor em R$ fora da conta") + ". "));
+  note.appendChild(document.createTextNode("Pontos: 1 ponto = R$ 1 bilhão" + (S.ipca ? " corrigido pela inflação" : " sem correção") + ". Pesos atuais: estimativa " + estN + ", comprovação " + presetN + ", 1 milhão de pessoas = " + ptsW(S.wVid) + ", 1 estrela de legado = " + ptsW(S.wLeg) + (S.merito ? " com desconto do mérito de terceiros" : " sem desconto de mérito") + (S.hoje ? ", só o que ainda existe em 2026" : ", contando também o que acabou") + ", campanha com todas as promessas cumpridas = " + ptsW(S.wProm) + (S.inst ? ", casos sem valor em R$ incluídos" : ", casos sem valor em R$ fora da conta") + ". "));
   var a = h("a",null,"Ajustar os pesos"); a.href = "#pesos"; note.appendChild(a);
   $("skPT").textContent = signed(R.bl.pt.saldo);
   $("skPL").textContent = signed(R.bl.pl.saldo);
@@ -2817,7 +3063,7 @@ function renderA(R){
     if(lW > 1.6){ var pR = barPath(cx + 1.5, X(d.leg), by, bh, oW > 1.6 ? 0 : 4); if(pR) sv("path", {d:pR, "class":"f-" + r.b + " soft"}, g); }
     if(oW > 1.6){ var s1 = lW > 1.6 ? X(d.leg) + 2 : cx + 1.5; var pQ = barPath(s1, s1 + oW, by, bh, 4); if(pQ) sv("path", {d:pQ, fill:"url(#hA-" + r.b + ")", "class":"hatch"}, g); }
     stext(g, W - 2, y + rowH/2 + 4, signed(d.saldo), "saldo", "end");
-    var hit = sv("rect", {x:0, y:y, width:W, height:rowH, "class":"hit", tabindex:"0", role:"button", "aria-label": r.label + " " + r.sub + ": corrupção " + pts(d.corr) + ", legado " + pts(d.leg) + ", promessas " + signed(d.prom) + ", saldo " + signed(d.saldo)}, svg);
+    var hit = sv("rect", {x:0, y:y, width:W, height:rowH, "class":"hit", tabindex:"0", role:"img", "aria-label": r.label + " " + r.sub + ": corrupção " + pts(d.corr) + ", legado " + pts(d.leg) + ", promessas " + signed(d.prom) + ", saldo " + signed(d.saldo)}, svg);
     svg.insertBefore(hit, g);
     function tipA(evt){ showTip(evt, function(t){
       var tt = h("div",null); var k = h("span","key"); k.style.setProperty("--c","var(--" + r.b + ")"); tt.appendChild(k); tt.appendChild(document.createTextNode(r.label + " · " + r.sub)); t.appendChild(tt);
@@ -2825,7 +3071,7 @@ function renderA(R){
       tipRow(t, "Desvios (R$ bi pond.)", pts(d.din)); tipRow(t, "Vidas lesadas", pts(d.vid)); if(S.inst) tipRow(t, "Sem valor em R$", pts(d.inst)); tipRow(t, "Corrupção total", pts(d.corr)); tipRow(t, "Legado", pts(d.leg)); tipRow(t, "Promessas", signed(d.prom));
       if(S.porAno === "1") t.appendChild(h("div","tn","Pontos por ano de mandato"));
     }); }
-    hit.addEventListener("pointerenter", tipA); hit.addEventListener("pointermove", tipA); hit.addEventListener("pointerleave", hideTip);
+    hit.addEventListener("pointerenter", tipA); hit.addEventListener("pointermove", tipA); hit.addEventListener("pointerleave", leaveTip);
     hit.addEventListener("focus", tipA); hit.addEventListener("blur", hideTip);
     y += rowH;
   });
@@ -2889,7 +3135,7 @@ function renderB(){
       tipRow(t, "Mínima", money(it.lo)); tipRow(t, "Central", money(val(s,"central"))); tipRow(t, "Máxima", money(it.hi));
       t.appendChild(h("div","tn", (S.ipca ? "Corrigido pelo IPCA. " : "Valores nominais. ") + "Toque para abrir o caso."));
     }); }
-    hit.addEventListener("pointerenter", tipB); hit.addEventListener("pointermove", tipB); hit.addEventListener("pointerleave", hideTip);
+    hit.addEventListener("pointerenter", tipB); hit.addEventListener("pointermove", tipB); hit.addEventListener("pointerleave", leaveTip);
     hit.addEventListener("focus", tipB); hit.addEventListener("blur", hideTip);
     function open(){ hideTip(); openCase(s.id); }
     hit.addEventListener("click", open);
@@ -2970,14 +3216,17 @@ function updateCases(){
   var wrap = $("cases"), n = 0;
   list.forEach(function(s){
     var bs = blocsOf(s), show = S.filtro === "todos" || (S.filtro === "ab" ? (s.g === "A" || s.g === "B") : !!bs[S.filtro]);
-    var d = CASE_REFS[s.id].d; d.hidden = !show; if(show) n++; wrap.appendChild(d);
+    var d = CASE_REFS[s.id].d; d.hidden = !show; if(show) n++;
   });
+  var kids = wrap.children, same = list.every(function(s, i){ return kids[i] === CASE_REFS[s.id].d; });
+  if(!same) list.forEach(function(s){ wrap.appendChild(CASE_REFS[s.id].d); });
   $("count").textContent = n + (n === 1 ? " caso" : " casos");
 }
 function openCase(id){
   if(curPage !== "pt-x-pl") showPage("pt-x-pl");
-  if(S.filtro !== "todos"){ S.filtro = "todos"; save(); syncControls(); updateCases(); }
-  var r = CASE_REFS[id]; if(!r) return; r.d.open = true;
+  var r = CASE_REFS[id]; if(!r) return;
+  if(r.d.hidden){ S.filtro = "todos"; save(); syncControls(); updateCases(); }
+  r.d.open = true;
   r.d.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
   var sm = r.d.querySelector("summary"); if(sm) sm.focus({preventScroll:true});
 }
@@ -3023,10 +3272,11 @@ function buildLegado(){
   var grid = $("legGrid");
   [["pt","PT","Governos Lula e Dilma"],["pl","PL","Governo Bolsonaro"]].forEach(function(cfg){
     var col = h("div","leg-col"); col.setAttribute("data-b", cfg[0]); col.appendChild(colHead(cfg, "legTot-" + cfg[0]));
-    var mine = LEG.filter(function(p){ return p.b === cfg[0]; }), cnt = {ok:0, parte:0, fim:0};
+    var mine = LEG.filter(function(p){ return p.b === cfg[0]; }), cnt = {ok:0, cumpr:0, parte:0, fim:0};
     mine.forEach(function(p){ cnt[p.h]++; });
     var parts = [];
     if(cnt.ok) parts.push(cnt.ok + (cnt.ok === 1 ? " ainda existe" : " ainda existem"));
+    if(cnt.cumpr) parts.push(cnt.cumpr + (cnt.cumpr === 1 ? " era temporário e cumpriu o papel" : " eram temporários e cumpriram o papel"));
     if(cnt.parte) parts.push(cnt.parte + (cnt.parte === 1 ? " existe em parte" : " existem em parte"));
     if(cnt.fim) parts.push(cnt.fim + (cnt.fim === 1 ? " não existe mais" : " não existem mais"));
     col.appendChild(h("p","colnote","Em 2026, dos " + mine.length + " feitos: " + joinPt(parts) + "."));
@@ -3117,7 +3367,7 @@ function buildCandidatos(){
     hd.appendChild(h("p","cand-info",c.info)); card.appendChild(hd);
     c.blocos.forEach(function(bk){ var dv = h("div"); dv.appendChild(h("h4",null,bk[0])); var ul = h("ul","pts"); bk[1].forEach(function(x){ ul.appendChild(h("li",null,x)); }); dv.appendChild(ul); card.appendChild(dv); });
     var det = h("details","more-d"); det.appendChild(h("summary",null,"Fontes")); var inner = h("div","inner"); inner.appendChild(srcList(c.src)); det.appendChild(inner); card.appendChild(det);
-    var rt = h("div","rate"); rt.appendChild(h("h4",null,"Sua nota para " + c.nome + " (0 a 10)"));
+    var rt = h("div","rate"), rh = h("h4",null,"Sua nota para " + c.nome + " (0 a 10)"); rh.id = "rate-h-" + c.id; rt.setAttribute("role","group"); rt.setAttribute("aria-labelledby", rh.id); rt.appendChild(rh);
     NOTA_REFS[c.id] = {};
     CRIT.forEach(function(k){
       var id = "nota-" + c.id + "-" + k[0], row = h("div","rate-row");
@@ -3125,7 +3375,7 @@ function buildCandidatos(){
       var out = h("output"); out.setAttribute("for", id);
       var inp = document.createElement("input"); inp.type = "range"; inp.min = "0"; inp.max = "10"; inp.step = "0.5"; inp.id = id;
       function setIt(){ if(!S.notas[c.id] || typeof S.notas[c.id] !== "object") S.notas[c.id] = {}; S.notas[c.id][k[0]] = parseFloat(inp.value); save(); paintNotas(); }
-      inp.addEventListener("input", setIt); inp.addEventListener("change", setIt); inp.addEventListener("click", setIt);
+      inp.addEventListener("input", setIt); inp.addEventListener("change", setIt); inp.addEventListener("click", setIt); inp.addEventListener("pointerup", setIt);
       row.appendChild(lb); row.appendChild(out); row.appendChild(inp); rt.appendChild(row);
       NOTA_REFS[c.id][k[0]] = {inp:inp, out:out};
     });
@@ -3133,7 +3383,7 @@ function buildCandidatos(){
     NOTA_REFS[c.id]._avg = ab;
     card.appendChild(rt); grid.appendChild(card);
   });
-  $("clearNotas").addEventListener("click", function(){ S.notas = {}; save(); paintNotas(); });
+  $("clearNotas").addEventListener("click", function(){ if(!window.confirm("Apagar as suas notas para os dois candidatos?")) return; S.notas = {}; save(); paintNotas(); });
   paintNotas();
 }
 function paintNotas(){
@@ -3236,16 +3486,16 @@ function renderTempo(){
   while(box.firstChild) box.removeChild(box.firstChild);
   TL_REFS = [];
   var W = Math.max(300, Math.round(box.clientWidth || 340)), narrow = W < 560;
-  var L = narrow ? 42 : 50, Rr = W - 8;
+  var L = narrow ? 42 : 50, Rr = W - 8, ESC_ROW = narrow ? 32 : 22;
   function X(t){ return L + (t - TL_A) / (TL_Z - TL_A) * (Rr - L); }
   function invX(px){ return TL_A + (px - L) / (Rr - L) * (TL_Z - TL_A); }
-  var tickYears = narrow ? [1995, 2003, 2011, 2016, 2019, 2023] : [1995, 2003, 2011, 2016, 2019, 2023, 2026];
+  var tickYears = W < 420 ? [1995, 2003, 2011, 2019, 2023] : narrow ? [1995, 2003, 2011, 2016, 2019, 2023] : [1995, 2003, 2011, 2016, 2019, 2023, 2026];
   tlPanels().forEach(function(P){
     var fig = h("figure","tlp"); fig.id = "tlp-" + P.id;
     var cap = h("figcaption"); cap.appendChild(h("b",null,P.title)); cap.appendChild(h("span",null,P.unit)); fig.appendChild(cap);
     var escRows = [];
     if(P.kind === "esc"){ escRows = ESC.map(function(s){ return {s:s, p:escPeriod(s)}; }).sort(function(a,b){ return a.p[0] - b.p[0] || a.p[1] - b.p[1]; }); }
-    var plotH = P.kind === "gov" ? (narrow ? 50 : 44) : P.kind === "esc" ? escRows.length * 22 + 6 : (narrow ? 96 : 112);
+    var plotH = P.kind === "gov" ? (narrow ? 50 : 44) : P.kind === "esc" ? escRows.length * ESC_ROW + 6 : (narrow ? 96 : 112);
     var top = 8, axisH = 18, H = top + plotH + axisH;
     var svg = sv("svg", {viewBox:"0 0 " + W + " " + H, width:W, height:H, role:"img", "aria-label": P.title + ", de 1995 a 2026"}, fig);
     // faixas de governo
@@ -3269,9 +3519,9 @@ function renderTempo(){
       });
     } else if(P.kind === "esc"){
       escRows.forEach(function(row, i){
-        var s = row.s, y0 = top + i*22, x0 = X(row.p[0]), x1 = Math.min(X(row.p[1] + 1), X(TL_Z));
+        var s = row.s, y0 = top + i*ESC_ROW + (ESC_ROW - 22)/2, x0 = X(row.p[0]), x1 = Math.min(X(row.p[1] + 1), X(TL_Z));
         var g = sv("g", {"class":"escbar", tabindex:"0", role:"button", "aria-label": s.t + ", " + s.p + ". Abrir o caso."}, svg);
-        sv("rect", {x:0, y:y0, width:W, height:22, "class":"hit"}, g);
+        sv("rect", {x:0, y:y0 - (ESC_ROW - 22)/2, width:W, height:ESC_ROW, "class":"hit"}, g);
         if(s.cor === "ambos"){
           sv("rect", {x:x0, y:y0 + 13, width:Math.max(3, x1 - x0), height:3, rx:1.5, "class":"f-pt"}, g);
           sv("rect", {x:x0, y:y0 + 16.5, width:Math.max(3, x1 - x0), height:3, rx:1.5, "class":"f-pl"}, g);
@@ -3279,7 +3529,7 @@ function renderTempo(){
         var v = val(s), lbl = s.ts + (v > 0 ? " · " + money(v) : "");
         var est = lbl.length * 5.8, right = x0 + est > Rr;
         stext(g, right ? Rr : x0, y0 + 9.5, lbl, "esclbl", right ? "end" : "start");
-        function go(){ hideTip(); try{ history.pushState(null, "", "#casos"); }catch(e){} openCase(s.id); }
+        function go(){ hideTip(); saveY(); try{ history.pushState(null, "", "#casos"); }catch(e){} openCase(s.id); }
         g.addEventListener("click", go);
         g.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); go(); } });
       });
@@ -3331,7 +3581,10 @@ function renderTempo(){
     if(P.kind !== "esc"){
       var ov = sv("rect", {x:L, y:0, width:Rr - L, height:H, "class":"hit"}, svg);
       function pick(evt){ var r = svg.getBoundingClientRect(); var px = (evt.clientX - r.left) * (W / r.width); var y = Math.floor(invX(px)); selectYear(Math.max(TL_A, Math.min(2026, y))); }
-      ov.addEventListener("pointerdown", pick); ov.addEventListener("pointermove", function(e){ if(e.pointerType === "mouse" || e.buttons) pick(e); });
+      var gx = 0, gy = 0;
+      ov.addEventListener("pointerdown", function(e){ gx = e.clientX; gy = e.clientY; if(e.pointerType !== "touch") pick(e); });
+      ov.addEventListener("pointermove", function(e){ if(e.pointerType === "mouse") pick(e); else if(e.buttons && Math.abs(e.clientX - gx) > 6 && Math.abs(e.clientX - gx) > Math.abs(e.clientY - gy)) pick(e); });
+      ov.addEventListener("pointerup", function(e){ if(e.pointerType === "touch") pick(e); });
     }
     TL_REFS.push(ref);
     $("tlPanels").appendChild(fig);
@@ -3519,7 +3772,7 @@ function renderEco(){
   stext(svg, x0, 12, "nota de 0 a 10", "axh", "start");
   rows.forEach(function(r, k){
     var y = top + k*rowH, g = r.g, bh = 14, by = y + (rowH - bh)/2;
-    var hit = sv("rect", {x:0, y:y, width:W, height:rowH, "class":"hit", tabindex:"0", role:"button", "aria-label": g.n + ": nota " + (r.nota == null ? "sem dado" : NF1.format(r.nota))}, svg);
+    var hit = sv("rect", {x:0, y:y, width:W, height:rowH, "class":"hit", tabindex:"0", role:"img", "aria-label": g.n + ": nota " + (r.nota == null ? "sem dado" : NF1.format(r.nota))}, svg);
     var gg = sv("g", null, svg);
     stext(gg, 0, y + rowH/2 - 1, g.n, "lbl", "start");
     stext(gg, 0, y + rowH/2 + 12, g.p + " · " + (g.ys[0] === g.ys[1] ? g.ys[0] : g.ys[0] + "–" + String(g.ys[1]).slice(2)), "sub", "start");
@@ -3531,7 +3784,7 @@ function renderEco(){
       ECO_IND.forEach(function(ind){ tipRow(t, ind.t + " (" + ecoFmt(ind.k, r.raw[ind.k]) + ")", r.sub[ind.k] == null ? "—" : NF1.format(r.sub[ind.k])); });
     }); }
     svg.insertBefore(hit, gg);
-    hit.addEventListener("pointerenter", tipE); hit.addEventListener("pointermove", tipE); hit.addEventListener("pointerleave", hideTip);
+    hit.addEventListener("pointerenter", tipE); hit.addEventListener("pointermove", tipE); hit.addEventListener("pointerleave", leaveTip);
     hit.addEventListener("focus", tipE); hit.addEventListener("blur", hideTip);
   });
   // tabela
@@ -3547,7 +3800,7 @@ function renderEco(){
     tr.appendChild(h("td","n", r.nota == null ? "—" : NF1.format(r.nota))); tbody.appendChild(tr);
   });
   table.appendChild(tbody); tb.appendChild(table);
-  var ws = ECO_IND.map(function(ind){ return ind.t.toLowerCase() + " " + NF2.format(S.ecoW[ind.k]); }).join(", ");
+  var ws = ECO_IND.map(function(ind){ return lcw(ind.t) + " " + NF2.format(S.ecoW[ind.k]); }).join(", ");
   $("ecoWeights").textContent = "Pesos da sua régua: " + ws + ". Choques externos: " + (S.choque === "tirar" ? "2009–10 e 2020–21 fora da conta" : "contados") + ". ";
 }
 function buildEcoPanel(){
@@ -3776,7 +4029,7 @@ var FORCA = [
   {cam:46, sen:48, stf:7.5, pc:"PT: 70 deputados", ps:"PT: 13 senadores", ind:"Edson Fachin", est:"base de 64% no início, cerca de 27% antes do afastamento"},
   {cam:64, sen:73, stf:1.5, pc:"PMDB: 66 deputados", ps:"PMDB: 19 senadores", ind:"Alexandre de Moraes", est:"base de 69% no início; fim estimado"},
   {cam:41, sen:37, stf:1, pc:"PSL: 52 deputados (2019)", ps:"PSL: 4 senadores", ind:"Nunes Marques, André Mendonça", est:"sem coalizão formal em 2019 (24%); Centrão a partir de 2020; estimado"},
-  {cam:65, sen:65, stf:6.5, pc:"PT: 68 deputados", ps:"PT: 9 senadores", ind:"Cristiano Zanin, Flávio Dino (Jorge Messias foi rejeitado pelo Senado em 2026)", est:"base de 51% a 76% conforme a fase; o União Progressista saiu em 2025; estimado"}
+  {cam:65, sen:65, stf:6.5, pc:"PT: 68 deputados", ps:"PT: 9 senadores", ind:"Cristiano Zanin, Flávio Dino (Jorge Messias foi rejeitado pelo Senado em 2026)", est:"base de 51% a 76% conforme a fase; a federação União Progressista saiu em 2025; estimado"}
 ];
 
 /* ---------- notas: sociedade, pobreza e geral ---------- */
@@ -3938,6 +4191,7 @@ function geralScores(R){
     PIL.forEach(function(pl){ agg.p[pl.k] += w*(x.p[pl.k] || 0); }); });
   ["desc","descEsc","descIdx","base","nota","mult"].forEach(function(k){ agg[k] /= tw; });
   PIL.forEach(function(pl){ agg.p[pl.k] /= tw; });
+  ["base","nota"].forEach(function(k){ if(pts.some(function(x){ return x[k] == null; })) agg[k] = null; }); PIL.forEach(function(pl){ if(pts.some(function(x){ return x.p[pl.k] == null; })) agg.p[pl.k] = null; });
   out.agg = agg;
   return out;
 }
@@ -3956,7 +4210,7 @@ function scoreBars(box, rows, aria){
   stext(svg, x0, 12, "nota de 0 a 10", "axh", "start");
   rows.forEach(function(r, k){
     var y = top + k*rowH, g = r.g, bh = 14, by = y + (rowH - bh)/2;
-    var hit = sv("rect", {x:0, y:y, width:W, height:rowH, "class":"hit", tabindex:"0", role:"button", "aria-label": g.n + ": nota " + nota1(r.nota)}, svg);
+    var hit = sv("rect", {x:0, y:y, width:W, height:rowH, "class":"hit", tabindex:"0", role:"img", "aria-label": g.n + ": nota " + nota1(r.nota)}, svg);
     var gg = sv("g", null, svg);
     stext(gg, 0, y + rowH/2 - 1, g.n, "lbl", "start");
     stext(gg, 0, y + rowH/2 + 12, g.p + " · " + govYears(g), "sub", "start");
@@ -3968,7 +4222,7 @@ function scoreBars(box, rows, aria){
       r.tip(t);
     }); }
     svg.insertBefore(hit, gg);
-    hit.addEventListener("pointerenter", tipE); hit.addEventListener("pointermove", tipE); hit.addEventListener("pointerleave", hideTip);
+    hit.addEventListener("pointerenter", tipE); hit.addEventListener("pointermove", tipE); hit.addEventListener("pointerleave", leaveTip);
     hit.addEventListener("focus", tipE); hit.addEventListener("blur", hideTip);
   });
 }
@@ -4018,7 +4272,7 @@ function renderSocHeat(){
     tbody.appendChild(tr);
   });
   table.appendChild(tbody); box.appendChild(table);
-  var ws = SOC_GR.map(function(gr){ return gr.t.toLowerCase() + " " + NF2.format(S.socW[gr.k]); }).join(", ");
+  var ws = SOC_GR.map(function(gr){ return lcw(gr.t) + " " + NF2.format(S.socW[gr.k]); }).join(", ");
   $("socWeights").textContent = "Pesos da sua régua: " + ws + "; leis do Congresso dão " + NF0.format(S.socCon*100) + "% do crédito ao governo; retrocessos pesam " + NF2.format(S.socRe) + "×; ótica de 2026 " + (S.hoje ? "ligada" : "desligada") + ". ";
 }
 /* sociedade: medidas */
@@ -4045,7 +4299,7 @@ function buildSocList(){
       var tags = h("div","si-tags");
       tags.appendChild(h("span","stag " + (it.k === "re" ? "t-re" : "t-av"), it.k === "re" ? "Retrocesso ou restrição" : "Avanço"));
       tags.appendChild(h("span","stag", SOC_O[it.o]));
-      if(it.s > 0 && it.o !== "jud") tags.appendChild(h("span","stag", (it.ti != null ? NF1.format(it.s) : it.s) + (it.s === 1 ? " estrela" : " estrelas")));
+      if(it.s > 0 && it.o !== "jud") tags.appendChild(h("span","stag", (it.ti != null ? NF1.format(it.s) : it.s) + (it.s > 1 || it.s === 0 ? " estrelas" : " estrela")));
       tags.appendChild(htag(it.h));
       li.appendChild(tags);
       var src = h("ul","src");
@@ -4151,9 +4405,9 @@ function renderHex(R){
   function pick(k){ return k === "ptall" ? G.agg : G.filter(function(x){ return x.fr === k; })[0]; }
   var A = pick(S.hexA) || G.agg, B = pick(S.hexB) || G[4];
   while(box.firstChild) box.removeChild(box.firstChild);
-  var W = Math.min(460, Math.max(290, Math.round(box.clientWidth || 320))), H = Math.round(W*0.86);
+  var W = Math.min(460, Math.max(256, Math.round(box.clientWidth || 320))), H = Math.round(W*0.86);
   var narrow = W < 380, r = Math.min(W*0.29, (W/2 - (narrow ? 80 : 92))/0.866), cx = W/2, cy = H/2 + 4;
-  var svg = sv("svg", {viewBox:"0 0 " + W + " " + H, width:W, height:H, role:"img", "aria-label":"Hexágono da nota geral: " + A.g.n + " " + nota1(A.nota) + ", " + B.g.n + " " + nota1(B.nota)}, box);
+  var svg = sv("svg", {viewBox:"0 0 " + W + " " + H, width:W, height:H, style:"overflow:visible", role:"img", "aria-label":"Hexágono da nota geral: " + A.g.n + " " + nota1(A.nota) + ", " + B.g.n + " " + nota1(B.nota)}, box);
   drawHex(svg, cx, cy, r, [{g:A.g, p:A.p}, {g:B.g, p:B.p, dash:true}], {labels:true, labelGap:12, dots:true, small:narrow});
   // placar ao lado
   function put(id, x){ var el = $(id); el.querySelector(".hn-name").textContent = x.g.n; el.querySelector(".hn-sub").textContent = x.g.p + " · " + govYears(x.g); el.querySelector(".hn-val").textContent = nota1(x.nota); el.setAttribute("data-b", x.g.b); }
@@ -4181,14 +4435,17 @@ function renderHex(R){
   var tr = h("tr","tot"); tr.appendChild(h("td",null,"Nota geral")); tr.appendChild(h("td","n", nota1(A.nota))); tr.appendChild(h("td","n", nota1(B.nota))); tbody.appendChild(tr);
   table.appendChild(tbody); tb.appendChild(table);
   $("hexCorrNote").textContent = "A nota geral é a média dos sete pilares, com as contas para o futuro pesando o dobro por padrão, menos a corrupção: cada R$ 1 bilhão desviado (corrigido e ponderado pela prova) e cada estrela de gravidade dos casos sem valor em R$ tiram " + NF2.format(S.corrK) + " ponto, e o índice de controle da corrupção do Banco Mundial tira até " + NF2.format(S.idxMax) + ", na proporção da distância até a mediana mundial. Direitos e minorias e Feitos e promessas passam pelo multiplicador de força no Congresso e no STF. " + (S.choque === "tirar" ? "Na economia, na pobreza e na saúde, o ano da crise de 2009 e o da pandemia saem da conta, com os anos seguintes até cada indicador voltar ao nível de antes." : "A crise de 2009 e a pandemia contam como os outros anos.");
-  renderHexGrid(G); renderForca();
+  renderHexGrid(G); renderForca(); fixTables();
   var pa = G.agg, pl = G.filter(function(x){ return x.fr === "bolso"; })[0];
   $("hexVs").textContent = "PT, média dos cinco governos (ponderada pelo tempo de mandato): " + nota1(pa.nota) + " · PL, governo Bolsonaro: " + nota1(pl.nota);
 }
 function renderHexGrid(G){
-  var box = $("hexGrid"); if(!box) return; while(box.firstChild) box.removeChild(box.firstChild);
+  var box = $("hexGrid"); if(!box) return;
+  var af = document.activeElement, keep = (af && box.contains(af)) ? af.getAttribute("data-fr") : null;
+  while(box.firstChild) box.removeChild(box.firstChild);
   G.forEach(function(x){
     var b = document.createElement("button"); b.type = "button"; b.className = "hxcard"; b.setAttribute("data-b", x.g.b);
+    b.setAttribute("data-fr", x.fr); b.setAttribute("aria-pressed", (x.fr === S.hexA || x.fr === S.hexB) ? "true" : "false");
     if(x.fr === S.hexA || x.fr === S.hexB) b.classList.add("on");
     b.setAttribute("aria-label", "Comparar " + x.g.n + ", nota geral " + nota1(x.nota));
     var W = 132, H = 118, svg = sv("svg", {viewBox:"0 0 " + W + " " + H, width:W, height:H, "aria-hidden":"true"}, null);
@@ -4203,6 +4460,7 @@ function renderHexGrid(G){
     });
     box.appendChild(b);
   });
+  if(keep){ var nb = box.querySelector('[data-fr="' + keep + '"]'); if(nb) nb.focus({preventScroll:true}); }
 }
 function buildHexSelects(){
   ["hexA","hexB"].forEach(function(k){
@@ -4240,7 +4498,7 @@ function meanRate(objs, a, b, set){
 var SER_IND = [
   {k:"hom", t:"Homicídios", u:"por 100 mil, por ano", hi:false, d:"variação da taxa de homicídios por 100 mil habitantes, por ano"},
   {k:"mi", t:"Mortalidade infantil", u:"% ao ano", hi:false, d:"variação da mortalidade infantil, em % por ano"},
-  {k:"ev", t:"Expectativa de vida", u:"anos por ano", hi:true, d:"ganho de expectativa de vida ao nascer, por ano"},
+  {k:"ev", t:"Expectativa de vida", u:"anos por ano", hi:true, d:"variação da expectativa de vida ao nascer, por ano"},
   {k:"ideb", t:"Ideb", u:"pontos por ano", hi:true, d:"variação média do Ideb das três etapas, por ano"},
   {k:"pisa", t:"Pisa", u:"pontos por ano", hi:true, d:"variação média das notas do Pisa, por ano"}
 ];
@@ -4305,7 +4563,7 @@ function renderSer(){
   rows.forEach(function(r){ r.tip = function(t){ SER_IND.forEach(function(ind){ tipRow(t, ind.t + " (" + fmtInd(ind.k, r.raw[ind.k]) + ")", nota1(r.sub[ind.k])); }); }; });
   scoreBars(box, rows, "Nota de serviços públicos de cada governo, de 0 a 10");
   scoreTable("tblSer", SER_IND, serScores(), fmtInd);
-  $("serWeights").textContent = "Pesos da sua régua: " + SER_IND.map(function(ind){ return ind.t.toLowerCase() + " " + NF2.format(S.serW[ind.k]); }).join(", ") + ". Pandemia: " + (S.choque === "tirar" ? "2020–22 fora da saúde e 2020–21 fora da educação" : "contada") + ". ";
+  $("serWeights").textContent = "Pesos da sua régua: " + SER_IND.map(function(ind){ return lcw(ind.t) + " " + NF2.format(S.serW[ind.k]); }).join(", ") + ". Pandemia: " + (S.choque === "tirar" ? "2020–22 fora da saúde e 2020–21 fora da educação" : "contada") + ". ";
   var ab = $("chartAmb"); var ar = ambScores(); if(S.ecoOrd === "nota") ar = ar.slice().sort(function(a, b){ return (b.nota || 0) - (a.nota || 0); });
   ar.forEach(function(r){ r.tip = function(t){ AMB_IND.forEach(function(ind){ tipRow(t, ind.t + " (" + fmtInd(ind.k, r.raw[ind.k]) + ")", nota1(r.sub[ind.k])); }); }; });
   scoreBars(ab, ar, "Nota de meio ambiente de cada governo, de 0 a 10");
@@ -4393,13 +4651,14 @@ function wgiAvg(i){ var g = GOVS[i], s = 0, n = 0; for(var y = g.ys[0]; y <= g.y
 /* ---------- bibliografia ---------- */
 var SRC_CATS = [
   {k:"gov", t:"Governo, Congresso, Justiça e órgãos públicos", re:/(^|\.)(gov\.br|leg\.br|jus\.br|mp\.br|def\.br|ebc\.com\.br|inpe\.br)$/},
-  {k:"dados", t:"Dados e organismos internacionais", re:/(worldbank\.org|ourworldindata\.org|fao\.org|un\.org|unicef\.org|oecd\.org|imf\.org|paho\.org|who\.int|iea\.org)$/},
+  {k:"dados", t:"Dados e organismos internacionais", re:/(worldbank\.org|ourworldindata\.org|fao\.org|un\.org|unicef\.org|oecd\.org|imf\.org|paho\.org|who\.int|iea\.org|transparency\.org)$/},
   {k:"chk", t:"Agências de checagem", re:/(aosfatos\.org|agencialupa\.org|lupa\.uol\.com\.br|lupa\.news|projetocomprova\.com\.br|boatos\.org|e-farsas\.com)$/},
-  {k:"org", t:"Pesquisa, entidades e organizações", re:/(dieese\.org\.br|socioambiental\.org|cimi\.org\.br|fundacaofhc\.org\.br|fgv\.br|climatepolicyinitiative\.org|mapbiomas\.org|unisinos\.br|\.edu\.br|ufes\.br|usp\.br|unicamp\.br|anapar\.com\.br|contag\.org\.br|crin\.org|cut\.org\.br|fpabramo\.org\.br|rsf\.org|scielosp\.org|conasems\.org\.br|politize\.com\.br|transparenciainternacional\.org\.br|cfess\.org\.br|mayerbrown\.com|wagner\.adv\.br|lefosse\.com|migalhas\.com\.br|conjur\.com\.br)$/},
+  {k:"org", t:"Pesquisa, entidades e organizações", re:/(dieese\.org\.br|socioambiental\.org|cimi\.org\.br|fundacaofhc\.org\.br|fgv\.br|climatepolicyinitiative\.org|mapbiomas\.org|unisinos\.br|\.edu\.br|ufes\.br|usp\.br|unicamp\.br|anapar\.com\.br|contag\.org\.br|crin\.org|cut\.org\.br|fpabramo\.org\.br|rsf\.org|scielosp\.org|conasems\.org\.br|politize\.com\.br|transparenciainternacional\.org\.br|cfess\.org\.br|mayerbrown\.com|wagner\.adv\.br|lefosse\.com|migalhas\.com\.br|conjur\.com\.br|forumseguranca\.org\.br|scielo\.br|unifesp\.br|olb\.org\.br)$/},
   {k:"enc", t:"Enciclopédias", re:/wikipedia\.org$/},
   {k:"imp", t:"Imprensa e sites de notícias", re:/.*/}
 ];
-function hostOf(u){ try{ return new URL(u).hostname.replace(/^www\d?\./, ""); }catch(e){ return u; } }
+function norm(s){ return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); }
+function hostOf(u){ try{ return new URL(u).hostname.replace(/^www\d*\./, ""); }catch(e){ return u; } }
 function buildSources(){
   var map = new Map(), pageName = {};
   document.querySelectorAll(".sitenav a[data-page]").forEach(function(a){ pageName[a.getAttribute("data-page")] = a.textContent; });
@@ -4424,10 +4683,10 @@ function buildSources(){
     Object.keys(byHost).sort(function(x, y){ return byHost[y].length - byHost[x].length || x.localeCompare(y); }).forEach(function(hn){
       var g = h("div","srchost"); g.appendChild(h("h3",null, hn + " · " + byHost[hn].length));
       var ul = h("ul","srcl");
-      byHost[hn].sort(function(x, y){ return x.label.localeCompare(y.label, "pt"); }).forEach(function(e){
+      byHost[hn].sort(function(x, y){ return x.label.localeCompare(y.label, "pt", {numeric:true}); }).forEach(function(e){
         var li = h("li"), lk = h("a",null, e.label || e.url); lk.href = e.url; lk.target = "_blank"; lk.rel = "noopener"; li.appendChild(lk);
         li.appendChild(h("small",null, Array.from(e.where).join(" | ")));
-        li.setAttribute("data-q", (e.label + " " + e.host + " " + Array.from(e.where).join(" ")).toLowerCase());
+        li.setAttribute("data-q", norm(e.label + " " + e.host + " " + Array.from(e.where).join(" ")));
         ul.appendChild(li);
       });
       g.appendChild(ul); sec.appendChild(g);
@@ -4435,12 +4694,13 @@ function buildSources(){
     box.appendChild(sec);
   });
   $("srcQ").addEventListener("input", function(){
-    var q = this.value.trim().toLowerCase(), any = false;
+    var q = norm(this.value.trim()), any = false;
     box.querySelectorAll(".srchost").forEach(function(g){
-      var n = 0; g.querySelectorAll("li").forEach(function(li){ var ok = !q || li.getAttribute("data-q").indexOf(q) >= 0 || (q && g.querySelector("h3").textContent.toLowerCase().indexOf(q) >= 0); li.hidden = !ok; if(ok) n++; });
+      var n = 0; g.querySelectorAll("li").forEach(function(li){ var ok = !q || li.getAttribute("data-q").indexOf(q) >= 0 || (q && norm(g.querySelector("h3").textContent).indexOf(q) >= 0); li.hidden = !ok; if(ok) n++; });
       g.hidden = !n; if(n) any = true;
     });
-    box.querySelectorAll(".srccat").forEach(function(c){ var has = !!c.querySelector(".srchost:not([hidden])"); c.hidden = !has; if(q && has) c.open = true; });
+    box.querySelectorAll(".srccat").forEach(function(c){ var has = !!c.querySelector(".srchost:not([hidden])"); c.hidden = !has; if(q && has) c.open = true;
+      var nn = c.querySelectorAll(".srchost:not([hidden]) li:not([hidden])").length, tot = c.querySelectorAll("li").length, sn = c.querySelector(".srcn"); if(sn) sn.textContent = (q ? nn + " de " + tot : tot) + (tot === 1 ? " link" : " links"); });
     $("srcEmpty").hidden = any;
   });
 }
@@ -4905,12 +5165,12 @@ function buildFlMap(){
       var n = cnt[i], td = h("td");
       if(!n){ td.className = "z"; td.textContent = "·"; }
       else { var b = h("button", null, String(n)); b.type = "button"; b.setAttribute("data-q", k); b.setAttribute("data-sel", sel); b.setAttribute("aria-label", label + ", " + FL_WHO[k].n + ": " + n);
-        var pct = Math.round(12 + 13 * Math.min(n, 6)); b.style.setProperty("--cbg", "color-mix(in srgb, " + (gk ? "var(--g-" + gk + ")" : "var(--ink-2)") + " " + pct + "%, transparent)"); td.appendChild(b); }
+        var pct = Math.round(12 + 6 * Math.min(n, 6)); b.style.setProperty("--cbg", "color-mix(in srgb, " + (gk ? "var(--g-" + gk + ")" : "var(--ink-2)") + " " + pct + "%, transparent)"); td.appendChild(b); }
       r.appendChild(td);
     });
     body.appendChild(r);
   }
-  function grp(t){ var r = h("tr", "grp"), c = h("th", null, t); c.setAttribute("colspan", String(FL_WHO_ORD.length + 1)); r.appendChild(c); body.appendChild(r); }
+  function grp(t){ var r = h("tr", "grp"), c = h("th"); c.appendChild(h("span", null, t)); c.setAttribute("colspan", String(FL_WHO_ORD.length + 1)); r.appendChild(c); body.appendChild(r); }
   FL_GRP.forEach(function(g){ grp(g.t); g.tags.forEach(function(t){ row(t, "t:" + t, g.k, function(f){ return f.tags.indexOf(t) >= 0; }); }); });
   grp("Deu em quê");
   FL_RES_ORD.forEach(function(k){ row(FL_RES[k].t, "r:" + k, null, function(f){ return f.r === k; }); });
@@ -4944,7 +5204,7 @@ function buildFalas(){
     $(p[0]).addEventListener("click", function(e){ var b = e.target.closest("button[data-v]"); if(!b) return; FLS[p[1]] = b.getAttribute("data-v"); renderFalas(); });
   });
   $("flClear").addEventListener("click", function(){ FLS.q = "todos"; FLS.c = "todos"; FLS.sel = ""; renderFalas(); });
-  $("flList").addEventListener("click", function(e){ var b = e.target.closest("button[data-sel]"); if(!b) return; FLS.sel = b.getAttribute("data-sel"); renderFalas(); $("lista-falas").scrollIntoView({block:"start"}); });
+  $("flList").addEventListener("click", function(e){ var b = e.target.closest("button[data-sel]"); if(!b) return; FLS.sel = b.getAttribute("data-sel"); renderFalas(); var hd = $("lf-h"); if(hd){ hd.setAttribute("tabindex", "-1"); hd.focus({preventScroll:true}); } $("lista-falas").scrollIntoView({block:"start"}); });
   $("flMap").addEventListener("click", function(e){ var b = e.target.closest("button[data-q]"); if(!b) return; FLS.q = b.getAttribute("data-q"); FLS.sel = b.getAttribute("data-sel") || ""; FLS.c = "todos"; renderFalas(); $("lista-falas").scrollIntoView({block:"start"}); });
   var leg = $("flLegend");
   FL_GRP.forEach(function(g){ var s = h("span", "fl-tag g-" + g.k, g.t); leg.appendChild(s); });
@@ -5042,19 +5302,25 @@ function buildPoderes(){
 
 /* ---------- páginas ---------- */
 var PAGES = ["inicio","pt-x-pl","economia","servicos","sociedade","falas","poderes","eleicao","regua","metodo","fontes"];
-var curPage = null;
-function setNavH(){ var nb = $("navbar"), st = $("stick"); if(!nb) return; var hgt = nb.offsetHeight - (st && !st.hidden ? st.offsetHeight : 0); document.documentElement.style.setProperty("--navh", hgt + "px"); }
+var curPage = null, firstShow = true, BASE_TITLE = document.title, RESTORE_Y = null;
+// a barra Saldo só entra na altura da navegação enquanto estiver no fluxo do navbar; fixa ou absoluta, ela fica de fora
+function setNavH(){ var nb = $("navbar"), st = $("stick"); if(!nb) return; var hgt = nb.offsetHeight; if(st && !st.hidden){ var ps = window.getComputedStyle(st).position; if(ps !== "absolute" && ps !== "fixed") hgt -= st.offsetHeight; } document.documentElement.style.setProperty("--navh", hgt + "px"); }
 function stickFor(p){
   var st = $("stick"); if(!st) return;
   if(p === "regua"){ st.hidden = false; $("stickGo").textContent = "Ver o placar"; $("stickGo").setAttribute("href", "#pt-x-pl"); }
   else { $("stickGo").textContent = "Ajustar os pesos"; $("stickGo").setAttribute("href", "#regua"); if(p !== "pt-x-pl") st.hidden = true; }
 }
+function syncStick(){ if(curPage !== "pt-x-pl") return; var st = $("stick"), led = $("ledger"); if(!st || !led) return; var r = led.getBoundingClientRect(), h = (r.bottom > 0 && r.top < window.innerHeight) || r.top > 0; if(st.hidden !== h){ st.hidden = h; setNavH(); } }
+function fixTables(){ document.querySelectorAll(".tblwrap").forEach(function(w){ w.querySelectorAll("thead th:not([scope])").forEach(function(th){ th.setAttribute("scope","col"); }); if(w.hasAttribute("tabindex")) return; w.tabIndex = 0; w.setAttribute("role","region"); var d = w.closest("details"), sm = d && d.querySelector("summary"), sec = w.closest("section"), hd = (sec && sec.querySelector("h2")) || (w.closest("figure") && w.closest("figure").querySelector("figcaption .eyebrow")); var pt = []; if(hd) pt.push(hd.textContent.trim()); if(sm) pt.push(sm.textContent.trim()); w.setAttribute("aria-label","Tabela: " + (pt.join(" — ") || "dados") + " (deslize para os lados)"); }); }
 function showPage(p, targetId){
   if(PAGES.indexOf(p) < 0) p = "inicio";
+  var wasFirst = firstShow; firstShow = false;
   curPage = p;
   document.querySelectorAll(".page").forEach(function(el){ el.hidden = el.getAttribute("data-page") !== p; });
   document.querySelectorAll(".sitenav a").forEach(function(a){ if(a.getAttribute("data-page") === p) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
-  stickFor(p); setNavH();
+  stickFor(p); setNavH(); setTimeout(syncStick, 200);
+  var navA = document.querySelector('.sitenav a[data-page="' + p + '"]');
+  document.title = (p === "inicio" || !navA) ? BASE_TITLE : navA.textContent.trim() + " | Brasil em Análise";
   hideTip();
   var R = compute();
   if(p === "inicio") renderHome(R);
@@ -5062,11 +5328,15 @@ function showPage(p, targetId){
   if(p === "sociedade"){ renderSocHeat(); updateSocList(); }
   if(p === "servicos"){ renderSer(); renderSeries("serSeries"); }
   if(p === "pt-x-pl"){ renderA(R); renderB(); renderSeries("corrSeries"); }
+  fixTables();
   var cur = document.querySelector('.sitenav a[aria-current="page"]'), nav = document.querySelector(".sitenav");
   if(cur && nav){ var l = cur.offsetLeft - nav.offsetLeft, r = l + cur.offsetWidth; if(l < nav.scrollLeft || r > nav.scrollLeft + nav.clientWidth) nav.scrollLeft = Math.max(0, l - 24); }
-  if(targetId){ var t = $(targetId); if(t){ if(t.tagName === "DETAILS") t.open = true; setTimeout(function(){ t.scrollIntoView({block:"start"}); }, 0); return; } }
+  if(RESTORE_Y != null){ var ry = RESTORE_Y; RESTORE_Y = null; window.scrollTo(0, ry); return; }
+  if(targetId){ var t = $(targetId); if(t){ if(t.tagName === "DETAILS") t.open = true; setTimeout(function(){ t.scrollIntoView({block:"start"}); setTimeout(function(){ if(curPage === p) t.scrollIntoView({block:"start"}); }, 150); }, 0); return; } }
   window.scrollTo(0, 0);
+  if(!wasFirst){ var h1 = document.querySelector('.page[data-page="' + p + '"] h1'); if(h1){ h1.tabIndex = -1; h1.focus({preventScroll:true}); } }
 }
+function saveY(){ try{ history.replaceState({y: Math.round(window.scrollY)}, ""); }catch(e){} }
 function pageOfEl(el){ var p = el && el.closest ? el.closest(".page") : null; return p ? p.getAttribute("data-page") : null; }
 function route(){
   var hs = (location.hash || "").replace(/^#/, "");
@@ -5079,12 +5349,13 @@ function route(){
 /* ---------- ciclo ---------- */
 function update(){
   var R = compute();
-  syncControls(); renderLedger(R); renderA(R); renderB(); updateCases(); updateStars(R); updatePromessas();
+  syncControls(); renderLedger(R); if(curPage === "pt-x-pl"){ renderA(R); renderB(); } updateCases(); updateStars(R); updatePromessas();
   syncEco(); syncSoc();
   if(curPage === "economia"){ renderEco(); renderPov(); renderFut(); renderTempo(); renderGovTable(R); }
   if(curPage === "servicos") renderSer();
   if(curPage === "sociedade"){ renderSocHeat(); updateSocList(); }
   if(curPage === "inicio") renderHome(R);
+  fixTables();
 }
 function bind(){
   document.querySelectorAll(".seg[data-key]").forEach(function(seg){
@@ -5099,8 +5370,9 @@ function bind(){
   $("hoje").addEventListener("change", function(e){ S.hoje = e.target.checked; save(); update(); });
   [["wVid","wVid"],["wLeg","wLeg"],["wInst","wInst"],["wProm","wProm"]].forEach(function(p){ $(p[0]).addEventListener("input", function(e){ S[p[1]] = parseFloat(e.target.value); save(); update(); }); });
   $("reset").addEventListener("click", function(){ var keep = {filtro:S.filtro, ordem:S.ordem, ordemB:S.ordemB, legFiltro:S.legFiltro, notas:S.notas, promFiltro:S.promFiltro, tlSM:S.tlSM, tlPIB:S.tlPIB, ecoW:S.ecoW, ecoOrd:S.ecoOrd, socW:S.socW, socCon:S.socCon, socRe:S.socRe, pilW:S.pilW, socGrp:S.socGrp, socLado:S.socLado, hexA:S.hexA, hexB:S.hexB, corrK:S.corrK, choque:S.choque, idxMax:S.idxMax, forK:S.forK, forW:S.forW, serW:S.serW}; S = clone(DEF); for(var k in keep) S[k] = keep[k]; save(); update(); });
-  var rt; window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(function(){ var R = compute(); setNavH(); if(curPage === "pt-x-pl"){ renderA(R); renderB(); renderSeries("corrSeries"); } if(curPage === "economia"){ renderEco(); renderPov(); renderSeries("ecoSeries"); renderTempo(); } if(curPage === "servicos"){ renderSer(); renderSeries("serSeries"); } if(curPage === "inicio") renderHome(R); }, 120); });
+  var rt, lastVW = window.innerWidth; window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(function(){ setNavH(); if(window.innerWidth === lastVW) return; lastVW = window.innerWidth; var R = compute(); if(curPage === "pt-x-pl"){ renderA(R); renderB(); renderSeries("corrSeries"); } if(curPage === "economia"){ renderEco(); renderPov(); renderFut(); renderSeries("ecoSeries"); renderTempo(); } if(curPage === "servicos"){ renderSer(); renderSeries("serSeries"); } if(curPage === "inicio") renderHome(R); fixTables(); }, 120); });
   window.addEventListener("scroll", hideTip, {passive:true});
+  window.addEventListener("scroll", syncStick, {passive:true});
   try{
     var st = $("stick"), led = $("ledger");
     var io = new IntersectionObserver(function(ent){ ent.forEach(function(en){ if(curPage === "pt-x-pl"){ st.hidden = en.isIntersecting || en.boundingClientRect.top > 0; setNavH(); } }); });
@@ -5110,9 +5382,17 @@ function bind(){
   $("resetPil").addEventListener("click", function(){ S.pilW = clone(DEF.pilW); S.corrK = DEF.corrK; S.idxMax = DEF.idxMax; S.forK = DEF.forK; S.forW = clone(DEF.forW); save(); update(); });
   $("resetSer").addEventListener("click", function(){ S.serW = clone(DEF.serW); save(); update(); });
   $("resetSoc").addEventListener("click", function(){ S.socW = clone(DEF.socW); S.socCon = DEF.socCon; S.socRe = DEF.socRe; save(); update(); });
+  var sk = document.querySelector(".skip");
+  if(sk) sk.addEventListener("click", function(e){ e.preventDefault(); var m = $("conteudo"); if(m){ if(!m.hasAttribute("tabindex")) m.setAttribute("tabindex", "-1"); m.focus({preventScroll:true}); m.scrollIntoView({block:"start"}); } });
+  try{ history.scrollRestoration = "manual"; }catch(e){}
+  var sT; window.addEventListener("scroll", function(){ clearTimeout(sT); sT = setTimeout(saveY, 150); }, {passive:true});
+  window.addEventListener("popstate", function(){ var st = history.state; RESTORE_Y = (st && typeof st.y === "number") ? st.y : null; });
   window.addEventListener("hashchange", route);
+  var tt = $("totop");
+  if(tt){ window.addEventListener("scroll", function(){ tt.hidden = window.scrollY < 1200; }, {passive:true}); tt.addEventListener("click", function(){ window.scrollTo({top:0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); }); }
   document.addEventListener("click", function(e){
     var a = e.target.closest ? e.target.closest('a[href^="#"]') : null; if(!a) return;
+    RESTORE_Y = null; saveY();
     if(a.getAttribute("href") === location.hash){ e.preventDefault(); route(); }
   });
 }

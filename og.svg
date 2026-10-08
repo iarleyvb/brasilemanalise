@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Brasil em Análise: você escolhe a régua. A régua vale para todos.">
+  <rect width="1200" height="630" fill="#151718"/>
+  <!-- régua na base, como no cabeçalho do site -->
+  <g stroke="#9fa39e" stroke-width="2">
+    <path d="M0 619H1200" fill="none"/>
+    <path d="M0 630V603M50 630V603M100 630V603M150 630V603M200 630V603M250 630V603M300 630V603M350 630V603M400 630V603M450 630V603M500 630V603M550 630V603M600 630V603M650 630V603M700 630V603M750 630V603M800 630V603M850 630V603M900 630V603M950 630V603M1000 630V603M1050 630V603M1100 630V603M1150 630V603M1200 630V603" fill="none"/>
+  </g>
+  <!-- marca -->
+  <g transform="translate(84 96) scale(5)" fill="none" stroke="#f3f4f1" stroke-width="2" stroke-linecap="round">
+    <rect x="1.5" y="1.5" width="29" height="29" rx="7"/>
+    <path d="M7 21H25M8 21V11M12.5 21V16M17 21V13M21.5 21V16M25 21V11"/>
+  </g>
+  <text x="84" y="350" font-family="Archivo, Inter, 'Helvetica Neue', Arial, sans-serif" font-size="96" font-weight="800" fill="#f3f4f1" letter-spacing="-2">Brasil <tspan font-weight="400" fill="#9fa39e">em</tspan> Análise</text>
+  <text x="84" y="432" font-family="Archivo, Inter, 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="600" fill="#f3f4f1">Você escolhe a régua. A régua vale para todos.</text>
+  <text x="84" y="496" font-family="Archivo, Inter, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" fill="#9fa39e">Governos do Brasil de 1995 a 2026, com número público</text>
+  <text x="84" y="536" font-family="Archivo, Inter, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400" fill="#9fa39e">e fonte em cada item.</text>
+  <text x="1116" y="560" text-anchor="end" font-family="'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace" font-size="26" fill="#9fa39e">brasilemanalise.com</text>
+</svg>
