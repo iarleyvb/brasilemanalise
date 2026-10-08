@@ -1213,6 +1213,21 @@ table.flmap{min-width:400px}
 }
 @media (min-width:760px){.rp-card{padding:18px 18px 14px}.rp-panel{padding:14px 16px}}
 @media (prefers-reduced-motion:reduce){.rp-chip{transition:none}}
+/* ---------- A conta completa ---------- */
+.cc-steps{margin:0;padding-inline-start:20px;display:grid;gap:14px}
+.cc-steps>li>b{display:block;margin-bottom:6px}
+.ccf{margin:6px 0;padding:10px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink)}
+.cc-t{font-size:13px;min-width:0!important}
+.cc-t th,.cc-t td{padding:6px 8px;vertical-align:top}
+.cc-t th[scope="row"]{text-align:left;font-weight:600;min-width:150px}
+.cc-t small{font-size:12px;color:var(--muted)}
+.cc-d{margin:8px 0;border:1px solid var(--line);border-radius:10px;padding:0 10px}
+.cc-d>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:650;font-size:14.5px}
+.cc-d[open]>summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+.cc-sel{display:flex;align-items:center;gap:8px;font-size:14px;margin:4px 0 8px}
+.cc-sel select{font:inherit;font-size:16px;min-height:44px;padding:6px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink)}
+#ccBody h4{margin:14px 0 6px;font-size:15px}
+#ccBody code{font-family:var(--mono);font-size:13px}
 </style></head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <noscript><p style="margin:0;padding:14px 16px;background:#fff3cd;color:#1a1a1a;font:16px/1.4 system-ui,sans-serif">Este site precisa de JavaScript para calcular as notas e desenhar os gráficos. Ative o JavaScript no navegador e recarregue a página.</p></noscript>
@@ -1254,7 +1269,7 @@ table.flmap{min-width:400px}
     <div class="cta"><a class="btn primary" href="#governos-hex">Ver a nota de cada governo</a><a class="btn" href="#regua">Ajustar a minha régua</a></div>
   </div>
   <figure class="hero-hex" id="hexFig" aria-labelledby="hx-cap">
-    <figcaption id="hx-cap"><span class="eyebrow">Nota geral na sua régua</span><span class="hr-sub">Sete pilares, de 0 a 10; as contas para o futuro pesam o dobro. A corrupção desconta direto da nota, e a força no Congresso e no STF pesa no que cada governo entregou.</span></figcaption>
+    <figcaption id="hx-cap"><span class="eyebrow">Nota geral na sua régua</span><span class="hr-sub">Oito pilares, de 0 a 10, cada um com o seu peso. A corrupção não é descontada: ela é o pilar Integridade. A força no Congresso e no STF pesa no que cada governo entregou.</span></figcaption>
     <div class="hx-pick">
       <label class="hx-sel a"><span>Linha cheia</span><select id="hexA"></select></label>
       <label class="hx-sel b"><span>Tracejada</span><select id="hexB"></select></label>
@@ -1436,8 +1451,8 @@ table.flmap{min-width:400px}
 <section class="wrap" id="contas-futuro" aria-labelledby="fut-h">
   <div class="sec-head">
     <h2 id="fut-h">Contas para o futuro, de 0 a 10</h2>
-    <p class="lead">Um governo pode entregar quatro anos bonitos e deixar a conta para os próximos dez. Este pilar mede o que cada governo fez com a dívida e o que deixou para os sucessores pagarem, e por padrão pesa o dobro dos outros na nota geral.</p>
-    <p class="lead">São quatro números, com a mesma regra para todos: quanto a dívida bruta e a dívida líquida subiram ou caíram por ano de governo, a média do resultado primário e a soma das contas criadas no governo e pagas depois. Em cada um, o melhor governo recebe 10 e o pior, 0.</p>
+    <p class="lead">Um governo pode entregar quatro anos bonitos e deixar a conta para os próximos dez. Este pilar mede o que cada governo fez com a dívida e o que deixou para os sucessores pagarem, e entra na nota geral com peso próprio (14%, no padrão).</p>
+    <p class="lead">São quatro números, com a mesma regra para todos: quanto a dívida bruta e a dívida líquida subiram ou caíram por ano de governo, a média do resultado primário e a soma das contas criadas no governo e pagas depois. Cada um vai de 0 a 10 entre um piso e uma meta fixos, que não dependem dos outros governos (tabela em A conta completa, na página Como calculamos).</p>
   </div>
   <figure class="chart" style="margin-inline:0"><div id="chartFut"></div><figcaption class="eco-cap"><a href="#pesos-geral">Mudar o peso do pilar</a></figcaption></figure>
   <p class="note">Nos anos da crise de 2009 e da pandemia, a variação da dívida sai da conta até ela voltar ao nível de antes, como nos outros pilares; escolha “Contar tudo” nos pesos para incluir. A dívida bruta usa a série atual do Banco Central desde 2006; FHC (só 2000–2002) e Lula 1 usam a série antiga, mais alta, mas só a variação entra na conta. A dívida líquida de FHC vem de um estudo acadêmico com dados do Banco Central, e o resultado primário dele fica de fora porque a série do BC começa em 2002. Lula 3 usa a projeção de mercado para dez/2026 (83,2% do PIB; em ago/2026 eram 82,9%). A dívida também sobe com juros altos, que dependem do Banco Central e do mercado, não só do governo.</p>
@@ -1863,7 +1878,7 @@ table.flmap{min-width:400px}
 <section class="wrap" id="pesos-geral" aria-labelledby="pg-h">
   <div class="sec-head">
     <h2 id="pg-h">Pesos da nota geral</h2>
-    <p class="lead">Quanto cada pilar pesa no hexágono da página inicial, quanto a corrupção desconta e quanto a força política multiplica. Os mesmos pesos valem para os seis governos do PT e do PL.</p>
+    <p class="lead">Quanto cada pilar pesa no hexágono da página inicial (a soma dos pesos é o total; cada peso vale a sua parte), como a integridade combina os casos do placar com o índice do Banco Mundial e quanto a força política multiplica. Os mesmos pesos valem para os seis governos do PT e do PL.</p>
   </div>
   <div class="panel" id="pilPanel"></div>
   <div class="row-actions"><button type="button" class="btn" id="resetPil">Voltar ao padrão</button><a class="btn" href="#inicio">Ver o hexágono</a></div>
@@ -2005,7 +2020,7 @@ table.flmap{min-width:400px}
   <p class="eyebrow">Método</p>
   <h1>Como calculamos</h1>
   <p class="dek">De onde vem cada número, como ele vira ponto e o que a conta não consegue medir.</p>
-  <nav class="chips" aria-label="Nesta página"><a href="#imparcialidade">Revisão de imparcialidade</a><a href="#metodo-placar">Placar PT × PL</a><a href="#metodo-eco">Nota da economia</a><a href="#metodo-geral">Direitos, pobreza e nota geral</a></nav>
+  <nav class="chips" aria-label="Nesta página"><a href="#imparcialidade">Revisão de imparcialidade</a><a href="#metodo-placar">Placar PT × PL</a><a href="#metodo-eco">Nota da economia</a><a href="#metodo-geral">Direitos, pobreza e nota geral</a><a class="go" href="#conta-completa">A conta completa</a></nav>
 </header>
 <section class="wrap" id="imparcialidade" aria-labelledby="imp-h">
   <div class="sec-head"><h2 id="imp-h">Revisão de imparcialidade, outubro de 2026</h2><p class="lead">Revisamos toda a conta atrás de regras que puxavam o resultado para um lado. A regra de cada correção é a mesma para todos os governos; o resultado mudou porque as regras antigas não eram iguais para os dois lados.</p></div>
@@ -2034,22 +2049,12 @@ table.flmap{min-width:400px}
   </div>
   <div class="mbox">
     <h3>Quanto cada escolha muda a nota geral</h3>
-    <div class="tblwrap"><table class="gt"><thead><tr><th>Configuração</th><th class="n">PT, todos</th><th class="n">Bolsonaro</th><th class="n">Lula 3</th></tr></thead><tbody>
-      <tr><td>Antes da revisão</td><td class="n">2,7</td><td class="n">3,3</td><td class="n">4,1</td></tr>
-      <tr><td><b>Agora (padrão, com Contas para o futuro pesando o dobro)</b></td><td class="n"><b>4,7</b></td><td class="n"><b>1,8</b></td><td class="n"><b>5,3</b></td></tr>
-      <tr><td>Sem o pilar Contas para o futuro</td><td class="n">4,6</td><td class="n">1,7</td><td class="n">6,0</td></tr>
-      <tr><td>Sem os casos sem valor em R$</td><td class="n">4,9</td><td class="n">4,2</td><td class="n">5,3</td></tr>
-      <tr><td>Com a estimativa máxima de cada escândalo</td><td class="n">1,3</td><td class="n">1,3</td><td class="n">5,3</td></tr>
-      <tr><td>Contando os anos de crise como os outros</td><td class="n">4,8</td><td class="n">1,5</td><td class="n">5,7</td></tr>
-      <tr><td>Só o que foi comprovado na Justiça</td><td class="n">4,6</td><td class="n">1,7</td><td class="n">5,0</td></tr>
-      <tr><td>Sem multiplicador de força</td><td class="n">4,7</td><td class="n">1,7</td><td class="n">5,4</td></tr>
-    </tbody></table></div>
-    <p class="note">A maior parte da queda de Bolsonaro vem da condenação pela trama golpista (5 estrelas, cerca de 1,5 ponto). A maior parte da alta do PT vem da regra do valor central e da correção pela inflação. Valores da configuração padrão em 8/10/2026.</p>
+    <p>A tabela “E se fosse diferente?” da seção <a href="#conta-completa">A conta completa</a> recalcula a nota geral com cada escolha trocada, uma por vez: pesos iguais, sem integridade, estimativa máxima dos escândalos, só o julgado, anos de crise contados e outras. Ela é calculada na hora, com as mesmas fórmulas do hexágono, e traz também o modelo anterior para comparação.</p>
     <h3>O que ainda não conseguimos medir bem</h3>
     <ul>
       <li>O pilar Direitos e minorias mede medidas de governo para esses grupos, não resultados como a taxa de feminicídios; quem discorda dessa agenda pode baixar o peso dele.</li>
       <li>Só os choques negativos são neutralizados: o boom das commodities, que ajudou Lula 1 e Lula 2, conta normalmente, e a recessão de 2015–2016 também.</li>
-      <li>Dilma 2 é medida só por 2015, e o resto de 2016 vai para Temer. Como ela fica no fundo de quase todas as escalas, isso estica a régua dos outros.</li>
+      <li>Dilma 2 é medida só por 2015, e o resto de 2016 vai para Temer. Indicadores anuais de um só ano são mais voláteis; por isso a integridade usa pontos por ano de governo.</li>
       <li>A força política usa partidos com ministérios, não as votações reais; um índice de governismo por votação seria melhor e ainda não está disponível para todos os governos.</li>
     </ul>
   </div></div>
@@ -2152,7 +2157,7 @@ table.flmap{min-width:400px}
     <div class="mbox">
       <h3>De número a nota</h3>
       <ul>
-        <li>Em cada indicador, o melhor governo recebe 10, o pior recebe 0 e os outros ficam na proporção.</li>
+        <li>Em cada indicador, a nota vai de 0 a 10 entre um piso (vale 0) e uma meta (vale 10) fixos, que não dependem dos outros governos. Quem passa da meta fica em 10, e quem passa do piso, em 0. Todos os pisos e metas estão em A conta completa, no fim desta página.</li>
         <li>A nota final é a média ponderada pelos pesos da sua régua. Indicador sem dado não entra na média daquele governo.</li>
         <li>Mandatos curtos (Dilma 2, Temer) e anos de crise externa pesam muito: veja a tabela de cada nota e os números ano a ano na linha do tempo.</li>
       </ul>
@@ -2176,13 +2181,17 @@ table.flmap{min-width:400px}
       <h3>Pobreza e nota geral</h3>
       <ul>
         <li>Pobreza e desigualdade: queda média por ano da pobreza extrema (US$ 3 por dia, Banco Mundial) e do índice de Gini, do último ano antes da posse ao último ano com dado.</li>
-        <li>Corrupção: desconta direto da nota geral. Na régua padrão, cada R$ 1 bilhão desviado (corrigido pela inflação e ponderado pela prova) e cada estrela de gravidade dos casos sem valor em R$ tiram 0,3 ponto. Para dar uma ideia do tamanho, o site compara os desvios com o orçamento do Bolsa Família em 2026 (cerca de R$ 158 bi por ano).</li>
+        <li>Corrupção: virou um pilar da nota geral, o Integridade, e não é mais descontada. Mede os pontos de corrupção por ano de governo (cada R$ 1 bilhão desviado, corrigido pela inflação e ponderado pela prova, e cada estrela de gravidade dos casos sem valor em R$) e o índice de controle da corrupção do Banco Mundial. Para dar uma ideia do tamanho, o site compara os desvios com o orçamento do Bolsa Família em 2026 (cerca de R$ 158 bi por ano).</li>
         <li>Promessas: nota 10 se todas foram cumpridas, 0 se nenhuma, 5 no empate entre cumpridas e descumpridas.</li>
         <li>Legado: pontos dos feitos de cada governo, com os descontos de mérito de terceiros e da ótica de 2026.</li>
-        <li>A nota geral é a média de sete pilares (economia, pobreza e desigualdade, direitos e minorias, serviços públicos, meio ambiente, contas para o futuro, que pesa o dobro por padrão, e feitos e promessas), com os pesos da sua régua, menos a corrupção. A corrupção tem duas partes: os escândalos do placar e o índice de controle da corrupção do Banco Mundial (o governo com o pior índice entre os seis perde até 1,5 ponto).</li><li>Força política: a média da base do governo na Câmara e no Senado (partidos com ministérios) e dos ministros do STF indicados pelo mesmo partido vira um índice de força. Sociedade e Promessas e legado são multiplicados pela razão entre a força média e a do governo, elevada a 0,5 na régua padrão: quem tinha mais força precisava entregar mais.</li><li>Serviços públicos: variação por ano de homicídios (UNODC), mortalidade infantil e expectativa de vida (Banco Mundial), Ideb (Inep) e Pisa (OCDE). Meio ambiente: nível e tendência do desmatamento (Prodes/Inpe). A nota geral cobre só os governos do PT e do PL, os únicos com dados em todos os pilares. “PT, todos” é a média dos cinco governos do partido, ponderada pelo tempo de mandato.</li><li>Choques externos: na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da economia e da pobreza, para todos os governos. O boom das commodities (cerca de 2003–2011) ajudou os governos da época e não é descontado, porque durou quase uma década.</li>
+        <li>A nota geral é a média ponderada de oito pilares (economia, pobreza e desigualdade, direitos e minorias, serviços públicos, meio ambiente, contas para o futuro, feitos e promessas e integridade), com os pesos da sua régua. Nada é descontado depois da média. Os pesos padrão e todas as fórmulas estão em A conta completa, no fim desta página.</li><li>Força política: a média da base do governo na Câmara e no Senado (partidos com ministérios) e dos ministros do STF indicados pelo mesmo partido vira um índice de força. Sociedade e Promessas e legado são multiplicados pela razão entre a força média e a do governo, elevada a 0,25 na régua padrão: quem tinha mais força precisava entregar mais.</li><li>Serviços públicos: variação por ano de homicídios (UNODC), mortalidade infantil e expectativa de vida (Banco Mundial), Ideb (Inep) e Pisa (OCDE). Meio ambiente: nível e tendência do desmatamento (Prodes/Inpe). A nota geral cobre só os governos do PT e do PL, os únicos com dados em todos os pilares. “PT, todos” é a média dos cinco governos do partido, ponderada pelo tempo de mandato.</li><li>Choques externos: na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da economia e da pobreza, para todos os governos. O boom das commodities (cerca de 2003–2011) ajudou os governos da época e não é descontado, porque durou quase uma década.</li>
       </ul>
     </div>
   </div>
+</section>
+<section class="wrap" id="conta-completa" aria-labelledby="cc-h">
+  <div class="sec-head"><h2 id="cc-h">A conta completa da nota geral</h2><p class="lead">Todas as fórmulas, variáveis, pesos, pisos, metas e valores usados na nota geral de cada governo. Os números desta seção são lidos das mesmas constantes que o site usa para calcular: se o cálculo mudar, esta seção muda junto.</p></div>
+  <div id="ccBody"></div>
 </section>
 </div>
 <div class="page" data-page="fontes" hidden>
@@ -2939,11 +2948,14 @@ var TL = {"anos":[1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,20
 
 /* ---------- estado ---------- */
 var KEY = "placar-pt-pl-v3";
-var DEF = {est:"central", ipca:true, preset:"equilibrado", wVid:0, wLeg:1, merito:true, hoje:true, inst:true, wInst:1, porAno:"0", excl:{}, stars:{}, istars:{}, filtro:"todos", ordem:"data", ordemB:"data", legFiltro:"todos", notas:{}, wProm:5, promFiltro:"todos", tlSM:"usd", tlPIB:"usd", ecoW:{pib:1, renda:1, sm:1, inf:1, des:1, div:1, prim:1, carga:1}, ecoOrd:"tempo", socW:{mul:1, neg:1, ind:1, pcd:1, lgb:1, ger:1}, socCon:0.5, socRe:1, pilW:{eco:1, pov:1, soc:1, ser:1, amb:1, fut:2, prl:1}, socGrp:"todos", socLado:"todos", hexA:"ptall", hexB:"bolso", corrK:0.3, choque:"tirar", idxMax:1.5, forK:0.25, forW:{cam:1, sen:1, stf:0.25}, serW:{hom:1, mi:1, ev:1, ideb:1, pisa:1}};
+var DEF = {est:"central", ipca:true, preset:"equilibrado", wVid:0, wLeg:1, merito:true, hoje:true, inst:true, wInst:1, porAno:"0", excl:{}, stars:{}, istars:{}, filtro:"todos", ordem:"data", ordemB:"data", legFiltro:"todos", notas:{}, wProm:5, promFiltro:"todos", tlSM:"usd", tlPIB:"usd", ecoW:{pib:1, renda:1, sm:1, inf:1, des:1, div:1, prim:1, carga:1}, ecoOrd:"tempo", socW:{mul:1, neg:1, ind:1, pcd:1, lgb:1, ger:1}, socCon:0.5, socRe:1, pilW:{eco:18, pov:14, soc:10, ser:18, amb:8, fut:14, prl:6, int:12}, intW:{c:0.7, w:0.3}, nv:2, socGrp:"todos", socLado:"todos", hexA:"ptall", hexB:"bolso", choque:"tirar", forK:0.25, forW:{cam:1, sen:1, stf:0.25}, serW:{hom:1, mi:1, ev:1, ideb:1, pisa:1}};
 function clone(o){ return JSON.parse(JSON.stringify(o)); }
 function load(){
   var s = clone(DEF);
-  try{ var raw = window.localStorage.getItem(KEY); if(raw){ var o = JSON.parse(raw); for(var k in DEF){ if(o && Object.prototype.hasOwnProperty.call(o,k)) s[k] = o[k]; } } }catch(e){}
+  var oldNv = null;
+  try{ var raw = window.localStorage.getItem(KEY); if(raw){ var o = JSON.parse(raw); oldNv = o && o.nv; for(var k in DEF){ if(o && Object.prototype.hasOwnProperty.call(o,k)) s[k] = o[k]; } } }catch(e){}
+  if(oldNv !== DEF.nv){ s.pilW = clone(DEF.pilW); s.intW = clone(DEF.intW); }  // versão 2 da nota geral: pesos antigos (escala 0 a 3) não valem mais
+  s.nv = DEF.nv;
   if(!PRESETS[s.preset]) s.preset = "equilibrado";
   if(["min","central","max"].indexOf(s.est) < 0) s.est = "central";
   if(["todos","pt","pl"].indexOf(s.legFiltro) < 0) s.legFiltro = "todos";
@@ -2956,10 +2968,10 @@ function load(){
   if(s.ecoOrd !== "nota") s.ecoOrd = "tempo";
   function wmap(o, keys, mx, dflt){ var r = {}; keys.forEach(function(k){ var v = o && o[k]; r[k] = (typeof v === "number" && v >= 0 && v <= mx) ? v : (dflt && dflt[k] != null ? dflt[k] : 1); }); return r; }
   s.socW = wmap(s.socW, ["mul","neg","ind","pcd","lgb","ger"], 3);
-  s.pilW = wmap(s.pilW, ["eco","pov","soc","ser","amb","fut","prl"], 3, DEF.pilW);
+  s.pilW = wmap(s.pilW, ["eco","pov","soc","ser","amb","fut","prl","int"], 40, DEF.pilW);
+  var iw = s.intW || {}; s.intW = {c:(typeof iw.c === "number" && iw.c >= 0 && iw.c <= 1) ? iw.c : DEF.intW.c, w:(typeof iw.w === "number" && iw.w >= 0 && iw.w <= 1) ? iw.w : DEF.intW.w};
   s.serW = wmap(s.serW, ["hom","mi","ev","ideb","pisa"], 3);
   var fw = s.forW || {}; s.forW = {cam:(typeof fw.cam === "number" && fw.cam >= 0 && fw.cam <= 3) ? fw.cam : 1, sen:(typeof fw.sen === "number" && fw.sen >= 0 && fw.sen <= 3) ? fw.sen : 1, stf:(typeof fw.stf === "number" && fw.stf >= 0 && fw.stf <= 3) ? fw.stf : 0.25};
-  if(!(typeof s.idxMax === "number" && s.idxMax >= 0 && s.idxMax <= 5)) s.idxMax = 1.5;
   if(!(typeof s.forK === "number" && s.forK >= 0 && s.forK <= 1)) s.forK = 0.25;
   if(!(typeof s.socCon === "number" && s.socCon >= 0 && s.socCon <= 1)) s.socCon = 0.5;
   if(!(typeof s.socRe === "number" && s.socRe >= 0 && s.socRe <= 2)) s.socRe = 1;
@@ -2968,7 +2980,6 @@ function load(){
   var hx = ["ptall","lula1","lula2","dilma1","dilma2","bolso","lula3"];
   if(hx.indexOf(s.hexA) < 0) s.hexA = "ptall";
   if(hx.indexOf(s.hexB) < 0 || s.hexB === s.hexA) s.hexB = s.hexA === "bolso" ? "ptall" : "bolso";
-  if(!(typeof s.corrK === "number" && s.corrK >= 0 && s.corrK <= 1)) s.corrK = 0.3;
   if(s.choque !== "contar") s.choque = "tirar";
   var ew = {}; ["pib","renda","sm","inf","des","div","prim","carga"].forEach(function(k){ var v = s.ecoW && s.ecoW[k]; ew[k] = (typeof v === "number" && v >= 0 && v <= 3) ? v : 1; }); s.ecoW = ew;
   if(!s.notas || typeof s.notas !== "object" || Array.isArray(s.notas)) s.notas = {};
@@ -3879,13 +3890,7 @@ function ecoRaw(){
 function ecoScores(){
   var ECO_RAW = ecoRaw(), sub = GOVS.map(function(){ return {}; });
   ECO_IND.forEach(function(ind){
-    var vals = ECO_RAW.map(function(o){ return o[ind.k]; }).filter(function(v){ return v != null; });
-    var mx = Math.max.apply(null, vals), mn = Math.min.apply(null, vals);
-    ECO_RAW.forEach(function(o, i){
-      var v = o[ind.k]; if(v == null){ sub[i][ind.k] = null; return; }
-      var s = mx === mn ? 5 : (ind.hi ? (v - mn)/(mx - mn) : (mx - v)/(mx - mn)) * 10;
-      sub[i][ind.k] = s;
-    });
+    ECO_RAW.forEach(function(o, i){ sub[i][ind.k] = ngInd("eco", ind.k, o[ind.k]); });
   });
   return GOVS.map(function(g, i){
     var sw = 0, ss = 0;
@@ -4180,6 +4185,60 @@ function socPts(it){
   var v = it.s * cr * hf;
   return it.k === "re" ? -v * S.socRe : v;
 }
+
+/* ---------- Nota geral v2: âncoras fixas e pesos ----------
+   Fonte única: o cálculo e a seção pública "A conta completa" leem este mesmo objeto.
+   Nota de indicador (0 a 10) = 10 · limitar((x − piso) / (meta − piso), 0, 1). O piso vale 0 e a meta vale 10;
+   para "quanto menor, melhor" a meta fica abaixo do piso e a mesma fórmula serve. As âncoras não dependem dos governos comparados. */
+var NG = {
+  ver: "2.0",
+  anc: {
+    eco:{pib:[-5,3], renda:[-5,4], sm:[-1,5], inf:[12,3], des:[2,-1], carga:[0.6,-0.1]},
+    pov:{gini:[0.4,-0.8], pob:[10,-10]},
+    ser:{hom:[1,-1.5], mi:[0,-5], ev:[0,0.4], ideb:[0,0.15], pisa:[-3,3]},
+    amb:{niv:[30000,4000], "var":[10,-10]},
+    fut:{dbgg:[4,-2], div:[3,-3], prim:[-2,2.5], contas:[500,0]}
+  },
+  ref: {
+    "eco.pib":"Meta: ritmo que dobra a renda por pessoa em cerca de 24 anos. Piso: abaixo da pior recessão do período (2015–16).",
+    "eco.renda":"Meta: ritmo um pouco acima do PIB, por ser renda medida em pesquisa domiciliar. Piso: perda forte e sustentada.",
+    "eco.sm":"Meta: o mínimo real dobra em cerca de 14 anos. Piso: perda real de 1% ao ano.",
+    "eco.inf":"Meta: centro da meta de inflação do Conselho Monetário Nacional (3%). Piso: quase o triplo do teto da banda de tolerância.",
+    "eco.des":"Meta: queda de 1 ponto ao ano na taxa de desemprego. Piso: alta de 2 pontos ao ano.",
+    "eco.carga":"Convenção do site: carga menor é melhor. É uma escolha de valor; o peso do indicador é editável.",
+    "pov.gini":"Meta: ritmo de queda do Gini no período 2003–2010. Piso: alta de 0,4 ponto ao ano.",
+    "pov.pob":"Faixa simétrica de 10% ao ano, em variação relativa da parcela abaixo de US$ 3 por dia.",
+    "ser.hom":"Meta: queda compatível com a meta 16.1 dos ODS (reduzir sensivelmente as mortes violentas). Piso: alta de 1 por 100 mil ao ano.",
+    "ser.mi":"Meta: queda de 5% ao ano. Piso: sem melhora (0%). Atenção: quanto menor a taxa de partida, mais difícil manter a queda percentual.",
+    "ser.ev":"Meta: ganho de 0,4 ano de vida por ano. Piso: nenhum ganho.",
+    "ser.ideb":"Meta: ganho de 0,15 ponto ao ano, acima do ritmo previsto no Plano Nacional de Educação. Piso: nenhum ganho.",
+    "ser.pisa":"Faixa simétrica de 3 pontos por ano na média das três provas.",
+    "amb.niv":"Meta: perto do menor nível da série do Prodes (2012: cerca de 4,6 mil km²). Piso: perto do maior nível da série (1995 e 2004).",
+    "amb.var":"Faixa simétrica de 10% ao ano.",
+    "fut.dbgg":"Meta: queda de 2 pontos do PIB por ano. Piso: alta de 4 pontos por ano.",
+    "fut.div":"Meta: queda de 3 pontos do PIB por ano. Piso: alta de 3 pontos por ano.",
+    "fut.prim":"Meta: superávit primário que estabiliza a dívida (cerca de 2,5% do PIB). Piso: déficit de 2% do PIB.",
+    "fut.contas":"Meta: nenhuma conta deixada aos sucessores. Piso: acima do maior valor observado (R$ 422 bi).",
+    "int.c":"Meta: nenhum ponto de corrupção por ano. Piso: 4 pontos por ano (cerca de 1,5 vez o pior valor observado).",
+    "int.wgi":"Percentil de controle da corrupção (Banco Mundial, 0 a 100). Faixa de 25 a 75: intervalo interquartil em torno da mediana mundial.",
+    "leg":"Soma dos cinco maiores feitos que ainda valem. Meta: 12 pontos. Piso: nenhum feito.",
+    "soc":"Sem referência externa: meta = 1,25 vez o melhor valor do catálogo do site, arredondada a 0,5. Piso = metade da meta, abaixo de zero. Sem medida registrada vale 3,3."
+  },
+  socMeta: {mul:8, neg:5, ind:6, pcd:5, lgb:2.5, ger:3},
+  socPiso: 0.5,
+  intPiso: 4,
+  wgiAnc: [25, 75],
+  legAnc: [0, 12]
+};
+function ngAn(a, x){ if(x == null || !isFinite(x)) return null; var z = (x - a[0])/(a[1] - a[0]); return 10*Math.min(1, Math.max(0, z)); }
+function ngInd(p, k, x){ return ngAn(NG.anc[p][k], x); }
+function ngSoc(k, pts){ var m = NG.socMeta[k]; return ngAn([-m*NG.socPiso, m], pts); }
+function ngInt(cAno, wgi){
+  var sc = ngAn([NG.intPiso, 0], cAno), sw = ngAn(NG.wgiAnc, wgi), uc = S.intW.c, uw = S.intW.w, a = 0, b = 0;
+  if(sc != null && uc > 0){ a += uc; b += uc*sc; } if(sw != null && uw > 0){ a += uw; b += uw*sw; }
+  return {sc:sc, sw:sw, p: a ? b/a : null};
+}
+
 function minmax(vals, hi){
   var ok = vals.filter(function(v){ return v != null; });
   var mx = Math.max.apply(null, ok), mn = Math.min.apply(null, ok);
@@ -4190,8 +4249,7 @@ function socScores(){
   SOC.forEach(function(it){ var i = SOC_GK.indexOf(it.g); P[i][it.grp] += socPts(it); });
   var sub = SOC_GK.map(function(){ return {}; });
   SOC_GR.forEach(function(gr){
-    var n = minmax(P.map(function(o){ return o[gr.k]; }), true);
-    n.forEach(function(v, i){ sub[i][gr.k] = v; });
+    P.forEach(function(o, i){ sub[i][gr.k] = ngSoc(gr.k, o[gr.k]); });
   });
   return GOVS.map(function(g, i){
     var sw = 0, ss = 0;
@@ -4202,8 +4260,8 @@ function socScores(){
 function povScores(){
   var sub = GOVS.map(function(){ return {}; });
   var POV_RAW = povRaw();
-  POV_IND.forEach(function(ind){ minmax(POV_RAW.map(function(r){ return r[ind.k]; }), false).forEach(function(v, i){ sub[i][ind.k] = v; }); });
-  return GOVS.map(function(g, i){ return {g:g, i:i, sub:sub[i], raw:POV_RAW[i], nota:(sub[i].gini + sub[i].pob)/2}; });
+  POV_IND.forEach(function(ind){ POV_RAW.forEach(function(r, i){ sub[i][ind.k] = ngInd("pov", ind.k, r[ind.k]); }); });
+  return GOVS.map(function(g, i){ var a = sub[i].gini, b = sub[i].pob; return {g:g, i:i, sub:sub[i], raw:POV_RAW[i], nota:(a == null && b == null) ? null : (a == null ? b : (b == null ? a : (a + b)/2))}; });
 }
 var PIL = [
   {k:"eco", t:"Economia", l:["Economia"], d:"PIB e renda por pessoa, salário mínimo, inflação, desemprego, dívida, resultado primário e carga tributária", href:"#nota-economia"},
@@ -4211,8 +4269,9 @@ var PIL = [
   {k:"soc", t:"Direitos e minorias", l:["Direitos e","minorias"], d:"Medidas do governo para mulheres, população negra, indígenas, PcD, LGBT+, idosos e crianças, com o multiplicador de força", href:"#nota-sociedade"},
   {k:"ser", t:"Serviços públicos", l:["Serviços","públicos"], d:"Homicídios, mortalidade infantil, expectativa de vida, Ideb e Pisa", href:"#nota-servicos"},
   {k:"amb", t:"Meio ambiente", l:["Meio","ambiente"], d:"Nível e tendência do desmatamento na Amazônia", href:"#nota-ambiente"},
-  {k:"fut", t:"Contas para o futuro", l:["Contas para","o futuro"], d:"Dívida bruta e líquida, resultado primário e contas deixadas para os governos seguintes. Pesa o dobro por padrão", href:"#contas-futuro"},
-  {k:"prl", t:"Feitos e promessas", l:["Feitos e","promessas"], d:"Promessas cumpridas e os cinco maiores feitos de cada governo que seguem valendo em 2026 (resultados como desemprego, fome e desmatamento já contam nos outros pilares), com o multiplicador de força", href:"#promessas"}
+  {k:"fut", t:"Contas para o futuro", l:["Contas para","o futuro"], d:"Dívida bruta e líquida, resultado primário e contas deixadas para os governos seguintes", href:"#contas-futuro"},
+  {k:"prl", t:"Feitos e promessas", l:["Feitos e","promessas"], d:"Promessas cumpridas e os cinco maiores feitos de cada governo que seguem valendo em 2026 (resultados como desemprego, fome e desmatamento já contam nos outros pilares), com o multiplicador de força", href:"#promessas"},
+  {k:"int", t:"Integridade", l:["Integridade"], d:"Corrupção: pontos dos casos do placar por ano de governo e índice de controle da corrupção do Banco Mundial. Entra como pilar, com peso, e não como desconto", href:"#graficos"}
 ];
 
 /* ---------- contas para o futuro ---------- */
@@ -4262,7 +4321,7 @@ function futRaw(){
     return {dbgg: perYear(getter(src), sp[0], sp[1], false, null, false), div: i === 0 ? perYear(getter(DLSP_FHC), 1995, 2002, false, null, false) : E[i].div, prim: E[i].prim, contas: C[gid(g)] || 0};
   });
 }
-function futScores(){ return weightedScores(FUT_IND, futRaw(), null); }
+function futScores(){ return weightedScores(FUT_IND, futRaw(), null, "fut"); }
 function renderFut(){
   var box = $("chartFut"); if(!box || !box.offsetParent) return;
   var rows = futScores(); if(S.ecoOrd === "nota") rows = rows.slice().sort(function(a, b){ return (b.nota || 0) - (a.nota || 0); });
@@ -4308,33 +4367,35 @@ function geralScores(R){
   var E = ecoScores(), P = povScores(), So = socScores(), Se = serScores(), Am = ambScores(), Fu = futScores(), FV = forcaVals();
   var out = HEX_G.map(function(i){
     var g = GOVS[i], f = R.fr[g.fr], camp = PROM.filter(function(c){ return c.gov === g.fr; })[0], pro = null;
+    var dur = FR.filter(function(x){ return x.id === g.fr; })[0].dur;
     if(camp && camp.items.length){ var net = 0; camp.items.forEach(function(it){ net += PST[it.st].f; }); pro = 5*(1 + net/camp.items.length); }
-    return {g:g, i:i, fr:g.fr, corr:f.corr, din:f.din, legPts:legNota(g.fr), pro:pro, wgi:wgiAvg(i), forca:FV[i].f, mult:FV[i].m,
-      p:{eco:E[i].nota, pov:P[i].nota, soc:So[i].nota == null ? null : Math.min(10, So[i].nota*FV[i].m), ser:Se[i].nota, amb:Am[i].nota, fut:Fu[i].nota, prl:null}};
+    return {g:g, i:i, fr:g.fr, dur:dur, corr:f.corr, din:f.din, cAno:f.corr/dur, legPts:legNota(g.fr), pro:pro, wgi:wgiAvg(i), forca:FV[i].f, mult:FV[i].m,
+      p:{eco:E[i].nota, pov:P[i].nota, soc:So[i].nota == null ? null : Math.min(10, So[i].nota*FV[i].m), ser:Se[i].nota, amb:Am[i].nota, fut:Fu[i].nota, prl:null, int:null}};
   });
-  var nLeg = minmax(out.map(function(x){ return x.legPts; }), true);
-  var wg = out.map(function(x){ return x.wgi; }), wmax = Math.max.apply(null, wg), wmin = Math.min.apply(null, wg);
-  out.forEach(function(x, j){
-    var parts = [x.pro, nLeg[j]].filter(function(v){ return v != null; });
+  out.forEach(function(x){
+    var sl = ngAn(NG.legAnc, x.legPts), parts = [x.pro, sl].filter(function(v){ return v != null; });
+    x.sLeg = sl;
     x.p.prl = parts.length ? Math.min(10, parts.reduce(function(s, v){ return s + v; }, 0)/parts.length*x.mult) : null;
-    x.descEsc = x.corr * S.corrK;
-    x.descIdx = x.wgi == null ? 0 : S.idxMax*Math.max(0, 50 - x.wgi)/50;
-    x.desc = Math.min(10, x.descEsc + x.descIdx);
-    var sw = 0, ss = 0;
-    PIL.forEach(function(pl){ var w = S.pilW[pl.k], v = x.p[pl.k]; if(v != null && w > 0){ sw += w; ss += w*v; } });
-    x.base = sw ? ss/sw : null;
-    x.nota = x.base == null ? null : Math.max(0, x.base - x.desc);
+    var it = ngInt(x.cAno, x.wgi); x.sC = it.sc; x.sW = it.sw; x.p.int = it.p;
+    x.nota = ngFinal(x.p);
   });
-  var pts = out.filter(function(x){ return x.g.b === "pt"; }), tw = 0, agg = {g:PT_ALL, fr:"ptall", corr:0, din:0, desc:0, descEsc:0, descIdx:0, base:0, nota:0, mult:0, p:{}};
+  var pts = out.filter(function(x){ return x.g.b === "pt"; }), tw = 0, agg = {g:PT_ALL, fr:"ptall", dur:0, corr:0, din:0, cAno:0, mult:0, wgi:0, nota:0, p:{}}, wgiW = 0;
   PIL.forEach(function(pl){ agg.p[pl.k] = 0; });
-  pts.forEach(function(x){ var w = FR.filter(function(f){ return f.id === x.fr; })[0].dur; tw += w; agg.corr += x.corr; agg.din += x.din;
-    ["desc","descEsc","descIdx","base","nota","mult"].forEach(function(k){ agg[k] += w*x[k]; });
-    PIL.forEach(function(pl){ agg.p[pl.k] += w*(x.p[pl.k] || 0); }); });
-  ["desc","descEsc","descIdx","base","nota","mult"].forEach(function(k){ agg[k] /= tw; });
+  pts.forEach(function(x){ tw += x.dur; agg.dur += x.dur; agg.corr += x.corr; agg.din += x.din;
+    agg.mult += x.dur*x.mult; if(x.wgi != null){ agg.wgi += x.dur*x.wgi; wgiW += x.dur; }
+    PIL.forEach(function(pl){ agg.p[pl.k] += x.dur*(x.p[pl.k] || 0); }); });
+  agg.cAno = agg.corr/tw; agg.mult /= tw; agg.wgi = wgiW ? agg.wgi/wgiW : null;
   PIL.forEach(function(pl){ agg.p[pl.k] /= tw; });
-  ["base","nota"].forEach(function(k){ if(pts.some(function(x){ return x[k] == null; })) agg[k] = null; }); PIL.forEach(function(pl){ if(pts.some(function(x){ return x.p[pl.k] == null; })) agg.p[pl.k] = null; });
+  PIL.forEach(function(pl){ if(pts.some(function(x){ return x.p[pl.k] == null; })) agg.p[pl.k] = null; });
+  agg.nota = ngFinal(agg.p);
   out.agg = agg;
   return out;
+}
+/* Nota geral = Σ_k W_k · P_k / Σ_k W_k, sobre os pilares com dado e peso > 0 */
+function ngFinal(p){
+  var sw = 0, ss = 0;
+  PIL.forEach(function(pl){ var w = S.pilW[pl.k], v = p[pl.k]; if(v != null && w > 0){ sw += w; ss += w*v; } });
+  return sw ? ss/sw : null;
 }
 function nota1(v){ return v == null ? "—" : NF1.format(v); }
 function govLabel(g){ return g.n + " (" + g.p + ")"; }
@@ -4494,24 +4555,25 @@ function buildSerPanel(){
 }
 function buildPilPanel(){
   var p = $("pilPanel");
-  rangeField(p, "idxMax", "Corrupção medida de fora: quanto o índice do Banco Mundial pode tirar?", 0, 5, 0.25,
-    "O índice vai de 0 a 100 (posição do Brasil entre os países do mundo). Abaixo da mediana mundial (50), o governo perde este valor vezes a distância até 50, dividida por 50: com nota 40, perde um quinto. Na mediana ou acima dela, não perde nada. A escala é fixa para não exagerar diferenças pequenas.", function(v){ S.idxMax = v; });
+  PIL.forEach(function(pl){ rangeField(p, "pw-" + pl.k, "Peso: " + pl.t, 0, 40, 1, pl.d + ". O peso é relativo: vale a parte dele na soma de todos.", function(v){ S.pilW[pl.k] = v; }); });
   rangeField(p, "forK", "Força política: quanto o multiplicador pesa?", 0, 1, 0.05,
     "Em 0, a força não conta. Em 1, um governo com metade da força média tem as notas de Direitos e minorias e de Feitos e promessas dobradas, e um com o dobro da força tem essas notas cortadas pela metade. O padrão é 0,25, moderado, porque a base formal mede mal o apoio real.", function(v){ S.forK = v; });
   rangeField(p, "fw-cam", "Força: peso da Câmara", 0, 3, 0.5, null, function(v){ S.forW.cam = v; });
   rangeField(p, "fw-sen", "Força: peso do Senado", 0, 3, 0.5, null, function(v){ S.forW.sen = v; });
   rangeField(p, "fw-stf", "Força: peso do STF", 0, 3, 0.25, "Ministro indicado não vota como bloco: indicados pelo PT condenaram petistas no mensalão e na Lava Jato. Por isso o STF pesa um quarto da Câmara por padrão.", function(v){ S.forW.stf = v; });
-  rangeField(p, "corrK", "Corrupção: quanto cada R$ 1 bilhão desviado tira da nota geral?", 0, 1, 0.05,
-    "Vale para os desvios do placar PT × PL, corrigidos pela inflação e ponderados pela prova, e para cada estrela de gravidade dos casos sem valor em R$. Com 0,3, R$ 10 bi desviados tiram 3 pontos de um governo. Em 0, a corrupção sai da nota.", function(v){ S.corrK = v; });
-  PIL.forEach(function(pl){ if(pl.k === "int") return; rangeField(p, "pw-" + pl.k, pl.t, 0, 3, 0.5, pl.d + ".", function(v){ S.pilW[pl.k] = v; }); });
+  rangeField(p, "iw-c", "Integridade: peso dos casos do placar", 0, 1, 0.05,
+    "Pontos de corrupção por ano de governo (R$ 1 bilhão desviado, corrigido e ponderado pela prova, e estrelas de gravidade dos casos sem valor em R$). Padrão 0,70. A parte do índice do Banco Mundial pesa o restante.", function(v){ S.intW.c = v; });
+  rangeField(p, "iw-w", "Integridade: peso do índice do Banco Mundial", 0, 1, 0.05,
+    "Controle da corrupção, de 0 a 100, medido de fora e não atribuível a um só governo. Padrão 0,30.", function(v){ S.intW.w = v; });
 }
 function syncSoc(){
   SOC_GR.forEach(function(gr){ var v = S.socW[gr.k]; $("sw-" + gr.k).value = v; $("osw-" + gr.k).textContent = v === 0 ? "fora" : "peso " + NF2.format(v); });
   $("socCon").value = S.socCon; $("osocCon").textContent = NF0.format(S.socCon*100) + "%";
   $("socRe").value = S.socRe; $("osocRe").textContent = NF2.format(S.socRe) + "×";
-  PIL.forEach(function(pl){ if(pl.k === "int") return; var v = S.pilW[pl.k]; $("pw-" + pl.k).value = v; $("opw-" + pl.k).textContent = v === 0 ? "fora" : "peso " + NF2.format(v); });
-  $("corrK").value = S.corrK; $("ocorrK").textContent = S.corrK === 0 ? "fora" : MINUS + NF2.format(S.corrK) + " por R$ 1 bi";
-  $("idxMax").value = S.idxMax; $("oidxMax").textContent = S.idxMax === 0 ? "fora" : "até " + MINUS + NF2.format(S.idxMax);
+  var pilSum = PIL.reduce(function(sum, pl){ return sum + S.pilW[pl.k]; }, 0);
+  PIL.forEach(function(pl){ var v = S.pilW[pl.k]; $("pw-" + pl.k).value = v; $("opw-" + pl.k).textContent = v === 0 ? "fora" : NF0.format(v) + " (" + NF0.format(Math.round(v/pilSum*100)) + "%)"; });
+  $("iw-c").value = S.intW.c; $("oiw-c").textContent = S.intW.c === 0 ? "fora" : NF2.format(S.intW.c);
+  $("iw-w").value = S.intW.w; $("oiw-w").textContent = S.intW.w === 0 ? "fora" : NF2.format(S.intW.w);
   $("forK").value = S.forK; $("oforK").textContent = S.forK === 0 ? "fora" : NF2.format(S.forK);
   ["cam","sen","stf"].forEach(function(k){ $("fw-" + k).value = S.forW[k]; $("ofw-" + k).textContent = S.forW[k] === 0 ? "fora" : "peso " + NF2.format(S.forW[k]); });
   SER_IND.forEach(function(ind){ var v = S.serW[ind.k]; $("se-" + ind.k).value = v; $("ose-" + ind.k).textContent = v === 0 ? "fora" : "peso " + NF2.format(v); });
@@ -4557,9 +4619,10 @@ function renderHex(R){
   var table = h("table","hxt"), thead = h("thead"), trh = h("tr");
   trh.appendChild(h("th",null,"Pilar")); trh.appendChild(h("th","n", A.g.n)); trh.appendChild(h("th","n", B.g.n)); thead.appendChild(trh); table.appendChild(thead);
   var tbody = h("tbody");
+  var pilTot = PIL.reduce(function(sum, pl){ return sum + S.pilW[pl.k]; }, 0);
   PIL.forEach(function(pl){
     var tr = h("tr"); if(!(S.pilW[pl.k] > 0)) tr.className = "off";
-    var td = h("td"), a = h("a",null,pl.t); a.href = pl.href; td.appendChild(a); tr.appendChild(td);
+    var td = h("td"), a = h("a",null,pl.t); a.href = pl.href; td.appendChild(a); td.appendChild(h("small",null,"peso " + (pilTot ? NF0.format(Math.round(S.pilW[pl.k]/pilTot*100)) : "0") + "%")); tr.appendChild(td);
     tr.appendChild(h("td","n", nota1(A.p[pl.k]))); tr.appendChild(h("td","n", nota1(B.p[pl.k]))); tbody.appendChild(tr);
   });
   function row(cls, label, sub, va, vb, href){
@@ -4568,14 +4631,12 @@ function renderHex(R){
     if(sub) td.appendChild(h("small",null,sub));
     tr.appendChild(td); tr.appendChild(h("td","n",va)); tr.appendChild(h("td","n",vb)); tbody.appendChild(tr);
   }
-  function neg(v){ return v > 0.049 ? MINUS + NF1.format(v) : "0,0"; }
-  row("sub", "Média dos pilares, com os pesos da sua régua", null, nota1(A.base), nota1(B.base));
-  row("corr", "Corrupção e casos graves do placar", A.g.n + ": " + money(A.din) + " ≈ " + bfEquiv(A.din) + " · " + B.g.n + ": " + money(B.din) + " ≈ " + bfEquiv(B.din), neg(A.descEsc), neg(B.descEsc), "#graficos");
-  row("corr", "Corrupção: índice do Banco Mundial", "Distância da mediana mundial no controle da corrupção, nos anos de governo", neg(A.descIdx), neg(B.descIdx), "#corrupcao-externa");
+  row("sub", "Integridade: pontos de corrupção por ano de governo", A.g.n + ": " + money(A.din) + " ≈ " + bfEquiv(A.din) + " · " + B.g.n + ": " + money(B.din) + " ≈ " + bfEquiv(B.din) + ". Menos é melhor.", NF2.format(A.cAno), NF2.format(B.cAno), "#graficos");
+  row("sub", "Integridade: índice de controle da corrupção (Banco Mundial)", "Posição do Brasil entre os países, de 0 a 100, na média dos anos de governo. Mais é melhor.", A.wgi == null ? "—" : NF1.format(A.wgi), B.wgi == null ? "—" : NF1.format(B.wgi), "#corrupcao-externa");
   row("sub", "Multiplicador de força (direitos, feitos e promessas)", null, "×" + NF2.format(Math.round(A.mult*100)/100), "×" + NF2.format(Math.round(B.mult*100)/100), "#forca");
   var tr = h("tr","tot"); tr.appendChild(h("td",null,"Nota geral")); tr.appendChild(h("td","n", nota1(A.nota))); tr.appendChild(h("td","n", nota1(B.nota))); tbody.appendChild(tr);
   table.appendChild(tbody); tb.appendChild(table);
-  $("hexCorrNote").textContent = "A nota geral é a média dos sete pilares, com as contas para o futuro pesando o dobro por padrão, menos a corrupção: cada R$ 1 bilhão desviado (corrigido e ponderado pela prova) e cada estrela de gravidade dos casos sem valor em R$ tiram " + NF2.format(S.corrK) + " ponto, e o índice de controle da corrupção do Banco Mundial tira até " + NF2.format(S.idxMax) + ", na proporção da distância até a mediana mundial. Direitos e minorias e Feitos e promessas passam pelo multiplicador de força no Congresso e no STF. " + (S.choque === "tirar" ? "Na economia, na pobreza e na saúde, o ano da crise de 2009 e o da pandemia saem da conta, com os anos seguintes até cada indicador voltar ao nível de antes." : "A crise de 2009 e a pandemia contam como os outros anos.");
+  $("hexCorrNote").textContent = "A nota geral é a média ponderada dos oito pilares, cada um de 0 a 10, com os pesos da sua régua. Cada indicador vai de 0 a 10 entre um piso e uma meta fixos, que não dependem dos outros governos, e a corrupção não é descontada: ela é o pilar Integridade, com peso próprio. Direitos e minorias e Feitos e promessas passam pelo multiplicador de força no Congresso e no STF. " + (S.choque === "tirar" ? "Na economia, na pobreza e na saúde, o ano da crise de 2009 e o da pandemia saem da conta, com os anos seguintes até cada indicador voltar ao nível de antes. " : "A crise de 2009 e a pandemia contam como os outros anos. ") + "A conta completa, com todas as variáveis, está em Como calculamos.";
   renderHexGrid(G); renderForca(); fixTables();
   var pa = G.agg, pl = G.filter(function(x){ return x.fr === "bolso"; })[0];
   $("hexVs").textContent = "PT, média dos cinco governos (ponderada pelo tempo de mandato): " + nota1(pa.nota) + " · PL, governo Bolsonaro: " + nota1(pl.nota);
@@ -4655,16 +4716,16 @@ function serRaw(){
     };
   });
 }
-function weightedScores(IND, raw, W){
+function weightedScores(IND, raw, W, pk){
   var sub = GOVS.map(function(){ return {}; });
-  IND.forEach(function(ind){ minmax(raw.map(function(o){ return o[ind.k]; }), ind.hi).forEach(function(v, i){ sub[i][ind.k] = v; }); });
+  IND.forEach(function(ind){ raw.forEach(function(o, i){ sub[i][ind.k] = ngInd(pk, ind.k, o[ind.k]); }); });
   return GOVS.map(function(g, i){
     var sw = 0, ss = 0;
     IND.forEach(function(ind){ var w = W ? W[ind.k] : 1, s = sub[i][ind.k]; if(s != null && w > 0){ sw += w; ss += w*s; } });
     return {g:g, i:i, nota: sw ? ss/sw : null, sub:sub[i], raw:raw[i]};
   });
 }
-function serScores(){ return weightedScores(SER_IND, serRaw(), S.serW); }
+function serScores(){ return weightedScores(SER_IND, serRaw(), S.serW, "ser"); }
 var AMB_IND = [
   {k:"niv", t:"Desmatamento médio", u:"km² por ano", hi:false, d:"média anual do desmatamento na Amazônia nos anos de governo"},
   {k:"var", t:"Tendência do desmatamento", u:"% ao ano", hi:false, d:"variação do desmatamento por ano, do ano anterior à posse ao fim do mandato"}
@@ -4676,7 +4737,7 @@ function ambRaw(){
     return {niv: n ? s/n : null, "var": perYear(getter(EXT.prodes), sp[0], Math.min(sp[1], 2025), true, [])};
   });
 }
-function ambScores(){ return weightedScores(AMB_IND, ambRaw(), null); }
+function ambScores(){ return weightedScores(AMB_IND, ambRaw(), null, "amb"); }
 function fmtInd(k, v){
   if(v == null) return "sem dado";
   if(k === "niv") return NF0.format(v) + " km²";
@@ -5649,6 +5710,210 @@ function buildRP(){
   });
 }
 
+/* ---------- A conta completa (página Como calculamos): lê as mesmas constantes do cálculo ---------- */
+var ccSel = "ptall", ccMC = null, ccBuilt = false;
+var CC_WHY = {
+  eco:"Efeito direto na renda e no emprego.",
+  ser:"Saúde, segurança e educação: efeito direto na vida.",
+  pov:"Resultado social central.",
+  fut:"Sustentabilidade fiscal e dívida herdada.",
+  "int":"Substitui o desconto de corrupção por um peso explícito.",
+  soc:"Cobertura de dados menor (catálogo de medidas).",
+  amb:"Um indicador-chave, o desmatamento da Amazônia.",
+  prl:"Componente mais subjetivo; parte já aparece nos outros pilares."
+};
+function ccN(v, d){
+  if(v == null || !isFinite(v)) return "—";
+  var a = Math.abs(v), dd = d != null ? d : (a >= 1000 ? 0 : (a >= 100 ? 1 : 2)), t = new Intl.NumberFormat("pt-BR", {minimumFractionDigits:dd, maximumFractionDigits:dd}).format(a);
+  return (v < 0 && Number(a.toFixed(dd)) !== 0 ? MINUS : "") + t;
+}
+function ccEsc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function ccTbl(head, rows, cls){
+  return '<div class="tblwrap"><table class="gt cc-t ' + (cls || "") + '"><thead><tr>' + head.map(function(c, i){ return '<th scope="col"' + (i ? ' class="n"' : "") + '>' + c + '</th>'; }).join("") + '</tr></thead><tbody>' +
+    rows.map(function(r){ return '<tr>' + r.map(function(c, i){ return (i ? '<td class="n">' : '<th scope="row">') + c + (i ? '</td>' : '</th>'); }).join("") + '</tr>'; }).join("") + '</tbody></table></div>';
+}
+function ccPil(k){ return PIL.filter(function(p){ return p.k === k; })[0]; }
+function ccGovs(){ return HEX_G.map(function(i){ return GOVS[i]; }); }
+function ccFormulas(){
+  var f = function(t){ return '<pre class="ccf">' + ccEsc(t) + '</pre>'; };
+  return '<ol class="cc-steps">' +
+    '<li><b>Nota de cada indicador (0 a 10).</b>' + f('s = 10 · min(1, max(0, (x − piso) / (meta − piso)))') + '<p>x é o valor medido. O piso vale 0 e a meta vale 10. Quem passa da meta fica em 10 e quem passa do piso, em 0. Para indicadores em que menos é melhor, a meta fica abaixo do piso e a mesma fórmula serve. Piso e meta são fixos e não dependem dos outros governos. Indicador sem dado sai do pilar, e os pesos dos demais são refeitos; nunca entra como zero.</p></li>' +
+    '<li><b>Nota de cada pilar (0 a 10).</b>' + f('P = Σ v_i · s_i / Σ v_i      (soma sobre os indicadores com dado)') + '<p>v_i é o peso do indicador dentro do pilar (1 para todos no padrão, editável).</p></li>' +
+    '<li><b>Direitos e minorias.</b>' + f('s_grupo = 10 · min(1, max(0, (pts + meta_grupo/2) / (1,5 · meta_grupo)))\nP_soc = min(10, m · Σ v_grupo · s_grupo / Σ v_grupo)') + '<p>pts é a soma dos pontos das medidas do grupo, com os fatores do site (origem da medida, o que ainda vale hoje, retrocessos). Sem medida registrada, 0 ponto vale 3,3 e não zero. A meta de cada grupo é 1,25 vez o melhor valor do catálogo, arredondada a 0,5.</p></li>' +
+    '<li><b>Integridade (no lugar do desconto de corrupção).</b>' + f('c = pontos de corrupção ÷ anos de governo\nS_c = 10 · (1 − min(1, c / ' + NG.intPiso + '))\nS_w = 10 · min(1, max(0, (WGI − ' + NG.wgiAnc[0] + ') / (' + NG.wgiAnc[1] + ' − ' + NG.wgiAnc[0] + ')))\nP_int = (u_c · S_c + u_w · S_w) / (u_c + u_w)') + '<p>Os pontos de corrupção são R$ 1 bilhão desviado (corrigido pela inflação e ponderado pela prova) mais as estrelas dos casos sem valor em R$. WGI é o índice de controle da corrupção do Banco Mundial (0 a 100), na média dos anos de governo. Dividir pelos anos de governo permite comparar o mandato curto de Dilma 2 (1,36 ano) com os de 4 anos.</p></li>' +
+    '<li><b>Feitos e promessas.</b>' + f('S_leg = 10 · min(1, max(0, L / ' + NG.legAnc[1] + '))\nS_pro = 5 · (1 + net / n)\nP_prl = min(10, m · (S_leg + S_pro) / 2)') + '<p>L é a soma dos pontos dos cinco maiores feitos que ainda valem. Em S_pro, net é a soma dos fatores das promessas (cumprida soma, em parte soma meio, não cumprida subtrai) e n, o número de promessas.</p></li>' +
+    '<li><b>Multiplicador de força política.</b>' + f('F = (w_cam · cam/100 + w_sen · sen/100 + w_stf · stf/11) / (w_cam + w_sen + w_stf)\nm = (F_med / F)^κ') + '<p>cam e sen são a base do governo na Câmara e no Senado (em %), stf é o número de ministros indicados pelo grupo (de 11), e F_med é a média de F entre os governos. κ = ' + NF2.format(S.forK) + ' na régua atual (0,25 no padrão). Vale só para Direitos e minorias e para Feitos e promessas.</p></li>' +
+    '<li><b>Nota geral.</b>' + f('N = Σ W_k · P_k / Σ W_k      (pilares com dado e peso maior que zero)') + '<p>Nada é descontado depois da média e não há piso nem teto além da escala de 0 a 10. “PT, todos” é a média dos governos do PT ponderada pelos anos de mandato.</p></li>' +
+    '</ol>';
+}
+function ccGloss(){
+  var rows = [
+    ["x", "valor medido do indicador", "varia (ver tabela de âncoras)"],
+    ["piso, meta", "âncoras fixas: o piso vale 0 e a meta vale 10", "mesma unidade de x"],
+    ["s", "nota do indicador", "0 a 10"],
+    ["v_i", "peso do indicador dentro do pilar", "relativo"],
+    ["P", "nota do pilar", "0 a 10"],
+    ["W_k", "peso do pilar na nota geral", "relativo (soma 100 no padrão)"],
+    ["N", "nota geral do governo", "0 a 10"],
+    ["c", "pontos de corrupção por ano de governo", "pontos por ano (1 ponto = R$ 1 bi ponderado)"],
+    ["WGI", "controle da corrupção, Banco Mundial", "0 a 100"],
+    ["u_c, u_w", "peso dos casos do placar e do índice do Banco Mundial na Integridade", "0 a 1"],
+    ["L", "pontos dos cinco maiores feitos que ainda valem", "pontos de estrela"],
+    ["net, n", "saldo das promessas e número de promessas", "contagem"],
+    ["F, F_med", "força política do governo e média dos governos", "0 a 1"],
+    ["κ", "expoente do multiplicador de força", "0 a 1"],
+    ["m", "multiplicador de força", "cerca de 0,97 a 1,13"]
+  ];
+  return ccTbl(["Símbolo", "Significado", "Unidade"], rows.map(function(r){ return ['<code>' + r[0] + '</code>', r[1], r[2]]; }), "cc-gl");
+}
+function ccPesos(){
+  var tot = PIL.reduce(function(s, p){ return s + S.pilW[p.k]; }, 0), dtot = PIL.reduce(function(s, p){ return s + DEF.pilW[p.k]; }, 0);
+  var rows = PIL.map(function(p){ return [ccEsc(p.t), NF0.format(DEF.pilW[p.k]), NF0.format(Math.round(DEF.pilW[p.k]/dtot*1000)/10) + "%", NF0.format(S.pilW[p.k]), tot ? NF1.format(S.pilW[p.k]/tot*100) + "%" : "—", ccEsc(CC_WHY[p.k] || "")]; });
+  rows.push(["<b>Soma</b>", "<b>" + NF0.format(dtot) + "</b>", "<b>100%</b>", "<b>" + NF0.format(tot) + "</b>", "<b>100%</b>", ""]);
+  var sub = [
+    ["Integridade: casos do placar (u_c)", NF2.format(DEF.intW.c), NF2.format(S.intW.c)],
+    ["Integridade: índice do Banco Mundial (u_w)", NF2.format(DEF.intW.w), NF2.format(S.intW.w)],
+    ["Força política: expoente κ", NF2.format(DEF.forK), NF2.format(S.forK)],
+    ["Força política: peso da Câmara", NF2.format(DEF.forW.cam), NF2.format(S.forW.cam)],
+    ["Força política: peso do Senado", NF2.format(DEF.forW.sen), NF2.format(S.forW.sen)],
+    ["Força política: peso do STF", NF2.format(DEF.forW.stf), NF2.format(S.forW.stf)]
+  ];
+  ECO_IND.forEach(function(i){ sub.push(["Economia: " + i.t, NF2.format(DEF.ecoW[i.k]), NF2.format(S.ecoW[i.k])]); });
+  SER_IND.forEach(function(i){ sub.push(["Serviços: " + i.t, NF2.format(DEF.serW[i.k]), NF2.format(S.serW[i.k])]); });
+  SOC_GR.forEach(function(g){ sub.push(["Direitos: " + g.t, NF2.format(DEF.socW[g.k]), NF2.format(S.socW[g.k])]); });
+  sub.push(["Pobreza, Meio ambiente e Contas para o futuro: cada indicador", "1", "1"]);
+  return ccTbl(["Pilar", "W padrão", "Parte", "W da sua régua", "Parte", "Por quê"], rows) + '<h4>Pesos dentro dos pilares e do multiplicador</h4>' + ccTbl(["Variável", "Padrão", "Sua régua"], sub);
+}
+function ccAncoras(){
+  var groups = [["eco","Economia",ECO_IND],["pov","Pobreza e desigualdade",POV_IND],["ser","Serviços públicos",SER_IND],["amb","Meio ambiente",AMB_IND],["fut","Contas para o futuro",FUT_IND]], rows = [];
+  groups.forEach(function(g){ g[2].forEach(function(i){ var a = NG.anc[g[0]][i.k]; rows.push([ccEsc(g[1]) + ": " + ccEsc(i.t) + " <small>(" + ccEsc(i.u) + ")</small>", ccN(a[0]), ccN(a[1]), a[1] > a[0] ? "mais é melhor" : "menos é melhor", ccEsc(NG.ref[g[0] + "." + i.k] || "")]); }); });
+  rows.push(["Integridade: pontos de corrupção por ano", ccN(NG.intPiso), "0", "menos é melhor", ccEsc(NG.ref["int.c"])]);
+  rows.push(["Integridade: controle da corrupção (WGI)", ccN(NG.wgiAnc[0]), ccN(NG.wgiAnc[1]), "mais é melhor", ccEsc(NG.ref["int.wgi"])]);
+  rows.push(["Feitos: pontos dos 5 maiores feitos", ccN(NG.legAnc[0]), ccN(NG.legAnc[1]), "mais é melhor", ccEsc(NG.ref.leg)]);
+  SOC_GR.forEach(function(g){ var m = NG.socMeta[g.k]; rows.push(["Direitos: " + ccEsc(g.t) + " <small>(pontos)</small>", ccN(-m*NG.socPiso), ccN(m), "mais é melhor", ccEsc(NG.ref.soc)]); });
+  return ccTbl(["Indicador", "Piso (vale 0)", "Meta (vale 10)", "Direção", "Referência da âncora"], rows, "cc-anc");
+}
+function ccValores(G){
+  var E = ecoScores(), P = povScores(), Se = serScores(), Am = ambScores(), Fu = futScores(), So = socScores(), gs = ccGovs(), idx = HEX_G;
+  var head = ["Indicador"].concat(gs.map(function(g){ return ccEsc(g.n); }));
+  function cell(ind, sc, i, pk){ var r = sc[i].raw[ind.k], s = sc[i].sub[ind.k]; return r == null ? "sem dado" : ccN(r) + " → <b>" + ccN(s, 1) + "</b>"; }
+  function blk(title, pk, IND, sc){
+    var rows = IND.map(function(ind){ return [ccEsc(ind.t) + " <small>(" + ccEsc(ind.u) + ")</small>"].concat(idx.map(function(i){ return cell(ind, sc, i, pk); })); });
+    rows.push(["<b>Nota do pilar</b>"].concat(idx.map(function(i){ return "<b>" + ccN(sc[i].nota, 2) + "</b>"; })));
+    return '<details class="cc-d"><summary>' + title + '</summary>' + ccTbl(head, rows) + '</details>';
+  }
+  var out = blk("Economia: valor medido → nota", "eco", ECO_IND, E) + blk("Pobreza e desigualdade", "pov", POV_IND, P) + blk("Serviços públicos", "ser", SER_IND, Se) + blk("Meio ambiente", "amb", AMB_IND, Am) + blk("Contas para o futuro", "fut", FUT_IND, Fu);
+  var rs = SOC_GR.map(function(gr){ return [ccEsc(gr.t) + " <small>(pontos)</small>"].concat(idx.map(function(i){ return ccN(So[i].pts[gr.k], 2) + " → <b>" + ccN(So[i].sub[gr.k], 1) + "</b>"; })); });
+  rs.push(["<b>Nota do pilar, antes do multiplicador</b>"].concat(idx.map(function(i){ return "<b>" + ccN(So[i].nota, 2) + "</b>"; })));
+  out += '<details class="cc-d"><summary>Direitos e minorias</summary>' + ccTbl(head, rs) + '</details>';
+  var ri = [
+    ["Pontos de corrupção no mandato"].concat(G.map(function(x){ return ccN(x.corr, 2); })),
+    ["Anos de governo"].concat(G.map(function(x){ return ccN(x.dur, 2); })),
+    ["c: pontos por ano"].concat(G.map(function(x){ return ccN(x.cAno, 2); })),
+    ["S_c"].concat(G.map(function(x){ return ccN(x.sC, 2); })),
+    ["WGI (média dos anos de governo)"].concat(G.map(function(x){ return ccN(x.wgi, 1); })),
+    ["S_w"].concat(G.map(function(x){ return ccN(x.sW, 2); })),
+    ["<b>P_int</b>"].concat(G.map(function(x){ return "<b>" + ccN(x.p.int, 2) + "</b>"; }))
+  ];
+  out += '<details class="cc-d"><summary>Integridade</summary>' + ccTbl(head, ri) + '</details>';
+  var rp = [
+    ["L: pontos dos 5 maiores feitos"].concat(G.map(function(x){ return ccN(x.legPts, 2); })),
+    ["S_leg"].concat(G.map(function(x){ return ccN(x.sLeg, 2); })),
+    ["S_pro: promessas"].concat(G.map(function(x){ return ccN(x.pro, 2); })),
+    ["F: força política (0 a 1)"].concat(G.map(function(x){ return ccN(x.forca, 3); })),
+    ["m: multiplicador"].concat(G.map(function(x){ return ccN(x.mult, 3); })),
+    ["<b>P_prl</b>"].concat(G.map(function(x){ return "<b>" + ccN(x.p.prl, 2) + "</b>"; })),
+    ["<b>P_soc, depois do multiplicador</b>"].concat(G.map(function(x){ return "<b>" + ccN(x.p.soc, 2) + "</b>"; }))
+  ];
+  out += '<details class="cc-d"><summary>Feitos e promessas, e multiplicador de força</summary>' + ccTbl(head, rp) + '</details>';
+  return out;
+}
+function ccExemplo(G){
+  var opts = G.concat([G.agg]), cur = opts.filter(function(x){ return x.fr === ccSel; })[0] || G.agg;
+  var sel = '<label class="cc-sel">Governo: <select id="ccGov">' + opts.map(function(x){ return '<option value="' + x.fr + '"' + (x.fr === cur.fr ? " selected" : "") + '>' + ccEsc(x.g.n) + '</option>'; }).join("") + '</select></label>';
+  var tot = 0, sw = 0, rows = PIL.map(function(p){
+    var v = cur.p[p.k], w = S.pilW[p.k], use = v != null && w > 0, prod = use ? w*v : null; if(use){ tot += prod; sw += w; }
+    return [ccEsc(p.t), ccN(v, 2), NF0.format(w), prod == null ? "—" : ccN(prod, 1)];
+  });
+  rows.push(["<b>Soma</b>", "", "<b>" + NF0.format(sw) + "</b>", "<b>" + ccN(tot, 1) + "</b>"]);
+  rows.push(["<b>N = " + ccN(tot, 1) + " ÷ " + NF0.format(sw) + "</b>", "", "", "<b>" + ccN(sw ? tot/sw : null, 2) + "</b>"]);
+  return sel + ccTbl(["Pilar", "P (nota do pilar)", "W (peso)", "W · P"], rows) + '<p class="note">Conferência: o hexágono da página inicial mostra ' + ccN(cur.nota, 2) + ' para ' + ccEsc(cur.g.n) + ' com os pesos da sua régua.</p>';
+}
+function ccWhatIf(){
+  var D = clone(DEF);
+  function run(mut){ var keep = S; S = clone(DEF); try{ mut(S); var G = geralScores(compute()); return {pt:G.agg.nota, bo:G.filter(function(x){ return x.fr === "bolso"; })[0].nota, l3:G.filter(function(x){ return x.fr === "lula3"; })[0].nota}; } finally { S = keep; } }
+  var cfg = [
+    ["<b>Padrão do site</b>", function(){ }],
+    ["Pesos iguais nos oito pilares", function(s){ PIL.forEach(function(p){ s.pilW[p.k] = 1; }); }],
+    ["Sem o pilar Integridade", function(s){ s.pilW.int = 0; }],
+    ["Integridade com o dobro do peso (24)", function(s){ s.pilW.int = 24; }],
+    ["Só resultados: sem Integridade e sem Feitos e promessas", function(s){ s.pilW.int = 0; s.pilW.prl = 0; }],
+    ["Integridade só pelos casos do placar", function(s){ s.intW.w = 0; }],
+    ["Integridade só pelo índice do Banco Mundial", function(s){ s.intW.c = 0; }],
+    ["Sem os casos sem valor em R$", function(s){ s.inst = false; }],
+    ["Com a estimativa máxima de cada escândalo", function(s){ s.est = "max"; }],
+    ["Só o que foi comprovado na Justiça", function(s){ s.preset = "julgado"; }],
+    ["Contando as pessoas lesadas (1 ponto por milhão)", function(s){ s.wVid = 1; }],
+    ["Contando os anos de crise como os outros", function(s){ s.choque = "contar"; }],
+    ["Sem multiplicador de força", function(s){ s.forK = 0; }]
+  ];
+  var rows = cfg.map(function(c){ var r = run(c[1]); return [c[0], ccN(r.pt, 1), ccN(r.bo, 1), ccN(r.l3, 1), ccN(r.pt - r.bo, 1)]; });
+  rows.splice(1, 0, ["Modelo anterior (v1): normalização entre os governos e corrupção como desconto (valores fixos, de 8/10/2026)", "4,7", "1,8", "5,3", "2,9"]);
+  return ccTbl(["Configuração", "PT, todos", "Bolsonaro", "Lula 3", "PT, todos − Bolsonaro"], rows);
+}
+/* Teste de robustez: semente fixa, perturba âncoras (até ±25% da largura da faixa) e pesos (multiplicados por exp(0,35·z)) */
+function ccRng(seed){ var a = seed >>> 0; return function(){ a = (a + 0x6D2B79F5) >>> 0; var t = a; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function ccRobust(cb){
+  var N = 400, rnd = ccRng(20261008), keepA = JSON.parse(JSON.stringify(NG)), keepS = S, res = {pt:[], bo:[], l3:[], l1:[], l2:[], d1:[], d2:[], dif:[]};
+  var names = {l1:"lula1", l2:"lula2", d1:"dilma1", d2:"dilma2", bo:"bolso", l3:"lula3"};
+  var oEco = ecoRaw, oPov = povRaw, oSer = serRaw, oAmb = ambRaw, oFut = futRaw, cE = oEco(), cP = oPov(), cS = oSer(), cA = oAmb(), cF = oFut(), R0 = compute();
+  ecoRaw = function(){ return cE; }; povRaw = function(){ return cP; }; serRaw = function(){ return cS; }; ambRaw = function(){ return cA; }; futRaw = function(){ return cF; };
+  function gauss(){ var u = Math.max(1e-9, rnd()), v = rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); }
+  function shift(a){ var w = a[1] - a[0]; return [a[0] + (rnd()*2 - 1)*0.25*w, a[1] + (rnd()*2 - 1)*0.25*w]; }
+  try{
+    for(var d = 0; d < N; d++){
+      Object.keys(keepA.anc).forEach(function(p){ Object.keys(keepA.anc[p]).forEach(function(k){ NG.anc[p][k] = shift(keepA.anc[p][k]); }); });
+      Object.keys(keepA.socMeta).forEach(function(k){ NG.socMeta[k] = keepA.socMeta[k]*(1 + (rnd()*2 - 1)*0.25); });
+      NG.intPiso = keepA.intPiso*(1 + (rnd()*2 - 1)*0.25); NG.wgiAnc = shift(keepA.wgiAnc); NG.legAnc = [keepA.legAnc[0], keepA.legAnc[1]*(1 + (rnd()*2 - 1)*0.25)];
+      S = clone(keepS); PIL.forEach(function(p){ S.pilW[p.k] = DEF.pilW[p.k]*Math.exp(0.35*gauss()); });
+      var G = geralScores(R0), by = function(fr){ return G.filter(function(x){ return x.fr === fr; })[0].nota; };
+      res.pt.push(G.agg.nota); res.bo.push(by("bolso")); res.l3.push(by("lula3")); res.l1.push(by("lula1")); res.l2.push(by("lula2")); res.d1.push(by("dilma1")); res.d2.push(by("dilma2")); res.dif.push(G.agg.nota - by("bolso"));
+    }
+  } finally { ecoRaw = oEco; povRaw = oPov; serRaw = oSer; ambRaw = oAmb; futRaw = oFut; S = keepS; NG.anc = keepA.anc; NG.socMeta = keepA.socMeta; NG.intPiso = keepA.intPiso; NG.wgiAnc = keepA.wgiAnc; NG.legAnc = keepA.legAnc; }
+  function q(a, p){ var s = a.slice().sort(function(x, y){ return x - y; }); return s[Math.min(s.length - 1, Math.max(0, Math.round(p*(s.length - 1))))]; }
+  var out = {n:N, rows:[["PT, todos", res.pt], ["Lula 1", res.l1], ["Lula 2", res.l2], ["Dilma 1", res.d1], ["Dilma 2", res.d2], ["Bolsonaro", res.bo], ["Lula 3", res.l3], ["PT, todos − Bolsonaro", res.dif]].map(function(r){ return [r[0], q(r[1], 0.05), q(r[1], 0.5), q(r[1], 0.95)]; }),
+    pgt: res.dif.filter(function(x){ return x > 0; }).length/N, l3: res.l3.filter(function(x, i){ return x > res.bo[i]; }).length/N};
+  return out;
+}
+function ccRenderRobust(box){
+  if(!ccMC){ box.innerHTML = '<button type="button" class="btn" id="ccRun">Calcular a robustez</button><p class="note">Sorteia 400 combinações de pisos, metas e pesos (semente fixa: o resultado é sempre o mesmo) e mostra a faixa de variação de cada nota. Leva alguns segundos.</p>'; return; }
+  var r = ccMC;
+  box.innerHTML = ccTbl(["Nota geral", "5%", "Mediana", "95%"], r.rows.map(function(x){ return [ccEsc(x[0]), ccN(x[1], 1), ccN(x[2], 1), ccN(x[3], 1)]; })) +
+    '<p>Em ' + NF0.format(Math.round(r.pgt*100)) + '% dos ' + r.n + ' sorteios a nota de “PT, todos” ficou acima da de Bolsonaro; em ' + NF0.format(Math.round(r.l3*100)) + '%, a de Lula 3 ficou acima da de Bolsonaro. Cada sorteio desloca cada piso e cada meta em até 25% da largura da faixa e multiplica cada peso de pilar por exp(0,35 · z), com z sorteado de uma normal padrão.</p><button type="button" class="btn" id="ccRun">Calcular de novo</button>';
+}
+function renderConta(){
+  var body = $("ccBody"); if(!body) return;
+  var open = []; body.querySelectorAll("details[open]").forEach(function(d){ var s = d.querySelector("summary"); if(s) open.push(s.textContent); });
+  var R = compute(), G = geralScores(R);
+  body.innerHTML =
+    '<div class="mbox"><h3>Versão ' + NG.ver + ' (8/10/2026): o que mudou e por quê</h3><ul>' +
+    '<li><b>Antes:</b> cada indicador valia 0 no pior governo e 10 no melhor da amostra, então sempre havia zeros e dezes, mesmo quando o resultado absoluto era razoável; e a corrupção era subtraída direto da média dos pilares, podendo derrubar a nota quase a zero.</li>' +
+    '<li><b>Agora:</b> cada indicador vai de 0 a 10 entre um piso e uma meta fixos; a corrupção é um pilar (Integridade) com peso próprio e editável; todos os pesos aparecem abaixo.</li>' +
+    '<li><b>Efeito:</b> as notas sobem em geral e a diferença entre “PT, todos” e Bolsonaro encolhe, porque o peso da integridade (12 de 100 no padrão) é menor que o desconto que existia. A tabela “E se…” e o teste de robustez abaixo mostram quanto cada escolha pesa.</li></ul></div>' +
+    '<div class="mbox"><h3>1. As fórmulas</h3>' + ccFormulas() + '</div>' +
+    '<div class="mbox"><h3>2. As variáveis</h3>' + ccGloss() + '</div>' +
+    '<div class="mbox"><h3>3. Os pesos</h3><p>Os pesos são relativos: cada pilar vale a sua parte na soma. O padrão está na primeira coluna; a segunda mostra a sua régua atual (página Ajuste os pesos).</p>' + ccPesos() + '</div>' +
+    '<div class="mbox"><h3>4. Pisos e metas de cada indicador</h3><p>Os valores são variações médias por ano de governo, como o site já calculava, exceto onde a unidade diz outra coisa. “Piso” vale 0 e “meta” vale 10.</p>' + ccAncoras() + '</div>' +
+    '<div class="mbox"><h3>5. Valores usados em cada governo</h3><p>Cada célula mostra o valor medido e, depois da seta, a nota de 0 a 10.</p>' + ccValores(G) + '</div>' +
+    '<div class="mbox"><h3>6. Um exemplo passo a passo</h3>' + ccExemplo(G) + '</div>' +
+    '<div class="mbox"><h3>7. E se fosse diferente?</h3><p>Cada linha muda uma só escolha, a partir do padrão, e recalcula tudo com as fórmulas acima.</p>' + ccWhatIf() + '</div>' +
+    '<div class="mbox"><h3>8. Robustez</h3><div id="ccRob"></div></div>';
+  body.querySelectorAll("details").forEach(function(d){ var s = d.querySelector("summary"); if(s && open.indexOf(s.textContent) >= 0) d.open = true; });
+  ccRenderRobust($("ccRob"));
+  var sel = $("ccGov"); if(sel) sel.addEventListener("change", function(){ ccSel = sel.value; renderConta(); });
+  var run = $("ccRun"); if(run) run.addEventListener("click", function(){ run.disabled = true; run.textContent = "Calculando…"; setTimeout(function(){ ccMC = ccRobust(); renderConta(); }, 30); });
+}
+
 var PAGES = ["inicio","pt-x-pl","economia","servicos","sociedade","falas","poderes","eleicao","regua-politica","regua","metodo","fontes"];
 var curPage = null, firstShow = true, BASE_TITLE = document.title, RESTORE_Y = null;
 // a barra Saldo só entra na altura da navegação enquanto estiver no fluxo do navbar; fixa ou absoluta, ela fica de fora
@@ -5677,6 +5942,7 @@ function showPage(p, targetId){
   if(p === "servicos"){ renderSer(); renderSeries("serSeries"); }
   if(p === "pt-x-pl"){ renderA(R); renderB(); renderSeries("corrSeries"); }
   if(p === "regua-politica") buildRP();
+  if(p === "metodo") renderConta();
   fixTables();
   var cur = document.querySelector('.sitenav a[aria-current="page"]'), nav = document.querySelector(".sitenav");
   if(cur && nav){ var l = cur.offsetLeft - nav.offsetLeft, r = l + cur.offsetWidth; if(l < nav.scrollLeft || r > nav.scrollLeft + nav.clientWidth) nav.scrollLeft = Math.max(0, l - 24); }
@@ -5704,6 +5970,7 @@ function update(){
   if(curPage === "servicos") renderSer();
   if(curPage === "sociedade"){ renderSocHeat(); updateSocList(); }
   if(curPage === "inicio") renderHome(R);
+  if(curPage === "metodo") renderConta();
   fixTables();
 }
 function bind(){
@@ -5718,7 +5985,7 @@ function bind(){
   $("merito").addEventListener("change", function(e){ S.merito = e.target.checked; save(); update(); });
   $("hoje").addEventListener("change", function(e){ S.hoje = e.target.checked; save(); update(); });
   [["wVid","wVid"],["wLeg","wLeg"],["wInst","wInst"],["wProm","wProm"]].forEach(function(p){ $(p[0]).addEventListener("input", function(e){ S[p[1]] = parseFloat(e.target.value); save(); update(); }); });
-  $("reset").addEventListener("click", function(){ var keep = {filtro:S.filtro, ordem:S.ordem, ordemB:S.ordemB, legFiltro:S.legFiltro, notas:S.notas, promFiltro:S.promFiltro, tlSM:S.tlSM, tlPIB:S.tlPIB, ecoW:S.ecoW, ecoOrd:S.ecoOrd, socW:S.socW, socCon:S.socCon, socRe:S.socRe, pilW:S.pilW, socGrp:S.socGrp, socLado:S.socLado, hexA:S.hexA, hexB:S.hexB, corrK:S.corrK, choque:S.choque, idxMax:S.idxMax, forK:S.forK, forW:S.forW, serW:S.serW}; S = clone(DEF); for(var k in keep) S[k] = keep[k]; save(); update(); });
+  $("reset").addEventListener("click", function(){ var keep = {filtro:S.filtro, ordem:S.ordem, ordemB:S.ordemB, legFiltro:S.legFiltro, notas:S.notas, promFiltro:S.promFiltro, tlSM:S.tlSM, tlPIB:S.tlPIB, ecoW:S.ecoW, ecoOrd:S.ecoOrd, socW:S.socW, socCon:S.socCon, socRe:S.socRe, pilW:S.pilW, intW:S.intW, socGrp:S.socGrp, socLado:S.socLado, hexA:S.hexA, hexB:S.hexB, choque:S.choque, forK:S.forK, forW:S.forW, serW:S.serW}; S = clone(DEF); for(var k in keep) S[k] = keep[k]; save(); update(); });
   var rt, lastVW = window.innerWidth; window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(function(){ setNavH(); if(window.innerWidth === lastVW) return; lastVW = window.innerWidth; var R = compute(); if(curPage === "pt-x-pl"){ renderA(R); renderB(); renderSeries("corrSeries"); } if(curPage === "economia"){ renderEco(); renderPov(); renderFut(); renderSeries("ecoSeries"); renderTempo(); } if(curPage === "servicos"){ renderSer(); renderSeries("serSeries"); } if(curPage === "inicio") renderHome(R); fixTables(); }, 120); });
   window.addEventListener("scroll", hideTip, {passive:true});
   window.addEventListener("scroll", syncStick, {passive:true});
@@ -5728,7 +5995,7 @@ function bind(){
     io.observe(led);
   }catch(e){}
   $("resetEco").addEventListener("click", function(){ S.ecoW = clone(DEF.ecoW); save(); update(); });
-  $("resetPil").addEventListener("click", function(){ S.pilW = clone(DEF.pilW); S.corrK = DEF.corrK; S.idxMax = DEF.idxMax; S.forK = DEF.forK; S.forW = clone(DEF.forW); save(); update(); });
+  $("resetPil").addEventListener("click", function(){ S.pilW = clone(DEF.pilW); S.intW = clone(DEF.intW); S.forK = DEF.forK; S.forW = clone(DEF.forW); save(); update(); });
   $("resetSer").addEventListener("click", function(){ S.serW = clone(DEF.serW); save(); update(); });
   $("resetSoc").addEventListener("click", function(){ S.socW = clone(DEF.socW); S.socCon = DEF.socCon; S.socRe = DEF.socRe; save(); update(); });
   var sk = document.querySelector(".skip");
