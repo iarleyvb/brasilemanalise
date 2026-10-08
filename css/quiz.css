@@ -1,1 +1,132 @@
-/* estilos do módulo quiz */
+/* Módulo quiz (prefixo qz-): "Qual é a sua régua?". Usa só os tokens do site; o modo escuro vem deles. */
+.qz-wrap{padding-block:12px 40px}
+.qz-root{display:grid;gap:16px;min-width:0}
+.qz-card{background:var(--surface);border:1px solid var(--line-2);border-radius:12px;padding:16px;display:grid;gap:14px;min-width:0}
+.qz-card-flat{background:var(--surface-2)}
+.qz-card p{margin:0}
+.qz-h{margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.25;letter-spacing:-.01em}
+.qz-h:focus{outline:none}
+.qz-h:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.qz-ask{font-size:15px;color:var(--ink-2);line-height:1.45}
+.qz-h3{margin:0;font-size:18px;line-height:1.3}
+.qz-lead{font-size:16px;color:var(--ink);max-width:62ch;line-height:1.5}
+.qz-note{font-size:14px;color:var(--ink-2);line-height:1.45;margin:0}
+.qz-aviso{border:1px solid var(--line-2);border-left:4px solid var(--ink-2);background:var(--surface-2);border-radius:8px;padding:12px 14px;font-size:14.5px;line-height:1.5;color:var(--ink)}
+.qz-sec{display:grid;gap:10px;min-width:0}
+.qz-hold{min-width:0}
+.qz-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.qz-fora-tela{position:fixed;left:-9999px;top:0;opacity:0}
+
+/* botões */
+.qz-actions{display:flex;flex-wrap:wrap;gap:10px}
+.qz-btn{min-height:44px;padding:10px 16px;font-size:15px}
+.qz-a{color:var(--ink);font-weight:650;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:10px 0}
+
+/* progresso */
+.qz-top{display:grid;gap:8px}
+.qz-step{font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.qz-prog{height:10px;border-radius:6px;background:var(--surface-2);border:1px solid var(--line-2);overflow:hidden}
+.qz-prog-fill{display:block;height:100%;background:var(--ink-2);border-radius:5px}
+@media (prefers-reduced-motion:no-preference){.qz-prog-fill{transition:width .25s ease}}
+
+/* respostas */
+.qz-opts{display:grid;gap:10px}
+.qz-opt{appearance:none;font:inherit;font-size:16px;line-height:1.45;text-align:left;color:var(--ink);background:var(--surface);border:1.5px solid var(--line-2);border-radius:10px;padding:12px 14px;min-height:56px;display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;cursor:pointer;width:100%}
+.qz-opt:hover{border-color:var(--ink-2);background:var(--surface-2)}
+.qz-opt:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.qz-opt[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink);background:var(--surface-2)}
+.qz-opt-l{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--ink-2);font-family:var(--mono);font-weight:700;font-size:15px;color:var(--ink)}
+.qz-opt[aria-pressed="true"] .qz-opt-l{background:var(--sel-bg);color:var(--sel-fg);border-color:var(--sel-bg)}
+.qz-opt-t{display:block;padding-top:5px;min-width:0;overflow-wrap:anywhere}
+.qz-opt.qz-opt-tf{color:var(--ink-2)}
+.qz-nav{justify-content:space-between}
+
+/* resultado: barras de peso */
+.qz-bars{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.qz-bar{display:grid;gap:4px;min-width:0}
+.qz-bar-h{display:flex;justify-content:space-between;gap:10px;font-size:15px}
+.qz-bar-v{font-variant-numeric:tabular-nums}
+.qz-track{position:relative;height:14px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:7px}
+.qz-fill{position:absolute;left:0;top:0;bottom:0;background:var(--ink-2);border-radius:6px}
+.qz-mark{position:absolute;top:-4px;bottom:-4px;width:3px;margin-left:-1.5px;background:var(--ink);border-radius:2px;box-shadow:0 0 0 1.5px var(--surface)}
+.qz-bar-d{font-size:13.5px;color:var(--ink-2)}
+
+/* tabelas */
+.qz-tblwrap{min-width:0;max-width:100%}
+.qz-tbl{border-collapse:collapse;width:100%;font-size:14px;table-layout:auto}
+.qz-tbl th,.qz-tbl td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;overflow-wrap:anywhere}
+.qz-tbl thead th{font-size:13px;color:var(--ink-2);border-bottom:1.5px solid var(--ink-2);font-weight:650}
+.qz-tbl .qz-n,.qz-tbl th.qz-n{text-align:right;font-variant-numeric:tabular-nums}
+.qz-cap{text-align:left;font-size:14px;color:var(--ink-2);padding:6px 0;caption-side:top;font-weight:650}
+.qz-gv{font-weight:inherit}
+.qz-gv-n{display:block;font-weight:650;color:var(--ink)}
+.qz-gv-s{display:block;font-size:13px;color:var(--ink-2);font-weight:400}
+.qz-nota{font-size:17px;display:block}
+.qz-nbar{display:block;height:6px;border-radius:3px;background:var(--surface-2);border:1px solid var(--line-2);margin-top:4px;min-width:48px;overflow:hidden}
+.qz-nbar-f{display:block;height:100%;background:var(--ink-2)}
+.qz-first .qz-gv-n::after{content:" \00B7 1\BA lugar";font-weight:400;font-size:13px;color:var(--ink-2)}
+.qz-first{background:var(--surface-2)}
+.qz-pad{color:var(--ink-2)}
+.qz-tot td,.qz-tot th{border-top:1.5px solid var(--ink-2)}
+.qz-fora{color:var(--ink-2);font-size:13px}
+.qz-tbl-n th:first-child{width:40%}
+.qz-t-q{width:22%;font-weight:650}
+.qz-t-n{font-family:var(--mono)}
+.qz-pp{display:block}
+.qz-pp b{font-variant-numeric:tabular-nums}
+.qz-mine{background:var(--surface-2)}
+.qz-mine .qz-t-r strong{text-decoration:underline;text-underline-offset:3px}
+.qz-t-sua{font-weight:650;color:var(--ink)}
+
+/* firmeza */
+.qz-rob{font-size:15.5px;line-height:1.5;max-width:66ch}
+.qz-rob-t{font-weight:750}
+
+/* ações e link */
+.qz-msg{margin:0;font-size:14.5px;color:var(--ink);min-height:1.2em}
+.qz-linkbox{display:grid;gap:6px}
+.qz-linklab{font-size:14px;color:var(--ink-2)}
+.qz-linkin{font:inherit;font-family:var(--mono);font-size:14px;color:var(--ink);background:var(--surface);border:1.5px solid var(--line-2);border-radius:8px;padding:10px;min-height:44px;width:100%;box-sizing:border-box}
+.qz-linkin:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* lista para mudar respostas */
+.qz-chg{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.qz-chgb{appearance:none;font:inherit;text-align:left;width:100%;min-height:44px;padding:8px 12px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:8px;cursor:pointer;display:grid;gap:2px}
+.qz-chgb:hover{border-color:var(--ink-2)}
+.qz-chgb:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.qz-chg-n{font-size:14px;font-weight:650}
+.qz-chg-r{font-size:14px;color:var(--ink-2);overflow-wrap:anywhere}
+
+/* como calcula */
+.qz-calc{background:var(--surface);border:1px solid var(--line-2);border-radius:12px;padding:0 16px 16px;min-width:0}
+.qz-calc>summary{cursor:pointer;font-weight:700;font-size:16px;padding:14px 0;min-height:44px;box-sizing:border-box;list-style-position:inside}
+.qz-calc>summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.qz-calc[open]>summary{border-bottom:1px solid var(--line);margin-bottom:12px}
+.qz-calc>*+*{margin-top:12px}
+.qz-passos{margin:0;padding-left:22px;display:grid;gap:8px;font-size:15px;line-height:1.5}
+
+/* atalhos do site: botão do topo e rodapé (mesmos nomes usados por outros módulos) */
+.hero-acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.hero-acoes .btn,.hero-acoes a.btn{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;color:var(--ink)}
+.foot-extra{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0}
+.foot-extra a{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-size:14px}
+
+@media (min-width:700px){
+  .qz-card{padding:24px;gap:18px}
+  .qz-opts{gap:12px}
+  .qz-opt{padding:16px 18px;font-size:17px}
+  .qz-bars{grid-template-columns:1fr 1fr;gap:14px 28px}
+  .qz-tbl{font-size:15px}
+  .qz-tbl th,.qz-tbl td{padding:9px 10px}
+  .qz-chg{grid-template-columns:1fr 1fr}
+  .qz-calc{padding:0 24px 24px}
+}
+@media (min-width:1000px){
+  .qz-root{max-width:920px}
+}
+@media (max-width:360px){
+  .qz-card{padding:12px}
+  .qz-opt{grid-template-columns:30px minmax(0,1fr);gap:10px;padding:10px 12px}
+  .qz-opt-l{width:30px;height:30px}
+  .qz-tbl th,.qz-tbl td{padding:7px 4px;font-size:13.5px}
+}
