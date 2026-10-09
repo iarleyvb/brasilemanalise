@@ -548,9 +548,11 @@
     var desc = el("p", "cp-txt", "A imagem é criada neste aparelho. Nada é enviado para servidores. As notas e os pesos são os que estão na tela agora.");
     desc.id = "cp-dlg-d";
 
+    var fml = el("p", "cp-fmt-l", "Formato do cartão");
+    fml.id = "cp-fmt-l";
     var fm = el("div", "cp-fmt");
     fm.setAttribute("role", "group");
-    fm.setAttribute("aria-label", "Formato do cartão");
+    fm.setAttribute("aria-labelledby", "cp-fmt-l");
     var bh = el("button", "btn cp-btn cp-fmt-b", "Horizontal (1200 × 630)");
     bh.type = "button"; bh.setAttribute("data-f", "h");
     var bv = el("button", "btn cp-btn cp-fmt-b", "Vertical (1080 × 1350)");
@@ -577,7 +579,7 @@
     var carregando = el("p", "cp-carregando", "Criando o cartão...");
     prev.appendChild(img); prev.appendChild(carregando);
 
-    caixa.appendChild(cab); caixa.appendChild(desc); caixa.appendChild(fm); caixa.appendChild(ac); caixa.appendChild(msg); caixa.appendChild(prev);
+    caixa.appendChild(cab); caixa.appendChild(desc); caixa.appendChild(fml); caixa.appendChild(fm); caixa.appendChild(ac); caixa.appendChild(msg); caixa.appendChild(prev);
     fundo.appendChild(caixa);
     D.body.appendChild(fundo);
 

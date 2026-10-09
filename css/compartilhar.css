@@ -41,6 +41,7 @@ html.cp-trava{overflow:hidden}
 .cp-dlg-cab{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .cp-dlg-t{margin:0;font-size:clamp(19px,4.6vw,24px);line-height:1.25;letter-spacing:-.01em;color:var(--ink)}
 .cp-x{flex:none}
+.cp-fmt-l{font-size:14px;font-weight:700;color:var(--ink-2);margin-bottom:-6px!important}
 .cp-fmt{display:flex;flex-wrap:wrap;gap:10px}
 .cp-fmt-b{flex:1 1 180px}
 .cp-prev{display:grid;place-items:center;min-width:0;min-height:120px;padding:8px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px}

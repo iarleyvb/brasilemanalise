@@ -1,1 +1,127 @@
-/* estilos do módulo dados */
+/* Módulos dados (dd-) e novidades (nv-): páginas Dados abertos (#dados) e Novidades (#novidades).
+   Só usa as variáveis do site (--bg, --surface, --surface-2, --ink, --ink-2, --muted, --line, --line-2,
+   --sel-bg, --sel-fg, --mono), então o modo escuro vem dos tokens. Sem animações. */
+
+/* ============================================================
+   Dados abertos (dd-)
+   ============================================================ */
+.dd-sec{padding-block:22px}
+.dd-sec > *{min-width:0}
+#modDados,#modNovidades{min-width:0}
+
+/* atalhos no topo */
+.dd-chips a,.nv-chips a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;font-size:14px}
+
+/* texto de apoio (14 px ou mais) */
+.dd-nota{font-size:14px;line-height:1.5;color:var(--ink-2);max-width:68ch}
+.dd-nota a,.dd-sec li a,.nv-item a{text-underline-offset:3px}
+
+/* o que será exportado */
+.dd-cfg{display:grid;gap:10px;padding:16px;background:var(--surface);border:1px solid var(--line-2);border-radius:12px;min-width:0}
+.dd-cfg h3{margin:0}
+.dd-lista{margin:0;padding-left:1.2em;display:grid;gap:4px;font-size:15px}
+.dd-pesos{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.dd-pesos li{display:inline-flex;align-items:center;gap:4px;min-height:34px;padding:4px 12px;font-size:14px;color:var(--ink);background:var(--surface-2);border:1px solid var(--line-2);border-radius:999px}
+.dd-pesos li b{font-variant-numeric:tabular-nums}
+.dd-pesos li.dd-mudou{border-color:var(--ink);border-width:2px;padding:3px 11px}
+.dd-pad{color:var(--ink-2);font-size:13px}
+
+/* formato dos números */
+.dd-fmt{margin:14px 0 0;padding:6px 16px 12px;border:1px solid var(--line-2);border-radius:12px;background:var(--surface);min-width:0}
+.dd-fmt legend{padding:0 6px;font-weight:700;font-size:15px}
+.dd-op{display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:9px 0;cursor:pointer;font-size:15px;line-height:1.4}
+.dd-op input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:var(--ink);cursor:pointer}
+.dd-op span{min-width:0}
+.dd-fmt .dd-nota{margin-top:4px}
+
+/* cartões */
+.dd-cards{display:grid;gap:14px;margin-top:16px;grid-template-columns:minmax(0,1fr)}
+.dd-card{display:grid;gap:10px;align-content:start;min-width:0;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.dd-card h3{margin:0}
+.dd-card p{font-size:15px;color:var(--ink-2)}
+.dd-card li{font-size:15px;line-height:1.5}
+.dd-card ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
+.dd-card p.dd-arq{font-family:var(--mono);font-size:13px;line-height:1.45;color:var(--ink-2);overflow-wrap:anywhere}
+.dd-arq:empty{display:none}
+.dd-acoes{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.dd-btn{min-height:44px;min-width:44px;font-size:15px;touch-action:manipulation}
+.dd-btn:focus-visible,.dd-prev summary:focus-visible,.dd-dic summary:focus-visible,.dd-op input:focus-visible,.dd-tw:focus-visible,.dd-pre:focus-visible,.dd-cita:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* prévia */
+.dd-prev{border-top:1px solid var(--line);padding-top:2px;min-width:0}
+.dd-prev summary,.dd-dic summary{display:flex;align-items:center;min-height:44px;font-weight:650;font-size:15px;cursor:pointer;list-style-position:inside}
+.dd-prev-corpo{display:grid;gap:8px;padding-block:6px 4px;min-width:0}
+.dd-tw{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:8px}
+table.dd-tab{min-width:0;width:max-content;margin:0;font-size:13px;border-collapse:collapse}
+table.dd-tab th,table.dd-tab td{padding:6px 10px;white-space:nowrap;text-align:left;border-bottom:1px solid var(--line)}
+table.dd-tab th{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-2);background:var(--surface-2);position:sticky;top:0}
+table.dd-tab td.n{text-align:right;font-variant-numeric:tabular-nums}
+.dd-pre{margin:0;padding:12px;max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch;white-space:pre;tab-size:2;font-family:var(--mono);font-size:13px;line-height:1.5;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:8px}
+
+/* mensagens */
+.dd-status{margin:14px 0 0;font-size:15px;line-height:1.5;color:var(--ink);overflow-wrap:anywhere}
+.dd-status:empty{display:none}
+.dd-status.dd-erro{font-weight:700;padding-left:12px;border-left:4px solid var(--ink)}
+
+/* dicionário */
+.dd-dic{border-top:1px solid var(--line);min-width:0}
+.dd-dic:last-of-type{border-bottom:1px solid var(--line)}
+.dd-dl{margin:0 0 14px;display:grid;gap:0;min-width:0}
+.dd-dl dt{margin-top:12px;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink);overflow-wrap:anywhere}
+.dd-dl dd{margin:2px 0 0;font-size:15px;line-height:1.5;color:var(--ink-2);overflow-wrap:anywhere}
+
+/* citação */
+.dd-cita{margin:0;padding:14px 16px;font-size:15px;line-height:1.65;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-left:4px solid var(--ink-2);border-radius:8px;overflow-wrap:anywhere;-webkit-user-select:text;user-select:text}
+#dd-citar .dd-acoes{margin-top:12px}
+#dd-citar .dd-nota{margin-top:10px}
+
+/* rodapé */
+.foot-extra{display:flex;flex-wrap:wrap;gap:0 18px}
+.dd-foot-link,.nv-foot-link{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-size:14px}
+.nv-pt{margin-left:8px;padding:1px 8px;font-size:12px;font-weight:700;line-height:1.5;letter-spacing:.03em;color:var(--mast,#151718);background:var(--mast-ink,#f3f4f1);border-radius:999px}
+
+@media (min-width:720px){
+  .dd-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dd-dl{grid-template-columns:minmax(190px,280px) minmax(0,1fr);column-gap:20px}
+  .dd-dl dt{margin-top:0;padding-block:9px;border-top:1px solid var(--line)}
+  .dd-dl dd{margin:0;padding-block:9px;border-top:1px solid var(--line)}
+  .dd-dl dt:first-of-type,.dd-dl dt:first-of-type + dd{border-top:0}
+}
+
+/* ============================================================
+   Novidades (nv-)
+   ============================================================ */
+.nv-atual{margin-top:10px;font-size:15px;color:var(--ink-2)}
+.nv-lista{list-style:none;margin:0;padding:0;display:grid;gap:16px;min-width:0}
+.nv-lista > li{min-width:0}
+.nv-item{display:grid;gap:12px;min-width:0;padding:18px 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.nv-cab{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;min-width:0}
+.nv-data{font-family:var(--mono);font-size:13px;color:var(--ink-2)}
+.nv-tag,.nv-ver,.nv-novo{display:inline-flex;align-items:center;min-height:26px;padding:2px 10px;font-family:var(--mono);font-size:12px;line-height:1.3;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-2);background:var(--surface-2)}
+.nv-ver{color:var(--ink);border-color:var(--ink-2);font-weight:500}
+.nv-novo{color:var(--sel-fg);background:var(--sel-bg);border-color:var(--sel-bg);font-weight:700}
+.nv-item h2{font-size:clamp(20px,3.6vw,24px);line-height:1.2;overflow-wrap:anywhere}
+.nv-item h2 a{color:inherit;text-decoration:none}
+.nv-item h2 a:hover{text-decoration:underline}
+.nv-resumo{font-size:16px;color:var(--ink);max-width:68ch}
+.nv-sub{margin:0;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.nv-itens{margin:0;padding-left:1.2em;display:grid;gap:8px;font-size:15px;line-height:1.5;max-width:72ch}
+.nv-itens li{overflow-wrap:anywhere}
+.nv-imp{display:grid;gap:10px;padding:14px;min-width:0;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
+.nv-imp p{font-size:15px;line-height:1.5;color:var(--ink)}
+.nv-tw{max-width:100%;overflow-x:auto}
+table.nv-tab{width:100%;min-width:0;border-collapse:collapse;font-size:15px}
+table.nv-tab caption{text-align:left;padding-bottom:6px;font-size:14px;color:var(--ink-2)}
+table.nv-tab th,table.nv-tab td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);vertical-align:baseline}
+table.nv-tab thead th{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+table.nv-tab tbody th{font-size:15px;font-weight:650;color:var(--ink)}
+table.nv-tab td.n,table.nv-tab th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.nv-links{display:flex;flex-wrap:wrap;gap:4px 18px}
+.nv-links a{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600}
+.nv-nota{margin-top:16px;font-size:14px;line-height:1.5;color:var(--ink-2);max-width:68ch}
+.nv-vazio{padding:16px;border:1px dashed var(--line-2);border-radius:12px;font-size:15px;color:var(--ink-2)}
+.nv-item:target{border-color:var(--ink)}
+
+@media (min-width:720px){
+  .nv-item{padding:22px 24px}
+}

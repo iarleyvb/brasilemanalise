@@ -55,3 +55,6 @@
 .cl-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 @media print{.cl-btn,.cl-row,.cl-x{display:none}}
+
+.cl-b,.cl-btn{max-width:100%;min-width:0}
+.cl-btn{white-space:normal;text-align:left}
