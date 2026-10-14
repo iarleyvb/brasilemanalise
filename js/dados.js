@@ -199,7 +199,7 @@
   function montarIndicadores(ctx) {
     var d = ctx.d, cab = [], linhas = [], i, chaves, j, ind, g, gv, gi;
     cab.push(
-      { k: "pilar", d: "Código do pilar (eco, pov, soc, ser, amb, fut).", u: "texto", v: function (r) { return r.ind.pilar; } },
+      { k: "pilar", d: "Código do grupo de indicadores (eco, pov, ser, amb, fut). Os indicadores ser.mi e ser.ev formam o pilar Saúde; ser.hom, Segurança; ser.ideb e ser.pisa, Educação.", u: "texto", v: function (r) { return r.ind.pilar; } },
       { k: "pilar_nome", d: "Nome do pilar.", u: "texto", v: function (r) { return r.ind.pilarNome; } },
       { k: "indicador", d: "Código do indicador dentro do pilar.", u: "texto", v: function (r) { return r.ind.indicador; } },
       { k: "titulo", d: "Nome do indicador.", u: "texto", v: function (r) { return r.ind.titulo; } },

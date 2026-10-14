@@ -112,26 +112,26 @@ var TERMOS = [
   {k:"ideb", t:"Ideb", p:["Ideb"], cs:true,
    d:"Índice de Desenvolvimento da Educação Básica, calculado pelo Inep. Junta o aprendizado dos alunos nas provas e a aprovação, numa nota de 0 a 10.",
    e:"Se o Ideb sobe de 5,0 para 5,2 em dois anos, o ganho é de 0,1 ponto por ano.",
-   s:"Entra em Serviços públicos pelo ganho médio por ano. Como sai a cada dois anos, cada governo é medido do último resultado antes da posse ao último do mandato.",
-   l:[["Serviços públicos","#nota-servicos"]]},
+   s:"Entra no pilar Educação pelo ganho médio por ano. Como sai a cada dois anos, cada governo é medido do último resultado antes da posse ao último do mandato.",
+   l:[["Saúde, segurança e educação","#nota-servicos"]]},
 
   {k:"pisa", t:"Pisa", p:["Pisa"], cs:true,
    d:"Programa Internacional de Avaliação de Estudantes, da OCDE. Testa jovens de 15 anos em leitura, matemática e ciências, a cada três anos.",
    e:"O site usa a média das três provas. Se ela sobe 9 pontos em três anos, o ganho é de 3 pontos por ano.",
-   s:"Entra em Serviços públicos pela variação média por ano da nota.",
-   l:[["Serviços públicos","#nota-servicos"]]},
+   s:"Entra no pilar Educação pela variação média por ano da nota.",
+   l:[["Saúde, segurança e educação","#nota-servicos"]]},
 
   {k:"mortalidade-infantil", t:"Mortalidade infantil", p:["mortalidade infantil"],
    d:"É o número de bebês que morrem antes de completar 1 ano de vida, para cada mil nascidos vivos.",
    e:"Taxa de 12: de cada 1.000 bebês que nascem vivos, 12 morrem antes de completar 1 ano.",
-   s:"Entra em Serviços públicos pela variação percentual da taxa por ano. Quanto menor a taxa de partida, mais difícil manter a queda percentual. Fonte: Banco Mundial.",
-   l:[["Serviços públicos","#nota-servicos"]]},
+   s:"Entra no pilar Saúde pela variação percentual da taxa por ano. Quanto menor a taxa de partida, mais difícil manter a queda percentual. Fonte: Banco Mundial.",
+   l:[["Saúde, segurança e educação","#nota-servicos"]]},
 
   {k:"expectativa-de-vida", t:"Expectativa de vida", p:["expectativa de vida"],
    d:"É quantos anos, em média, um bebê que nasce hoje viveria se as condições de vida e de saúde de hoje continuassem as mesmas.",
    e:"Expectativa de 75 anos não quer dizer que todos vivem até os 75: é uma média de toda a população.",
-   s:"Entra em Serviços públicos pelo ganho médio de anos de vida por ano de governo. Os anos da pandemia ficam fora da conta no padrão. Fonte: Banco Mundial.",
-   l:[["Serviços públicos","#nota-servicos"]]},
+   s:"Entra no pilar Saúde pelo ganho médio de anos de vida por ano de governo. Os anos da pandemia ficam fora da conta no padrão. Fonte: Banco Mundial.",
+   l:[["Saúde, segurança e educação","#nota-servicos"]]},
 
   {k:"prodes", t:"Prodes e desmatamento", p:["Prodes","desmatamento"],
    d:"O Prodes é o sistema do Inpe que mede, por satélite, o desmatamento por corte raso na Amazônia. O ano do Prodes vai de agosto a julho.",
@@ -151,14 +151,14 @@ var TERMOS = [
    l:[["A conta completa","#conta-completa"]]},
 
   {k:"pilar", t:"Pilar", p:["pilares","pilar"], esc:"pagina",
-   d:"Cada um dos oito grandes temas da nota geral. Todo pilar recebe uma nota de 0 a 10 e tem um peso.",
+   d:"Cada um dos dez grandes temas da nota geral. Todo pilar recebe uma nota de 0 a 10 e tem um peso.",
    e:function(){
      var l = pilaresApi();
-     if(!l.length) return "Os oito pilares são: Economia, Pobreza e desigualdade, Direitos e minorias, Serviços públicos, Meio ambiente, Contas para o futuro, Feitos e promessas e Integridade.";
+     if(!l.length) return "Os dez pilares são: Economia, Pobreza e desigualdade, Direitos e minorias, Saúde, Segurança, Educação, Meio ambiente, Contas para o futuro, Feitos e promessas e Integridade.";
      var n = l.map(function(p){ return p.t; });
      return "Os " + n.length + " pilares são: " + n.slice(0, -1).join(", ") + " e " + n[n.length - 1] + ".";
    },
-   s:"A nota geral é a média ponderada dos oito pilares, com os pesos da sua régua.",
+   s:"A nota geral é a média ponderada dos dez pilares, com os pesos da sua régua.",
    l:[["Nota geral de cada governo","#governos-hex"],["Mudar os pesos","#pesos-geral"]]},
 
   {k:"peso", t:"Peso e régua", p:["sua régua","pesos","peso"], a:["regua"], esc:"pagina", semPagina:{"regua-politica":1}, naoDepois:/^\s+pol[ií]tica/i,

@@ -171,7 +171,7 @@
           (p.length ? " (" + esc(p.join(", ")) + ")" : "") + ".";
       },
       ler: "O centro vale 0 e a borda vale 10; os anéis marcam 2,5, 5 e 7,5. A linha cheia é um governo e a tracejada é o outro: troque nos dois menus ou toque num cartão logo abaixo. " +
-        "O número grande de cada lado é a nota geral, a média dos oito pilares com os pesos da sua régua. A tabela embaixo do desenho traz a nota exata e o peso de cada pilar. “PT, todos” é a média dos governos do PT, ponderada pelo tempo de mandato.",
+        "O número grande de cada lado é a nota geral, a média dos dez pilares com os pesos da sua régua. A tabela embaixo do desenho traz a nota exata e o peso de cada pilar. “PT, todos” é a média dos governos do PT, ponderada pelo tempo de mandato.",
       bom: function () {
         var pp = pesosPadrao();
         return "Quanto mais perto da borda, maior a nota daquele pilar. 10 quer dizer que o governo atingiu ou passou da meta fixa do pilar; 0, que chegou ou passou do piso. " +
@@ -179,7 +179,7 @@
           (pp ? " Pesos padrão dos pilares: " + pp + "." : "");
       },
       cuidado: "Um desenho maior não é “melhor em tudo”: a nota final depende dos pesos que você escolheu, e pilar com peso zero aparece apagado. " +
-        "A nota geral cobre só os governos do PT e do PL, os únicos com dados nos oito pilares. Direitos e minorias mede medidas adotadas, não resultados. " +
+        "A nota geral cobre só os governos do PT e do PL, os únicos com dados nos dez pilares. Direitos e minorias mede medidas adotadas, não resultados. " +
         "Dilma 2 (1,4 ano) e Lula 3 (em curso) têm menos tempo de mandato."
     },
     {
@@ -365,15 +365,15 @@
 
     /* ===== Serviços e ambiente ===== */
     {
-      id: "nota-servicos", titulo: "Serviços públicos",
+      id: "nota-servicos", titulo: "Saúde, segurança e educação",
       find: porId("ser-h"),
-      mostra: "A nota de 0 a 10 de Serviços públicos de cada governo, a partir de cinco números: homicídios, mortalidade infantil, expectativa de vida, Ideb e Pisa.",
+      mostra: "Três notas de 0 a 10 de cada governo (Saúde, Segurança e Educação), a partir de cinco números: homicídios, mortalidade infantil, expectativa de vida, Ideb e Pisa.",
       ler: function () {
         return BARRAS + ORDEM + " Cada número é a variação por ano, do último resultado antes da posse ao último durante o mandato. A linha abaixo do gráfico mostra os pesos em uso.";
       },
       bom: function () {
         return ancoras(["ser.hom", "ser.mi", "ser.ev", "ser.ideb", "ser.pisa"],
-          "Mortalidade infantil e expectativa de vida medem quase o mesmo fenômeno e pesam meio ponto cada.");
+          "Mortalidade infantil e expectativa de vida formam o pilar Saúde; homicídios, o pilar Segurança; Ideb e Pisa, o pilar Educação.");
       },
       cuidado: "A segurança pública é feita sobretudo pelos estados, e a educação também depende de estados e municípios: o governo federal responde só por uma parte. O Ideb sai a cada dois anos e o Pisa a cada três, então há poucos pontos para cada governo. " +
         "Na régua padrão, 2020–21 ficam fora da educação e, na saúde, 2022 também; Lula 3 é comparado ao nível de 2019."

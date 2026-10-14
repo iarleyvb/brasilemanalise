@@ -163,7 +163,7 @@
     var pil = pilares(), pad = pesosPadrao(), ul, i, li, topo, v;
     if (!pil.length) { return null; }
     ul = el("ul", "sb-pesos");
-    ul.setAttribute("aria-label", "Os oito pilares da Nota geral e o peso de cada um no padrão");
+    ul.setAttribute("aria-label", "Os dez pilares da Nota geral e o peso de cada um no padrão");
     for (i = 0; i < pil.length; i++) {
       v = pad[pil[i].k];
       li = el("li");
@@ -183,7 +183,7 @@
     add(ol,
       add(el("li"), b("Reunimos os dados. "), "Valores de órgãos como PF, MPF, TCU, CGU, IBGE e Banco Central, com a fonte de cada número."),
       add(el("li"), b("Cada indicador vira uma nota de 0 a 10. "), "Cada um tem um piso (vale 0) e uma meta (vale 10), fixos e iguais para todos os governos."),
-      add(el("li"), b("Você ajusta o peso de cada pilar. "), "A Nota geral junta os oito pilares, e cada pilar vale a sua parte na soma. Os pesos são relativos."),
+      add(el("li"), b("Você ajusta o peso de cada pilar. "), "A Nota geral junta os dez pilares, e cada pilar vale a sua parte na soma. Os pesos são relativos."),
       add(el("li"), b("A régua vale para todos. "), "O peso que você escolher se aplica igual a todos os governos e partidos. Mudou a régua, mudou para todo mundo."));
     c1.appendChild(ol);
     add(c1, p("sb-nota", "A corrupção não é descontada à parte: ela é o pilar Integridade, com peso próprio. A força do presidente no Congresso e no STF entra como um multiplicador moderado em Direitos e minorias e em Feitos e promessas."));

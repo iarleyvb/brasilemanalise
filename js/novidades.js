@@ -31,6 +31,22 @@
 
   var ENTRADAS = [
     {
+      id: "saude-seguranca-educacao",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "4.0",
+      titulo: "Saúde, Segurança e Educação viram pilares separados",
+      resumo: "O pilar Serviços públicos foi dividido em três, cada um com o seu peso. A nota geral passa a ter dez pilares, todos com o mesmo peso no padrão.",
+      itens: [
+        "Saúde: mortalidade infantil e expectativa de vida. Segurança: homicídios. Educação: Ideb e Pisa.",
+        "Na régua neutra, cada pilar vale 10% da nota. Antes, os três temas juntos valiam 12,5%; agora valem 30%.",
+        "Links de régua antigos (com 8 pesos) continuam funcionando: o peso de Serviços públicos é dividido entre os três.",
+        "Quem tinha pesos próprios salvos mantém os seus; o peso de Serviços públicos foi dividido por três."
+      ],
+      impacto: { texto: "No padrão novo: Lula 2 6,8; Lula 1 6,6; Lula 3 5,9; Bolsonaro 5,7; Dilma 1 5,5; Dilma 2 4,1; PT, todos 6,0." },
+      links: [{ href: "#nota-servicos", texto: "Ver Saúde, segurança e educação" }]
+    },
+    {
       id: "queimadas",
       data: "2026-10-14",
       tipo: "Modelo",

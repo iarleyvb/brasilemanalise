@@ -16,7 +16,8 @@
   var MIN = 2, MAX = 40;             // limites por pilar
   var KEY = "bea_quiz";
   var MINUS = "−";
-  var KEYS = ["eco", "pov", "soc", "ser", "amb", "fut", "prl", "int"];
+  var KEYS = ["eco", "pov", "soc", "sau", "seg", "edu", "amb", "fut", "prl", "int"];
+  var GRUPO = { ser: ["sau", "seg", "edu"] };   // "serviços" nos dilemas reparte os pontos entre os três pilares
   var NOME = {};                     // nome de cada pilar, vindo do site
   B.pilares().forEach(function (p) { NOME[p.k] = p.t; });
   KEYS.forEach(function (k) { if (!NOME[k]) { NOME[k] = k; } });
@@ -79,8 +80,9 @@
   /* pontos de uma resposta (0 = A, 1 = B, 2 = tanto faz) -> objeto {pilar: pontos} */
   function pontos(q, r) {
     var o = {};
-    if (r === 0) { o[q.a] = PTS; o[q.b] = -PTS; }
-    else if (r === 1) { o[q.a] = -PTS; o[q.b] = PTS; }
+    function add(k, v) { var g = GRUPO[k]; if (g) { g.forEach(function (x) { o[x] = (o[x] || 0) + v / g.length; }); } else { o[k] = (o[k] || 0) + v; } }
+    if (r === 0) { add(q.a, PTS); add(q.b, -PTS); }
+    else if (r === 1) { add(q.a, -PTS); add(q.b, PTS); }
     return o;
   }
 
@@ -136,7 +138,7 @@
   /* ---------- pesos ---------- */
   function padrao() {
     var e = B.estado ? B.estado() : null;
-    var d = e && e.pilW_padrao ? e.pilW_padrao : { eco: 18, pov: 14, soc: 10, ser: 18, amb: 8, fut: 14, prl: 6, int: 12 };
+    var d = e && e.pilW_padrao ? e.pilW_padrao : { eco: 10, pov: 10, soc: 10, sau: 10, seg: 10, edu: 10, amb: 10, fut: 10, prl: 10, int: 10 };
     var o = {};
     KEYS.forEach(function (k) { o[k] = typeof d[k] === "number" ? d[k] : 0; });
     return o;
@@ -381,7 +383,7 @@
     ol.appendChild(el("li", null, "Cada dilema põe dois pilares frente a frente. Quem responde A ou B dá " + PTS + " pontos a um pilar e tira " + PTS + " do outro. “Tanto faz” não muda nada."));
     ol.appendChild(el("li", null, "Os pontos são somados aos pesos de partida. Se algum peso ficar abaixo de zero, ele vira zero nesta etapa."));
     ol.appendChild(el("li", null, "Os pesos são ajustados para somar 100, em números inteiros. Nenhum pilar fica com menos de " + MIN + " nem com mais de " + MAX + "."));
-    ol.appendChild(el("li", null, "A nota geral de cada governo é a mesma do site: a média das notas dos oito pilares, cada uma multiplicada pelo seu peso. As notas dos pilares não mudam; só os pesos mudam."));
+    ol.appendChild(el("li", null, "A nota geral de cada governo é a mesma do site: a média das notas dos dez pilares, cada uma multiplicada pelo seu peso. As notas dos pilares não mudam; só os pesos mudam."));
     det.appendChild(ol);
     det.appendChild(el("p", "qz-note", "Todo pilar aparece em três dilemas. Em cada pilar, o máximo que se pode ganhar é igual ao máximo que se pode perder."));
     det.appendChild(tabelaEquilibrio());
@@ -606,7 +608,7 @@
       tb.appendChild(rt);
     }
     t.appendChild(tb); wrap.appendChild(t); sec.appendChild(wrap);
-    sec.appendChild(el("p", "qz-note", "Posição com pesos padrão: ordem que os governos têm quando os oito pilares usam os pesos de partida do site."));
+    sec.appendChild(el("p", "qz-note", "Posição com pesos padrão: ordem que os governos têm quando os dez pilares usam os pesos de partida do site."));
     return { sec: sec, L: L, pos: pos };
   }
   function d0() { return padrao(); }

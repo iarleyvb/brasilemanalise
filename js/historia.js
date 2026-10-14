@@ -3,15 +3,15 @@
 (function () {
   "use strict";
   var W = window, D = document, B = null;
-  var ROT = { eco: "Bolso e emprego", pov: "Pobreza e desigualdade", soc: "Direitos e minorias", ser: "Saúde, escola e segurança", amb: "Floresta e clima", fut: "Contas do país", prl: "Feitos e promessas", int: "Honestidade (corrupção)" };
-  var ORD = ["eco", "pov", "ser", "int", "fut", "amb", "soc", "prl"];
+  var ROT = { eco: "Bolso e emprego", pov: "Pobreza e desigualdade", soc: "Direitos e minorias", sau: "Saúde", seg: "Segurança", edu: "Educação", amb: "Floresta e clima", fut: "Contas do país", prl: "Feitos e promessas", int: "Honestidade (corrupção)" };
+  var ORD = ["eco", "pov", "sau", "seg", "edu", "int", "fut", "amb", "soc", "prl"];
   var PRE = [
     { id: "pad", t: "Neutro (tudo igual)", w: null },
-    { id: "bol", t: "Meu bolso", w: { eco: 35, pov: 20, ser: 10, soc: 5, amb: 4, fut: 10, prl: 6, int: 10 } },
-    { id: "ser", t: "Saúde, escola e segurança", w: { eco: 12, pov: 15, ser: 35, soc: 8, amb: 8, fut: 8, prl: 6, int: 8 } },
-    { id: "hon", t: "Honestidade", w: { eco: 12, pov: 8, ser: 12, soc: 6, amb: 5, fut: 10, prl: 12, int: 35 } },
-    { id: "fut", t: "Contas e futuro", w: { eco: 20, pov: 6, ser: 10, soc: 4, amb: 12, fut: 30, prl: 6, int: 12 } },
-    { id: "dir", t: "Direitos e floresta", w: { eco: 8, pov: 15, ser: 12, soc: 25, amb: 25, fut: 4, prl: 3, int: 8 } }
+    { id: "bol", t: "Meu bolso", w: { eco: 35, pov: 20, sau: 4, seg: 3, edu: 3, soc: 5, amb: 4, fut: 10, prl: 6, int: 10 } },
+    { id: "ser", t: "Saúde, escola e segurança", w: { eco: 8, pov: 10, sau: 18, seg: 18, edu: 18, soc: 6, amb: 6, fut: 6, prl: 4, int: 6 } },
+    { id: "hon", t: "Honestidade", w: { eco: 12, pov: 8, sau: 4, seg: 4, edu: 4, soc: 6, amb: 5, fut: 10, prl: 12, int: 35 } },
+    { id: "fut", t: "Contas e futuro", w: { eco: 20, pov: 6, sau: 4, seg: 3, edu: 3, soc: 4, amb: 12, fut: 30, prl: 6, int: 12 } },
+    { id: "dir", t: "Direitos e floresta", w: { eco: 8, pov: 15, sau: 4, seg: 4, edu: 4, soc: 25, amb: 25, fut: 4, prl: 3, int: 8 } }
   ];
   var aberto = null, raiz = null;
 

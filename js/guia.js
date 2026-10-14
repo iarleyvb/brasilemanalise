@@ -19,7 +19,7 @@
   var K_N = "bea_guia_n";       // quantas vezes já abriu sozinho
   var K_S = "bea_guia_s";       // (sessionStorage) já abriu sozinho nesta sessão
 
-  var SHORT = { eco: "Economia", pov: "Pobreza", soc: "Direitos", ser: "Serviços", amb: "Ambiente", fut: "Contas futuras", prl: "Promessas", int: "Integridade" };
+  var SHORT = { eco: "Economia", pov: "Pobreza", soc: "Direitos", sau: "Saúde", seg: "Segurança", edu: "Educação", amb: "Ambiente", fut: "Contas futuras", prl: "Promessas", int: "Integridade" };
 
   /* ---------- estado ---------- */
   var overlay = null, painel = null, corpo = null, boxPasso = null, listaProg = null, segs = [];
@@ -169,7 +169,7 @@
   var PASSOS = [
     {
       t: "A nota vai de 0 a 10",
-      p: "Cada governo recebe uma nota geral de 0 a 10. Ela junta oito pilares, como economia, serviços públicos e integridade. Cada pilar tem um peso, e o peso decide quanto ele conta na nota.",
+      p: "Cada governo recebe uma nota geral de 0 a 10. Ela junta dez pilares, como economia, saúde, segurança, educação e integridade. Cada pilar tem um peso, e o peso decide quanto ele conta na nota.",
       fig: figNota,
       links: [{ t: "Ver a nota de cada governo", h: "#governos-hex" }]
     },

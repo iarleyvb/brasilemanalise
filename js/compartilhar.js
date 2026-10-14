@@ -1,11 +1,11 @@
 /* Módulo compartilhar: "Compartilhar a sua régua" (prefixo cp-).
    (a) Botões "Copiar link da minha régua", "Compartilhar" e "Criar cartão em imagem" em #slotHex e #slotPesos.
-   (b) Leitura do link ao carregar: ?w= (pesos dos 8 pilares), iw= (pesos da integridade, em %), fk= (força política x100).
+   (b) Leitura do link ao carregar: ?w= (pesos dos 10 pilares), iw= (pesos da integridade, em %), fk= (força política x100).
        Se algum parâmetro for válido, aplica com BEA.aplicarPesos e mostra uma faixa dispensável no topo do conteúdo.
    (c) Cartão em PNG desenhado em canvas (sem imagens externas) em dois formatos: horizontal 1200x630 e vertical 1080x1350.
    (d) Expõe BEA.linkDaRegua(pilW, intW, fk) e BEA.cartaoDaRegua({formato:"h"|"v"}) -> Promise<Blob>.
    Formato do link: ?w=18-14-10-18-8-14-6-12&iw=70-30&fk=25#inicio
-     w  = pesos inteiros (0 a 40) na ordem eco-pov-soc-ser-amb-fut-prl-int
+     w  = pesos inteiros (0 a 40) na ordem eco-pov-soc-sau-seg-edu-amb-fut-prl-int (links antigos com 8 pesos, de antes da divisão de Serviços públicos, seguem valendo)
      iw = peso dos casos - peso do índice do Banco Mundial, em % (0 a 100 cada)
      fk = expoente da força política x 100 (0 a 100)
    Usa só a API window.BEA. Sem rede, sem rastreamento, sem cookies. Nada é enviado: o cartão nasce no aparelho.
@@ -18,7 +18,8 @@
   B.compartilharAtivo = true;
 
   var D = document, W = window;
-  var KEYS = ["eco", "pov", "soc", "ser", "amb", "fut", "prl", "int"];
+  var KEYS = ["eco", "pov", "soc", "sau", "seg", "edu", "amb", "fut", "prl", "int"];
+  var KEYS_V8 = ["eco", "pov", "soc", "ser", "amb", "fut", "prl", "int"];
   var NOME = {};
   try { B.pilares().forEach(function (p) { NOME[p.k] = p.t; }); } catch (e0) { }
   KEYS.forEach(function (k) { if (!NOME[k]) { NOME[k] = k; } });
@@ -114,14 +115,20 @@
     var res = {};
     var achou = false;
     var partes, i, n, ok;
-    if (p.w != null && /^\d{1,2}(-\d{1,2}){7}$/.test(p.w)) {
+    if (p.w != null && (/^\d{1,2}(-\d{1,2}){9}$/.test(p.w) || /^\d{1,2}(-\d{1,2}){7}$/.test(p.w))) {
       partes = p.w.split("-");
+      var ks = partes.length === 8 ? KEYS_V8 : KEYS;
       ok = true;
       var pw = {}, s = 0;
-      for (i = 0; i < 8; i++) {
+      for (i = 0; i < ks.length; i++) {
         n = parseInt(partes[i], 10);
         if (!(n >= 0 && n <= 40)) { ok = false; break; }
-        pw[KEYS[i]] = n; s += n;
+        pw[ks[i]] = n; s += n;
+      }
+      if (ok && pw.ser != null) {   // link antigo: Serviços públicos vira Saúde, Segurança e Educação
+        var iguais = partes.every(function (x) { return x === partes[0]; });
+        var t3 = iguais ? pw.ser : Math.round(pw.ser / 3);
+        pw.sau = t3; pw.seg = t3; pw.edu = t3; delete pw.ser;
       }
       if (ok && s > 0) { res.pilW = pw; achou = true; }
     }
