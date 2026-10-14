@@ -31,6 +31,22 @@
 
   var ENTRADAS = [
     {
+      id: "revisao-cega",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "7.1",
+      titulo: "Revisão cega dos catálogos e regra para mudar regras",
+      resumo: "Casos, promessas, feitos e medidas foram reclassificados por revisores que não sabiam de que governo era cada item. Não apareceu viés forte; as divergências foram resolvidas por uma regra igual para todos.",
+      itens: [
+        "Concordância exata: 13 de 18 no grau de prova, 39 de 42 nas promessas, 19 de 27 nas estrelas dos feitos, 53 de 89 nas estrelas das medidas.",
+        "Desempate: estrelas e mérito pela média; grau e etapa pelo menos grave; promessas em “em parte”; situação em 2026 conta 75%.",
+        "Nova seção “Como mudamos as regras”, com o protocolo e o teste de cada mudança desta semana.",
+        "Nova seção “Revisão cega dos catálogos”, com a contagem de itens por governo."
+      ],
+      impacto: { texto: "Bolsonaro 6,51 → 6,48; Lula 3 6,37 → 6,39; Dilma 1 5,15 → 5,19; os demais mudam menos de 0,02." },
+      links: [{ href: "#revisao-cega", texto: "Ver a revisão cega" }, { href: "#regras-mudanca", texto: "Ver o protocolo" }]
+    },
+    {
       id: "pesos-da-populacao",
       data: "2026-10-14",
       tipo: "Modelo",

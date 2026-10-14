@@ -384,6 +384,7 @@ table.clt{min-width:0;font-size:13.5px}
 .htag i{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:4px;font-style:normal;font-size:11px;font-weight:800;line-height:1;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;box-sizing:border-box}
 .h-ok i{background:var(--ink);color:var(--surface)}
 .h-parte i{background:linear-gradient(90deg,var(--ink) 50%,transparent 50%);border:1.5px solid var(--ink)}
+.h-div i{background:linear-gradient(90deg,var(--ink) 75%,transparent 75%);border:1.5px solid var(--ink)}
 .h-fim{border-style:dashed}
 .h-fim i{border:1.5px solid var(--ink);color:var(--ink)}
 .hlegend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px;color:var(--ink-2)}
@@ -2358,6 +2359,53 @@ p.swipe.cc-swipe{display:none}
     </div>
   </div>
 </section>
+<section class="wrap" id="revisao-cega" aria-labelledby="rc-h">
+  <div class="sec-head"><h2 id="rc-h">Revisão cega dos catálogos</h2><p class="lead">Em 14/10/2026, os 25 casos de corrupção, as 42 promessas, os 27 feitos e as 89 medidas de direitos foram reclassificados por revisores que não sabiam de que governo era cada item: nomes de políticos, partidos e anos foram trocados por marcadores, e as notas do site ficaram escondidas.</p></div>
+  <div class="method">
+    <div class="mbox">
+      <h3>Quanto os revisores concordaram com o site</h3>
+      <div class="tblwrap"><table class="rm-tbl"><thead><tr><th>O que foi revisto</th><th>Concordância exata</th></tr></thead><tbody>
+        <tr><td>Grau de prova dos casos com valor</td><td>13 de 18</td></tr>
+        <tr><td>Etapa dos casos</td><td>15 de 18</td></tr>
+        <tr><td>Gravidade dos casos sem valor em R$</td><td>6 de 7</td></tr>
+        <tr><td>Situação das promessas</td><td>39 de 42</td></tr>
+        <tr><td>Estrelas dos feitos</td><td>19 de 27</td></tr>
+        <tr><td>Mérito dos feitos</td><td>22 de 27</td></tr>
+        <tr><td>Estrelas das medidas de direitos</td><td>53 de 89 (quase todas as diferenças de 1 estrela)</td></tr>
+        <tr><td>Origem das medidas (governo, Congresso ou Justiça)</td><td>89 de 89</td></tr>
+        <tr><td>Situação das medidas em 2026</td><td>81 de 89</td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="mbox">
+      <h3>O site pendia para um lado?</h3>
+      <p>Depois da revisão, os nomes foram revelados e as diferenças foram somadas por lado. Não apareceu viés forte, e as pequenas diferenças vão nos dois sentidos: o site dava um pouco mais de mérito aos feitos do PT (+3 pontos em 100) e um pouco menos aos do PL (−2,5); era um pouco mais duro que o revisor com as medidas de direitos do PT (−0,2 estrela); e considerava os casos do PL um pouco mais provados (+0,25 no grau).</p>
+    </div>
+    <div class="mbox">
+      <h3>Como as divergências foram resolvidas (regra fixada antes de ver o efeito)</h3>
+      <ul>
+        <li>Estrelas e mérito: vale a média entre o site e o revisor (por isso há notas como 3,5 estrelas e mérito de 62,5%).</li>
+        <li>Grau de prova e etapa dos casos: vale o menos grave dos dois, a presunção de inocência para todos.</li>
+        <li>Promessas: quando discordam, vale “em parte”.</li>
+        <li>Situação das medidas em 2026: quando discordam, a medida conta 75%.</li>
+        <li>Terras indígenas seguem a fórmula fixa (10 terras homologadas = 1 estrela).</li>
+      </ul>
+      <p>Efeito na nota geral: Bolsonaro 6,51 → 6,48; Lula 3 6,37 → 6,39; Dilma 1 5,15 → 5,19; os demais mudam menos de 0,02.</p>
+    </div>
+    <div class="mbox">
+      <h3>Equilíbrio: quantos itens cada governo tem</h3>
+      <div class="tblwrap"><table class="rm-tbl"><thead><tr><th>Governo</th><th>Anos</th><th>Casos (com e sem R$)</th><th>Feitos</th><th>Promessas</th><th>Medidas de direitos</th></tr></thead><tbody>
+        <tr><td>Lula 1</td><td>4</td><td>4</td><td>8</td><td>3</td><td>10</td></tr>
+        <tr><td>Lula 2</td><td>4</td><td>5</td><td>7</td><td>1</td><td>9</td></tr>
+        <tr><td>Dilma 1</td><td>4</td><td>6</td><td>8</td><td>8</td><td>13</td></tr>
+        <tr><td>Dilma 2</td><td>1,4</td><td>1</td><td>2</td><td>6</td><td>7</td></tr>
+        <tr><td>Bolsonaro</td><td>4</td><td>10</td><td>10</td><td>10</td><td>16</td></tr>
+        <tr><td>Lula 3</td><td>3,8</td><td>2</td><td>7</td><td>14</td><td>19</td></tr>
+      </tbody></table></div>
+      <p>A nota das promessas usa a proporção cumprida, então o número de promessas não pesa na conta, mas pesa na confiança: Lula 1 (3 promessas) e Lula 2 (1) têm a nota de promessas menos firme, porque a imprensa acompanhou pouco as promessas de 2002 e 2006. Bolsonaro tem mais casos e mais feitos no catálogo que qualquer outro governo; Lula 3, mais medidas de direitos. Itens que faltam podem ser sugeridos em “Enviar correção”.</p>
+      <p>Limite: o cegamento não é perfeito. Nomes de programas (Bolsa Família, Pix) ainda dão pistas de quem é o governo.</p>
+    </div>
+  </div>
+</section>
 <section class="wrap" id="a-formula" aria-labelledby="fm-h">
   <div class="sec-head"><h2 id="fm-h">A fórmula completa</h2><p class="lead">A nota geral inteira numa expressão só, com cada variável e o valor que ela tem agora. Se você mudar um peso, a fórmula muda junto.</p></div>
   <div id="formBody"></div>
@@ -2533,7 +2581,7 @@ var ESC = [
  par:"Vários partidos",
  src:[["Poder360: emendas Pix somam R$ 13 bi em 4 anos (divisão pelo volume pago)","https://www.poder360.com.br/poder-congresso/congresso/emendas-pix-somam-r-13-bi-em-4-anos-diz-transparencia-brasil/"],["CNN Brasil: Dino suspende R$ 4,2 bi em emendas","https://www.cnnbrasil.com.br/politica/dino-suspende-pagamento-de-r-42-bilhoes-em-emendas/"],["Correio Braziliense: Dino aponta prejuízo de R$ 55 mi em emendas Pix","https://www.correiobraziliense.com.br/politica/2026/08/7475678-dino-aciona-pf-e-aponta-prejuizo-de-rs-55-milhoes-em-emendas-pix.html"]]},
 
-{id:"dnit", t:"Ministério dos Transportes (DNIT e Valec)", ts:"DNIT e Valec", p:"2011", ini:2011, cor:"ambos", ano:2011, g:"D", et:1, des:"arquivado", tag:"PGR",
+{id:"dnit", t:"Ministério dos Transportes (DNIT e Valec)", ts:"DNIT e Valec", p:"2011", ini:2011, cor:"ambos", ano:2011, g:"D", et:0, des:"arquivado", tag:"PGR",
  v:{min:0, central:0, max:0},
  vl:{min:"Valor não estimado", central:"Valor não estimado", max:"Valor não estimado"},
  env:null, pes:0,
@@ -2564,7 +2612,7 @@ var ESC = [
  par:null,
  src:[["Folha PE: MPF denuncia 11 envolvidos na venda da vacina", "https://www.folhape.com.br/politica/mpf-denuncia-11-envolvidos-em-venda-de-vacina-contra-covid-19-mas/236133/"],["Poder360: Rosa Weber arquiva inquérito contra Bolsonaro no caso Covaxin", "https://www.poder360.com.br/justica/rosa-weber-arquiva-inquerito-contra-bolsonaro-no-caso-covaxin/"],["Poder360: União formaliza rescisão do contrato da Covaxin","https://www.poder360.com.br/coronavirus/uniao-formaliza-rescisao-com-precisa-medicamentos-por-doses-da-covaxin/"],["Congresso em Foco: Aras pede arquivamento por prevaricação","https://www.congressoemfoco.com.br/noticia/20954/aras-pede-arquivamento-de-inquerito-contra-bolsonaro-por-prevaricacao"],["Crusoé: Precisa é alvo de quarta ação da PF","https://crusoe.com.br/diario/precisa-e-alvo-de-quarta-acao-da-pf-por-suposto-esquema-na-venda-da-covaxin"],["Correio Braziliense: Saúde exonera diretor após relato de propina","https://www.correiobraziliense.com.br/politica/2021/06/4934467-ministerio-da-saude-exonera-diretor-de-logistica-da-pasta-apos-escandalo-de-propina.html"],["Diario de Pernambuco: ex-diretor nega ter pedido propina","https://www.diariodepernambuco.com.br/noticia/politica/2021/07/amp/ex-diretor-da-saude-diz-que-nao-pediu-propina-para-negociar-vacinas.html"]]},
 
-{id:"mec", t:"MEC: o “gabinete paralelo” dos pastores", ts:"MEC e pastores", p:"2021–2022", ini:2021, cor:"pl", ano:2022, g:"C", et:1, des:null, tag:"PF · STF",
+{id:"mec", t:"MEC: o “gabinete paralelo” dos pastores", ts:"MEC e pastores", p:"2021–2022", ini:2021, cor:"pl", ano:2022, g:"D", et:1, des:null, tag:"PF · STF",
  v:{min:0, central:0, max:0},
  vl:{min:"Propinas pedidas (R$ 15 mil a R$ 40 mil, 1 kg de ouro) não foram somadas oficialmente", central:"Propinas pedidas não foram somadas oficialmente", max:"Propinas pedidas não foram somadas oficialmente"},
  env:"Licitação de ônibus escolares previa pagar até R$ 732 mi a mais; foi suspensa pelo TCU", pes:0,
@@ -2584,7 +2632,7 @@ var ESC = [
  par:null,
  src:[["SBT News: Bolsonaro desviou R$ 6,8 mi, diz PF","https://sbtnews.sbt.com.br/noticia/justica/bolsonaro-desviou-r-25-milhoes-para-seu-patrimonio-com-joias-e-presentes-diz-policia-federal"],["Diario de Pernambuco: PGR pede arquivamento","https://www.diariodepernambuco.com.br/politica/2026/03/11709175-pgr-pede-arquivamento-de-inquerito-sobre-desvio-de-joias-por-bolsonaro.html"],["Diario de Pernambuco: STF pede novo parecer","https://www.diariodepernambuco.com.br/politica/2026/03/11710329-stf-pede-novo-parecer-da-pgr-sobre-caso-das-joias-sauditas.html"]]},
 
-{id:"rachadinha", t:"Rachadinhas (Flávio Bolsonaro)", ts:"Rachadinhas", p:"2007–2018", ini:2007, cor:"pl", ano:2013, g:"D", et:2, des:"arquivado", tag:"MP-RJ",
+{id:"rachadinha", t:"Rachadinhas (Flávio Bolsonaro)", ts:"Rachadinhas", p:"2007–2018", ini:2007, cor:"pl", ano:2013, g:"D", et:0, des:"arquivado", tag:"MP-RJ",
  v:{min:0, central:0, max:0.006},
  vl:{min:"Provas anuladas; nada reconhecido", central:"Provas anuladas; os cerca de R$ 6 mi da denúncia do MP-RJ entram só na máxima", max:"Cerca de R$ 6 mi, segundo a denúncia do MP-RJ"},
  env:null, pes:0,
@@ -2604,7 +2652,7 @@ var ESC = [
  par:"PL",
  src:[["Diario de Pernambuco: as penas dos deputados do PL","https://www.diariodepernambuco.com.br/politica/2026/03/11710122-saiba-quais-sao-as-penas-dos-deputados-do-pl-condenados-por-corrupcao.html"],["Poder360: STF julga 3 deputados do PL","https://www.poder360.com.br/poder-justica/stf-retoma-julgamento-de-3-deputados-do-pl-por-desvio-de-emenda/"]]},
 
-{id:"masterpl", t:"Caso Master: Rioprevidência e o filme “Dark Horse”", ts:"Master: Rio e “Dark Horse”", p:"2023–2025", ini:2023, cor:"pl", ano:2024, g:"C", et:1, des:null, tag:"Op. Compliance Zero",
+{id:"masterpl", t:"Caso Master: Rioprevidência e o filme “Dark Horse”", ts:"Master: Rio e “Dark Horse”", p:"2023–2025", ini:2023, cor:"pl", ano:2024, g:"D", et:1, des:null, tag:"Op. Compliance Zero",
  v:{min:0, central:0.061, max:3.061},
  vl:{min:"Nada comprovado ainda", central:"R$ 61 mi que, segundo documentos obtidos pela PF, Vorcaro enviou ao filme sobre Bolsonaro. A perda de R$ 970 mi do Rioprevidência é prejuízo sob investigação e entra só na máxima, como no caso do BNDES", max:"Cerca de R$ 3,06 bi: os cerca de R$ 3 bi aplicados pelo Rioprevidência em produtos do Master, mais o filme"},
  env:"A quebra do Master custou cerca de R$ 52 bi ao FGC, o maior rombo bancário da história, e o caso envolve políticos de vários partidos", pes:0,
@@ -2614,7 +2662,7 @@ var ESC = [
  par:"PL e PP",
  src:[["Gazeta do Povo: os políticos na teia de Vorcaro","https://www.gazetadopovo.com.br/republica/do-planalto-ao-centrao-quem-sao-os-politicos-na-teia-de-vorcaro/"],["Aos Fatos: Flávio, bolsonaristas e Vorcaro", "https://www.aosfatos.org/noticias/flavio-bolsonaristas-vorcaro-lula-filme/"],["Correio Braziliense: documentos indicam caminho de R$ 61 mi de Vorcaro ao filme", "https://www.correiobraziliense.com.br/politica/2026/06/7437756-documentos-indicam-caminho-de-rs-61-milhoes-de-vorcaro-a-filme.html"],["Congresso em Foco: Cláudio Castro é alvo da PF","https://www.congressoemfoco.com.br/noticia/119165/claudio-castro-e-alvo-da-pf-por-aplicacoes-do-rioprevidencia-no-master"],["Diario de Pernambuco: Flávio é alvo de inquérito no caso Dark Horse","https://www.diariodepernambuco.com.br/politica/2026/09/11723630-flavio-bolsonaro-e-alvo-de-inquerito-da-pf-no-stf-no-caso-dark-horse.html"],["Bloomberg Línea: como o caso Master se espalhou pela política","https://www.bloomberglinea.com.br/brasil/como-o-escandalo-do-banco-master-se-espalhou-pela-politica-brasileira/"],["Poder360: rombo de R$ 52 bi no FGC e R$ 970 mi no Rioprevidência","https://www.poder360.com.br/poder-justica/master-deixa-rombo-de-r-52-bi-no-fgc-e-prejuizo-de-r-2-bi-em-fundos/"]]},
 
-{id:"masterpt", t:"Caso Master: elos com o PT", ts:"Master: Jaques Wagner", p:"2023–2026", ini:2023, cor:"pt", ano:2025, g:"C", et:1, des:null, tag:"Op. Compliance Zero",
+{id:"masterpt", t:"Caso Master: elos com o PT", ts:"Master: Jaques Wagner", p:"2023–2026", ini:2023, cor:"pt", ano:2025, g:"D", et:1, des:null, tag:"Op. Compliance Zero",
  v:{min:0, central:0.0083, max:0.0083},
  vl:{min:"Nada comprovado ainda", central:"R$ 8,3 mi em vantagens apontadas pela PF: apartamento de R$ 2,45 mi, R$ 3,5 mi para empresa da família e R$ 2,34 mi para o enteado", max:"R$ 8,3 mi, segundo a PF"},
  env:"A quebra do Master custou cerca de R$ 52 bi ao FGC, o maior rombo bancário da história, e o caso envolve políticos de vários partidos", pes:0,
@@ -2645,7 +2693,7 @@ var INST = [
 {id:"cartao", t:"Cartão de vacina falsificado", p:"2022", b:"pl", fr:"bolso", s:1, et:1, des:"arquivado",
  txt:"A PF indiciou Bolsonaro por inserção de dados falsos de vacinação no sistema do SUS. O caso foi arquivado a pedido da PGR, que não viu prova do envolvimento dele.",
  src:[["InfoMoney: caso do cartão de vacina foi arquivado","https://www.infomoney.com.br/politica/bolsonaro-soma-tres-inqueritos-abertos-na-pf-caso-do-cartao-de-vacina-foi-arquivado/"]]},
-{id:"covid", t:"Relatório da CPI da Covid", p:"2020–2021", b:"pl", fr:"bolso", s:1, et:1, des:"PGR pediu arquivamento", txt:"Em out/2021, a CPI da Covid do Senado aprovou, por 7 a 4, relatório que pediu o indiciamento de 80 pessoas e atribuiu nove crimes a Bolsonaro. Em jul/2022, a PGR pediu o arquivamento de 7 das 10 apurações abertas contra ele a partir do relatório.", src:[["Congresso em Foco: senadores aprovam o relatório final","https://www.congressoemfoco.com.br/noticia/21364/senadores-aprovam-relatorio-final-da-pandemia"],["Congresso em Foco: PGR pede arquivamento das investigações da CPI","https://www.congressoemfoco.com.br/noticia/11386/pgr-pede-arquivamento-de-investigacoes-da-cpi-contra-bolsonaro"],["O Hoje: arquivamento de 7 das 10 apurações","https://ohoje.com/2022/07/26/pgr-pede-arquivamento-de-sete-das-10-apuracoes-contra-bolsonaro-abertas-pela-cpi-da-covid/"]]},
+{id:"covid", t:"Relatório da CPI da Covid", p:"2020–2021", b:"pl", fr:"bolso", s:1.5, et:1, des:"PGR pediu arquivamento", txt:"Em out/2021, a CPI da Covid do Senado aprovou, por 7 a 4, relatório que pediu o indiciamento de 80 pessoas e atribuiu nove crimes a Bolsonaro. Em jul/2022, a PGR pediu o arquivamento de 7 das 10 apurações abertas contra ele a partir do relatório.", src:[["Congresso em Foco: senadores aprovam o relatório final","https://www.congressoemfoco.com.br/noticia/21364/senadores-aprovam-relatorio-final-da-pandemia"],["Congresso em Foco: PGR pede arquivamento das investigações da CPI","https://www.congressoemfoco.com.br/noticia/11386/pgr-pede-arquivamento-de-investigacoes-da-cpi-contra-bolsonaro"],["O Hoje: arquivamento de 7 das 10 apurações","https://ohoje.com/2022/07/26/pgr-pede-arquivamento-de-sete-das-10-apuracoes-contra-bolsonaro-abertas-pela-cpi-da-covid/"]]},
 {id:"francenildo", t:"Quebra do sigilo do caseiro Francenildo", p:"2006", b:"pt", fr:"lula1", s:1, et:2, des:"denúncia contra Palocci arquivada", txt:"O sigilo bancário do caseiro Francenildo Costa, testemunha contra o ministro da Fazenda Antonio Palocci, foi quebrado ilegalmente na Caixa e vazado; Palocci deixou o cargo. Em ago/2009, o STF arquivou por 5 a 4 a denúncia contra Palocci e aceitou a do ex-presidente da Caixa Jorge Mattoso.", src:[["Migalhas: STF arquiva denúncia contra Palocci por 5 a 4","https://www.migalhas.com.br/quentes/91789/por-cinco-votos-a-quatro-stf-arquiva-denuncia-contra-deputado-antonio-palocci"]]},
 {id:"pedaladas", t:"Pedaladas fiscais e impeachment de Dilma", p:"2014–2015", b:"pt", fr:"dilma2", s:3, et:null, des:null,
  txt:"O Senado aprovou o impeachment por 61 a 20 (31/ago/2016) por crime de responsabilidade: atrasos em repasses a bancos públicos e decretos de gasto sem aval do Congresso. Não houve acusação de enriquecimento, e Dilma manteve os direitos políticos.",
@@ -2706,25 +2754,25 @@ var LEG = [
  chk:"Ressalvas: uma auditoria do TCU (2014) achou falhas em 100% de 416 casas vistoriadas em cidades pequenas, como rachaduras e vazamentos. O total de unidades inclui contratos de governos seguintes.",
  src:[["Fiquem Sabendo: dados do programa","https://news.fiquemsabendo.com.br/p/minha-casa-minha-vida-uma-em-cada"],["Exame: TCU achou falhas em todas as obras vistoriadas","https://exame.com/brasil/no-minha-casa-falhas-em-todas-as-obras-vistoriadas/"],["Agência Senado: Casa Verde e Amarela é sancionado","https://www12.senado.leg.br/noticias/materias/2021/01/13/programa-casa-verde-e-amarela-e-sancionado-com-veto-a-unificacao-de-tributos"]]},
 
-{id:"maismedicos", b:"pt", fr:{dilma1:1}, ano:"2013", t:"Mais Médicos", s:3, m:100, ver:"ress",
+{id:"maismedicos", b:"pt", fr:{dilma1:1}, ano:"2013", t:"Mais Médicos", s:3.5, m:100, ver:"ress",
  txt:"18.240 médicos em 4.058 municípios, atendendo 63 mi de pessoas (2015). Pela primeira vez, todos os distritos indígenas tiveram médico.",
  mr:"Programa novo do governo Dilma.",
  chk:"Ressalva: em 2018, 45,7% dos médicos eram cubanos, contratados via Opas, e o governo de Cuba ficava com cerca de 75% do pagamento de cada um, o que gerou ações na Justiça.",
  src:[["O Imparcial: programa leva saúde a 63 mi de pessoas","https://oimparcial.com.br/brasil/2015/08/programa-leva-saude-para-63-milhoes-de-pessoas-no-brasil/"],["Poder360: Mais Médicos não tem vínculo com Cuba desde 2018","https://www.poder360.com.br/poder-internacional/mais-medicos-nao-tem-vinculo-com-cuba-desde-2018/"]]},
 
-{id:"fome2014", res:1, b:"pt", fr:{lula2:0.5, dilma1:0.5}, ano:"2014", t:"Saída do Mapa da Fome", s:4, m:50, ver:"div",
+{id:"fome2014", res:1, b:"pt", fr:{lula2:0.5, dilma1:0.5}, ano:"2014", t:"Saída do Mapa da Fome", s:3.5, m:50, ver:"div",
  txt:"A ONU tirou o Brasil do Mapa da Fome em 2014 (menos de 2,5% da população subnutrida).",
  mr:"Resultado de várias causas: programas sociais, salário mínimo e o crescimento econômico dos anos 2000.",
  chk:"O indicador da FAO é uma estimativa por modelo, não uma contagem de pessoas. O país voltou ao mapa no triênio 2018–2020.",
  src:[["O Imparcial: Brasil volta a sair do Mapa da Fome","https://oimparcial.com.br/noticias/2025/07/brasil-volta-a-sair-do-mapa-da-fome-da-onu-apos-dois-anos/"],["Congresso em Foco: como a FAO mede","https://www.congressoemfoco.com.br/noticia/110552/brasil-volta-a-ficar-fora-do-mapa-da-fome"]]},
 
-{id:"fome2025", res:1, b:"pt", fr:{lula3:1}, ano:"2025", t:"Nova saída do Mapa da Fome", s:4, m:50, ver:"div",
+{id:"fome2025", res:1, b:"pt", fr:{lula3:1}, ano:"2025", t:"Nova saída do Mapa da Fome", s:3.5, m:50, ver:"div",
  txt:"A ONU voltou a tirar o Brasil do mapa em jul/2025. No relatório de 2026 (média de 2023 a 2025), a insegurança alimentar grave caiu para 0,6% da população, o menor nível da série.",
  mr:"A média que tirou o país do mapa (2022–2024) inclui 2022, quando Bolsonaro pagou o Auxílio Brasil de R$ 600 (de agosto a dezembro); a melhora continuou nos anos seguintes.",
  chk:"Sair do mapa não é o fim da fome: em 2023–2025, 20,3 mi de pessoas (9,6%) ainda tinham insegurança alimentar moderada ou grave, segundo a FAO.",
  src:[["O Imparcial: Brasil volta a sair do Mapa da Fome","https://oimparcial.com.br/noticias/2025/07/brasil-volta-a-sair-do-mapa-da-fome-da-onu-apos-dois-anos/"],["Acessa: relatório da ONU de 2026","https://www.acessa.com/noticias/2026/07/amp/334817-brasil-continua-fora-do-mapa-da-fome-aponta-relatorio-da-onu.html"],["Correio Braziliense: insegurança alimentar em 2021–2023","https://www.correiobraziliense.com.br/brasil/2024/07/6905192-inseguranca-alimentar-cai-no-brasil-mas-ainda-atinge-mais-de-30-milhoes.html"]]},
 
-{id:"desemprego", res:1, b:"pt", fr:{lula3:1}, ano:"2026", t:"Desemprego no menor nível da série", s:2, m:50, ver:"ress",
+{id:"desemprego", res:1, b:"pt", fr:{lula3:1}, ano:"2026", t:"Desemprego no menor nível da série", s:2.5, m:50, ver:"ress",
  txt:"5,3% no trimestre até agosto de 2026, com recorde de pessoas trabalhando (103,5 mi) e de empregos com carteira no setor privado (39,5 mi).",
  mr:"Resultado de várias causas: segundo o FGV Ibre, mudanças demográficas e de escolaridade explicam 1,2 ponto da queda; o mercado aquecido e outros fatores, o resto.",
  chk:"A conta não foi manipulada: o IBGE segue o padrão da OIT desde 2012, e quem recebe Bolsa Família não é contado como empregado (checagens da Lupa e do Aos Fatos). Quem não procura emprego fica “fora da força de trabalho”, regra igual em todos os governos. As ressalvas são reais: a participação no mercado (62,2% no 3º trimestre de 2025) ainda estava abaixo de 2019 (63,4%); 37,5% dos ocupados são informais; e o FGV Ibre achou que o Bolsa Família ampliado tirou parte dos jovens beneficiários do mercado, o que ajuda a baixar a taxa.",
@@ -2736,19 +2784,19 @@ var LEG = [
  chk:"Deputados do Novo, do PL e do Podemos votaram a favor, mas chamaram a medida de eleitoral por começar em ano de eleição.",
  src:[["Congresso em Foco: Lula sanciona isenção","https://www.congressoemfoco.com.br/noticia/114231/lula-sanciona-isencao-do-ir-para-quem-ganha-ate-r-5-mil"],["O Liberal: Câmara aprova por unanimidade","https://www.oliberal.com/politica/camara-aprova-por-unanimidade-isencao-do-ir-a-quem-ganha-ate-r-5-mil-1.1028693"],["A Gazeta: reforma de 2021 sem cumprir promessa de Bolsonaro","https://www.agazeta.com.br/economia/governo-finaliza-reforma-do-ir-sem-cumprir-promessa-eleitoral-de-bolsonaro-0621"]]},
 
-{id:"desmat2", res:1, b:"pt", fr:{lula3:1}, ano:"2023–2025", t:"Desmatamento cai pela metade", s:3, m:75, ver:"ress",
+{id:"desmat2", res:1, b:"pt", fr:{lula3:1}, ano:"2023–2025", t:"Desmatamento cai pela metade", s:3, m:62.5, ver:"ress",
  txt:"De 11.594 km² (2022) para 5.796 km² (2025) na Amazônia, segundo o Inpe.",
  mr:"Política própria (retomada da fiscalização e do plano de 2004), ajudada por outros fatores.",
  chk:"Ressalva: a área queimada no país quase dobrou em 2024 (29,7 mi de hectares até novembro, a maior em seis anos), com 7,6 mi de hectares de florestas atingidos na Amazônia, segundo o MapBiomas. Desmatamento e incêndio são medidos de formas diferentes.",
  src:[["Olhar Digital: área desmatada é a menor em 11 anos","https://olhardigital.com.br/2025/10/30/ciencia-e-espaco/area-desmatada-na-amazonia-e-a-menor-em-11-anos-diz-inpe/"],["Poder360: área queimada quase dobra em 2024","https://www.poder360.com.br/poder-sustentavel/area-queimada-no-brasil-ate-novembro-quase-dobra-em-2024/"]]},
 
-{id:"tributaria", b:"pt", fr:{lula3:1}, ano:"2023", t:"Reforma tributária do consumo", s:2, m:50, ver:"inc",
+{id:"tributaria", b:"pt", fr:{lula3:1}, ano:"2023", t:"Reforma tributária do consumo", s:3.0, m:50, ver:"inc",
  txt:"A Emenda 132 (dez/2023) troca cinco tributos sobre consumo por um IVA dual (CBS e IBS), com transição de 2026 a 2033.",
  mr:"O texto aprovado nasceu no Congresso (PEC 45/2019, do deputado Baleia Rossi, do MDB, baseada em proposta de Bernard Appy); o governo Lula a priorizou, com Appy como secretário, e a aprovou em 2023.",
  chk:"O efeito ainda não pode ser medido. A alíquota estimada, perto de 28%, pode ser a maior do mundo entre os países que usam IVA, por causa das exceções aprovadas.",
  src:[["Planalto: Emenda Constitucional 132","https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"],["Congresso Nacional: PEC 45/2019","https://www.congressonacional.leg.br/materias/materias-bicamerais/-/ver/pec-45-2019"],["InfoMoney: Brasil poderá ter o maior IVA do mundo","https://www.infomoney.com.br/politica/reforma-tributaria-brasil-podera-ter-maior-iva-do-mundo-com-aliquota-de-28/"]]},
 
-{id:"pix", b:"pl", fr:{bolso:1}, ano:"2020", t:"Pix", s:5, m:50, ver:"div",
+{id:"pix", b:"pl", fr:{bolso:1}, ano:"2020", t:"Pix", s:5, m:37.5, ver:"div",
  txt:"Está nas mãos de 75% dos brasileiros e movimentou R$ 35 tri em 2025.",
  mr:"As bases foram definidas pelo Banco Central em 2018 (gestão de Ilan Goldfajn, governo Temer) e o sistema foi desenvolvido por servidores do BC; o lançamento foi em nov/2020, com Roberto Campos Neto, indicado por Bolsonaro.",
  chk:"Checagens mostram que Bolsonaro não criou o Pix, mas o sistema foi concluído e lançado no governo dele.",
@@ -2760,7 +2808,7 @@ var LEG = [
  chk:"Ressalvas: o TCU estimou até R$ 42 bi em pagamentos indevidos em 2020, e a pobreza voltou a subir quando o auxílio foi reduzido.",
  src:[["O Povo: de R$ 200 a R$ 600","https://mais.opovo.com.br/jornal/politica/2020/03/27/camara-aprova-repasse-de-auxilio-de-r--600-para-informais-durante-a-pandemia.html"],["Congresso em Foco: 68,2 mi de beneficiários","https://congressoemfoco.com.br/artigo/21653/parceria-da-dataprev-e-da-caixa-fez-auxilio-emergencial-ser-sucesso"],["Money Times: FGV Social mede queda da pobreza","https://www.moneytimes.com.br/auxilio-emergencial-reduziu-a-pobreza-em-23/"],["Poder360: TCU vê até R$ 42 bi indevidos","https://www.poder360.com.br/governo/pagamento-indevido-do-auxilio-pode-chegar-a-r-42-bilhoes-diz-tcu/"]]},
 
-{id:"auxbrasil", b:"pl", fr:{bolso:1}, ano:"2021–2022", t:"Auxílio Brasil", s:3, m:50, ver:"ress",
+{id:"auxbrasil", b:"pl", fr:{bolso:1}, ano:"2021–2022", t:"Auxílio Brasil", s:2.5, m:50, ver:"ress",
  txt:"Benefício mínimo de R$ 400 a partir do fim de 2021 e de R$ 600 de agosto a dezembro de 2022.",
  mr:"Deu novo nome ao Bolsa Família e aumentou o valor. O aumento para R$ 600 foi aprovado pela chamada PEC Kamikaze (jul/2022), com custo extra de R$ 41,25 bi.",
  chk:"Ressalvas: os R$ 600 valiam só até dez/2022 e foram aprovados em ano eleitoral por meio de um estado de emergência, criticado por driblar a lei eleitoral e o teto de gastos.",
@@ -2772,13 +2820,13 @@ var LEG = [
  chk:"Os números são oficiais. Quantos empregos teriam sido perdidos sem o programa não foi medido de forma independente.",
  src:[["IstoÉ Dinheiro: balanço do programa em 2020","https://istoedinheiro.com.br/termina-hoje-programa-de-reducao-de-jornada-e-suspensao-de-contratos"],["Planalto: Lei 14.020/2020","https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/lei/l14020.htm"]]},
 
-{id:"previdencia", b:"pl", fr:{bolso:1}, ano:"2019", t:"Reforma da Previdência", s:3, m:50, ver:"div",
+{id:"previdencia", b:"pl", fr:{bolso:1}, ano:"2019", t:"Reforma da Previdência", s:3.5, m:62.5, ver:"div",
  txt:"Emenda 103/2019; economia estimada em R$ 855,7 bi em dez anos pelo Ministério da Economia.",
  mr:"A proposta foi do governo (PEC 6/2019, de Paulo Guedes); a Câmara reescreveu partes do texto, como a capitalização e as mudanças no BPC e na aposentadoria rural. FHC (1998), Lula (2003) e Temer (2016–2018) já tinham feito ou tentado reformas.",
  chk:"A economia é estimativa do próprio governo, feita na época da aprovação.",
  src:[["Agência Brasil: economia de R$ 855,7 bi","https://agenciabrasil.ebc.com.br/economia/noticia/2019-12/governo-revisa-para-r-8557-bi-economia-com-reforma-da-previdencia"],["Congresso em Foco: Maia diz que reforma é vitória do Congresso","https://congressoemfoco.com.br/economia/maia-reforma-e-vitoria-do-congresso-nao-do-governo"]]},
 
-{id:"saneamento", b:"pl", fr:{bolso:1}, ano:"2020", t:"Marco Legal do Saneamento", s:2, m:50, ver:"inc",
+{id:"saneamento", b:"pl", fr:{bolso:1}, ano:"2020", t:"Marco Legal do Saneamento", s:2, m:62.5, ver:"inc",
  txt:"Lei 14.026/2020: meta de 99% da população com água e 90% com coleta e tratamento de esgoto até 2033, com abertura a empresas privadas.",
  mr:"Nasceu de medidas provisórias do governo Temer (2018) que perderam a validade; o governo Bolsonaro enviou o projeto que virou lei (PL 4.162/2019), aprovado pelo Congresso em 2020.",
  chk:"Os investimentos previstos (mais de R$ 700 bi em 14 anos, segundo o governo da época) são projeção; o avanço real da cobertura ainda está em curso.",
@@ -2802,13 +2850,13 @@ var LEG = [
  chk:"Não encontramos avaliação independente que meça o efeito da lei na economia.",
  src:[["Planalto: Lei 13.874/2019","https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13874.htm"],["Politize: o que é a MP da Liberdade Econômica","https://www.politize.com.br/mp-da-liberdade-economica/"]]}
 ,
-{id:"farmacia", b:"pt", fr:{lula1:0.6, dilma1:0.2, lula3:0.2}, ano:"2004", t:"Farmácia Popular", s:4, m:100, ver:"ress",
+{id:"farmacia", b:"pt", fr:{lula1:0.6, dilma1:0.2, lula3:0.2}, ano:"2004", t:"Farmácia Popular", s:4, m:87.5, ver:"ress",
  txt:"Dá remédios de graça ou com desconto, desde 2006 também em farmácias privadas credenciadas. Atendeu 24 milhões de pessoas em 2024, segundo o Ministério da Saúde.",
  mr:"Criado (2004) e levado às farmácias privadas (2006) no Lula 1; a gratuidade para hipertensão, diabetes e asma veio com Dilma (2011–2012); o relançamento de 2023 e a gratuidade de todos os itens em 2025 são do Lula 3.",
  chk:"A CGU apontou R$ 2,6 bi pagos de 2015 a 2020 por vendas sem nota de compra dos remédios, e o TCU mandou farmácias devolverem dinheiro. Dados obtidos pela Repórter Brasil indicam 28,8 milhões de atendidos em 2016, mais que o “recorde” de 2024, talvez por critério diferente de contagem.",
  src:[["Ministério da Saúde: balanço de 2024 do Farmácia Popular","https://www.gov.br/saude/pt-br/assuntos/balancos/2024/farmacia-popular"],["Poder360: recorde de 24 mi de beneficiados em 2024","https://www.poder360.com.br/poder-saude/farmacia-popular-atinge-recorde-com-24-mi-de-beneficiados-em-2024/"],["Poder360: CGU indica irregularidades de R$ 2,6 bi","https://www.poder360.com.br/poder-saude/saude/cgu-indica-irregularidades-de-r-26-bi-no-farmacia-popular/"],["TCU: irregularidades no Farmácia Popular","https://portal.tcu.gov.br/imprensa/noticias/tcu-identifica-irregularidades-no-programa-farmacia-popular-do-brasil.htm"],["IHU/Repórter Brasil: programa deixa de atender 7 milhões em 2 anos","https://ihu.unisinos.br/588279-com-menos-recursos-e-sem-coordenador-farmacia-popular-deixa-de-atender-7-milhoes-em-2-anos"]]},
 
-{id:"reuni", b:"pt", fr:{lula1:0.2, lula2:0.5, dilma1:0.3}, ano:"2007", t:"Expansão das universidades e institutos federais", s:4, m:75, ver:"ress",
+{id:"reuni", b:"pt", fr:{lula1:0.2, lula2:0.5, dilma1:0.3}, ano:"2007", t:"Expansão das universidades e institutos federais", s:3.5, m:75, ver:"ress",
  txt:"O Reuni (2007) financiou vagas e campi nas universidades federais, e a Lei 11.892/2008 criou 38 institutos federais. As matrículas presenciais nas federais foram de 528 mil (2003) para 843 mil (2011).",
  mr:"Partiu de universidades e escolas técnicas que já existiam; começou no Lula 1, ganhou o Reuni e os institutos no Lula 2 e seguiu com novos campi no governo Dilma.",
  chk:"O TCU (2024) viu desistência maior que conclusão em todas as turmas de 2010 a 2017 das federais, e evasão média de 41% no ensino técnico dos institutos em 2022. Há campi da expansão com obras inacabadas há até 16 anos.",
@@ -2950,7 +2998,8 @@ var HOJE = {
   ok:{t:"ainda existe", f:1, i:"✓", d:"conta 100%"},
   cumpr:{t:"temporário, cumpriu o papel", f:1, i:"✓", d:"conta 100%"},
   parte:{t:"existe em parte", f:0.5, i:"", d:"conta 50%"},
-  fim:{t:"não existe mais", f:0, i:"✕", d:"não conta"}
+  fim:{t:"não existe mais", f:0, i:"✕", d:"não conta"},
+  div:{t:"vale em parte ou inteira (revisores divergem)", f:0.75, i:"", d:"conta 75%"}
 };
 // linha do tempo: [ano, texto, quem fez: pt | pl | ou | hoje]
 var H26 = {
@@ -3076,7 +3125,7 @@ var PROM = [
   {p:"Construir 10 mil quadras esportivas cobertas", st:"parte", ev:"O governo previa entregar 6.116 quadras e cobrir cerca de 4 mil até o fim de 2014, segundo o levantamento.", src:[["Congresso em Foco: o que Dilma fez e o que ficou na promessa (2014)","https://congressoemfoco.com.br/noticia/53702/o-que-foi-realizado-e-o-que-ficou-so-na-promessa-de-dilma"]]},
   {p:"Zerar PIS e Cofins de saneamento, energia e transportes", st:"parte", ev:"O governo desonerou a cesta básica e a folha de pagamento de 56 setores e reduziu alíquotas na energia, mas não zerou os tributos prometidos.", src:[["Congresso em Foco: o que Dilma fez e o que ficou na promessa (2014)","https://congressoemfoco.com.br/noticia/53702/o-que-foi-realizado-e-o-que-ficou-so-na-promessa-de-dilma"]]},
   {p:"Criar o ProMédio, um ProUni para o ensino médio", st:"nao", ev:"Nada parecido saiu do papel, segundo o levantamento.", src:[["Congresso em Foco: o que Dilma fez e o que ficou na promessa (2014)","https://congressoemfoco.com.br/noticia/53702/o-que-foi-realizado-e-o-que-ficou-so-na-promessa-de-dilma"]]},
-  {p:"Comprar mais de 10 drones para vigiar as fronteiras", st:"nao", ev:"Dos 14 orçados, o governo recebeu só 4.", src:[["Congresso em Foco: o que Dilma fez e o que ficou na promessa (2014)","https://congressoemfoco.com.br/noticia/53702/o-que-foi-realizado-e-o-que-ficou-so-na-promessa-de-dilma"]]}
+  {p:"Comprar mais de 10 drones para vigiar as fronteiras", st:"parte", ev:"Dos 14 orçados, o governo recebeu só 4.", src:[["Congresso em Foco: o que Dilma fez e o que ficou na promessa (2014)","https://congressoemfoco.com.br/noticia/53702/o-que-foi-realizado-e-o-que-ficou-so-na-promessa-de-dilma"]]}
  ]},
 {gov:"dilma2", b:"pt", cand:"Dilma", ano:"2014", per:"governo 2015 até o afastamento, em mai/2016",
  nota:"Avaliado até o afastamento de Dilma pelo Senado, em maio de 2016.",
@@ -3117,7 +3166,7 @@ var PROM = [
   {p:"Zerar a fila do INSS", st:"parte", ev:"O governo declarou a fila zerada em ago/2026 por um critério técnico, mas mais de 200 mil pedidos esperavam além do prazo legal de 45 dias.", src:[["Poder360: governo anuncia queda, mas não zera a fila do INSS (2026)","https://www.poder360.com.br/poder-governo/governo-lula-anuncia-queda-mas-nao-zera-a-fila-do-inss/"]]},
   {p:"Acabar com o orçamento secreto", st:"nao", ev:"Quem derrubou as emendas de relator foi o STF, em dez/2022, antes da posse; no governo Lula o dinheiro migrou para emendas de comissão e “Pix”, com pouca transparência e investigações da PF em 2024–2026.", src:[["Jovem Pan: o que sobrou das promessas de Lula (2023)","https://jovempan.com.br/politica/fim-do-orcamento-secreto-isencao-do-ir-e-mais-o-que-sobrou-das-promessas-de-lula-apos-seis-meses-de-governo/"],["Correio Braziliense: Dino aponta prejuízo em emendas Pix (2026)","https://www.correiobraziliense.com.br/politica/2026/08/7475678-dino-aciona-pf-e-aponta-prejuizo-de-rs-55-milhoes-em-emendas-pix.html"]]},
   {p:"Criar o Ministério da Segurança Pública", st:"nao", ev:"Não foi criado; Lula condicionou a criação à aprovação da PEC da Segurança Pública, parada no Senado em 2026.", src:[["Metrópoles: Lula descumpre promessa ao não separar Justiça e Segurança","https://www.metropoles.com/brasil/lula-descumpre-promessa-eleitoral-ao-nao-separar-justica-e-seguranca"],["CNN Brasil: Lula atrela o ministério ao avanço da PEC","https://www.cnnbrasil.com.br/politica/lula-volta-a-atrelar-ministerio-da-seguranca-ao-avanco-de-pec-no-senado/"]]},
-  {p:"Reverter a privatização da Eletrobras", st:"nao", ev:"A empresa segue privatizada; a Folha classificou o avanço como limitado em jan/2025.", src:[["Portal de Prefeitura: levantamento da Folha sobre as 103 promessas","https://portaldeprefeitura.com.br/bastidores-da-politica/governo-lula-cumpriu-28-das-103-promessas-de-campanha-e-17-estao/587733/"]]},
+  {p:"Reverter a privatização da Eletrobras", st:"parte", ev:"A empresa segue privatizada; a Folha classificou o avanço como limitado em jan/2025.", src:[["Portal de Prefeitura: levantamento da Folha sobre as 103 promessas","https://portaldeprefeitura.com.br/bastidores-da-politica/governo-lula-cumpriu-28-das-103-promessas-de-campanha-e-17-estao/587733/"]]},
   {p:"Governar um mandato só", st:"nao", ev:"Em out/2022, Lula disse que seria “presidente de um mandato só”; em 2026 disputa a reeleição.", src:[["SBT News: Lula reforça que não tentará a reeleição (2022)","https://sbtnews.sbt.com.br/noticia/eleicoes/228180-lula-reforca-que-nao-tentara-reeleicao-em-2026-se-for-eleito-neste-ano"]]}
  ]}
 ];
@@ -3663,7 +3712,7 @@ function htag(k, bare){ var t = h("span","htag h-" + k); var i = h("i",null,HOJE
 function joinPt(a){ return a.length > 1 ? a.slice(0,-1).join(", ") + " e " + a[a.length-1] : a.join(""); }
 function vtag(k){ var t = h("span","vtag v-" + k); var i = h("i",null,VICON[k]); i.setAttribute("aria-hidden","true"); t.appendChild(i); t.appendChild(document.createTextNode(VER[k].t)); return t; }
 function meterEl(m){ var me = h("span","meter"); me.setAttribute("aria-hidden","true"); for(var i=1;i<=4;i++){ me.appendChild(h("i", i*25 <= m ? "on" : null)); } return me; }
-function mtag(m){ var t = h("span","mtag"); t.appendChild(document.createTextNode("Mérito do governo")); t.appendChild(meterEl(m)); t.appendChild(h("b",null,m + "%")); t.appendChild(document.createTextNode("(" + MERITO[m].toLowerCase() + ")")); return t; }
+function mtag(m){ var t = h("span","mtag"); t.appendChild(document.createTextNode("Mérito do governo")); t.appendChild(meterEl(m)); t.appendChild(h("b",null,m + "%")); t.appendChild(document.createTextNode("(" + (MERITO[m] ? MERITO[m].toLowerCase() : "meio-termo entre dois revisores") + ")")); return t; }
 function srcList(list){ var ul = h("ul","src"); list.forEach(function(f){ var li = h("li"); var a = h("a",null,f[0]); a.href = f[1]; a.target = "_blank"; a.rel = "noopener noreferrer"; li.appendChild(a); ul.appendChild(li); }); return ul; }
 function kv(label, text){ var p = h("p","kv"); p.appendChild(h("b",null,label + ": ")); p.appendChild(document.createTextNode(text)); return p; }
 function colHead(cfg, totId){
@@ -3676,7 +3725,7 @@ function buildLegado(){
   var ml = $("mLegend"); ml.appendChild(h("span","mlab","Mérito do governo:"));
   [100,75,50,25].forEach(function(m){ var s = h("span"); s.appendChild(meterEl(m)); s.appendChild(document.createTextNode(m + "% " + MERITO[m].toLowerCase())); ml.appendChild(s); });
   var hl = $("hLegend"); hl.appendChild(h("span","mlab","Em 2026:"));
-  ["ok","cumpr","parte","fim"].forEach(function(k){ var s = h("span"); s.appendChild(htag(k, true)); s.appendChild(document.createTextNode(HOJE[k].d)); hl.appendChild(s); });
+  ["ok","cumpr","parte","div","fim"].forEach(function(k){ var s = h("span"); s.appendChild(htag(k, true)); s.appendChild(document.createTextNode(HOJE[k].d)); hl.appendChild(s); });
   var grid = $("legGrid");
   [["pt","PT","Governos Lula e Dilma"],["pl","PL","Governo Bolsonaro"]].forEach(function(cfg){
     var col = h("div","leg-col"); col.setAttribute("data-b", cfg[0]); col.appendChild(colHead(cfg, "legTot-" + cfg[0]));
@@ -4284,43 +4333,43 @@ var SOC_O = {exe:"Do governo", con:"Lei do Congresso, sancionada", jud:"Do Judic
 var SPL = "https://www.planalto.gov.br/ccivil_03/";
 var SOC = [
  // ===== Mulheres =====
- {g:"fhc", grp:"mul", ano:"1997", k:"av", o:"con", s:1, h:"ok", t:"Cota de 30% de candidaturas", d:"A Lei Eleitoral manda os partidos reservarem 30% das vagas de candidatos para cada sexo. Sem punição, a regra teve pouco efeito até 2009.", src:[["Planalto: Lei 9.504/1997, art. 10", SPL + "leis/l9504.htm"]]},
- {g:"fhc", grp:"mul", ano:"2001", k:"av", o:"con", s:1, h:"ok", t:"Assédio sexual vira crime", d:"Inclui o assédio sexual no Código Penal, com pena de um a dois anos.", src:[["Planalto: Lei 10.224/2001", SPL + "leis/leis_2001/l10224.htm"]]},
- {g:"lula1", grp:"mul", ano:"2003", k:"av", o:"exe", s:2, h:"ok", t:"Secretaria de Políticas para as Mulheres", d:"Órgão com status de ministério, criado no primeiro dia de governo. Virou o Ministério das Mulheres em 2023.", src:[["Planalto: Lei 10.683/2003", SPL + "leis/2003/l10.683.htm"]]},
+ {g:"fhc", grp:"mul", ano:"1997", k:"av", o:"con", s:1, h:"div", t:"Cota de 30% de candidaturas", d:"A Lei Eleitoral manda os partidos reservarem 30% das vagas de candidatos para cada sexo. Sem punição, a regra teve pouco efeito até 2009.", src:[["Planalto: Lei 9.504/1997, art. 10", SPL + "leis/l9504.htm"]]},
+ {g:"fhc", grp:"mul", ano:"2001", k:"av", o:"con", s:1.5, h:"ok", t:"Assédio sexual vira crime", d:"Inclui o assédio sexual no Código Penal, com pena de um a dois anos.", src:[["Planalto: Lei 10.224/2001", SPL + "leis/leis_2001/l10224.htm"]]},
+ {g:"lula1", grp:"mul", ano:"2003", k:"av", o:"exe", s:2, h:"div", t:"Secretaria de Políticas para as Mulheres", d:"Órgão com status de ministério, criado no primeiro dia de governo. Virou o Ministério das Mulheres em 2023.", src:[["Planalto: Lei 10.683/2003", SPL + "leis/2003/l10.683.htm"]]},
  {g:"lula1", grp:"mul", ano:"2006", k:"av", o:"exe", s:3, h:"ok", t:"Lei Maria da Penha", d:"Projeto enviado pelo governo a partir de proposta de entidades de mulheres. Criou as medidas protetivas e os juizados de violência doméstica.", src:[["Planalto: Lei 11.340/2006", SPL + "_ato2004-2006/2006/lei/l11340.htm"],["Câmara: PL 4.559/2004, do Poder Executivo","https://www.camara.leg.br/propostas-legislativas/272058"]]},
- {g:"lula2", grp:"mul", ano:"2008", k:"av", o:"con", s:1, h:"ok", t:"Licença-maternidade de 180 dias, opcional", d:"Empresas que aderem ao Empresa Cidadã podem estender a licença de 120 para 180 dias, com desconto no imposto.", src:[["Planalto: Lei 11.770/2008", SPL + "_ato2007-2010/2008/lei/l11770.htm"]]},
- {g:"lula2", grp:"mul", ano:"2009", k:"av", o:"con", s:1, h:"ok", t:"Cota de candidaturas passa a ser obrigatória", d:"A reserva de 30% deixa de ser só uma vaga guardada e passa a ter de ser preenchida.", src:[["Planalto: Lei 12.034/2009", SPL + "_ato2007-2010/2009/lei/l12034.htm"]]},
- {g:"dilma1", grp:"mul", ano:"2013", k:"av", o:"exe", s:2, h:"parte", t:"Casa da Mulher Brasileira", d:"O programa Mulher, Viver sem Violência junta delegacia, juizado, defensoria e abrigo no mesmo prédio. O decreto foi alterado em 2019 e substituído em 2023, mas as Casas seguem funcionando.", src:[["Planalto: Decreto 8.086/2013", SPL + "_ato2011-2014/2013/decreto/d8086.htm"]]},
- {g:"dilma1", grp:"mul", ano:"2013", k:"av", o:"con", s:2, h:"ok", t:"PEC das Domésticas", d:"Estende às trabalhadoras domésticas, quase todas mulheres, direitos como jornada de 44 horas, hora extra e FGTS. Foi regulamentada em 2015.", src:[["Planalto: Emenda Constitucional 72/2013", SPL + "constituicao/emendas/emc/emc72.htm"],["Planalto: Lei Complementar 150/2015", SPL + "leis/lcp/lcp150.htm"]]},
- {g:"dilma1", grp:"mul", ano:"2013", k:"av", o:"con", s:1, h:"ok", t:"Atendimento imediato a vítimas de violência sexual", d:"Obriga os hospitais do SUS a atender na hora, com profilaxia e apoio psicológico.", src:[["Planalto: Lei 12.845/2013", SPL + "_ato2011-2014/2013/lei/l12845.htm"]]},
- {g:"dilma2", grp:"mul", ano:"2015", k:"av", o:"con", s:2, h:"ok", t:"Lei do Feminicídio", d:"Torna o assassinato de mulheres por razão de gênero homicídio qualificado e crime hediondo. Nasceu da CPMI da Violência contra a Mulher.", src:[["Planalto: Lei 13.104/2015", SPL + "_ato2015-2018/2015/lei/l13104.htm"]]},
- {g:"temer", grp:"mul", ano:"2018", k:"av", o:"con", s:1, h:"ok", t:"Importunação sexual vira crime", d:"Pune atos libidinosos sem consentimento, como os casos em ônibus, que antes eram só contravenção.", src:[["Planalto: Lei 13.718/2018", SPL + "_ato2015-2018/2018/lei/l13718.htm"]]},
+ {g:"lula2", grp:"mul", ano:"2008", k:"av", o:"con", s:1.5, h:"ok", t:"Licença-maternidade de 180 dias, opcional", d:"Empresas que aderem ao Empresa Cidadã podem estender a licença de 120 para 180 dias, com desconto no imposto.", src:[["Planalto: Lei 11.770/2008", SPL + "_ato2007-2010/2008/lei/l11770.htm"]]},
+ {g:"lula2", grp:"mul", ano:"2009", k:"av", o:"con", s:1.5, h:"ok", t:"Cota de candidaturas passa a ser obrigatória", d:"A reserva de 30% deixa de ser só uma vaga guardada e passa a ter de ser preenchida.", src:[["Planalto: Lei 12.034/2009", SPL + "_ato2007-2010/2009/lei/l12034.htm"]]},
+ {g:"dilma1", grp:"mul", ano:"2013", k:"av", o:"exe", s:2, h:"div", t:"Casa da Mulher Brasileira", d:"O programa Mulher, Viver sem Violência junta delegacia, juizado, defensoria e abrigo no mesmo prédio. O decreto foi alterado em 2019 e substituído em 2023, mas as Casas seguem funcionando.", src:[["Planalto: Decreto 8.086/2013", SPL + "_ato2011-2014/2013/decreto/d8086.htm"]]},
+ {g:"dilma1", grp:"mul", ano:"2013", k:"av", o:"con", s:2.5, h:"ok", t:"PEC das Domésticas", d:"Estende às trabalhadoras domésticas, quase todas mulheres, direitos como jornada de 44 horas, hora extra e FGTS. Foi regulamentada em 2015.", src:[["Planalto: Emenda Constitucional 72/2013", SPL + "constituicao/emendas/emc/emc72.htm"],["Planalto: Lei Complementar 150/2015", SPL + "leis/lcp/lcp150.htm"]]},
+ {g:"dilma1", grp:"mul", ano:"2013", k:"av", o:"con", s:1.5, h:"ok", t:"Atendimento imediato a vítimas de violência sexual", d:"Obriga os hospitais do SUS a atender na hora, com profilaxia e apoio psicológico.", src:[["Planalto: Lei 12.845/2013", SPL + "_ato2011-2014/2013/lei/l12845.htm"]]},
+ {g:"dilma2", grp:"mul", ano:"2015", k:"av", o:"con", s:2, h:"div", t:"Lei do Feminicídio", d:"Torna o assassinato de mulheres por razão de gênero homicídio qualificado e crime hediondo. Nasceu da CPMI da Violência contra a Mulher.", src:[["Planalto: Lei 13.104/2015", SPL + "_ato2015-2018/2015/lei/l13104.htm"]]},
+ {g:"temer", grp:"mul", ano:"2018", k:"av", o:"con", s:1.5, h:"ok", t:"Importunação sexual vira crime", d:"Pune atos libidinosos sem consentimento, como os casos em ônibus, que antes eram só contravenção.", src:[["Planalto: Lei 13.718/2018", SPL + "_ato2015-2018/2018/lei/l13718.htm"]]},
  {g:"temer", grp:"mul", ano:"2018", k:"av", o:"con", s:1, h:"ok", t:"Descumprir medida protetiva vira crime", d:"O agressor que desobedece a medida protetiva pode ser preso.", src:[["Planalto: Lei 13.641/2018", SPL + "_ato2015-2018/2018/lei/l13641.htm"]]},
  {g:"bolso", grp:"mul", ano:"2019", k:"av", o:"con", s:1, h:"ok", t:"Afastamento imediato do agressor", d:"Delegados e policiais podem afastar o agressor do lar quando não há juiz na cidade.", src:[["Planalto: Lei 13.827/2019", SPL + "_ato2019-2022/2019/lei/l13827.htm"]]},
- {g:"bolso", grp:"mul", ano:"2021", k:"av", o:"con", s:1, h:"ok", t:"Crime de perseguição", d:"Torna crime a perseguição repetida, com pena maior quando a vítima é mulher por razão de gênero.", src:[["Planalto: Lei 14.132/2021", SPL + "_ato2019-2022/2021/lei/l14132.htm"]]},
- {g:"bolso", grp:"mul", ano:"2021", k:"av", o:"con", s:1, h:"ok", t:"Crime de violência psicológica e Sinal Vermelho", d:"Cria o crime de violência psicológica contra a mulher e o programa Sinal Vermelho, de pedido de ajuda em farmácias e outros locais.", src:[["Planalto: Lei 14.188/2021", SPL + "_ato2019-2022/2021/lei/l14188.htm"]]},
+ {g:"bolso", grp:"mul", ano:"2021", k:"av", o:"con", s:1.5, h:"ok", t:"Crime de perseguição", d:"Torna crime a perseguição repetida, com pena maior quando a vítima é mulher por razão de gênero.", src:[["Planalto: Lei 14.132/2021", SPL + "_ato2019-2022/2021/lei/l14132.htm"]]},
+ {g:"bolso", grp:"mul", ano:"2021", k:"av", o:"con", s:1.5, h:"ok", t:"Crime de violência psicológica e Sinal Vermelho", d:"Cria o crime de violência psicológica contra a mulher e o programa Sinal Vermelho, de pedido de ajuda em farmácias e outros locais.", src:[["Planalto: Lei 14.188/2021", SPL + "_ato2019-2022/2021/lei/l14188.htm"]]},
  {g:"bolso", grp:"mul", ano:"2021", k:"av", o:"con", s:1, h:"ok", t:"Lei Mariana Ferrer", d:"Proíbe ofender a dignidade da vítima em audiências de crimes sexuais.", src:[["Planalto: Lei 14.245/2021", SPL + "_ato2019-2022/2021/lei/l14245.htm"]]},
  {g:"bolso", grp:"mul", ano:"2021", k:"av", o:"con", s:1, h:"ok", t:"Crime de violência política contra a mulher", d:"Torna crime assediar ou constranger candidata ou mulher eleita para impedir ou atrapalhar a campanha ou o mandato.", src:[["Planalto: Lei 14.192/2021", SPL + "_ato2019-2022/2021/lei/l14192.htm"]]},
  {g:"bolso", grp:"mul", ano:"2021", k:"av", o:"exe", s:1, h:"parte", t:"Plano Nacional de Enfrentamento ao Feminicídio", d:"Decreto do governo com metas para prevenir feminicídios. Em 2023 foi substituído pelo Pacto Nacional de Prevenção aos Feminicídios, com o mesmo objetivo.", src:[["Planalto: Decreto 10.906/2021", SPL + "_ato2019-2022/2021/decreto/d10906.htm"],["Senado: Decreto 11.640/2023, que o revogou","https://legis.senado.leg.br/norma/37487139/publicacao/37494788"]]},
- {g:"bolso", grp:"mul", ano:"2022", k:"av", o:"exe", s:1, h:"ok", t:"Programa Emprega + Mulheres", d:"Medida provisória do governo, aprovada como lei: apoio a creche, jornada flexível para mães e regras contra assédio nas empresas.", src:[["Planalto: Lei 14.457/2022", SPL + "_ato2019-2022/2022/lei/l14457.htm"]]},
- {g:"bolso", grp:"mul", ano:"2021", k:"re", o:"exe", s:1, h:"fim", t:"Veto aos absorventes gratuitos", d:"Vetou o trecho central da lei que distribui absorventes a estudantes e mulheres de baixa renda. O Congresso derrubou o veto em março de 2022.", src:[["Senado: derrubado o veto à distribuição de absorventes","https://www12.senado.leg.br/noticias/materias/2022/03/10/derrubado-o-veto-a-distribuicao-de-absorventes-para-mulheres-de-baixa-renda"]]},
+ {g:"bolso", grp:"mul", ano:"2022", k:"av", o:"exe", s:1.5, h:"ok", t:"Programa Emprega + Mulheres", d:"Medida provisória do governo, aprovada como lei: apoio a creche, jornada flexível para mães e regras contra assédio nas empresas.", src:[["Planalto: Lei 14.457/2022", SPL + "_ato2019-2022/2022/lei/l14457.htm"]]},
+ {g:"bolso", grp:"mul", ano:"2021", k:"re", o:"exe", s:1.5, h:"fim", t:"Veto aos absorventes gratuitos", d:"Vetou o trecho central da lei que distribui absorventes a estudantes e mulheres de baixa renda. O Congresso derrubou o veto em março de 2022.", src:[["Senado: derrubado o veto à distribuição de absorventes","https://www12.senado.leg.br/noticias/materias/2022/03/10/derrubado-o-veto-a-distribuicao-de-absorventes-para-mulheres-de-baixa-renda"]]},
  {g:"lula3", grp:"mul", ano:"2023", k:"av", o:"exe", s:1, h:"ok", t:"Ministério das Mulheres", d:"A secretaria criada em 2003 volta a ser ministério próprio.", src:[["Planalto: Lei 14.600/2023", SPL + "_ato2023-2026/2023/lei/l14600.htm"]]},
  {g:"lula3", grp:"mul", ano:"2023", k:"av", o:"exe", s:2, h:"ok", t:"Lei da Igualdade Salarial", d:"Projeto do governo: empresas com 100 ou mais empregados publicam relatório de salários por sexo e pagam multa se houver diferença sem justificativa.", src:[["Planalto: Lei 14.611/2023", SPL + "_ato2023-2026/2023/lei/l14611.htm"]]},
- {g:"lula3", grp:"mul", ano:"2023", k:"av", o:"exe", s:1, h:"ok", t:"Absorventes gratuitos na Farmácia Popular", d:"Decreto que regulamenta a lei de 2021 e põe a distribuição em prática.", src:[["Planalto: Decreto 11.432/2023", SPL + "_ato2023-2026/2023/decreto/d11432.htm"]]},
+ {g:"lula3", grp:"mul", ano:"2023", k:"av", o:"exe", s:1.5, h:"ok", t:"Absorventes gratuitos na Farmácia Popular", d:"Decreto que regulamenta a lei de 2021 e põe a distribuição em prática.", src:[["Planalto: Decreto 11.432/2023", SPL + "_ato2023-2026/2023/decreto/d11432.htm"]]},
  {g:"lula3", grp:"mul", ano:"2023", k:"av", o:"exe", s:1, h:"ok", t:"Pacto Nacional de Prevenção aos Feminicídios", d:"Reúne ações de vários ministérios contra o feminicídio, no lugar do plano de 2021.", src:[["Senado: Decreto 11.640/2023","https://legis.senado.leg.br/norma/37487139/publicacao/37494788"]]},
  {g:"lula3", grp:"mul", ano:"2023", k:"av", o:"con", s:1, h:"ok", t:"Delegacias da mulher abertas 24 horas", d:"Manda as delegacias especializadas funcionarem sem interrupção, inclusive em fins de semana e feriados.", src:[["Planalto: Lei 14.541/2023", SPL + "_ato2023-2026/2023/lei/l14541.htm"]]},
- {g:"lula3", grp:"mul", ano:"2024", k:"av", o:"con", s:1, h:"ok", t:"Pacote antifeminicídio", d:"Torna o feminicídio um crime próprio, com pena de 20 a 40 anos.", src:[["Planalto: Lei 14.994/2024", SPL + "_ato2023-2026/2024/lei/l14994.htm"]]},
+ {g:"lula3", grp:"mul", ano:"2024", k:"av", o:"con", s:1.5, h:"ok", t:"Pacote antifeminicídio", d:"Torna o feminicídio um crime próprio, com pena de 20 a 40 anos.", src:[["Planalto: Lei 14.994/2024", SPL + "_ato2023-2026/2024/lei/l14994.htm"]]},
  {g:"lula3", grp:"mul", ano:"2025", k:"av", o:"con", s:1, h:"ok", t:"Tornozeleira eletrônica para agressores", d:"Permite monitorar o agressor por tornozeleira; em 2026 a monitoração virou medida protetiva própria.", src:[["Wagner Advogados: três novas leis de proteção às mulheres (2026)","https://wagner.adv.br/tres-novas-leis-ampliam-protecao-as-mulheres-e-modernizam-enfrentamento-a-violencia-de-genero/"],["Diario de Pernambuco: Lula sanciona leis em abril de 2026","https://www.diariodepernambuco.com.br/politica/2026/04/11711829-lula-sanciona-leis-que-endurecem-o-combate-a-violencia-contra-a-mulher.html"]]},
 
  // ===== População negra =====
- {g:"lula1", grp:"neg", ano:"2003", k:"av", o:"exe", s:2, h:"ok", t:"Secretaria de Igualdade Racial (Seppir)", d:"Primeiro órgão federal dedicado à igualdade racial, com status de ministério. Virou o Ministério da Igualdade Racial em 2023.", src:[["Planalto: Lei 10.678/2003", SPL + "leis/2003/l10.678.htm"]]},
+ {g:"lula1", grp:"neg", ano:"2003", k:"av", o:"exe", s:2, h:"div", t:"Secretaria de Igualdade Racial (Seppir)", d:"Primeiro órgão federal dedicado à igualdade racial, com status de ministério. Virou o Ministério da Igualdade Racial em 2023.", src:[["Planalto: Lei 10.678/2003", SPL + "leis/2003/l10.678.htm"]]},
  {g:"lula1", grp:"neg", ano:"2003", k:"av", o:"con", s:2, h:"ok", t:"História afro-brasileira nas escolas", d:"Torna obrigatório o ensino de história e cultura afro-brasileira. Projeto do Congresso, sancionado no 9º dia de governo.", src:[["Planalto: Lei 10.639/2003", SPL + "leis/2003/l10.639.htm"]]},
- {g:"lula2", grp:"neg", ano:"2010", k:"av", o:"con", s:2, h:"ok", t:"Estatuto da Igualdade Racial", d:"Projeto do senador Paulo Paim que reúne regras contra a discriminação e de ação afirmativa em saúde, educação, trabalho e cultura.", src:[["Planalto: Lei 12.288/2010", SPL + "_ato2007-2010/2010/lei/l12288.htm"]]},
+ {g:"lula2", grp:"neg", ano:"2010", k:"av", o:"con", s:2.5, h:"ok", t:"Estatuto da Igualdade Racial", d:"Projeto do senador Paulo Paim que reúne regras contra a discriminação e de ação afirmativa em saúde, educação, trabalho e cultura.", src:[["Planalto: Lei 12.288/2010", SPL + "_ato2007-2010/2010/lei/l12288.htm"]]},
  {g:"dilma1", grp:"neg", ano:"2012", k:"av", o:"con", s:3, h:"ok", t:"Lei de Cotas nas universidades federais", d:"Metade das vagas para alunos de escola pública, com reserva para pretos, pardos e indígenas. O projeto tramitava desde 1999. Foi renovada em 2023.", src:[["Planalto: Lei 12.711/2012", SPL + "_ato2011-2014/2012/lei/l12711.htm"]]},
- {g:"dilma1", grp:"neg", ano:"2014", k:"av", o:"exe", s:2, h:"parte", t:"Cotas raciais em concursos federais", d:"Projeto do governo que reservou 20% das vagas a candidatos negros. Em 2025 foi revogada e substituída por uma lei que ampliou a cota para 30%.", src:[["Planalto: Lei 12.990/2014", SPL + "_ato2011-2014/2014/lei/l12990.htm"]]},
+ {g:"dilma1", grp:"neg", ano:"2014", k:"av", o:"exe", s:2, h:"div", t:"Cotas raciais em concursos federais", d:"Projeto do governo que reservou 20% das vagas a candidatos negros. Em 2025 foi revogada e substituída por uma lei que ampliou a cota para 30%.", src:[["Planalto: Lei 12.990/2014", SPL + "_ato2011-2014/2014/lei/l12990.htm"]]},
  {g:"lula3", grp:"neg", ano:"2023", k:"av", o:"exe", s:1, h:"ok", t:"Ministério da Igualdade Racial", d:"A secretaria de 2003 volta a ser ministério próprio.", src:[["Planalto: Lei 14.600/2023", SPL + "_ato2023-2026/2023/lei/l14600.htm"]]},
  {g:"lula3", grp:"neg", ano:"2023", k:"av", o:"con", s:2, h:"ok", t:"Injúria racial passa a ser racismo", d:"Ofensa racial vira crime de racismo, com pena maior, inafiançável e sem prescrição.", src:[["Planalto: Lei 14.532/2023", SPL + "_ato2023-2026/2023/lei/l14532.htm"]]},
- {g:"lula3", grp:"neg", ano:"2023", k:"av", o:"con", s:1, h:"ok", t:"Renovação da Lei de Cotas", d:"Mantém as cotas nas universidades federais e inclui estudantes quilombolas.", src:[["Planalto: Lei 14.723/2023", SPL + "_ato2023-2026/2023/lei/l14723.htm"]]},
+ {g:"lula3", grp:"neg", ano:"2023", k:"av", o:"con", s:1.5, h:"ok", t:"Renovação da Lei de Cotas", d:"Mantém as cotas nas universidades federais e inclui estudantes quilombolas.", src:[["Planalto: Lei 14.723/2023", SPL + "_ato2023-2026/2023/lei/l14723.htm"]]},
  {g:"lula3", grp:"neg", ano:"2025", k:"av", o:"con", s:2, h:"ok", t:"Cota de 30% em concursos federais", d:"Projeto do senador Paulo Paim. Amplia a cota de 20% para 30% e inclui indígenas e quilombolas.", src:[["Planalto: Lei 15.142/2025", SPL + "_ato2023-2026/2025/lei/l15142.htm"],["Rádio Senado: sancionada lei que amplia cotas","https://www12.senado.leg.br/radio/1/noticia/2025/06/06/sancionada-lei-que-retoma-e-amplia-cotas-raciais-em-concursos-publicos-federais"]]},
 
  // ===== Indígenas e quilombolas =====
@@ -4328,60 +4377,60 @@ var SOC = [
  {g:"lula1", grp:"ind", ano:"2003–06", k:"av", o:"exe", s:3, h:"ok", ti:66, t:"66 terras indígenas homologadas", d:"Inclui a Raposa Serra do Sol, em Roraima (2005). Cada 10 terras valem 1 estrela, até o limite de 3.", src:[["Fundação FHC: linha do tempo da questão indígena","https://fundacaofhc.org.br/linhasdotempo/questao-indigena/"]]},
  {g:"lula1", grp:"ind", ano:"2003", k:"av", o:"exe", s:2, h:"ok", t:"Regras para titular terras quilombolas", d:"Define como o Incra reconhece e titula os territórios quilombolas. O STF confirmou a validade do decreto em 2018.", src:[["Planalto: Decreto 4.887/2003", SPL + "decreto/2003/d4887.htm"]]},
  {g:"lula2", grp:"ind", ano:"2007–10", k:"av", o:"exe", s:2.1, h:"ok", ti:21, t:"21 terras indígenas homologadas", d:"Cada 10 terras valem 1 estrela, até o limite de 3.", src:[["Fundação FHC: linha do tempo da questão indígena","https://fundacaofhc.org.br/linhasdotempo/questao-indigena/"]]},
- {g:"lula2", grp:"ind", ano:"2008", k:"av", o:"con", s:1, h:"ok", t:"História indígena nas escolas", d:"Amplia a lei de 2003 para incluir a história e a cultura dos povos indígenas.", src:[["Planalto: Lei 11.645/2008", SPL + "_ato2007-2010/2008/lei/l11645.htm"]]},
+ {g:"lula2", grp:"ind", ano:"2008", k:"av", o:"con", s:1.5, h:"ok", t:"História indígena nas escolas", d:"Amplia a lei de 2003 para incluir a história e a cultura dos povos indígenas.", src:[["Planalto: Lei 11.645/2008", SPL + "_ato2007-2010/2008/lei/l11645.htm"]]},
  {g:"dilma1", grp:"ind", ano:"2011–14", k:"av", o:"exe", s:1.1, h:"ok", ti:11, t:"11 terras indígenas homologadas", d:"Cada 10 terras valem 1 estrela, até o limite de 3.", src:[["Fundação FHC: linha do tempo da questão indígena","https://fundacaofhc.org.br/linhasdotempo/questao-indigena/"]]},
  {g:"dilma1", grp:"ind", ano:"2012", k:"av", o:"exe", s:1, h:"ok", t:"Política de gestão das terras indígenas (PNGATI)", d:"Diretrizes para proteção ambiental e uso sustentável das terras indígenas, com participação dos povos.", src:[["Planalto: Decreto 7.747/2012", SPL + "_ato2011-2014/2012/decreto/d7747.htm"]]},
  {g:"dilma2", grp:"ind", ano:"2015–16", k:"av", o:"exe", s:1, h:"ok", ti:10, t:"10 terras indígenas homologadas", d:"Em pouco mais de um ano de mandato. Cada 10 terras valem 1 estrela, até o limite de 3.", src:[["Fundação FHC: linha do tempo da questão indígena","https://fundacaofhc.org.br/linhasdotempo/questao-indigena/"]]},
  {g:"temer", grp:"ind", ano:"2016–18", k:"av", o:"exe", s:0.1, h:"ok", ti:1, t:"1 terra indígena homologada", d:"Cada 10 terras valem 1 estrela, até o limite de 3.", src:[["Metrópoles: dados do Cimi sobre demarcações (ago/2026)","https://www.metropoles.com/brasil/lula-registra-menor-media-de-terras-indigenas-demarcadas-no-3o-mandato"]]},
- {g:"temer", grp:"ind", ano:"2017", k:"re", o:"exe", s:1, h:"fim", t:"Parecer da AGU adota o marco temporal", d:"Mandou a administração federal aplicar o marco temporal nas demarcações. Foi suspenso pelo STF em 2020.", src:[["ISA: julgamento no STF sobre o futuro das terras indígenas","https://site-antigo.socioambiental.org/pt-br/print/6791"]]},
+ {g:"temer", grp:"ind", ano:"2017", k:"re", o:"exe", s:1.5, h:"fim", t:"Parecer da AGU adota o marco temporal", d:"Mandou a administração federal aplicar o marco temporal nas demarcações. Foi suspenso pelo STF em 2020.", src:[["ISA: julgamento no STF sobre o futuro das terras indígenas","https://site-antigo.socioambiental.org/pt-br/print/6791"]]},
  {g:"bolso", grp:"ind", ano:"2019–22", k:"av", o:"exe", s:0, h:"ok", ti:0, t:"Nenhuma terra indígena homologada", d:"Nenhuma homologação nos quatro anos, segundo o Cimi. Cada 10 terras valem 1 estrela.", src:[["Metrópoles: dados do Cimi sobre demarcações (ago/2026)","https://www.metropoles.com/brasil/lula-registra-menor-media-de-terras-indigenas-demarcadas-no-3o-mandato"]]},
  {g:"lula3", grp:"ind", ano:"2023–26", k:"av", o:"exe", s:2, h:"ok", ti:20, t:"20 terras indígenas homologadas", d:"De jan/2023 a nov/2025, segundo o Cimi (dado divulgado em ago/2026). Cada 10 terras valem 1 estrela, até o limite de 3.", src:[["Metrópoles: dados do Cimi sobre demarcações (ago/2026)","https://www.metropoles.com/brasil/lula-registra-menor-media-de-terras-indigenas-demarcadas-no-3o-mandato"],["Mídia Indígena: 20 terras homologadas até nov/2025","https://midiaindigena.com.br/sem-categoria/18/11/2025/legado-da-cop30-veja-quais-terras-indigenas-foram-homologadas-pelo-presidente-lula/"]]},
  {g:"lula3", grp:"ind", ano:"2023", k:"av", o:"exe", s:2, h:"ok", t:"Ministério dos Povos Indígenas", d:"Primeiro ministério dedicado aos povos indígenas, comandado por uma ministra indígena.", src:[["Planalto: Lei 14.600/2023", SPL + "_ato2023-2026/2023/lei/l14600.htm"]]},
  {g:"lula3", grp:"ind", ano:"2023", k:"av", o:"exe", s:1, h:"ok", t:"Programa Aquilomba Brasil", d:"Reúne ações para comunidades quilombolas, como titulação de terras, infraestrutura e cultura.", src:[["Mayer Brown: governo cria o Aquilomba Brasil (mar/2023)","https://www.mayerbrown.com/pt/insights/publications/2023/03/governo-federal-edita-novo-programa-para-promocao-da-igualdade-racial-e-garantia-de-direitos-a-comunidades-quilombolas"]]},
 
  // ===== Pessoas com deficiência =====
- {g:"fhc", grp:"pcd", ano:"1999", k:"av", o:"exe", s:1, h:"parte", t:"Política Nacional para a Pessoa com Deficiência", d:"Decreto que organiza a política federal para pessoas com deficiência. A parte sobre concursos foi revogada em 2018.", src:[["Planalto: Decreto 3.298/1999", SPL + "decreto/d3298.htm"]]},
+ {g:"fhc", grp:"pcd", ano:"1999", k:"av", o:"exe", s:1.5, h:"parte", t:"Política Nacional para a Pessoa com Deficiência", d:"Decreto que organiza a política federal para pessoas com deficiência. A parte sobre concursos foi revogada em 2018.", src:[["Planalto: Decreto 3.298/1999", SPL + "decreto/d3298.htm"]]},
  {g:"fhc", grp:"pcd", ano:"2000", k:"av", o:"con", s:2, h:"ok", t:"Leis de acessibilidade e atendimento prioritário", d:"Normas de acessibilidade em prédios, transportes e comunicação, e prioridade no atendimento.", src:[["Planalto: Lei 10.098/2000", SPL + "leis/l10098.htm"],["Planalto: Lei 10.048/2000", SPL + "leis/l10048.htm"]]},
  {g:"fhc", grp:"pcd", ano:"2002", k:"av", o:"con", s:2, h:"ok", t:"Libras reconhecida como língua", d:"A Língua Brasileira de Sinais passa a ser meio legal de comunicação.", src:[["Planalto: Lei 10.436/2002", SPL + "leis/2002/l10436.htm"]]},
- {g:"lula1", grp:"pcd", ano:"2004", k:"av", o:"exe", s:1, h:"ok", t:"Decreto da acessibilidade", d:"Regulamenta as leis de 2000 com prazos para adaptar prédios, transporte e comunicação.", src:[["Planalto: Decreto 5.296/2004", SPL + "_ato2004-2006/2004/decreto/d5296.htm"]]},
+ {g:"lula1", grp:"pcd", ano:"2004", k:"av", o:"exe", s:1.5, h:"ok", t:"Decreto da acessibilidade", d:"Regulamenta as leis de 2000 com prazos para adaptar prédios, transporte e comunicação.", src:[["Planalto: Decreto 5.296/2004", SPL + "_ato2004-2006/2004/decreto/d5296.htm"]]},
  {g:"lula2", grp:"pcd", ano:"2008", k:"av", o:"exe", s:2, h:"ok", t:"Alunos com deficiência na escola comum", d:"Política do MEC que prioriza a matrícula em classes comuns, com atendimento especializado.", src:[["MEC: Política Nacional de Educação Especial na Perspectiva da Educação Inclusiva (cópia da Ufes)","https://gestaoeducacaoespecial.ufes.br/sites/gestaoeducacaoespecial.ufes.br/files/field/anexo/politicaeducespecial.pdf"]]},
- {g:"lula2", grp:"pcd", ano:"2009", k:"av", o:"exe", s:2, h:"ok", t:"Convenção da ONU com força de emenda constitucional", d:"Primeiro tratado aprovado pelo Congresso com o rito de emenda à Constituição e promulgado pelo governo.", src:[["Planalto: Decreto 6.949/2009", SPL + "_ato2007-2010/2009/decreto/d6949.htm"]]},
- {g:"dilma1", grp:"pcd", ano:"2011", k:"av", o:"exe", s:2, h:"parte", t:"Plano Viver sem Limite", d:"Plano com metas de acessibilidade, saúde, educação e inclusão. Terminou em 2014 e foi relançado em 2023.", src:[["Planalto: Decreto 7.612/2011", SPL + "_ato2011-2014/2011/decreto/d7612.htm"]]},
+ {g:"lula2", grp:"pcd", ano:"2009", k:"av", o:"exe", s:2.5, h:"ok", t:"Convenção da ONU com força de emenda constitucional", d:"Primeiro tratado aprovado pelo Congresso com o rito de emenda à Constituição e promulgado pelo governo.", src:[["Planalto: Decreto 6.949/2009", SPL + "_ato2007-2010/2009/decreto/d6949.htm"]]},
+ {g:"dilma1", grp:"pcd", ano:"2011", k:"av", o:"exe", s:2, h:"div", t:"Plano Viver sem Limite", d:"Plano com metas de acessibilidade, saúde, educação e inclusão. Terminou em 2014 e foi relançado em 2023.", src:[["Planalto: Decreto 7.612/2011", SPL + "_ato2011-2014/2011/decreto/d7612.htm"]]},
  {g:"dilma1", grp:"pcd", ano:"2012", k:"av", o:"con", s:2, h:"ok", t:"Lei do autismo (Berenice Piana)", d:"Reconhece a pessoa autista como pessoa com deficiência para todos os efeitos legais.", src:[["Planalto: Lei 12.764/2012", SPL + "_ato2011-2014/2012/lei/l12764.htm"]]},
  {g:"dilma2", grp:"pcd", ano:"2015", k:"av", o:"con", s:3, h:"ok", t:"Lei Brasileira de Inclusão", d:"O Estatuto da Pessoa com Deficiência: acessibilidade, educação inclusiva, trabalho e capacidade civil.", src:[["Planalto: Lei 13.146/2015", SPL + "_ato2015-2018/2015/lei/l13146.htm"]]},
- {g:"temer", grp:"pcd", ano:"2016", k:"av", o:"con", s:1, h:"ok", t:"Cotas para pessoas com deficiência nas federais", d:"Inclui pessoas com deficiência nas cotas das universidades e escolas técnicas federais.", src:[["Planalto: Lei 13.409/2016", SPL + "_ato2015-2018/2016/lei/l13409.htm"]]},
+ {g:"temer", grp:"pcd", ano:"2016", k:"av", o:"con", s:1.5, h:"ok", t:"Cotas para pessoas com deficiência nas federais", d:"Inclui pessoas com deficiência nas cotas das universidades e escolas técnicas federais.", src:[["Planalto: Lei 13.409/2016", SPL + "_ato2015-2018/2016/lei/l13409.htm"]]},
  {g:"bolso", grp:"pcd", ano:"2020", k:"av", o:"con", s:1, h:"ok", t:"Carteira do autista (Lei Romeo Mion)", d:"Cria a carteira de identificação da pessoa com autismo, para garantir prioridade no atendimento.", src:[["Planalto: Lei 13.977/2020", SPL + "_ato2019-2022/2020/lei/l13977.htm"]]},
  {g:"bolso", grp:"pcd", ano:"2021", k:"av", o:"exe", s:2, h:"ok", t:"Auxílio-inclusão", d:"Meio salário mínimo para quem recebia o BPC e consegue um emprego. Estava previsto na lei de 2015 e saiu por medida provisória do governo.", src:[["Planalto: Lei 14.176/2021", SPL + "_ato2019-2022/2021/lei/l14176.htm"]]},
  {g:"bolso", grp:"pcd", ano:"2020", k:"re", o:"exe", s:2, h:"fim", t:"Decreto da educação especial", d:"Abria caminho para escolas e classes separadas para alunos com deficiência. Foi suspenso pelo STF em dezembro de 2020 e revogado em 2023.", src:[["Correio Braziliense: revogação do decreto (jan/2023)","https://www.correiobraziliense.com.br/euestudante/educacao-basica/2023/01/5064046-entidades-comemoram-revogacao-do-decreto-da-exclusao.html"]]},
  {g:"lula3", grp:"pcd", ano:"2023", k:"av", o:"exe", s:2, h:"ok", t:"Novo Viver sem Limite", d:"Relança o plano de 2011, com R$ 6,5 bi previstos em quatro anos.", src:[["Poder360: governo lança programa para pessoas com deficiência", "https://www.poder360.com.br/anuncios-do-governo/governo-lanca-programa-para-direitos-de-pessoas-com-deficiencia/"],["Planalto: Decreto 11.793/2023", SPL + "_ato2023-2026/2023/decreto/d11793.htm"]]},
- {g:"lula3", grp:"pcd", ano:"2024", k:"re", o:"exe", s:1, h:"ok", t:"Regras mais duras no BPC", d:"O pacote de corte de gastos passou a exigir CID, biometria e cadastro atualizado. Lula vetou a exigência de deficiência moderada ou grave.", src:[["LegisWeb: sancionada com veto lei que endurece regras do BPC","https://www.legisweb.com.br/noticia/?id=29947"],["Diário do Comércio: o que muda no BPC","https://diariodocomercio.com.br/legislacao/lula-sanciona-projeto-lei-bpc-corte-gastos/"]]},
+ {g:"lula3", grp:"pcd", ano:"2024", k:"re", o:"exe", s:1.5, h:"ok", t:"Regras mais duras no BPC", d:"O pacote de corte de gastos passou a exigir CID, biometria e cadastro atualizado. Lula vetou a exigência de deficiência moderada ou grave.", src:[["LegisWeb: sancionada com veto lei que endurece regras do BPC","https://www.legisweb.com.br/noticia/?id=29947"],["Diário do Comércio: o que muda no BPC","https://diariodocomercio.com.br/legislacao/lula-sanciona-projeto-lei-bpc-corte-gastos/"]]},
 
  // ===== LGBT+ =====
  {g:"lula1", grp:"lgb", ano:"2004", k:"av", o:"exe", s:1, h:"parte", t:"Programa Brasil sem Homofobia", d:"Primeiro programa federal contra a discriminação de pessoas LGBT, com ações em saúde, educação e segurança. Perdeu força nos anos seguintes.", src:[["Ministério da Saúde: Brasil sem Homofobia (2004)","https://bvsms.saude.gov.br/bvs/publicacoes/brasil_sem_homofobia.pdf"]]},
  {g:"lula2", grp:"lgb", ano:"2008", k:"av", o:"exe", s:2, h:"parte", t:"Processo transexualizador no SUS", d:"Cirurgias e acompanhamento para pessoas trans passam a ser oferecidos pelo SUS. A portaria foi substituída em 2013 por outra mais ampla.", src:[["Ministério da Saúde: Portaria 1.707/2008","https://bvsms.saude.gov.br/bvs/saudelegis/gm/2008/prt1707_18_08_2008.html"]]},
  {g:"dilma1", grp:"lgb", ano:"2011", k:"re", o:"exe", s:1, h:"ok", t:"Cancela o kit Escola sem Homofobia", d:"Depois da pressão de bancadas religiosas, o governo cancelou o material contra a homofobia preparado para as escolas.", src:[["Câmara: pressão de bancadas faz governo cancelar kit","https://www.camara.leg.br/noticias/215309-pressao-de-bancadas-faz-governo-cancelar-kit-sobre-homossexualidade"]]},
  {g:"dilma1", grp:"lgb", ano:"2013", k:"av", o:"exe", s:1, h:"ok", t:"Processo transexualizador ampliado", d:"Inclui homens trans e atendimento ambulatorial no SUS.", src:[["Ministério da Saúde: Portaria 2.803/2013","https://bvsms.saude.gov.br/bvs/saudelegis/gm/2013/prt2803_19_11_2013.html"]]},
- {g:"dilma1", grp:"lgb", ano:"2013", k:"av", o:"jud", s:2, h:"ok", t:"Casamento civil entre pessoas do mesmo sexo", d:"Decisão do Conselho Nacional de Justiça, depois de julgamento do STF em 2011. Não é medida de governo e não conta pontos.", src:[["CNJ: Resolução 175/2013","https://atos.cnj.jus.br/atos/detalhar/1754"]]},
+ {g:"dilma1", grp:"lgb", ano:"2013", k:"av", o:"jud", s:2.5, h:"ok", t:"Casamento civil entre pessoas do mesmo sexo", d:"Decisão do Conselho Nacional de Justiça, depois de julgamento do STF em 2011. Não é medida de governo e não conta pontos.", src:[["CNJ: Resolução 175/2013","https://atos.cnj.jus.br/atos/detalhar/1754"]]},
  {g:"dilma2", grp:"lgb", ano:"2016", k:"av", o:"exe", s:1, h:"ok", t:"Nome social na administração federal", d:"Pessoas trans podem usar o nome social em órgãos federais.", src:[["Planalto: Decreto 8.727/2016", SPL + "_ato2015-2018/2016/decreto/d8727.htm"]]},
- {g:"bolso", grp:"lgb", ano:"2019", k:"re", o:"exe", s:2, h:"fim", t:"Tira a população LGBT das diretrizes de Direitos Humanos", d:"A medida provisória que reorganizou os ministérios deixou de citar a população LGBT e acabou com a diretoria específica. Foi revertido em 2023.", src:[["Poder360: Bolsonaro retira população LGBT de diretrizes","https://www.poder360.com.br/governo/bolsonaro-retira-populacao-lgbt-de-diretrizes-de-direitos-humanos/"]]},
+ {g:"bolso", grp:"lgb", ano:"2019", k:"re", o:"exe", s:1.5, h:"fim", t:"Tira a população LGBT das diretrizes de Direitos Humanos", d:"A medida provisória que reorganizou os ministérios deixou de citar a população LGBT e acabou com a diretoria específica. Foi revertido em 2023.", src:[["Poder360: Bolsonaro retira população LGBT de diretrizes","https://www.poder360.com.br/governo/bolsonaro-retira-populacao-lgbt-de-diretrizes-de-direitos-humanos/"]]},
  {g:"bolso", grp:"lgb", ano:"2019", k:"av", o:"jud", s:2, h:"ok", t:"Homofobia passa a ser punida como racismo", d:"Decisão do STF diante da falta de lei do Congresso. Não é medida de governo e não conta pontos.", src:[["STF: homofobia e transfobia enquadradas como racismo","https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=414010"]]},
  {g:"lula3", grp:"lgb", ano:"2023", k:"av", o:"exe", s:1, h:"ok", t:"Conselho e secretaria LGBTQIA+", d:"Recria o conselho nacional e uma secretaria específica no Ministério dos Direitos Humanos.", src:[["Poder360: governo cria conselho LGBTQIA+","https://www.poder360.com.br/governo/governo-cria-conselho-para-direitos-das-pessoas-lgbtqia/"],["Senado: Decreto 11.471/2023","https://legis.senado.leg.br/norma/36950736/publicacao/36952596"]]},
 
  // ===== Idosos, crianças e adolescentes =====
  {g:"fhc", grp:"ger", ano:"1996", k:"av", o:"exe", s:2, h:"parte", t:"Programa de Erradicação do Trabalho Infantil (Peti)", d:"Bolsa para famílias tirarem os filhos do trabalho. Foi integrado ao Bolsa Família em 2005 e entrou na Loas em 2011.", src:[["Planalto: Lei 12.435/2011 (Loas), que inclui o Peti", SPL + "_ato2011-2014/2011/lei/l12435.htm"]]},
- {g:"fhc", grp:"ger", ano:"1999", k:"re", o:"exe", s:1, h:"parte", t:"Fator previdenciário", d:"Reduz a aposentadoria de quem para cedo. Ganhou uma alternativa em 2015 e só sobrou em uma regra de transição depois de 2019.", src:[["Planalto: Lei 9.876/1999", SPL + "leis/l9876.htm"]]},
+ {g:"fhc", grp:"ger", ano:"1999", k:"re", o:"exe", s:1.5, h:"parte", t:"Fator previdenciário", d:"Reduz a aposentadoria de quem para cedo. Ganhou uma alternativa em 2015 e só sobrou em uma regra de transição depois de 2019.", src:[["Planalto: Lei 9.876/1999", SPL + "leis/l9876.htm"]]},
  {g:"lula1", grp:"ger", ano:"2003", k:"av", o:"con", s:3, h:"ok", t:"Estatuto do Idoso", d:"Projeto de Paulo Paim (1997). BPC a partir de 65 anos, ônibus gratuito, prioridade e punição a maus-tratos.", src:[["Planalto: Lei 10.741/2003", SPL + "leis/2003/l10.741.htm"]]},
- {g:"lula1", grp:"ger", ano:"2003", k:"re", o:"exe", s:1, h:"ok", t:"Aposentados do serviço público passam a contribuir", d:"A reforma da Previdência de 2003 cobrou contribuição de servidores já aposentados.", src:[["Planalto: Emenda Constitucional 41/2003", SPL + "constituicao/emendas/emc/emc41.htm"]]},
+ {g:"lula1", grp:"ger", ano:"2003", k:"re", o:"exe", s:1.5, h:"ok", t:"Aposentados do serviço público passam a contribuir", d:"A reforma da Previdência de 2003 cobrou contribuição de servidores já aposentados.", src:[["Planalto: Emenda Constitucional 41/2003", SPL + "constituicao/emendas/emc/emc41.htm"]]},
  {g:"lula2", grp:"ger", ano:"2008–09", k:"av", o:"con", s:2, h:"ok", t:"Leis contra o abuso sexual infantil", d:"Crimes de pornografia infantil na internet (2008) e de estupro de vulnerável (2009), vindos das CPIs do Congresso.", src:[["Planalto: Lei 12.015/2009", SPL + "_ato2007-2010/2009/lei/l12015.htm"],["Planalto: Lei 11.829/2008", SPL + "_ato2007-2010/2008/lei/l11829.htm"]]},
- {g:"dilma1", grp:"ger", ano:"2014", k:"av", o:"exe", s:1, h:"ok", t:"Lei Menino Bernardo", d:"Proíbe castigos físicos em crianças. O projeto foi enviado pelo governo Lula em 2010.", src:[["Planalto: Lei 13.010/2014", SPL + "_ato2011-2014/2014/lei/l13010.htm"]]},
+ {g:"dilma1", grp:"ger", ano:"2014", k:"av", o:"exe", s:1.5, h:"ok", t:"Lei Menino Bernardo", d:"Proíbe castigos físicos em crianças. O projeto foi enviado pelo governo Lula em 2010.", src:[["Planalto: Lei 13.010/2014", SPL + "_ato2011-2014/2014/lei/l13010.htm"]]},
  {g:"dilma2", grp:"ger", ano:"2016", k:"av", o:"con", s:2, h:"ok", t:"Marco Legal da Primeira Infância", d:"Prioridade para crianças de até 6 anos e licença-paternidade de 20 dias nas empresas do Empresa Cidadã.", src:[["Planalto: Lei 13.257/2016", SPL + "_ato2015-2018/2016/lei/l13257.htm"]]},
- {g:"dilma2", grp:"ger", ano:"2015", k:"av", o:"exe", s:1, h:"parte", t:"Fórmula 85/95 na aposentadoria", d:"Medida provisória do governo que permitiu fugir do fator previdenciário. Virou regra de transição na reforma de 2019.", src:[["Planalto: Lei 13.183/2015", SPL + "_ato2015-2018/2015/lei/l13183.htm"]]},
- {g:"dilma2", grp:"ger", ano:"2015", k:"re", o:"exe", s:1, h:"ok", t:"Regras mais duras para a pensão por morte", d:"Medida provisória do ajuste fiscal: carência e duração da pensão conforme a idade do viúvo ou da viúva.", src:[["Planalto: Lei 13.135/2015", SPL + "_ato2015-2018/2015/lei/l13135.htm"]]},
- {g:"temer", grp:"ger", ano:"2016", k:"av", o:"exe", s:1, h:"ok", t:"Programa Criança Feliz", d:"Visitas em casa a gestantes e famílias com crianças pequenas do Bolsa Família.", src:[["Planalto: Decreto 8.869/2016", SPL + "_ato2015-2018/2016/decreto/d8869.htm"],["Planalto: Decreto 9.579/2018, que consolidou o programa", SPL + "_ato2015-2018/2018/decreto/d9579.htm"]]},
- {g:"temer", grp:"ger", ano:"2017", k:"av", o:"con", s:1, h:"ok", t:"Escuta protegida de crianças vítimas", d:"Crianças vítimas ou testemunhas de violência são ouvidas uma vez, por profissional treinado.", src:[["Planalto: Lei 13.431/2017", SPL + "_ato2015-2018/2017/lei/l13431.htm"]]},
+ {g:"dilma2", grp:"ger", ano:"2015", k:"av", o:"exe", s:1.5, h:"parte", t:"Fórmula 85/95 na aposentadoria", d:"Medida provisória do governo que permitiu fugir do fator previdenciário. Virou regra de transição na reforma de 2019.", src:[["Planalto: Lei 13.183/2015", SPL + "_ato2015-2018/2015/lei/l13183.htm"]]},
+ {g:"dilma2", grp:"ger", ano:"2015", k:"re", o:"exe", s:1.5, h:"ok", t:"Regras mais duras para a pensão por morte", d:"Medida provisória do ajuste fiscal: carência e duração da pensão conforme a idade do viúvo ou da viúva.", src:[["Planalto: Lei 13.135/2015", SPL + "_ato2015-2018/2015/lei/l13135.htm"]]},
+ {g:"temer", grp:"ger", ano:"2016", k:"av", o:"exe", s:1.5, h:"ok", t:"Programa Criança Feliz", d:"Visitas em casa a gestantes e famílias com crianças pequenas do Bolsa Família.", src:[["Planalto: Decreto 8.869/2016", SPL + "_ato2015-2018/2016/decreto/d8869.htm"],["Planalto: Decreto 9.579/2018, que consolidou o programa", SPL + "_ato2015-2018/2018/decreto/d9579.htm"]]},
+ {g:"temer", grp:"ger", ano:"2017", k:"av", o:"con", s:1.5, h:"ok", t:"Escuta protegida de crianças vítimas", d:"Crianças vítimas ou testemunhas de violência são ouvidas uma vez, por profissional treinado.", src:[["Planalto: Lei 13.431/2017", SPL + "_ato2015-2018/2017/lei/l13431.htm"]]},
  {g:"bolso", grp:"ger", ano:"2022", k:"av", o:"con", s:2, h:"ok", t:"Lei Henry Borel", d:"Medidas protetivas para crianças vítimas de violência doméstica e pena maior para homicídio de menores de 14 anos.", src:[["Planalto: Lei 14.344/2022", SPL + "_ato2019-2022/2022/lei/l14344.htm"]]},
- {g:"bolso", grp:"ger", ano:"2019", k:"re", o:"exe", s:1, h:"ok", t:"Reforma da Previdência reduz pensões futuras", d:"A pensão por morte passou a 50% mais 10% por dependente, e a aposentadoria ficou mais longe para muitos. No placar PT × PL, a mesma reforma conta como feito fiscal; aqui conta só o efeito sobre os benefícios.", src:[["Planalto: Emenda Constitucional 103/2019", SPL + "constituicao/emendas/emc/emc103.htm"]]},
- {g:"lula3", grp:"ger", ano:"2024", k:"av", o:"con", s:1, h:"ok", t:"Bullying e cyberbullying viram crime", d:"Inclui os dois crimes no Código Penal e cria medidas de proteção a crianças e adolescentes.", src:[["Planalto: Lei 14.811/2024", SPL + "_ato2023-2026/2024/lei/l14811.htm"]]},
+ {g:"bolso", grp:"ger", ano:"2019", k:"re", o:"exe", s:2, h:"ok", t:"Reforma da Previdência reduz pensões futuras", d:"A pensão por morte passou a 50% mais 10% por dependente, e a aposentadoria ficou mais longe para muitos. No placar PT × PL, a mesma reforma conta como feito fiscal; aqui conta só o efeito sobre os benefícios.", src:[["Planalto: Emenda Constitucional 103/2019", SPL + "constituicao/emendas/emc/emc103.htm"]]},
+ {g:"lula3", grp:"ger", ano:"2024", k:"av", o:"con", s:1.5, h:"ok", t:"Bullying e cyberbullying viram crime", d:"Inclui os dois crimes no Código Penal e cria medidas de proteção a crianças e adolescentes.", src:[["Planalto: Lei 14.811/2024", SPL + "_ato2023-2026/2024/lei/l14811.htm"]]},
  {g:"lula3", grp:"ger", ano:"2025", k:"av", o:"con", s:2, h:"ok", t:"ECA Digital", d:"Regras de proteção de crianças em redes sociais, jogos e lojas de aplicativos. Projeto do Senado, em vigor desde março de 2026.", src:[["Senado: Lei 15.211/2025","https://legis.senado.leg.br/norma/41465823"]]}
 ];
 SOC.forEach(function(it, i){ it.id = "soc" + i; });
@@ -4480,7 +4529,7 @@ var FORCA = [
 /* ---------- notas: sociedade, pobreza e geral ---------- */
 function socPts(it){
   var cr = it.o === "exe" ? 1 : (it.o === "con" ? S.socCon : 0);
-  var hf = !S.hoje ? 1 : (it.k === "re" ? ({ok:1, cumpr:1, parte:0.75, fim:0.5})[it.h] : HOJE[it.h].f);
+  var hf = !S.hoje ? 1 : (it.k === "re" ? ({ok:1, cumpr:1, parte:0.75, div:0.875, fim:0.5})[it.h] : HOJE[it.h].f);
   var v = it.s * cr * hf * efSoc(it).f;
   return it.k === "re" ? -v * S.socRe : v;
 }
@@ -4490,7 +4539,7 @@ function socPts(it){
    Nota de indicador (0 a 10) = 10 · limitar((x − piso) / (meta − piso), 0, 1). O piso vale 0 e a meta vale 10;
    para "quanto menor, melhor" a meta fica abaixo do piso e a mesma fórmula serve. As âncoras não dependem dos governos comparados. */
 var NG = {
-  ver: "7.0",
+  ver: "7.1",
   anc: {
     eco:{pib:[-5,3], renda:[-5,5], sm:[-1,5], inf:[13.5,4.5], des:[2,-1], carga:[0.5,-0.5]},
     pov:{gini:[1,-1], pob:[25,-25]},
