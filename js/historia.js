@@ -6,7 +6,9 @@
   var ROT = { eco: "Bolso e emprego", pov: "Pobreza e desigualdade", soc: "Direitos e minorias", sau: "Saúde", seg: "Segurança", edu: "Educação", amb: "Floresta e clima", fut: "Contas do país", prl: "Feitos e promessas", int: "Honestidade (corrupção)" };
   var ORD = ["eco", "pov", "sau", "seg", "edu", "int", "fut", "amb", "soc", "prl"];
   var PRE = [
-    { id: "pad", t: "Neutro (cada indicador igual)", w: null },
+    { id: "pad", t: "Prioridades da população", w: null },
+    { id: "tema", t: "Cada tema igual", w: { eco: 10, pov: 10, sau: 10, seg: 10, edu: 10, soc: 10, amb: 10, fut: 10, prl: 10, int: 10 } },
+    { id: "ind", t: "Cada indicador igual", w: { eco: 18, pov: 6, sau: 6, seg: 3, edu: 6, soc: 18, amb: 9, fut: 12, prl: 6, int: 6 } },
     { id: "bol", t: "Meu bolso", w: { eco: 35, pov: 20, sau: 4, seg: 3, edu: 3, soc: 5, amb: 4, fut: 10, prl: 6, int: 10 } },
     { id: "ser", t: "Saúde, escola e segurança", w: { eco: 8, pov: 10, sau: 18, seg: 18, edu: 18, soc: 6, amb: 6, fut: 6, prl: 4, int: 6 } },
     { id: "hon", t: "Honestidade", w: { eco: 12, pov: 8, sau: 4, seg: 4, edu: 4, soc: 6, amb: 5, fut: 10, prl: 12, int: 35 } },

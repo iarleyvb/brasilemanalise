@@ -2320,7 +2320,7 @@ p.swipe.cc-swipe{display:none}
         <li>Corrupção: virou um pilar da nota geral, o Integridade, e não é mais descontada. Mede os pontos de corrupção por ano de governo (cada R$ 1 bilhão desviado, corrigido pela inflação e ponderado pela prova, e cada estrela de gravidade dos casos sem valor em R$) e o índice de controle da corrupção do Banco Mundial. Para dar uma ideia do tamanho, o site compara os desvios com o orçamento do Bolsa Família em 2026 (cerca de R$ 158 bi por ano).</li>
         <li>Promessas: nota 10 se todas foram cumpridas, 0 se nenhuma, 5 no empate entre cumpridas e descumpridas.</li>
         <li>Legado: pontos dos feitos de cada governo, com os descontos de mérito de terceiros e da ótica de 2026.</li>
-        <li>A nota geral é a média ponderada de dez pilares (economia, pobreza e desigualdade, direitos e minorias, saúde, segurança, educação, meio ambiente, contas para o futuro, feitos e promessas e integridade), com os pesos da sua régua. Na régua padrão, que é neutra, cada um dos 30 indicadores vale o mesmo (3,3% da nota), então cada pilar pesa pelo número de indicadores que tem. Nada é descontado depois da média. A expressão inteira, com todas as variáveis, está em A fórmula completa, e os pesos e valores em A conta completa, no fim desta página.</li><li>Força política: a média da base do governo na Câmara e no Senado (partidos com ministérios) e dos ministros do STF indicados pelo mesmo partido vira um índice de força. Sociedade e Promessas e legado são multiplicados pela razão entre a força média e a do governo, elevada a 0,5 na régua padrão: quem tinha mais força precisava entregar mais.</li><li>Saúde, Segurança e Educação: variação por ano de mortalidade infantil e expectativa de vida (Banco Mundial), homicídios (UNODC), Ideb (Inep) e Pisa (OCDE). Meio ambiente: nível e tendência do desmatamento (Prodes/Inpe). A nota geral cobre só os governos do PT e do PL, os únicos com dados em todos os pilares. “PT, todos” é a média dos cinco governos do partido, ponderada pelo tempo de mandato.</li><li>Choques externos: na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da economia e da pobreza, para todos os governos. O boom das commodities (cerca de 2003–2011) ajudou os governos da época e não é descontado, porque durou quase uma década.</li>
+        <li>A nota geral é a média ponderada de dez pilares (economia, pobreza e desigualdade, direitos e minorias, saúde, segurança, educação, meio ambiente, contas para o futuro, feitos e promessas e integridade), com os pesos da sua régua. Na régua padrão, o peso de cada pilar vem das prioridades da população: metade é a média das pesquisas Datafolha (mar/2026) e Quaest (set/2026) sobre o principal problema do país, e metade é igual para os dez pilares, para nenhum tema ficar zerado. Nada é descontado depois da média. A expressão inteira, com todas as variáveis, está em A fórmula completa, e os pesos e valores em A conta completa, no fim desta página.</li><li>Força política: a média da base do governo na Câmara e no Senado (partidos com ministérios) e dos ministros do STF indicados pelo mesmo partido vira um índice de força. Sociedade e Promessas e legado são multiplicados pela razão entre a força média e a do governo, elevada a 0,5 na régua padrão: quem tinha mais força precisava entregar mais.</li><li>Saúde, Segurança e Educação: variação por ano de mortalidade infantil e expectativa de vida (Banco Mundial), homicídios (UNODC), Ideb (Inep) e Pisa (OCDE). Meio ambiente: nível e tendência do desmatamento (Prodes/Inpe). A nota geral cobre só os governos do PT e do PL, os únicos com dados em todos os pilares. “PT, todos” é a média dos cinco governos do partido, ponderada pelo tempo de mandato.</li><li>Choques externos: na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da economia e da pobreza, para todos os governos. O boom das commodities (cerca de 2003–2011) ajudou os governos da época e não é descontado, porque durou quase uma década.</li>
       </ul>
     </div>
   </div>
@@ -3093,7 +3093,7 @@ var TL = {"anos":[1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,20
 
 /* ---------- estado ---------- */
 var KEY = "placar-pt-pl-v3";
-var DEF = {est:"central", ipca:true, preset:"equilibrado", wVid:1, wLeg:1, merito:true, hoje:true, inst:true, wInst:1, porAno:"0", excl:{}, stars:{}, istars:{}, filtro:"todos", ordem:"data", ordemB:"data", legFiltro:"todos", notas:{}, wProm:5, promFiltro:"todos", tlSM:"usd", tlPIB:"usd", ecoW:{pib:1, renda:1, sm:1, inf:1, des:1, carga:1}, ecoOrd:"tempo", socW:{mul:1, neg:1, ind:1, pcd:1, lgb:1, ger:1}, socCon:0.5, socRe:1, pilW:{eco:18, pov:6, soc:18, sau:6, seg:3, edu:6, amb:9, fut:12, prl:6, int:6}, intW:{c:0.5, w:0.5}, ef:{on:true, mel:1, par:0.5, pio:0, nv:0.5}, nv:7, socGrp:"todos", socLado:"todos", hexA:"ptall", hexB:"bolso", choque:"tirar", viz:"sim", forK:0.5, forW:{cam:1, sen:1, stf:1}, serW:{hom:1, mi:1, ev:1, ideb:1, pisa:1}};
+var DEF = {est:"central", ipca:true, preset:"equilibrado", wVid:1, wLeg:1, merito:true, hoje:true, inst:true, wInst:1, porAno:"0", excl:{}, stars:{}, istars:{}, filtro:"todos", ordem:"data", ordemB:"data", legFiltro:"todos", notas:{}, wProm:5, promFiltro:"todos", tlSM:"usd", tlPIB:"usd", ecoW:{pib:1, renda:1, sm:1, inf:1, des:1, carga:1}, ecoOrd:"tempo", socW:{mul:1, neg:1, ind:1, pcd:1, lgb:1, ger:1}, socCon:0.5, socRe:1, pilW:{eco:16, pov:7, soc:5, sau:16, seg:18, edu:9, amb:5, fut:5, prl:5, int:14}, intW:{c:0.5, w:0.5}, ef:{on:true, mel:1, par:0.5, pio:0, nv:0.5}, nv:8, socGrp:"todos", socLado:"todos", hexA:"ptall", hexB:"bolso", choque:"tirar", viz:"sim", forK:0.5, forW:{cam:1, sen:1, stf:1}, serW:{hom:1, mi:1, ev:1, ideb:1, pisa:1}};
 function clone(o){ return JSON.parse(JSON.stringify(o)); }
 function load(){
   var s = clone(DEF);
@@ -3118,6 +3118,11 @@ function load(){
     if(s.forK === 0.25) s.forK = DEF.forK;
     if(s.forW && s.forW.stf === 0.25) s.forW.stf = DEF.forW.stf;
     if(s.ef && s.ef.nv === 0.25) s.ef.nv = DEF.ef.nv;
+  }
+  if(oldNv != null && oldNv < 8 && s.pilW){  // versão 8: pesos padrão vêm das prioridades da população; troca só quem estava no padrão da versão 7
+    var v7 = {eco:18, pov:6, soc:18, sau:6, seg:3, edu:6, amb:9, fut:12, prl:6, int:6}, ig7 = true;
+    for(var k8 in v7){ if(s.pilW[k8] !== v7[k8]){ ig7 = false; break; } }
+    if(ig7) s.pilW = clone(DEF.pilW);
   }
   s.nv = DEF.nv;
   if(!PRESETS[s.preset]) s.preset = "equilibrado";
@@ -4393,6 +4398,9 @@ var EXT = {
   // desmatamento na Amazônia Legal, km² por ano (Inpe, Prodes; ano de ago a jul)
   prodes:{1995:29059,1996:18161,1997:13227,1998:17383,1999:17259,2000:18226,2001:18165,2002:21651,2003:25396,2004:27772,2005:19014,2006:14286,2007:11651,2008:12911,2009:7464,2010:7000,2011:6418,2012:4571,2013:5891,2014:5012,2015:6207,2016:7893,2017:6947,2018:7536,2019:10129,2020:10851,2021:13038,2022:11594,2023:9064,2024:6518,2025:5731},
   focos:{2003:341237,2004:380445,2005:362563,2006:249179,2007:393915,2008:211933,2009:155102,2010:319383,2011:158099,2012:217234,2013:128145,2014:175892,2015:216778,2016:184217,2017:207508,2018:132870,2019:197632,2020:222797,2021:184081,2022:200763,2023:189901,2024:278299,2025:136393},  // focos de calor no Brasil, satélite de referência do INPE (AQUA, desde jul/2002), ano civil
+  /* prioridades da população: "qual o principal problema do país?" (% das respostas), por pilar; categorias sem pilar (outros, infraestrutura, não sabe) ficam fora */
+  prio:{datafolha:{fonte:"Datafolha, mar/2026", eco:15, pov:6, sau:21, seg:19, edu:9, "int":9, nota:"economia 11 + desemprego 4; fome e pobreza 3 + desigualdade 3"},
+        quaest:{fonte:"Quaest/Pax, set/2026", eco:24, pov:0, sau:15, seg:28, edu:5, "int":22, nota:"economia 19 + desemprego 5"}},
   viz:{1995:2.72,1996:2,1997:4.19,1998:2.64,1999:-0.24,2000:1.25,2001:0.01,2002:0.94,2003:1.36,2004:3.8,2005:3.51,2006:4.39,2007:4.39,2008:3.01,2009:-1.51,2010:3.47,2011:3.51,2012:3.27,2013:3.48,2014:2.48,2015:2.06,2016:1.96,2017:2.04,2018:1.7,2019:0.5,2020:-8.88,2021:9.13,2022:2.93,2023:1.81,2024:2.13,2025:2.36},  // "maré da região": mediana do crescimento do PIB por pessoa (%, real) de 17 países da América Latina, sem o Brasil (Banco Mundial, NY.GDP.PCAP.KD.ZG, atualizado em 8/10/2026)
   vizT:{mi:{1995:-4.06,1996:-3.944,1997:-4.423,1998:-3.799,1999:-4.67,2000:-4.256,2001:-3.755,2002:-3.774,2003:-3.681,2004:-3.746,2005:-3.479,2006:-3.323,2007:-3.615,2008:-3.116,2009:-3.216,2010:-3.175,2011:-3.315,2012:-3.469,2013:-3.345,2014:-3.437,2015:-3.469,2016:-2.985,2017:-3.031,2018:-3.101,2019:-2.372,2020:-2.429,2021:-2.264,2022:-2.317,2023:-2.62,2024:-2.496}, ev:{1995:0.388,1996:0.344,1997:0.342,1998:0.244,1999:0.339,2000:0.319,2001:0.294,2002:0.352,2003:0.266,2004:0.278,2005:0.315,2006:0.172,2007:0.233,2008:0.207,2009:0.192,2010:0.255,2011:0.272,2012:0.304,2013:0.221,2014:0.163,2015:0.117,2016:0.066,2017:0.144,2018:0.177,2019:0.123,2020:-1.481,2021:-1.372,2022:3.223,2023:1.096,2024:0.16}, des:{1995:0.102,1996:0.216,1997:-0.278,1998:-0.019,1999:0.2,2000:0.033,2001:0.105,2002:0.02,2003:0.083,2004:-0.206,2005:-0.822,2006:-0.316,2007:-0.408,2008:-0.026,2009:0.703,2010:-0.364,2011:-0.354,2012:-0.329,2013:0.029,2014:0.103,2015:-0.084,2016:0.353,2017:-0.05,2018:0.079,2019:0.282,2020:1.64,2021:-1.293,2022:-1.328,2023:-0.491,2024:-0.057,2025:-0.082}, hom:{1995:-0.563,1996:0.081,1997:-0.148,1998:-0.126,1999:-0.868,2000:0.618,2001:0.106,2002:0.674,2003:0.918,2004:-0.859,2005:0.302,2006:-0.113,2007:-0.118,2008:2.023,2009:0.212,2010:-0.65,2011:0.243,2012:-1.037,2013:-0.909,2014:-0.692,2015:-0.132,2016:-0.546,2017:-0.519,2018:-0.363,2019:-0.379,2020:-0.722,2021:0.434,2022:-0.281,2023:-0.035}},  // maré da região por indicador: mediana, entre 17 países da América Latina sem o Brasil, da variação de cada ano (mortalidade infantil em % (log), expectativa de vida em anos, desemprego em pontos, homicídios por 100 mil). Banco Mundial (SP.DYN.IMRT.IN, SP.DYN.LE00.IN, SL.UEM.TOTL.ZS, VC.IHR.PSRC.P5); só anos com 10 países ou mais
   // resultado primário do setor público consolidado, % do PIB (Banco Central, SGS 5793; superávit positivo)
@@ -4414,6 +4422,7 @@ var EXT_SRC = {
   pisa:[["OCDE: Pisa 2025, nota do Brasil","https://www.oecd.org/en/publications/2026/09/pisa-2025-results-volume-i-country-notes_88d1164e/brazil_6cc1576c.html"],["Agência Gov: resultados do Pisa 2025","https://agenciagov.ebc.com.br/noticias/202609/pisa-brasil-esta-entre-os-paises-que-mais-avancaram-em-educacao-nos-ultimos-20-anos"],["Inep: histórico do Pisa","https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/pisa/historico"]],
   prodes:[["Inpe: taxa consolidada de 2025 (5.731 km²)","https://www.gov.br/inpe/pt-br/assuntos/ultimas-noticias/sistema-do-inpe-aponta-5-731-km2-de-desmatamento-na-amazonia-em-2025"],["Inpe: painel TerraBrasilis do Prodes","https://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/rates"]],
   focos:[["Inpe: Programa Queimadas, focos ativos por ano (satélite de referência)","https://terrabrasilis.dpi.inpe.br/queimadas/situacao-atual/estatisticas/estatisticas_paises/"],["Inpe: dados abertos do Programa Queimadas (arquivos anuais)","https://data.inpe.br/queimadas/dados-abertos/"],["WWF-Brasil: 136.393 focos em 2025, 51% menos que em 2024","https://www.wwf.org.br/nossosconteudos/notas_e_releases/saladeimprensa/?94300%2FBrasil-tem-queda-de-23-na-area-queimada-em-2025-mas-Caatinga-registra-aumento-no-fogo="],["Agência Brasil: 2024 com o maior número de focos desde 2010 (319.383)","https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2024-09/registro-de-queimadas-em-setembro-e-30-maior-que-media-do-mes"]],
+  prio:[["Brasil de Fato: Datafolha, saúde e segurança lideram (mar/2026)","https://www.brasildefato.com.br/2026/03/10/datafolha-saude-e-seguranca-lideram-lista-de-principais-problemas-do-pais/"],["CN1: Datafolha, principais problemas do país (mar/2026)","https://www.cn1.com.br/noticias/1/140674,saude-e-seguranca-lideram-lista-de-principais-problemas-do-pais-aponta-datafolha"],["BNews: Quaest, violência supera corrupção e economia (set/2026)","https://www.bnews.com.br/noticias/policia/violencia-supera-corrupcao-e-economia-entre-principais-problemas-do-brasil-aponta-quaest.html"],["O Brasilianista: Quaest/Pax, violência lidera (set/2026)","https://obrasilianista.com.br/2026/09/18/justica/violencia-lidera-preocupacoes-e-pressiona-eleicao-de-2026"]],
   viz:[["Banco Mundial: crescimento do PIB por pessoa (NY.GDP.PCAP.KD.ZG), países da América Latina","https://data.worldbank.org/indicator/NY.GDP.PCAP.KD.ZG?locations=ZJ"]],
   vizT:[["Banco Mundial: mortalidade infantil (SP.DYN.IMRT.IN)","https://data.worldbank.org/indicator/SP.DYN.IMRT.IN"],["Banco Mundial: expectativa de vida (SP.DYN.LE00.IN)","https://data.worldbank.org/indicator/SP.DYN.LE00.IN"],["Banco Mundial: desemprego, estimativa da OIT (SL.UEM.TOTL.ZS)","https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS"],["Banco Mundial: homicídios por 100 mil, UNODC (VC.IHR.PSRC.P5)","https://data.worldbank.org/indicator/VC.IHR.PSRC.P5"]],
   prim:[["Banco Central: resultado primário do setor público (SGS 5793)","https://api.bcb.gov.br/dados/serie/bcdata.sgs.5793/dados?formato=json"]],
@@ -4448,7 +4457,7 @@ function socPts(it){
    Nota de indicador (0 a 10) = 10 · limitar((x − piso) / (meta − piso), 0, 1). O piso vale 0 e a meta vale 10;
    para "quanto menor, melhor" a meta fica abaixo do piso e a mesma fórmula serve. As âncoras não dependem dos governos comparados. */
 var NG = {
-  ver: "6.1",
+  ver: "7.0",
   anc: {
     eco:{pib:[-5,3], renda:[-5,5], sm:[-1,5], inf:[13.5,4.5], des:[2,-1], carga:[0.5,-0.5]},
     pov:{gini:[1,-1], pob:[25,-25]},
@@ -6017,17 +6026,24 @@ function buildRP(){
 /* ---------- A conta completa (página Como calculamos): lê as mesmas constantes do cálculo ---------- */
 var ccSel = "ptall", ccMC = null, ccBuilt = false;
 var CC_WHY = {
-  eco:"6 indicadores × 3. Na régua neutra cada indicador vale o mesmo, então o pilar pesa pelo número de indicadores.",
-  pov:"2 indicadores × 3.",
-  soc:"6 grupos × 3.",
-  sau:"2 indicadores × 3.",
-  seg:"1 indicador × 3.",
-  edu:"2 indicadores × 3.",
-  amb:"3 indicadores × 3.",
-  fut:"4 indicadores × 3.",
-  prl:"2 partes (promessas e feitos) × 3.",
-  "int":"2 partes (casos do placar e índice do Banco Mundial) × 3. A corrupção entra como pilar, não como desconto."
+  eco:"Economia e desemprego: 15% no Datafolha e 24% na Quaest.",
+  pov:"Fome, pobreza e desigualdade: 6% no Datafolha e 0% na Quaest.",
+  soc:"Não aparece nas pesquisas; fica só com a metade igual para todos.",
+  sau:"Saúde: 21% no Datafolha e 15% na Quaest.",
+  seg:"Segurança e violência: 19% no Datafolha e 28% na Quaest.",
+  edu:"Educação: 9% no Datafolha e 5% na Quaest.",
+  amb:"Não aparece nas pesquisas; fica só com a metade igual para todos.",
+  fut:"Não aparece nas pesquisas; fica só com a metade igual para todos.",
+  prl:"Não aparece nas pesquisas; fica só com a metade igual para todos.",
+  "int":"Corrupção: 9% no Datafolha e 22% na Quaest. Entra como pilar, não como desconto."
 };
+/* peso padrão = metade da média das duas pesquisas (normalizadas) + metade igual para os dez pilares */
+function prioPeso(){
+  var ps = [EXT.prio.datafolha, EXT.prio.quaest], ks = PIL.map(function(p){ return p.k; }), med = {};
+  ks.forEach(function(k){ med[k] = 0; });
+  ps.forEach(function(q){ var t = 0; ks.forEach(function(k){ t += q[k] || 0; }); ks.forEach(function(k){ med[k] += (q[k] || 0)/t*100/ps.length; }); });
+  var out = {}; ks.forEach(function(k){ out[k] = {pesq:med[k], peso:0.5*med[k] + 0.5*100/ks.length}; }); return out;
+}
 function ccN(v, d){
   if(v == null || !isFinite(v)) return "—";
   var a = Math.abs(v), dd = d != null ? d : (a >= 1000 ? 0 : (a >= 100 ? 1 : 2)), t = new Intl.NumberFormat("pt-BR", {minimumFractionDigits:dd, maximumFractionDigits:dd}).format(a);
@@ -6177,6 +6193,8 @@ function ccWhatIf(){
     ["Pesos da versão 2 (Economia 19; Saúde, Segurança e Educação 19 somados; Futuro 14; Pobreza e Integridade 12; os outros 8)", function(s){ s.pilW = {eco:19, pov:12, soc:8, sau:6.33, seg:6.33, edu:6.34, amb:8, fut:14, prl:8, "int":12}; }],
     ["Sem o pilar Integridade", function(s){ s.pilW.int = 0; }],
     ["Cada tema com o mesmo peso (os dez pilares com 10)", function(s){ PIL.forEach(function(p){ s.pilW[p.k] = 10; }); }],
+    ["Cada indicador com o mesmo peso (padrão da versão 5)", function(s){ s.pilW = {eco:18, pov:6, soc:18, sau:6, seg:3, edu:6, amb:9, fut:12, prl:6, "int":6}; }],
+    ["Só as pesquisas, sem a metade igual", function(s){ var pp = prioPeso(); PIL.forEach(function(p){ s.pilW[p.k] = pp[p.k].pesq; }); }],
     ["Integridade com o dobro do peso", function(s){ s.pilW.int = 2*DEF.pilW.int; }],
     ["Só resultados: sem Integridade e sem Feitos e promessas", function(s){ s.pilW.int = 0; s.pilW.prl = 0; }],
     ["Integridade só pelos casos do placar", function(s){ s.intW.w = 0; }],
@@ -6258,6 +6276,9 @@ function ccExpressao(){
   L.push("NOTA GERAL DO GOVERNO g (0 a 10)");
   L.push("N_g = Σ_k W_k · P_k ÷ Σ_k W_k        (só os pilares com dado e peso maior que zero)");
   L.push("    = ( " + PIL.map(function(p){ return NF2.format(S.pilW[p.k]) + "·P_" + p.k; }).join(" + ") + " ) ÷ " + NF2.format(tot));
+  var pp = prioPeso();
+  L.push("   Peso padrão W_k = 0,5 · (média de Datafolha mar/2026 e Quaest set/2026, em % do principal problema do país) + 0,5 · 10:");
+  L.push("   " + PIL.map(function(p){ return p.k + " " + NF1.format(pp[p.k].pesq) + "% → " + NF1.format(pp[p.k].peso); }).join("; "));
   L.push("");
   L.push("1. NOTA DE UM INDICADOR");
   L.push("s(x; piso; meta) = 10 · min(1, max(0, (x − piso) ÷ (meta − piso)))");
@@ -6359,6 +6380,8 @@ function renderConta(){
     '<li><b>Versão 3:</b> régua padrão neutra por tema e queimadas no Meio ambiente.</li>' +
     '<li><b>Versão 4:</b> Serviços públicos dividido em Saúde, Segurança e Educação.</li>' +
     '<li><b>Versão 5:</b> régua neutra por indicador: cada um dos ' + ccNInd() + ' indicadores vale o mesmo na nota final, e o peso de cada pilar é proporcional ao número de indicadores dele. Controles que estavam em zero ou perto disso subiram: vidas impactadas (0 → 1), STF na força política (0,25 → 1), força do multiplicador (0,25 → 0,5) e medida sem efeito verificável (0,25 → 0,5).</li>' +
+    '<li><b>Versão 6:</b> maré da América Latina: o crescimento, o emprego, a saúde e os homicídios descontam o quanto os vizinhos melhoraram ou pioraram acima do normal no mesmo ano.</li>' +
+    '<li><b>Versão 7:</b> pesos padrão vindos das prioridades da população (Datafolha e Quaest), com metade igual para todos os temas. Corrige um defeito da versão 5, em que o peso de cada tema dependia de quantos pedaços ele tinha (Direitos com 20% e Segurança com 3%).</li>' +
     '</ul></div>' +
     '<div class="mbox"><h3>1. As fórmulas</h3>' + ccFormulas() + '</div>' +
     '<div class="mbox"><h3>2. As variáveis</h3>' + ccGloss() + '</div>' +

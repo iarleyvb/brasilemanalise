@@ -31,6 +31,22 @@
 
   var ENTRADAS = [
     {
+      id: "pesos-da-populacao",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "7.0",
+      titulo: "Pesos padrão vindos das prioridades da população",
+      resumo: "O peso de cada tema deixa de ser escolha do site: metade vem das pesquisas sobre o principal problema do país (Datafolha, mar/2026, e Quaest/Pax, set/2026) e metade é igual para os dez temas, para nenhum ficar zerado.",
+      itens: [
+        "Pesos: Segurança 18, Economia 16, Saúde 16, Integridade 14, Educação 9, Pobreza 7; Direitos, Meio ambiente, Contas para o futuro e Feitos e promessas 5 cada.",
+        "Corrige um defeito da versão 5: o peso de cada tema dependia de quantos pedaços ele tinha (Direitos com 20% e Segurança com 3%).",
+        "A regra (metade pesquisas, metade igual) foi definida antes de calcular o efeito nas notas.",
+        "“Cada tema igual” e “Cada indicador igual” continuam como opções no Início e em A conta completa."
+      ],
+      impacto: { texto: "Nota geral: Lula 2 7,2; Lula 1 6,9; Bolsonaro 6,5; Lula 3 6,4; Dilma 1 5,2; Dilma 2 4,8; PT, todos 6,3. Com cada tema igual: Bolsonaro 6,2 e Lula 3 6,1." },
+      links: [{ href: "#a-formula", texto: "Ver a origem dos pesos" }]
+    },
+    {
       id: "visual-placar",
       data: "2026-10-14",
       tipo: "Site",
