@@ -6322,6 +6322,30 @@ function ccRobust(cb){
     pgt: res.dif.filter(function(x){ return x > 0; }).length/N, l3: res.l3.filter(function(x, i){ return x > res.bo[i]; }).length/N};
   return out;
 }
+/* faixas de incerteza para o placar: sorteia pesos (em torno da régua em uso), pisos e metas, como o teste de robustez */
+function beaFaixas(N){
+  N = N || 200;
+  var rnd = ccRng(20261014), keepA = JSON.parse(JSON.stringify(NG)), keepS = S, ids = HEX_G.map(function(i){ return GOVS[i].fr; }), res = {};
+  ids.concat(["ptall"]).forEach(function(k){ res[k] = []; });
+  var oEco = ecoRaw, oPov = povRaw, oSer = serRaw, oAmb = ambRaw, oFut = futRaw, cE = oEco(), cP = oPov(), cS = oSer(), cA = oAmb(), cF = oFut(), R0 = compute();
+  ecoRaw = function(){ return cE; }; povRaw = function(){ return cP; }; serRaw = function(){ return cS; }; ambRaw = function(){ return cA; }; futRaw = function(){ return cF; };
+  function gauss(){ var u = Math.max(1e-9, rnd()), v = rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); }
+  function shift(a){ var w = a[1] - a[0]; return [a[0] + (rnd()*2 - 1)*0.25*w, a[1] + (rnd()*2 - 1)*0.25*w]; }
+  try{
+    for(var d = 0; d < N; d++){
+      Object.keys(keepA.anc).forEach(function(p){ Object.keys(keepA.anc[p]).forEach(function(k){ NG.anc[p][k] = shift(keepA.anc[p][k]); }); });
+      Object.keys(keepA.socMeta).forEach(function(k){ NG.socMeta[k] = keepA.socMeta[k]*(1 + (rnd()*2 - 1)*0.25); });
+      NG.intCfac = keepA.intCfac*(1 + (rnd()*2 - 1)*0.25); NG.wgiAnc = shift(keepA.wgiAnc); NG.legAnc = [keepA.legAnc[0], keepA.legAnc[1]*(1 + (rnd()*2 - 1)*0.25)];
+      S = clone(keepS); PIL.forEach(function(p){ S.pilW[p.k] = keepS.pilW[p.k]*Math.exp(0.35*gauss()); });
+      var G = geralScores(R0);
+      G.forEach(function(x){ if(res[x.fr]) res[x.fr].push(x.nota); }); res.ptall.push(G.agg.nota);
+    }
+  } finally { ecoRaw = oEco; povRaw = oPov; serRaw = oSer; ambRaw = oAmb; futRaw = oFut; S = keepS; efRefresh(); NG.anc = keepA.anc; NG.socMeta = keepA.socMeta; NG.intCfac = keepA.intCfac; NG.cPisoAtivo = keepA.cPisoAtivo; NG.wgiAnc = keepA.wgiAnc; NG.legAnc = keepA.legAnc; }
+  function q(a, p){ var t = a.slice().sort(function(x, y){ return x - y; }); return t[Math.min(t.length - 1, Math.max(0, Math.round(p*(t.length - 1))))]; }
+  var out = {n:N, faixa:{}, acima:function(a, b){ var A = res[a], B = res[b], c = 0; if(!A || !B) return null; for(var i = 0; i < A.length; i++){ if(A[i] > B[i]) c++; } return c/A.length; }};
+  Object.keys(res).forEach(function(k){ out.faixa[k] = [q(res[k], 0.05), q(res[k], 0.5), q(res[k], 0.95)]; });
+  return out;
+}
 function ccRenderRobust(box){
   if(!ccMC){ box.innerHTML = '<button type="button" class="btn" id="ccRun">Calcular a robustez</button><p class="note">Sorteia 400 combinações de pisos, metas e pesos (semente fixa: o resultado é sempre o mesmo) e mostra a faixa de variação de cada nota. Leva alguns segundos.</p>'; return; }
   var r = ccMC;
@@ -6650,7 +6674,8 @@ window.BEA = {
   dataset: beaDataset,
   on: function(ev, cb){ if(BEA_HOOKS[ev] && typeof cb === "function") BEA_HOOKS[ev].push(cb); },
   ir: function(h){ location.hash = h; },
-  paginaAtual: function(){ return curPage; }
+  paginaAtual: function(){ return curPage; },
+  faixas: function(n){ return beaFaixas(n); }
 };
 
 buildCases(); buildLegado(); buildPromessas(); buildCarteira(); buildCandidatos(); buildEcoPanel(); buildSocList(); buildSocPanel(); buildPilPanel(); buildSerPanel(); buildHexSelects(); bind(); bindTempo();

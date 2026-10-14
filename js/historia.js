@@ -15,7 +15,29 @@
     { id: "fut", t: "Contas e futuro", w: { eco: 20, pov: 6, sau: 4, seg: 3, edu: 3, soc: 4, amb: 12, fut: 30, prl: 6, int: 12 } },
     { id: "dir", t: "Direitos e floresta", w: { eco: 8, pov: 15, sau: 4, seg: 4, edu: 4, soc: 25, amb: 25, fut: 4, prl: 3, int: 8 } }
   ];
-  var aberto = null, raiz = null, larg = {}, entrou = false;
+  var aberto = null, raiz = null, larg = {}, entrou = false, fx = null, fxChave = "", fxT = null;
+  /* faixa de incerteza (5% a 95% de 200 sorteios de pesos, pisos e metas) e empate técnico entre vizinhos */
+  function chaveRegua() { try { return JSON.stringify(B.estado()); } catch (e) { return ""; } }
+  function pedirFaixas() {
+    if (!B.faixas) { return; }
+    var k = chaveRegua(); if (fx && k === fxChave) { marcarFaixas(); return; }
+    if (fxT) { W.clearTimeout(fxT); }
+    fxT = W.setTimeout(function () { try { fx = B.faixas(200); fxChave = k; marcarFaixas(); } catch (e) { } }, 250);
+  }
+  function marcarFaixas() {
+    if (!fx || !raiz) { return; }
+    var its = raiz.querySelectorAll(".hs-it[data-id]"), i, id, f, w, rk, ant = null, p;
+    for (i = 0; i < its.length; i++) {
+      id = its[i].getAttribute("data-id"); f = fx.faixa[id]; if (!f) { continue; }
+      w = its[i].querySelector(".hs-wk");
+      if (w) { w.style.left = Math.max(0, f[0] * 10) + "%"; w.style.width = Math.max(1, (f[2] - f[0]) * 10) + "%"; w.hidden = false; w.title = "Em 90% dos sorteios, a nota fica entre " + f1(f[0]) + " e " + f1(f[2]); }
+      rk = its[i].querySelector(".hs-rk");
+      p = ant ? fx.acima(ant, id) : 1;
+      if (ant && p != null && p < 0.9) { its[i].classList.add("empate"); rk.textContent = "="; rk.title = "Empate técnico com o de cima: a ordem se inverte em " + Math.round((1 - p) * 100) + "% dos sorteios"; rk.removeAttribute("aria-hidden"); rk.setAttribute("aria-label", "empate técnico com o de cima"); }
+      ant = id;
+    }
+    var nt = raiz.querySelector(".hs-emp"); if (nt) { nt.hidden = !raiz.querySelector(".hs-it.empate"); }
+  }
 
   function el(t, c, x) { var e = D.createElement(t); if (c) { e.className = c; } if (x != null) { e.textContent = x; } return e; }
   function f1(n) { return (Math.round(n * 10) / 10).toFixed(1).replace(".", ","); }
@@ -69,7 +91,7 @@
     var novas = {};
     gs.forEach(function (g, ix) {
       li = el("li", "hs-it" + (g.bloco === "PL" || /PL/.test(g.partido) ? " pl" : " pt") + (aberto === g.nome ? " open" : ""));
-      li.style.setProperty("--i", ix);
+      li.style.setProperty("--i", ix); li.setAttribute("data-id", g.id);
       bt = el("button", "hs-row"); bt.type = "button";
       bt.setAttribute("aria-expanded", aberto === g.nome ? "true" : "false");
       var rk = el("span", "hs-rk", (ix + 1) + "º"); rk.setAttribute("aria-hidden", "true"); bt.appendChild(rk);
@@ -79,6 +101,7 @@
       tr = el("span", "hs-tr"); fl = el("i", "hs-fl");
       var w = Math.max(2, g.nota * 10); novas[g.nome] = w;
       fl.style.width = (larg[g.nome] != null ? larg[g.nome] : w) + "%"; fl.setAttribute("data-w", w); tr.appendChild(fl);
+      var wk = el("i", "hs-wk"); wk.hidden = true; wk.setAttribute("aria-hidden", "true"); tr.appendChild(wk);
       var nv = el("span", "hs-vw"); nv.appendChild(el("b", "hs-v", f1(g.nota)));
       if (g.mult != null && isFinite(g.mult)) {
         var mx = el("small", "hs-mx", "força ×" + (Math.round(g.mult * 100) / 100).toFixed(2).replace(".", ","));
@@ -92,7 +115,9 @@
       ul.appendChild(li);
     });
     raiz.appendChild(ul);
+    var emp = el("p", "hs-nota hs-emp", "= Empate técnico com o de cima: quando pesos, pisos e metas variam um pouco (200 sorteios), a ordem dos dois se inverte em mais de 10% das vezes. A linha fina sobre cada barra mostra onde a nota fica em 90% dos sorteios."); emp.hidden = true; raiz.appendChild(emp);
     raiz.appendChild(el("p", "hs-nota", "Força ×: ajuste pelo apoio no Congresso e no STF, só em Direitos e em Feitos e promessas. Abaixo de 1, o governo tinha mais apoio que a média."));
+    pedirFaixas();
     // barras deslizam até o valor novo quando a régua muda; na primeira vez crescem do zero ao aparecer na tela
     var anim = function () { var fs = ul.querySelectorAll(".hs-fl"), k; for (k = 0; k < fs.length; k++) { fs[k].style.width = fs[k].getAttribute("data-w") + "%"; } };
     if (W.requestAnimationFrame) { W.requestAnimationFrame(function () { W.requestAnimationFrame(anim); }); } else { anim(); }

@@ -18,7 +18,12 @@
 .hs-n b{font-size:16.5px;font-weight:720;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hs-n small{color:var(--muted);font-size:12px;line-height:1.3}
 .hs-it.open .hs-n b{font-weight:820}
-.hs-tr{display:block;height:10px;border-radius:0 4px 4px 0;background:var(--surface-2);overflow:hidden}
+.hs-tr{position:relative;display:block;height:10px;border-radius:0 4px 4px 0;background:var(--surface-2);overflow:visible}
+.hs-wk{position:absolute;top:50%;height:2px;margin-top:-1px;background:var(--ink);opacity:.55;border-radius:1px;pointer-events:none}
+.hs-wk::before,.hs-wk::after{content:"";position:absolute;top:-4px;width:2px;height:10px;background:inherit;border-radius:1px}
+.hs-wk::before{left:0}.hs-wk::after{right:0}
+.hs-wk[hidden]{display:none}
+.hs-it.empate .hs-rk{color:var(--ink);font-weight:800;font-size:15px}
 .hs-it.open .hs-tr{background:var(--bg)}
 .hs-fl{display:block;height:100%;border-radius:0 4px 4px 0;background:var(--pt);transform-origin:left;transition:width .55s cubic-bezier(.2,.7,.3,1)}
 .hs-it.pl .hs-fl{background:var(--pl)}

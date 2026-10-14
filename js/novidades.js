@@ -31,6 +31,21 @@
 
   var ENTRADAS = [
     {
+      id: "empate-tecnico",
+      data: "2026-10-14",
+      tipo: "Site",
+      versao: null,
+      titulo: "Empate técnico e faixa de incerteza no placar",
+      resumo: "Cada nota do placar ganhou uma linha fina com a faixa onde ela fica quando pesos, pisos e metas variam um pouco, e o sinal “=” marca governos em empate técnico.",
+      itens: [
+        "200 sorteios em torno da régua em uso (pesos ±35%, pisos e metas ±25% da faixa), com semente fixa: o resultado é sempre o mesmo para a mesma régua.",
+        "Empate técnico: a ordem entre dois vizinhos se inverte em mais de 10% dos sorteios.",
+        "No padrão atual, Lula 1, Bolsonaro e Lula 3 estão em empate técnico, e Dilma 1 e Dilma 2 também."
+      ],
+      impacto: { texto: "Não muda nenhuma nota." },
+      links: [{ href: "#hist", texto: "Ver o placar" }]
+    },
+    {
       id: "revisao-cega",
       data: "2026-10-14",
       tipo: "Modelo",
