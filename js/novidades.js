@@ -31,6 +31,23 @@
 
   var ENTRADAS = [
     {
+      id: "mare-saude-seguranca-emprego",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "6.1",
+      titulo: "A maré da região chega à saúde, à segurança e ao emprego",
+      resumo: "Mortalidade infantil, expectativa de vida, homicídios e desemprego também passam a descontar o quanto os vizinhos melhoraram ou pioraram acima do normal no mesmo ano.",
+      itens: [
+        "Mortalidade infantil: a queda desacelerou em toda a região nos últimos anos, então os governos recentes deixam de perder pontos só por terem pegado uma taxa já baixa. Saúde de Bolsonaro vai de 3,4 para 6,1; de Lula 3, de 3,3 para 5,3.",
+        "Homicídios: em 2007–2010 a violência subiu na região (México, América Central) e em 2011–2018 caiu. Segurança de Lula 2 vai de 3,4 para 5,3; de Dilma 1, de 1,1 para 0.",
+        "Desemprego: mesma regra, em pontos por ano.",
+        "Fonte: Banco Mundial (SP.DYN.IMRT.IN, SP.DYN.LE00.IN, VC.IHR.PSRC.P5, SL.UEM.TOTL.ZS), mediana de 17 países da América Latina sem o Brasil. Homicídios têm de 11 a 17 países por ano e vão até 2023.",
+        "Dá para desligar em Ajuste os pesos: “Sorte e azar de fora”."
+      ],
+      impacto: { texto: "Nota geral: Bolsonaro 5,57 → 5,86; Lula 3 5,93 → 6,08; Lula 1 6,75 → 6,66; Dilma 1 5,76 → 5,68; Dilma 2 3,59 → 3,67; Lula 2 6,88 → 6,88." },
+      links: [{ href: "#nota-servicos", texto: "Ver saúde, segurança e educação" }]
+    },
+    {
       id: "mare-da-regiao",
       data: "2026-10-14",
       tipo: "Modelo",

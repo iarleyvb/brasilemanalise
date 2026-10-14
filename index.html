@@ -2086,7 +2086,7 @@ p.swipe.cc-swipe{display:none}
     <div class="field">
       <div class="flabel" id="lb-viz">Sorte e azar de fora: a maré da América Latina</div>
       <div class="seg" role="group" aria-labelledby="lb-viz" data-key="viz"><button type="button" data-v="sim">Descontar</button><button type="button" data-v="nao">Não descontar</button></div>
-      <p class="fhelp">Com “descontar”, o crescimento do PIB por pessoa e da renda de cada ano perde o quanto os vizinhos cresceram acima do normal (boom das commodities, cerca de 2003–2013) e ganha o quanto eles cresceram abaixo (crises mundiais). A maré é a mediana de 17 países da América Latina, sem o Brasil, e o normal é a média dessa mediana de 1995 a 2025. A mesma regra vale para todos os governos.</p>
+      <p class="fhelp">Com “descontar”, cada ano de PIB por pessoa, renda, desemprego, mortalidade infantil, expectativa de vida e homicídios perde o quanto os vizinhos melhoraram acima do normal naquele ano (boom das commodities, recuperação depois da pandemia) e ganha o quanto eles melhoraram abaixo (crises mundiais, desaceleração da saúde na região). A maré é a mediana de 17 países da América Latina, sem o Brasil, e o normal é a média dessa mediana de 1995 a 2025. A mesma regra vale para todos os governos.</p>
     </div>
   </div>
   <div class="row-actions"><button type="button" class="btn" id="resetEco">Pesos iguais</button><a class="btn" href="#nota-economia">Ver as notas</a></div>
@@ -2189,7 +2189,7 @@ p.swipe.cc-swipe{display:none}
     <h3>O que ainda não conseguimos medir bem</h3>
     <ul>
       <li>O pilar Direitos e minorias mede medidas de governo para esses grupos, não resultados como a taxa de feminicídios; quem discorda dessa agenda pode baixar o peso dele.</li>
-      <li>Choques de fora contam dos dois lados: desde a versão 6, o crescimento do PIB e da renda é medido descontando a maré da América Latina (sem o Brasil), o que tira do PT o vento a favor do boom das commodities e tira de todos o vento contra das crises mundiais. A recessão de 2015–2016, que foi só do Brasil, conta normalmente.</li>
+      <li>Choques de fora contam dos dois lados: desde a versão 6, PIB, renda, desemprego, mortalidade infantil, expectativa de vida e homicídios são medidos descontando a maré da América Latina (sem o Brasil), o que tira do PT o vento a favor do boom das commodities e tira de todos o vento contra das crises mundiais. A recessão de 2015–2016, que foi só do Brasil, conta normalmente.</li>
       <li>Dilma 2 é medida só por 2015, e o resto de 2016 vai para Temer. Indicadores anuais de um só ano são mais voláteis; por isso a integridade usa pontos por ano de governo e a nota de Dilma 2 vem marcada como de baixa confiança. Lula 3 está em curso, e os casos e as contas deixadas ainda podem mudar.</li><li>Viés de época: ganhos de expectativa de vida, mortalidade infantil, Ideb e Pisa tendem a ficar menores à medida que a base melhora, e o boom das commodities de 2003 a 2014 não é neutralizado. As mesmas metas valem para todos os períodos, o que favorece os mandatos mais antigos; a revisão estimou esse viés em até 0,4 ponto.</li><li>A integridade depende do que foi investigado e revelado até hoje (mandatos recentes têm menos casos apurados) e do índice do Banco Mundial, que mal distingue os governos. Pontos em R$ e estrelas de gravidade somam moedas diferentes.</li><li>Direitos e minorias é relativo ao catálogo de medidas do site, e Meio ambiente mede um único bioma (a Amazônia).</li>
       <li>A força política usa partidos com ministérios, não as votações reais; um índice de governismo por votação seria melhor e ainda não está disponível para todos os governos.</li>
     </ul>
@@ -4106,15 +4106,18 @@ function perYear(get, a, b, ratio, set, hi){
 /* maré da região: desconta do crescimento do Brasil o quanto a América Latina (sem o Brasil) cresceu acima ou abaixo do normal no mesmo ano.
    Vale igual para a sorte (boom das commodities) e para o azar (crises mundiais). */
 var VIZ_PAISES = "Argentina, Bolívia, Chile, Colômbia, Costa Rica, El Salvador, Equador, Guatemala, Honduras, México, Nicarágua, Panamá, Paraguai, Peru, República Dominicana, Uruguai e Venezuela";
-function vizMu(){ var s = 0, n = 0; for(var y in EXT.viz){ s += EXT.viz[y]; n++; } return n ? s/n : 0; }
-function vizDesvio(y){ var v = EXT.viz[y]; return v == null ? 0 : v - vizMu(); }
-function vizAjusta(get){
+function vizSerie(key){ return key === "pib" ? EXT.viz : EXT.vizT[key]; }
+var VIZ_MU = {};
+function vizMu(key){ key = key || "pib"; if(VIZ_MU[key] == null){ var T = vizSerie(key), s = 0, n = 0; for(var y in T){ s += T[y]; n++; } VIZ_MU[key] = n ? s/n : 0; } return VIZ_MU[key]; }
+function vizDesvio(key, y){ var v = vizSerie(key)[y]; return v == null ? 0 : v - vizMu(key); }
+/* série do Brasil com a maré descontada ano a ano: em taxa (ratio) tira o desvio em % (log); em nível, tira o desvio em unidades */
+function vizAjusta(get, key, ratio){
   if(S.viz === "nao") return get;
   var memo = {}, ant = null;
   for(var y = 1994; y <= 2026; y++){
     var v = get(y); if(v == null) continue;
     if(ant == null){ memo[y] = v; }
-    else { var d = 0; for(var k = ant + 1; k <= y; k++) d += vizDesvio(k); memo[y] = memo[ant]*(v/get(ant))*Math.exp(-d/100); }
+    else { var d = 0; for(var k = ant + 1; k <= y; k++) d += vizDesvio(key, k); memo[y] = ratio ? memo[ant]*(v/get(ant))*Math.exp(-d/100) : memo[ant] + (v - get(ant)) - d; }
     ant = y;
   }
   return function(y){ return memo[y] == null ? null : memo[y]; };
@@ -4123,12 +4126,13 @@ function ecoRaw(){
   return GOVS.map(function(g, i){
     var sp = ECO_SPANS[i], o = {};
     var gPib = function(y){ return tv("pib_kn", y); }, gRenda = function(y){ var v = EXT.renda[y]; return v == null ? null : v; };
-    o.pib = perYear(vizAjusta(gPib), sp.lv[0], sp.lv[1], true, shockWin(gPib, true), true);
+    o.pib = perYear(vizAjusta(gPib, "pib", true), sp.lv[0], sp.lv[1], true, shockWin(gPib, true), true);
     o.sm = perYear(function(y){ return tv("sm_real", y); }, sp.lv[0], sp.lv[1], true, null, true);
     var s = 0, n = 0; for(var y = sp.inf[0]; y <= sp.inf[1]; y++){ if(isShock(y)) continue; var v = tv("ipca", y); if(v != null){ s += v; n++; } } o.inf = n ? s/n : null;
-    o.des = perYear(function(y){ return tv("des", y); }, sp.des[0], sp.des[1], false, null, false);
+    var gDes = function(y){ return tv("des", y); };
+    o.des = perYear(vizAjusta(gDes, "des", false), sp.des[0], sp.des[1], false, shockWin(gDes, false), false);
     o.div = sp.div ? perYear(function(y){ return tv("div_l", y); }, sp.div[0], sp.div[1], false, null, false) : null;
-    o.renda = perYear(vizAjusta(gRenda), sp.lv[0], sp.lv[1], true, shockWin(gRenda, true), true);
+    o.renda = perYear(vizAjusta(gRenda, "pib", true), sp.lv[0], sp.lv[1], true, shockWin(gRenda, true), true);
     o.carga = perYear(function(y){ var v = EXT.carga[y]; return v == null ? null : v; }, sp.lv[0], sp.lv[1], false, null, false);
     var ps = 0, pn = 0, pall = true; for(var py = sp.inf[0]; py <= sp.inf[1]; py++){ if(isShock(py)) continue; var pv = EXT.prim[py]; if(pv == null){ pall = false; } else { ps += pv; pn++; } } o.prim = (pall && pn) ? ps/pn : null;
     return o;
@@ -4194,7 +4198,7 @@ function renderEco(){
   });
   table.appendChild(tbody); tb.appendChild(table);
   var ws = ECO_IND.map(function(ind){ return lcw(ind.t) + " " + NF2.format(S.ecoW[ind.k]); }).join(", ");
-  $("ecoWeights").textContent = "Pesos da sua régua: " + ws + ". Choques externos: " + (S.choque === "tirar" ? "2009–10 e 2020–21 fora da conta" : "contados") + ". Maré da América Latina: " + (S.viz === "nao" ? "não descontada" : "descontada do PIB e da renda") + ". ";
+  $("ecoWeights").textContent = "Pesos da sua régua: " + ws + ". Choques externos: " + (S.choque === "tirar" ? "2009–10 e 2020–21 fora da conta" : "contados") + ". Maré da América Latina: " + (S.viz === "nao" ? "não descontada" : "descontada") + ". ";
 }
 function buildEcoPanel(){
   var p = $("ecoPanel");
@@ -4390,6 +4394,7 @@ var EXT = {
   prodes:{1995:29059,1996:18161,1997:13227,1998:17383,1999:17259,2000:18226,2001:18165,2002:21651,2003:25396,2004:27772,2005:19014,2006:14286,2007:11651,2008:12911,2009:7464,2010:7000,2011:6418,2012:4571,2013:5891,2014:5012,2015:6207,2016:7893,2017:6947,2018:7536,2019:10129,2020:10851,2021:13038,2022:11594,2023:9064,2024:6518,2025:5731},
   focos:{2003:341237,2004:380445,2005:362563,2006:249179,2007:393915,2008:211933,2009:155102,2010:319383,2011:158099,2012:217234,2013:128145,2014:175892,2015:216778,2016:184217,2017:207508,2018:132870,2019:197632,2020:222797,2021:184081,2022:200763,2023:189901,2024:278299,2025:136393},  // focos de calor no Brasil, satélite de referência do INPE (AQUA, desde jul/2002), ano civil
   viz:{1995:2.72,1996:2,1997:4.19,1998:2.64,1999:-0.24,2000:1.25,2001:0.01,2002:0.94,2003:1.36,2004:3.8,2005:3.51,2006:4.39,2007:4.39,2008:3.01,2009:-1.51,2010:3.47,2011:3.51,2012:3.27,2013:3.48,2014:2.48,2015:2.06,2016:1.96,2017:2.04,2018:1.7,2019:0.5,2020:-8.88,2021:9.13,2022:2.93,2023:1.81,2024:2.13,2025:2.36},  // "maré da região": mediana do crescimento do PIB por pessoa (%, real) de 17 países da América Latina, sem o Brasil (Banco Mundial, NY.GDP.PCAP.KD.ZG, atualizado em 8/10/2026)
+  vizT:{mi:{1995:-4.06,1996:-3.944,1997:-4.423,1998:-3.799,1999:-4.67,2000:-4.256,2001:-3.755,2002:-3.774,2003:-3.681,2004:-3.746,2005:-3.479,2006:-3.323,2007:-3.615,2008:-3.116,2009:-3.216,2010:-3.175,2011:-3.315,2012:-3.469,2013:-3.345,2014:-3.437,2015:-3.469,2016:-2.985,2017:-3.031,2018:-3.101,2019:-2.372,2020:-2.429,2021:-2.264,2022:-2.317,2023:-2.62,2024:-2.496}, ev:{1995:0.388,1996:0.344,1997:0.342,1998:0.244,1999:0.339,2000:0.319,2001:0.294,2002:0.352,2003:0.266,2004:0.278,2005:0.315,2006:0.172,2007:0.233,2008:0.207,2009:0.192,2010:0.255,2011:0.272,2012:0.304,2013:0.221,2014:0.163,2015:0.117,2016:0.066,2017:0.144,2018:0.177,2019:0.123,2020:-1.481,2021:-1.372,2022:3.223,2023:1.096,2024:0.16}, des:{1995:0.102,1996:0.216,1997:-0.278,1998:-0.019,1999:0.2,2000:0.033,2001:0.105,2002:0.02,2003:0.083,2004:-0.206,2005:-0.822,2006:-0.316,2007:-0.408,2008:-0.026,2009:0.703,2010:-0.364,2011:-0.354,2012:-0.329,2013:0.029,2014:0.103,2015:-0.084,2016:0.353,2017:-0.05,2018:0.079,2019:0.282,2020:1.64,2021:-1.293,2022:-1.328,2023:-0.491,2024:-0.057,2025:-0.082}, hom:{1995:-0.563,1996:0.081,1997:-0.148,1998:-0.126,1999:-0.868,2000:0.618,2001:0.106,2002:0.674,2003:0.918,2004:-0.859,2005:0.302,2006:-0.113,2007:-0.118,2008:2.023,2009:0.212,2010:-0.65,2011:0.243,2012:-1.037,2013:-0.909,2014:-0.692,2015:-0.132,2016:-0.546,2017:-0.519,2018:-0.363,2019:-0.379,2020:-0.722,2021:0.434,2022:-0.281,2023:-0.035}},  // maré da região por indicador: mediana, entre 17 países da América Latina sem o Brasil, da variação de cada ano (mortalidade infantil em % (log), expectativa de vida em anos, desemprego em pontos, homicídios por 100 mil). Banco Mundial (SP.DYN.IMRT.IN, SP.DYN.LE00.IN, SL.UEM.TOTL.ZS, VC.IHR.PSRC.P5); só anos com 10 países ou mais
   // resultado primário do setor público consolidado, % do PIB (Banco Central, SGS 5793; superávit positivo)
   prim:{2002:3.19,2003:3.24,2004:3.69,2005:3.74,2006:3.15,2007:3.24,2008:3.33,2009:1.94,2010:2.62,2011:2.94,2012:2.18,2013:1.71,2014:-0.56,2015:-1.86,2016:-2.48,2017:-1.68,2018:-1.55,2019:-0.84,2020:-9.24,2021:0.72,2022:1.25,2023:-2.28,2024:-0.40,2025:-0.43},
   // carga tributária bruta, % do PIB: Tesouro Nacional de 2010 a 2025; antes, UNU-WIDER ajustada ao nível do Tesouro em 2010 (−0,24 ponto)
@@ -4410,6 +4415,7 @@ var EXT_SRC = {
   prodes:[["Inpe: taxa consolidada de 2025 (5.731 km²)","https://www.gov.br/inpe/pt-br/assuntos/ultimas-noticias/sistema-do-inpe-aponta-5-731-km2-de-desmatamento-na-amazonia-em-2025"],["Inpe: painel TerraBrasilis do Prodes","https://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/rates"]],
   focos:[["Inpe: Programa Queimadas, focos ativos por ano (satélite de referência)","https://terrabrasilis.dpi.inpe.br/queimadas/situacao-atual/estatisticas/estatisticas_paises/"],["Inpe: dados abertos do Programa Queimadas (arquivos anuais)","https://data.inpe.br/queimadas/dados-abertos/"],["WWF-Brasil: 136.393 focos em 2025, 51% menos que em 2024","https://www.wwf.org.br/nossosconteudos/notas_e_releases/saladeimprensa/?94300%2FBrasil-tem-queda-de-23-na-area-queimada-em-2025-mas-Caatinga-registra-aumento-no-fogo="],["Agência Brasil: 2024 com o maior número de focos desde 2010 (319.383)","https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2024-09/registro-de-queimadas-em-setembro-e-30-maior-que-media-do-mes"]],
   viz:[["Banco Mundial: crescimento do PIB por pessoa (NY.GDP.PCAP.KD.ZG), países da América Latina","https://data.worldbank.org/indicator/NY.GDP.PCAP.KD.ZG?locations=ZJ"]],
+  vizT:[["Banco Mundial: mortalidade infantil (SP.DYN.IMRT.IN)","https://data.worldbank.org/indicator/SP.DYN.IMRT.IN"],["Banco Mundial: expectativa de vida (SP.DYN.LE00.IN)","https://data.worldbank.org/indicator/SP.DYN.LE00.IN"],["Banco Mundial: desemprego, estimativa da OIT (SL.UEM.TOTL.ZS)","https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS"],["Banco Mundial: homicídios por 100 mil, UNODC (VC.IHR.PSRC.P5)","https://data.worldbank.org/indicator/VC.IHR.PSRC.P5"]],
   prim:[["Banco Central: resultado primário do setor público (SGS 5793)","https://api.bcb.gov.br/dados/serie/bcdata.sgs.5793/dados?formato=json"]],
   carga:[["Tesouro Nacional: carga tributária bruta de 2025","https://static.poder360.com.br/2026/04/carga-tributaria-10abr2026.pdf"],["Our World in Data: receita de impostos (UNU-WIDER)","https://ourworldindata.org/grapher/tax-revenues-as-a-share-of-gdp-unu-wider?country=~BRA"]],
   renda:[["Our World in Data: renda média diária (Banco Mundial, PIP)","https://ourworldindata.org/grapher/daily-mean-income?country=~BRA"]],
@@ -4442,7 +4448,7 @@ function socPts(it){
    Nota de indicador (0 a 10) = 10 · limitar((x − piso) / (meta − piso), 0, 1). O piso vale 0 e a meta vale 10;
    para "quanto menor, melhor" a meta fica abaixo do piso e a mesma fórmula serve. As âncoras não dependem dos governos comparados. */
 var NG = {
-  ver: "6.0",
+  ver: "6.1",
   anc: {
     eco:{pib:[-5,3], renda:[-5,5], sm:[-1,5], inf:[13.5,4.5], des:[2,-1], carga:[0.5,-0.5]},
     pov:{gini:[1,-1], pob:[25,-25]},
@@ -4994,9 +5000,9 @@ function serRaw(){
   return GOVS.map(function(g, i){
     var sp = ECO_SPANS[i].lv, a = sp[0], b = sp[1];
     return {
-      hom: perYear(getter(EXT.hom), a, b, false, []),
-      mi: perYear(getter(EXT.mi), a, b, true, null, false),
-      ev: perYear(getter(EXT.ev), a, b, false, null, true),
+      hom: perYear(vizAjusta(getter(EXT.hom), "hom", false), a, b, false, []),
+      mi: perYear(vizAjusta(getter(EXT.mi), "mi", true), a, b, true, shockWin(getter(EXT.mi), false), false),
+      ev: perYear(vizAjusta(getter(EXT.ev), "ev", false), a, b, false, shockWin(getter(EXT.ev), true), true),
       ideb: meanRate([EXT.ideb.ai, EXT.ideb.af, EXT.ideb.em], a, b, PAND),
       pisa: meanRate([EXT.pisa.leit, EXT.pisa.mat, EXT.pisa.cien], a, b, PAND)
     };
@@ -6258,7 +6264,8 @@ function ccExpressao(){
   L.push("   x = variação média por ano de governo, do ano anterior à posse ao último ano do mandato,");
   L.push("       ou a média do nível nos anos de governo quando a unidade diz (inflação, desmatamento, queimadas, primário).");
   L.push("   Choques: " + (S.choque === "tirar" ? "os anos de crise (2009 e pandemia) saem da conta da variação." : "contados como os outros anos."));
-  L.push("   Maré da região (PIB por pessoa e renda): " + (S.viz === "nao" ? "não descontada." : "x_ano = crescimento do Brasil − (maré_ano − " + NF2.format(vizMu()) + "), maré = mediana de 17 países da América Latina sem o Brasil."));
+  L.push("   Maré da região: " + (S.viz === "nao" ? "não descontada." : "variação do Brasil no ano − (maré do ano − maré média), maré = mediana da variação de 17 países da América Latina sem o Brasil."));
+  if(S.viz !== "nao") L.push("     maré média por ano: PIB por pessoa e renda " + NF2.format(vizMu("pib")) + "%; mortalidade infantil " + NF2.format(vizMu("mi")) + "%; expectativa de vida " + NF2.format(vizMu("ev")) + " ano; desemprego " + NF2.format(vizMu("des")) + " ponto; homicídios " + NF2.format(vizMu("hom")) + " por 100 mil");
   L.push("");
   L.push("2. PILARES DE RESULTADO (média das notas dos indicadores, com o peso v de cada um)");
   L.push(media("P_eco", "eco", ECO_IND, function(i){ return S.ecoW[i.k]; }));
@@ -6329,7 +6336,7 @@ function ccVariaveis(){
   rows.push(lin("grau A, B, C, D", "Quanto conta um caso conforme a prova (padrão: equilibrado)", "1; 0,75; 0,5; 0,25", ccEsc(["A","B","C","D"].map(function(k){ return f2(PRESETS[S.preset][k]); }).join("; "))));
   rows.push(lin("estimativa", "Valor de cada caso usado na conta", "central", ({min:"mínima", central:"central", max:"máxima"})[S.est]));
   rows.push(lin("choques", "Anos de crise na variação por ano", "tirar", S.choque));
-  rows.push(lin("maré", "Descontar a maré da América Latina no crescimento do PIB e da renda (média da maré " + NF2.format(vizMu()) + "% ao ano)", "sim", S.viz));
+  rows.push(lin("maré", "Descontar a maré da América Latina em PIB, renda, desemprego, mortalidade infantil, expectativa de vida e homicídios", "sim", S.viz));
   rows.push(lin("tol", "Faixa de “parado” na regra de efeito (fração de |meta − piso|)", f2(NG.efTol), f2(NG.efTol)));
   rows.push(lin("2,4 e 0,5", "Piso de corrupção por ano: fator sobre a média e mínimo", "2,4; 0,5", "2,4; 0,5"));
   rows.push(lin("5 maiores", "Feitos que entram em L_g", String(LEG_TOP), String(LEG_TOP)));
@@ -6544,7 +6551,7 @@ window.BEA = {
 buildCases(); buildLegado(); buildPromessas(); buildCarteira(); buildCandidatos(); buildEcoPanel(); buildSocList(); buildSocPanel(); buildPilPanel(); buildSerPanel(); buildHexSelects(); bind(); bindTempo();
 $("socN").textContent = SOC.length;
 (function(){ function fill(id, keys){ var el = $(id); if(!el) return; keys.forEach(function(k){ var ul = srcList(EXT_SRC[k]); while(ul.firstChild) el.appendChild(ul.firstChild); }); }
-  fill("serSrc", ["hom","mi","ev","ideb","pisa","prodes","focos"]); fill("ecoSrc", ["renda","prim","carga","viz"]); fill("corrSrc", ["wgi","cpi"]); fill("forcaSrc", ["forca"]); })(); (function(){ var ps = $("povSrc"), ul = srcList(POV_SRC); while(ul.firstChild) ps.appendChild(ul.firstChild); })();
+  fill("serSrc", ["hom","mi","ev","ideb","pisa","prodes","focos","vizT"]); fill("ecoSrc", ["renda","prim","carga","viz"]); fill("corrSrc", ["wgi","cpi"]); fill("forcaSrc", ["forca"]); })(); (function(){ var ps = $("povSrc"), ul = srcList(POV_SRC); while(ul.firstChild) ps.appendChild(ul.firstChild); })();
 buildFalas(); buildGastos(); buildPoderes(); buildFut();
 buildSources(); update(); route();
 document.querySelectorAll("details").forEach(function(d){ if(d.querySelector("#hexChart,#hexGrid,#forcaTbl")) d.addEventListener("toggle", function(){ if(d.open) renderHex(compute()); }); });
