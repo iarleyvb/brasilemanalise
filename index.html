@@ -3729,7 +3729,7 @@ function buildOutros(){
       itens.forEach(function(x){ var d = h("details","tbl"), sm = h("summary"); sm.appendChild(document.createTextNode(linha(x) + " ")); var src = x.src || []; if(x.id && XSRC[x.id]) src = src.concat(XSRC[x.id]); sm.appendChild(seloFontes(src)); d.appendChild(sm);
         var tx = x.res || x.txt || x.ev || ""; if(tx) d.appendChild(h("p",null,tx)); if(x.st && typeof x.st === "string" && x.st.length > 6) d.appendChild(kv("Situação", x.st)); if(x.mr) d.appendChild(kv("Mérito", x.mr)); if(CHK[x.id]) d.appendChild(kv("Checagem do número", CHK[x.id])); d.appendChild(fontes(src)); mb.appendChild(d); });
     }
-    bloco("Casos de corrupção com valor", cs, function(e){ return e.t + " · grau " + e.g + " · central R$ " + NF2.format(e.v.central) + " bi"; });
+    bloco("Casos de corrupção com valor", cs, function(e){ return e.t + " · grau " + e.g + " · valor central " + (e.v.central > 0 ? money(e.v.central) : "sem valor provado"); });
     bloco("Casos sem valor em R$", is, function(e){ return e.t + " · " + NF1.format(e.s) + " estrela(s)"; });
     bloco("Feitos", ls, function(e){ return e.t + " · " + NF1.format(e.s) + " estrela(s) · mérito " + NF1.format(e.m) + "% · " + HOJE[e.h].t; });
     var its = [].concat.apply([], ps.map(function(c){ return c.items.map(function(it){ return {t:it.p, st:it.st, ev:it.ev, src:it.src, ano:c.ano}; }); }));
