@@ -1337,6 +1337,7 @@ p.swipe.cc-swipe{display:none}
 <link rel="stylesheet" href="css/quiz.css">
 <link rel="stylesheet" href="css/compartilhar.css">
 <link rel="stylesheet" href="css/sobre.css">
+<link rel="stylesheet" href="css/mais.css">
 <link rel="stylesheet" href="css/dados.css">
 </head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -1375,7 +1376,7 @@ p.swipe.cc-swipe{display:none}
   <div class="hero-txt">
     <p class="eyebrow">Governos do Brasil, de 1995 a 2026</p>
     <h1 id="hero-h">Você escolhe a régua. <span>A régua vale para todos.</span></h1>
-    <p class="dek">Economia, pobreza, saúde, educação, segurança, meio ambiente, direitos de mulheres e minorias, corrupção, promessas e o que cada governo deixou, medidos com números públicos e com fonte em cada item. Você decide quanto pesa cada coisa, e o mesmo peso vale para todos os lados.</p>
+    <p class="dek">Compare os governos de 1995 a 2026 com números públicos e fonte em cada item. Você decide quanto pesa cada coisa, e o mesmo peso vale para todos os lados.</p>
     <div class="cta"><a class="btn primary" href="#governos-hex">Ver a nota de cada governo</a><a class="btn" href="#regua">Ajustar a minha régua</a></div>
     <div id="slotHero" class="slot"></div>
   </div>
@@ -1387,7 +1388,7 @@ p.swipe.cc-swipe{display:none}
     </div>
     <div id="hexChart"></div>
     <div class="hx-notes"><div class="hn" id="hexNA"><span class="hn-name"></span><span class="hn-sub"></span><b class="hn-val"></b></div><div class="hn b" id="hexNB"><span class="hn-name"></span><span class="hn-sub"></span><b class="hn-val"></b></div></div>
-    <div class="tblwrap" id="hexTbl"></div>
+    <details class="tbl hx-det"><summary>Ver a nota de cada pilar</summary><div class="tblwrap" id="hexTbl"></div></details>
     <p class="hr-note" id="hexCorrNote"></p>
     <div id="slotHex" class="slot"></div>
   </figure>
@@ -6362,4 +6363,5 @@ buildSources(); update(); route();
 <script src="js/correcoes.js" defer></script>
 <script src="js/dados.js" defer></script>
 <script src="js/novidades.js" defer></script>
+<script src="js/mais.js" defer></script>
 </body></html>
