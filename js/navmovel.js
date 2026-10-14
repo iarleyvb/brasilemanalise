@@ -81,7 +81,7 @@
   }
   /* computador: páginas secundárias saem da linha do menu e vão para "Mais" */
   var SEC = ["poderes", "eleicao", "metodo", "fontes"];
-  var EXTRA = [["a-formula", "A fórmula completa", "Todas as variáveis e os pesos"], ["regras-mudanca", "Como mudamos as regras", "Protocolo e registro"], ["revisao-cega", "Revisão cega", "Catálogos revistos sem nomes"], ["quiz", "Quiz", "Qual é a sua régua?"], ["dados", "Dados abertos", "CSV e JSON"], ["sobre", "Sobre e correções", "Quem faz e como corrigir"], ["novidades", "Novidades", "O que mudou"]];
+  var EXTRA = [["a-formula", "A fórmula completa", "Todas as variáveis e os pesos"], ["regras-mudanca", "Como mudamos as regras", "Protocolo e registro"], ["revisao-cega", "Revisão cega", "Catálogos revistos sem nomes"], ["revisao-externa", "Revisão externa", "Pessoas de fora avaliam o site"], ["quiz", "Quiz", "Qual é a sua régua?"], ["dados", "Dados abertos", "CSV e JSON"], ["sobre", "Sobre e correções", "Quem faz e como corrigir"], ["novidades", "Novidades", "O que mudou"]];
   var DESC = { poderes: "Quem manda em quê", eleicao: "2º turno, 25 de outubro", metodo: "A conta completa", fontes: "De onde vem cada número" };
   var snBtn = null, snPop = null, snNav = null, snBox = null;
   var AUTO = ["regua", "regua-politica", "falas", "sociedade", "servicos", "economia", "pt-x-pl"];
