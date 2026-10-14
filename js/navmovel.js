@@ -79,6 +79,62 @@
     D.body.classList.add("nm-on");
     marcar();
   }
-  function iniciar() { montar(); }
+  /* computador: páginas secundárias saem da linha do menu e vão para "Mais" */
+  var SEC = ["poderes", "eleicao", "metodo", "fontes"];
+  var EXTRA = [["a-formula", "A fórmula completa", "Todas as variáveis e os pesos"], ["quiz", "Quiz", "Qual é a sua régua?"], ["dados", "Dados abertos", "CSV e JSON"], ["sobre", "Sobre e correções", "Quem faz e como corrigir"], ["novidades", "Novidades", "O que mudou"]];
+  var DESC = { poderes: "Quem manda em quê", eleicao: "2º turno, 25 de outubro", metodo: "A conta completa", fontes: "De onde vem cada número" };
+  var snBtn = null, snPop = null, snNav = null, snBox = null;
+  var AUTO = ["regua", "regua-politica", "falas", "sociedade", "servicos", "economia", "pt-x-pl"];
+  function montarDesktop() {
+    var nav = D.querySelector(".sitenav"); if (!nav) { return; }
+    var box = el("div", "sn-mais");
+    snBtn = el("button", null, "Mais"); snBtn.type = "button";
+    snBtn.setAttribute("aria-expanded", "false"); snBtn.setAttribute("aria-controls", "sn-pop");
+    snPop = el("div", "sn-pop"); snPop.id = "sn-pop"; snPop.hidden = true;
+    SEC.forEach(function (k) {
+      var a = nav.querySelector('a[data-page="' + k + '"]'); if (!a) { return; }
+      a.classList.add("sn-sec");
+      var b = el("a"); b.href = "#" + k; b.setAttribute("data-p", k);
+      b.appendChild(el("b", null, a.textContent)); b.appendChild(el("small", null, DESC[k] || ""));
+      snPop.appendChild(b);
+    });
+    EXTRA.forEach(function (x) { var b = el("a"); b.href = "#" + x[0]; b.setAttribute("data-p", x[0]); b.appendChild(el("b", null, x[1])); b.appendChild(el("small", null, x[2])); snPop.appendChild(b); });
+    box.appendChild(snBtn); box.appendChild(snPop); nav.appendChild(box); nav.classList.add("sn-on");
+    snNav = nav; snBox = box;
+    var t = null; W.addEventListener("resize", function () { if (t) { W.clearTimeout(t); } t = W.setTimeout(caber, 120); });
+    caber(); W.setTimeout(caber, 600);
+    function fecharPop(foco) { if (snPop.hidden) { return; } snPop.hidden = true; snBtn.setAttribute("aria-expanded", "false"); if (foco) { snBtn.focus(); } }
+    snBtn.addEventListener("click", function (e) { e.stopPropagation(); var ab = snPop.hidden; snPop.hidden = !ab; snBtn.setAttribute("aria-expanded", ab ? "true" : "false"); if (ab) { var f = snPop.querySelector("a"); if (f) { f.focus(); } } });
+    snPop.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) { fecharPop(false); } });
+    D.addEventListener("click", function (e) { if (!box.contains(e.target)) { fecharPop(false); } });
+    D.addEventListener("keydown", function (e) { if (e.key === "Escape") { fecharPop(true); } });
+    marcarDesktop();
+  }
+  /* se a linha do menu não cabe, os itens da direita passam para o "Mais" */
+  function caber() {
+    if (!snNav) { return; }
+    var i, a, ocult = [];
+    var auto = snNav.querySelectorAll("a.sn-auto"); for (i = 0; i < auto.length; i++) { auto[i].classList.remove("sn-auto"); }
+    var velhos = snPop.querySelectorAll("a[data-auto]"); for (i = 0; i < velhos.length; i++) { velhos[i].parentNode.removeChild(velhos[i]); }
+    if (W.innerWidth <= 820) { return; }
+    var sobra = function () { return snBox.getBoundingClientRect().right - snNav.getBoundingClientRect().right; };
+    for (i = 0; i < AUTO.length && sobra() > 1; i++) {
+      a = snNav.querySelector('a[data-page="' + AUTO[i] + '"]'); if (!a) { continue; }
+      a.classList.add("sn-auto"); ocult.push(a);
+    }
+    ocult.forEach(function (o) {
+      var b = el("a"); b.href = o.getAttribute("href"); b.setAttribute("data-p", o.getAttribute("data-page")); b.setAttribute("data-auto", "1");
+      b.appendChild(el("b", null, o.textContent)); snPop.insertBefore(b, snPop.firstChild);
+    });
+    marcarDesktop();
+  }
+  function marcarDesktop() {
+    if (!snBtn) { return; }
+    var p = atual(), dentro = SEC.indexOf(p) >= 0 || EXTRA.some(function (x) { return x[0] === p; }) || !!snPop.querySelector('a[data-auto][data-p="' + p + '"]');
+    snBtn.classList.toggle("atual", dentro);
+    var as = snPop.querySelectorAll("a"), i;
+    for (i = 0; i < as.length; i++) { if (as[i].getAttribute("data-p") === p) { as[i].setAttribute("aria-current", "page"); } else { as[i].removeAttribute("aria-current"); } }
+  }
+  function iniciar() { montar(); montarDesktop(); W.addEventListener("hashchange", marcarDesktop); if (W.BEA && W.BEA.on) { W.BEA.on("page", marcarDesktop); } }
   if (D.readyState === "loading") { D.addEventListener("DOMContentLoaded", iniciar); } else { iniciar(); }
 })();

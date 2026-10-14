@@ -13,7 +13,7 @@
     { id: "fut", t: "Contas e futuro", w: { eco: 20, pov: 6, sau: 4, seg: 3, edu: 3, soc: 4, amb: 12, fut: 30, prl: 6, int: 12 } },
     { id: "dir", t: "Direitos e floresta", w: { eco: 8, pov: 15, sau: 4, seg: 4, edu: 4, soc: 25, amb: 25, fut: 4, prl: 3, int: 8 } }
   ];
-  var aberto = null, raiz = null;
+  var aberto = null, raiz = null, larg = {}, entrou = false;
 
   function el(t, c, x) { var e = D.createElement(t); if (c) { e.className = c; } if (x != null) { e.textContent = x; } return e; }
   function f1(n) { return (Math.round(n * 10) / 10).toFixed(1).replace(".", ","); }
@@ -61,17 +61,22 @@
     var tit = el("h2", "hs-h", "O placar em 10 segundos"); tit.id = "hs-h";
     raiz.setAttribute("aria-labelledby", "hs-h");
     raiz.appendChild(tit);
-    raiz.appendChild(el("p", "hs-sub", "Nota de 0 a 10 na régua que você escolheu. Toque em um governo para ver o porquê. O “força ×” ajusta Direitos e Feitos pelo apoio no Congresso e no STF: abaixo de 1, o governo tinha mais apoio que a média."));
+    raiz.appendChild(el("p", "hs-sub", "Nota de 0 a 10 na sua régua. Toque num governo para ver o porquê."));
 
     ul = el("ul", "hs-rank");
-    gs.forEach(function (g) {
-      li = el("li", "hs-it" + (g.bloco === "PL" || /PL/.test(g.partido) ? " pl" : " pt"));
+    var novas = {};
+    gs.forEach(function (g, ix) {
+      li = el("li", "hs-it" + (g.bloco === "PL" || /PL/.test(g.partido) ? " pl" : " pt") + (aberto === g.nome ? " open" : ""));
+      li.style.setProperty("--i", ix);
       bt = el("button", "hs-row"); bt.type = "button";
       bt.setAttribute("aria-expanded", aberto === g.nome ? "true" : "false");
+      var rk = el("span", "hs-rk", (ix + 1) + "º"); rk.setAttribute("aria-hidden", "true"); bt.appendChild(rk);
       row = el("span", "hs-n");
       row.appendChild(el("b", null, g.nome));
       row.appendChild(el("small", null, g.partido + " · " + anos(g.anos)));
-      tr = el("span", "hs-tr"); fl = el("i", "hs-fl"); fl.style.width = Math.max(2, g.nota * 10) + "%"; tr.appendChild(fl);
+      tr = el("span", "hs-tr"); fl = el("i", "hs-fl");
+      var w = Math.max(2, g.nota * 10); novas[g.nome] = w;
+      fl.style.width = (larg[g.nome] != null ? larg[g.nome] : w) + "%"; fl.setAttribute("data-w", w); tr.appendChild(fl);
       var nv = el("span", "hs-vw"); nv.appendChild(el("b", "hs-v", f1(g.nota)));
       if (g.mult != null && isFinite(g.mult)) {
         var mx = el("small", "hs-mx", "força ×" + (Math.round(g.mult * 100) / 100).toFixed(2).replace(".", ","));
@@ -85,6 +90,17 @@
       ul.appendChild(li);
     });
     raiz.appendChild(ul);
+    raiz.appendChild(el("p", "hs-nota", "Força ×: ajuste pelo apoio no Congresso e no STF, só em Direitos e em Feitos e promessas. Abaixo de 1, o governo tinha mais apoio que a média."));
+    // barras deslizam até o valor novo quando a régua muda; na primeira vez crescem do zero ao aparecer na tela
+    var anim = function () { var fs = ul.querySelectorAll(".hs-fl"), k; for (k = 0; k < fs.length; k++) { fs[k].style.width = fs[k].getAttribute("data-w") + "%"; } };
+    if (W.requestAnimationFrame) { W.requestAnimationFrame(function () { W.requestAnimationFrame(anim); }); } else { anim(); }
+    larg = novas;
+    if (!entrou) {
+      if (W.IntersectionObserver) {
+        var io = new W.IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { entrou = true; ul.classList.add("hs-grow"); io.disconnect(); } }, { threshold: 0.2 });
+        io.observe(ul);
+      } else { entrou = true; }
+    }
 
     if (pt) {
       var med = el("p", "hs-med");

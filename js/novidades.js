@@ -31,6 +31,24 @@
 
   var ENTRADAS = [
     {
+      id: "visual-placar",
+      data: "2026-10-14",
+      tipo: "Site",
+      versao: null,
+      titulo: "Visual novo: placar no topo, menu numa linha e blocos com seta",
+      resumo: "O placar virou um ranking em linhas finas, com posição e barras que crescem ao aparecer; no computador ele fica ao lado do título.",
+      itens: [
+        "Placar inspirado no componente “Rank Bars” da 21st.dev: rótulo, barra e nota, sem moldura; a linha aberta fica destacada.",
+        "Menu do computador numa linha só; páginas secundárias em “Mais”. Se a tela for estreita, os últimos itens passam para o “Mais” sozinhos.",
+        "Barra de baixo do celular com a página atual marcada por uma pílula.",
+        "Blocos recolhidos com seta e abertura suave; “Ler mais” com seta.",
+        "No celular, o topo mostra só “Ver o placar” e o “Guia”: Régua e Quiz já estão na barra de baixo.",
+        "Animações desligadas para quem pede menos movimento no sistema."
+      ],
+      impacto: { texto: "Não muda nenhuma nota." },
+      links: [{ href: "#inicio", texto: "Ver o Início" }]
+    },
+    {
       id: "mare-saude-seguranca-emprego",
       data: "2026-10-14",
       tipo: "Modelo",

@@ -28,9 +28,9 @@
         e.setAttribute("data-mais", ab ? "aberto" : "fechado");
         e.classList.toggle("mx", !ab);
         b.setAttribute("aria-expanded", ab ? "true" : "false");
-        b.firstChild.nodeValue = ab ? "− Ler menos" : "+ Ler mais";
+        b.firstChild.nodeValue = ab ? "Ler menos" : "Ler mais";
       });
-      b.appendChild(D.createTextNode("+ Ler mais"));
+      b.appendChild(D.createTextNode("Ler mais"));
       b.setAttribute("aria-expanded", "false");
       e.setAttribute("data-mais", "fechado");
       e.parentNode.insertBefore(b, e.nextSibling);
