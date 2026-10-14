@@ -1412,13 +1412,6 @@ p.swipe.cc-swipe{display:none}
   <p class="note">FHC (PSDB) e Temer (MDB) ficam fora da nota geral porque o placar não reúne corrupção, promessas e legado dos dois. As notas deles em economia, pobreza e sociedade estão nas páginas de cada tema. <a href="#pesos-geral">Mudar o peso de cada pilar</a></p>
 </section>
 
-<section class="wrap" id="forca" aria-labelledby="fo-h">
-  <div class="sec-head"><h2 id="fo-h">Apoio no Congresso e no STF</h2><p class="lead">Quanto apoio cada presidente tinha na Câmara, no Senado e no STF. Um governo forte que entregou pouco deve valer menos do que um governo travado pela oposição; por isso, a força entra como multiplicador moderado nas notas de Direitos e minorias e de Feitos e promessas.</p></div>
-  <p class="swipe">Deslize a tabela para ver todas as colunas.</p>
-  <div class="tblwrap forcawrap" id="forcaTbl"></div>
-  <p class="note" id="forcaNote"></p>
-  <details class="tbl"><summary>Fontes e estimativas</summary><ul class="src" id="forcaSrc" style="padding-bottom:8px"></ul><p class="note" style="padding-bottom:8px">A base de FHC 1 a Lula 1 vem do Banco de Dados Legislativos do Cebrap (Argelina Figueiredo). Os demais governos usam reportagens e cálculos com as bancadas, e vários números do Senado e dos fins de mandato são estimativas, com margem de 5 a 10 pontos. A base formal não mede tudo: governos com muitos ministérios entregues ao Centrão também perderam votações, e governos com base formal pequena conseguiram apoio com emendas, como o orçamento secreto de 2020–2022. Por isso o multiplicador é moderado por padrão.</p></details>
-</section>
 
 <section class="wrap" aria-label="Páginas do site">
   <div class="hcards">
@@ -1787,7 +1780,7 @@ p.swipe.cc-swipe{display:none}
   <p class="eyebrow">Três Poderes</p>
   <h1>Quem manda em quê</h1>
   <p class="dek">O Estado brasileiro em outubro de 2026, em caixinhas: quem ocupa cada cargo, como chegou lá, o Congresso que sai das urnas e como um Poder controla o outro.</p>
-  <nav class="chips" aria-label="Nesta página"><a href="#organograma">Organograma</a><a href="#congresso-2027">Congresso eleito</a><a href="#stf">As cadeiras do STF</a><a href="#freios">Freios e contrapesos</a></nav>
+  <nav class="chips" aria-label="Nesta página"><a href="#organograma">Organograma</a><a href="#congresso-2027">Congresso eleito</a><a href="#stf">As cadeiras do STF</a><a href="#freios">Freios e contrapesos</a><a href="#forca">Apoio de cada governo</a></nav>
 </header>
 <section class="wrap" id="organograma" aria-labelledby="og-h">
   <div class="sec-head"><h2 id="og-h">Organograma</h2><p class="lead">Os três Poderes são independentes e harmônicos entre si (art. 2º da Constituição). O povo escolhe o presidente e o Congresso; os ministros do STF, do STJ, do TST e do STM são indicados pelo presidente e aprovados pelo Senado.</p></div>
@@ -1975,6 +1968,14 @@ p.swipe.cc-swipe{display:none}
     <li><a href="https://agenciabrasil.ebc.com.br/justica/noticia/2023-06/por-5-votos-2-tse-torna-bolsonaro-inelegivel-por-oito-anos" target="_blank" rel="noopener noreferrer">Agência Brasil: TSE torna Bolsonaro inelegível</a></li>
     <li><a href="https://www.migalhas.com.br/quentes/287287/stf-rejeita-denuncia-por-racismo-contra-bolsonaro" target="_blank" rel="noopener noreferrer">Migalhas: STF rejeita denúncia por racismo</a></li>
   </ul></details>
+</section>
+
+<section class="wrap" id="forca" aria-labelledby="fo-h">
+  <div class="sec-head"><h2 id="fo-h">Apoio no Congresso e no STF</h2><p class="lead">Quanto apoio cada presidente tinha na Câmara, no Senado e no STF. Um governo forte que entregou pouco deve valer menos do que um governo travado pela oposição; por isso, a força entra como multiplicador moderado nas notas de Direitos e minorias e de Feitos e promessas.</p></div>
+  <p class="swipe">Deslize a tabela para ver todas as colunas.</p>
+  <div class="tblwrap forcawrap" id="forcaTbl"></div>
+  <p class="note" id="forcaNote"></p>
+  <details class="tbl"><summary>Fontes e estimativas</summary><ul class="src" id="forcaSrc" style="padding-bottom:8px"></ul><p class="note" style="padding-bottom:8px">A base de FHC 1 a Lula 1 vem do Banco de Dados Legislativos do Cebrap (Argelina Figueiredo). Os demais governos usam reportagens e cálculos com as bancadas, e vários números do Senado e dos fins de mandato são estimativas, com margem de 5 a 10 pontos. A base formal não mede tudo: governos com muitos ministérios entregues ao Centrão também perderam votações, e governos com base formal pequena conseguiram apoio com emendas, como o orçamento secreto de 2020–2022. Por isso o multiplicador é moderado por padrão.</p></details>
 </section>
 </div>
 <div class="page" data-page="eleicao" hidden>
@@ -4198,7 +4199,7 @@ function renderHome(R){
   var be = best(ecoScores()), bs = best(socScores());
   $("hcEco").textContent = be ? "Maior nota na sua régua: " + be.g.n + " (" + NF1.format(be.nota) + ")" : "";
   $("hcSoc").textContent = bs ? "Maior nota na sua régua: " + bs.g.n + " (" + NF1.format(bs.nota) + ")" : "";
-  renderHex(R);
+  renderHex(R); renderForca();
 }
 
 /* ---------- sociedade: medidas por grupo e governo ---------- */
@@ -6518,6 +6519,7 @@ $("socN").textContent = SOC.length;
   fill("serSrc", ["hom","mi","ev","ideb","pisa","prodes","focos"]); fill("ecoSrc", ["renda","prim","carga"]); fill("corrSrc", ["wgi","cpi"]); fill("forcaSrc", ["forca"]); })(); (function(){ var ps = $("povSrc"), ul = srcList(POV_SRC); while(ul.firstChild) ps.appendChild(ul.firstChild); })();
 buildFalas(); buildGastos(); buildPoderes(); buildFut();
 buildSources(); update(); route();
+document.querySelectorAll("details").forEach(function(d){ if(d.querySelector("#hexChart,#hexGrid,#forcaTbl")) d.addEventListener("toggle", function(){ if(d.open) renderHex(compute()); }); });
 })();
 </script>
 <script src="js/guia.js" defer></script>

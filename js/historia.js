@@ -61,7 +61,7 @@
     var tit = el("h2", "hs-h", "O placar em 10 segundos"); tit.id = "hs-h";
     raiz.setAttribute("aria-labelledby", "hs-h");
     raiz.appendChild(tit);
-    raiz.appendChild(el("p", "hs-sub", "Nota de 0 a 10 na régua que você escolheu. Toque em um governo para ver o porquê."));
+    raiz.appendChild(el("p", "hs-sub", "Nota de 0 a 10 na régua que você escolheu. Toque em um governo para ver o porquê. O “força ×” ajusta Direitos e Feitos pelo apoio no Congresso e no STF: abaixo de 1, o governo tinha mais apoio que a média."));
 
     ul = el("ul", "hs-rank");
     gs.forEach(function (g) {
@@ -72,7 +72,13 @@
       row.appendChild(el("b", null, g.nome));
       row.appendChild(el("small", null, g.partido + " · " + anos(g.anos)));
       tr = el("span", "hs-tr"); fl = el("i", "hs-fl"); fl.style.width = Math.max(2, g.nota * 10) + "%"; tr.appendChild(fl);
-      bt.appendChild(row); bt.appendChild(tr); bt.appendChild(el("b", "hs-v", f1(g.nota)));
+      var nv = el("span", "hs-vw"); nv.appendChild(el("b", "hs-v", f1(g.nota)));
+      if (g.mult != null && isFinite(g.mult)) {
+        var mx = el("small", "hs-mx", "força ×" + (Math.round(g.mult * 100) / 100).toFixed(2).replace(".", ","));
+        mx.title = "Multiplicador de força no Congresso e no STF. Vale só para Direitos e minorias e para Feitos e promessas.";
+        nv.appendChild(mx);
+      }
+      bt.appendChild(row); bt.appendChild(tr); bt.appendChild(nv);
       bt.addEventListener("click", function () { aberto = (aberto === g.nome) ? null : g.nome; desenhar(); var n = raiz.querySelector('[aria-expanded="true"]'); if (n) { n.focus(); } });
       li.appendChild(bt);
       if (aberto === g.nome) { li.appendChild(barras(g)); }
