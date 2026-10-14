@@ -90,7 +90,7 @@
     ul = el("ul", "hs-rank");
     var novas = {};
     gs.forEach(function (g, ix) {
-      li = el("li", "hs-it" + (g.bloco === "PL" || /PL/.test(g.partido) ? " pl" : " pt") + (aberto === g.nome ? " open" : ""));
+      li = el("li", "hs-it " + (g.bloco === "ou" ? "ou" : (g.bloco === "pl" || g.partido === "PL" ? "pl" : "pt")) + (aberto === g.nome ? " open" : ""));
       li.style.setProperty("--i", ix); li.setAttribute("data-id", g.id);
       bt = el("button", "hs-row"); bt.type = "button";
       bt.setAttribute("aria-expanded", aberto === g.nome ? "true" : "false");

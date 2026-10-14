@@ -683,7 +683,7 @@
       "Os valores são, em geral, variações médias por ano de governo. Governos têm durações diferentes.",
       "Diferenças menores que 0,5 ponto entre governos não permitem concluir qual é maior.",
       "A mesma régua, os mesmos pisos e as mesmas metas valem para todos os governos.",
-      "O arquivo de notas traz seis governos e “PT, todos”. FHC e Temer aparecem no arquivo de indicadores."
+      "O arquivo de notas traz os oito governos desde 1995 e “PT, todos”."
     ]));
     add(c4, el("h3", null, "Fontes originais e erros"), lista([
       ["Os números originais pertencem às fontes citadas em ", link("#fontes", "Fontes"), ". Confira as condições de uso de cada fonte antes de reutilizar os valores originais."],

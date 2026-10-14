@@ -31,6 +31,22 @@
 
   var ENTRADAS = [
     {
+      id: "fhc-temer",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "7.3",
+      titulo: "FHC e Temer entram na nota geral",
+      resumo: "Os oito governos desde 1995 passam a ter nota geral, pela mesma régua. Casos de corrupção, feitos e promessas de FHC e Temer foram pesquisados com fontes e classificados pelos mesmos critérios.",
+      itens: [
+        "FHC: 5 casos com valor (Sudam e Sudene, Marka e FonteCindam, compra de votos da reeleição, Sivam, grampos da Telebras), 9 feitos (Plano Real, LRF, Fundef, genéricos e outros) e 5 promessas de 1994 e 1998.",
+        "Temer: 2 casos com valor (mala da JBS, Decreto dos Portos), 1 caso sem valor em R$ (obstrução de Justiça, absolvido), 5 feitos; sem promessas, porque não foi cabeça de chapa.",
+        "O que ficou de fora e por quê está em Como calculamos, na seção FHC e Temer.",
+        "O Placar PT × PL continua comparando só os dois partidos."
+      ],
+      impacto: { texto: "Nota geral: Lula 2 7,1; Lula 1 6,7; Lula 3 6,3; Bolsonaro 6,3; FHC 5,2; Dilma 1 5,1; Temer 5,0; Dilma 2 4,7; PT, todos 6,2. O piso de corrupção, que é uma média dos governos, ficou mais exigente para todos." },
+      links: [{ href: "#fhc-temer", texto: "Ver os itens de FHC e Temer" }]
+    },
+    {
       id: "parte-federal-atraso",
       data: "2026-10-14",
       tipo: "Modelo",

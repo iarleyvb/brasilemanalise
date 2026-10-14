@@ -27,6 +27,7 @@
 .hs-it.open .hs-tr{background:var(--bg)}
 .hs-fl{display:block;height:100%;border-radius:0 4px 4px 0;background:var(--pt);transform-origin:left;transition:width .55s cubic-bezier(.2,.7,.3,1)}
 .hs-it.pl .hs-fl{background:var(--pl)}
+.hs-it.ou .hs-fl{background:#8e9297}
 .hs-grow .hs-fl{animation:hs-cresce .7s cubic-bezier(.2,.7,.3,1) both;animation-delay:calc(var(--i,0) * 45ms)}
 .hs-grow .hs-vw{animation:hs-surge .6s cubic-bezier(.2,.7,.3,1) both;animation-delay:calc(var(--i,0) * 45ms + 150ms)}
 @keyframes hs-cresce{from{transform:scaleX(0)}}

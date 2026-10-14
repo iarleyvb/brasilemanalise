@@ -183,7 +183,7 @@
         "Dilma 2 (1,4 ano) e Lula 3 (em curso) têm menos tempo de mandato."
     },
     {
-      id: "seis-governos", titulo: "Os seis governos do PT e do PL",
+      id: "seis-governos", titulo: "Os oito governos desde 1995",
       find: porId("hg-h"),
       mostra: function () {
         var g = governosHex();
