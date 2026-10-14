@@ -1338,6 +1338,8 @@ p.swipe.cc-swipe{display:none}
 <link rel="stylesheet" href="css/compartilhar.css">
 <link rel="stylesheet" href="css/sobre.css">
 <link rel="stylesheet" href="css/mais.css">
+<link rel="stylesheet" href="css/historia.css">
+<link rel="stylesheet" href="css/navmovel.css">
 <link rel="stylesheet" href="css/dados.css">
 </head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -1377,9 +1379,15 @@ p.swipe.cc-swipe{display:none}
     <p class="eyebrow">Governos do Brasil, de 1995 a 2026</p>
     <h1 id="hero-h">Você escolhe a régua. <span>A régua vale para todos.</span></h1>
     <p class="dek">Compare os governos de 1995 a 2026 com números públicos e fonte em cada item. Você decide quanto pesa cada coisa, e o mesmo peso vale para todos os lados.</p>
-    <div class="cta"><a class="btn primary" href="#governos-hex">Ver a nota de cada governo</a><a class="btn" href="#regua">Ajustar a minha régua</a></div>
+    <div class="cta"><a class="btn primary" href="#hist">Ver o placar</a><a class="btn" href="#regua">Ajustar a minha régua</a></div>
     <div id="slotHero" class="slot"></div>
   </div>
+</section>
+
+<section class="wrap" id="hist"></section>
+
+<section class="wrap" id="painel-hex">
+<details class="tbl hx-big"><summary>Painel completo: hexágono, pilares e comparação</summary>
   <figure class="hero-hex" id="hexFig" aria-labelledby="hx-cap">
     <figcaption id="hx-cap"><span class="eyebrow">Nota geral na sua régua</span><span class="hr-sub">Oito pilares, de 0 a 10, cada um com o seu peso. A corrupção não é descontada: ela é o pilar Integridade. A força no Congresso e no STF pesa no que cada governo entregou.</span></figcaption>
     <div class="hx-pick">
@@ -1392,12 +1400,14 @@ p.swipe.cc-swipe{display:none}
     <p class="hr-note" id="hexCorrNote"></p>
     <div id="slotHex" class="slot"></div>
   </figure>
+</details>
 </section>
 
 <section class="wrap" id="governos-hex" aria-labelledby="hg-h">
   <div class="sec-head"><h2 id="hg-h">Os seis governos do PT e do PL</h2><p class="lead">A nota geral de cada governo na sua régua. Toque em um deles para colocá-lo no hexágono.</p></div>
+  <details class="tbl"><summary>Ver cada governo no hexágono</summary>
   <p class="hxvs" id="hexVs"></p>
-  <div class="hxgrid" id="hexGrid"></div>
+  <div class="hxgrid" id="hexGrid"></div></details>
   <p class="note">FHC (PSDB) e Temer (MDB) ficam fora da nota geral porque o placar não reúne corrupção, promessas e legado dos dois. As notas deles em economia, pobreza e sociedade estão nas páginas de cada tema. <a href="#pesos-geral">Mudar o peso de cada pilar</a></p>
 </section>
 
@@ -6364,4 +6374,6 @@ buildSources(); update(); route();
 <script src="js/dados.js" defer></script>
 <script src="js/novidades.js" defer></script>
 <script src="js/mais.js" defer></script>
+<script src="js/historia.js" defer></script>
+<script src="js/navmovel.js" defer></script>
 </body></html>
