@@ -1342,7 +1342,7 @@ p.swipe.cc-swipe{display:none}
 <link rel="stylesheet" href="css/historia.css">
 <link rel="stylesheet" href="css/navmovel.css">
 <link rel="stylesheet" href="css/visual.css">
-<style>.rm-tbl{min-width:0!important}.rm-tbl td{vertical-align:top;font-size:14px}.cc-expr{white-space:pre-wrap;word-break:break-word;font-size:13px;line-height:1.55}.ser-sub{font-size:16px;margin:14px 0 2px}.ser-sub:first-child{margin-top:0}</style>
+<style>.fsel{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:99px;font-size:11.5px;font-weight:650;vertical-align:middle;border:1px solid var(--line-2)}.fsel.f2{background:color-mix(in srgb,#2c7a4b 14%,transparent);border-color:color-mix(in srgb,#2c7a4b 45%,transparent)}.fsel.f1{background:color-mix(in srgb,#a85d08 12%,transparent)}.fsel.f0{border-style:dashed}.rm-tbl{min-width:0!important}.rm-tbl td{vertical-align:top;font-size:14px}.cc-expr{white-space:pre-wrap;word-break:break-word;font-size:13px;line-height:1.55}.ser-sub{font-size:16px;margin:14px 0 2px}.ser-sub:first-child{margin-top:0}</style>
 <link rel="stylesheet" href="css/dados.css">
 </head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -2455,6 +2455,7 @@ p.swipe.cc-swipe{display:none}
   <p class="eyebrow">Bibliografia</p>
   <h1>Fontes</h1>
   <p class="dek">Todos os links usados no site, separados por tipo de fonte e por site, com a página onde cada um aparece. <span id="srcCount"></span></p>
+  <div class="mbox" id="verifBox" style="margin-top:12px"></div>
   <nav class="chips" aria-label="Tipos de fonte" id="srcChips"></nav>
 </header>
 <section class="wrap" id="bibliografia" aria-label="Lista de fontes">
@@ -3647,6 +3648,31 @@ function renderB(){
 var CASE_REFS = {};
 var FRN = {lula1:"Lula 1", lula2:"Lula 2", dilma1:"Dilma 1", dilma2:"Dilma 2", bolso:"Bolsonaro", lula3:"Lula 3", ptp:"PT fora do Planalto", plp:"PL fora do Planalto"};
 function blocsOf(s){ var o = {}; s.contas.forEach(function(c){ o[c.b] = true; }); return o; }
+/* selo de conferência: quantas fontes independentes (domínios distintos, sem contar a Wikipédia, que é fonte secundária) */
+function fontesInd(list){
+  var dom = {}; (list || []).forEach(function(f){ var m = String(f[1] || "").match(/^https?:\/\/([^\/]+)/i); if(!m) return; var d = m[1].toLowerCase().replace(/^www\./, "").replace(/^(m|mobile|mais|g1)\./, ""); if(/wikipedia\.org$/.test(d)) return; var p = d.split("."); d = p.slice(-3).join("."); if(/\.(com|gov|org|jus|leg|edu|net)\.br$/.test(d) === false) d = p.slice(-2).join("."); dom[d] = 1; });
+  return Object.keys(dom).length;
+}
+function seloFontes(list){ var n = fontesInd(list), t = h("span","fsel f" + (n >= 2 ? "2" : n)); t.textContent = n >= 2 ? n + " fontes independentes" : (n === 1 ? "1 fonte" : "sem fonte independente"); return t; }
+function buildVerif(){
+  var box = $("verifBox"); if(!box) return;
+  function conta(lista){ var r = [0, 0, 0]; lista.forEach(function(x){ var n = fontesInd(x); r[n >= 2 ? 2 : n]++; }); return r; }
+  var linhas = [
+    ["Casos de corrupção com valor", ESC.map(function(s){ return s.src.concat(XSRC[s.id] || []); })],
+    ["Casos sem valor em R$", INST.map(function(s){ return s.src; })],
+    ["Feitos de governo", LEG.map(function(p){ return p.src; })],
+    ["Promessas", [].concat.apply([], PROM.map(function(c){ return c.items.map(function(it){ return it.src || []; }); }))],
+    ["Medidas de direitos", SOC.map(function(m){ return m.src || []; })]
+  ];
+  var t = '<h2 style="font-size:20px;margin:0 0 6px">Conferência das fontes</h2><p class="note" style="margin:0 0 8px">Contagem automática de fontes independentes por item: domínios diferentes, sem contar a Wikipédia. Uma fonte oficial (lei no Planalto, série do IBGE ou do Banco Central) basta para um número; para fatos e avaliações, o ideal são duas ou mais.</p><div class="tblwrap"><table class="rm-tbl"><thead><tr><th>Catálogo</th><th>Itens</th><th>2 ou mais fontes</th><th>1 fonte</th><th>Sem fonte independente</th></tr></thead><tbody>';
+  linhas.forEach(function(l){ var c = conta(l[1]); t += "<tr><td>" + l[0] + "</td><td>" + l[1].length + "</td><td>" + c[2] + "</td><td>" + c[1] + "</td><td>" + c[0] + "</td></tr>"; });
+  t += '</tbody></table></div><h3 style="font-size:16px;margin:14px 0 6px">Séries acrescentadas em out/2026</h3><ul class="src">' +
+    '<li><b>Queimadas (focos do Inpe, 2003–2025):</b> totais anuais de uma listagem dos arquivos oficiais do Inpe; 2007, 2010, 2024 e 2025 conferidos em segunda fonte (Gazeta do Povo, Agência Brasil, WWF).</li>' +
+    '<li><b>Maré da América Latina:</b> arquivos oficiais do Banco Mundial (World Development Indicators, atualizados em 8/10/2026), lidos direto.</li>' +
+    '<li><b>Prioridades da população:</b> Datafolha (mar/2026) e Quaest/Pax (set/2026), cada pesquisa em duas reportagens.</li>' +
+    '<li><b>Parcela federal do gasto:</b> uma fonte para cada área (Fórum Brasileiro de Segurança Pública, Conass e Conasems, levantamento de 2018 para a educação).</li></ul>';
+  box.innerHTML = t;
+}
 function buildCases(){
   var wrap = $("cases");
   ESC.forEach(function(s){
@@ -3680,7 +3706,7 @@ function buildCases(){
     var gline = h("div"); gline.appendChild(h("b",null,"Grau " + s.g + ": ")); gline.appendChild(document.createTextNode(GR[s.g].desc + ".")); ct.appendChild(gline);
     if(s.par){ var pr = h("div"); pr.appendChild(h("b",null,"Partidos citados: ")); pr.appendChild(document.createTextNode(s.par + ".")); ct.appendChild(pr); }
     b4.appendChild(ct); body.appendChild(b4);
-    var b5 = h("div"); b5.appendChild(h("h4",null,"Fontes")); var ul = h("ul","src");
+    var b5 = h("div"), h4f = h("h4",null,"Fontes "); h4f.appendChild(seloFontes(s.src.concat(XSRC[s.id] || []))); b5.appendChild(h4f); var ul = h("ul","src");
     s.src.concat(XSRC[s.id] || []).forEach(function(f){ var li = h("li"); var a = h("a",null,f[0]); a.href = f[1]; a.target = "_blank"; a.rel = "noopener noreferrer"; li.appendChild(a); ul.appendChild(li); });
     b5.appendChild(ul); body.appendChild(b5);
     var lab = h("label","incl"); var cb = document.createElement("input"); cb.type = "checkbox"; cb.id = "inc-" + s.id; cb.checked = !S.excl[s.id];
@@ -3773,7 +3799,7 @@ function buildLegado(){
     mine.forEach(function(p){
       var it = h("article","leg-item" + (p.h === "fim" ? " gone" : "")); it.id = "feito-" + p.id;
       var lt = h("div","lt"); lt.appendChild(h("h3",null,p.t)); lt.appendChild(h("span","yr",p.ano)); it.appendChild(lt);
-      var tg = h("div","tags"); tg.appendChild(htag(p.h)); tg.appendChild(vtag(p.ver)); tg.appendChild(mtag(p.m)); it.appendChild(tg);
+      var tg = h("div","tags"); tg.appendChild(htag(p.h)); tg.appendChild(vtag(p.ver)); tg.appendChild(mtag(p.m)); tg.appendChild(seloFontes(p.src)); it.appendChild(tg);
       var efl = h("p","ef-line"); efl.id = "ef-" + p.id; it.appendChild(efl);
       it.appendChild(h("p",null,p.txt));
       it.appendChild(kv("Quem fez", p.mr));
@@ -6723,7 +6749,7 @@ $("socN").textContent = SOC.length;
 (function(){ function fill(id, keys){ var el = $(id); if(!el) return; keys.forEach(function(k){ var ul = srcList(EXT_SRC[k]); while(ul.firstChild) el.appendChild(ul.firstChild); }); }
   fill("serSrc", ["hom","mi","ev","ideb","pisa","prodes","focos","vizT"]); fill("ecoSrc", ["renda","prim","carga","viz"]); fill("corrSrc", ["wgi","cpi"]); fill("forcaSrc", ["forca"]); })(); (function(){ var ps = $("povSrc"), ul = srcList(POV_SRC); while(ul.firstChild) ps.appendChild(ul.firstChild); })();
 buildFalas(); buildGastos(); buildPoderes(); buildFut();
-buildSources(); update(); route();
+buildSources(); buildVerif(); update(); route();
 document.querySelectorAll("details").forEach(function(d){ if(d.querySelector("#hexChart,#hexGrid,#forcaTbl")) d.addEventListener("toggle", function(){ if(d.open) renderHex(compute()); }); });
 })();
 </script>
