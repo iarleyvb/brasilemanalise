@@ -6,7 +6,7 @@
   var ROT = { eco: "Bolso e emprego", pov: "Pobreza e desigualdade", soc: "Direitos e minorias", sau: "Saúde", seg: "Segurança", edu: "Educação", amb: "Floresta e clima", fut: "Contas do país", prl: "Feitos e promessas", int: "Honestidade (corrupção)" };
   var ORD = ["eco", "pov", "sau", "seg", "edu", "int", "fut", "amb", "soc", "prl"];
   var PRE = [
-    { id: "pad", t: "Neutro (tudo igual)", w: null },
+    { id: "pad", t: "Neutro (cada indicador igual)", w: null },
     { id: "bol", t: "Meu bolso", w: { eco: 35, pov: 20, sau: 4, seg: 3, edu: 3, soc: 5, amb: 4, fut: 10, prl: 6, int: 10 } },
     { id: "ser", t: "Saúde, escola e segurança", w: { eco: 8, pov: 10, sau: 18, seg: 18, edu: 18, soc: 6, amb: 6, fut: 6, prl: 4, int: 6 } },
     { id: "hon", t: "Honestidade", w: { eco: 12, pov: 8, sau: 4, seg: 4, edu: 4, soc: 6, amb: 5, fut: 10, prl: 12, int: 35 } },
@@ -48,7 +48,7 @@
     var r = el("p", "hs-res");
     r.textContent = "Ponto forte: " + ROT[melhor].toLowerCase() + " (" + f1(g.p[melhor]) + "). Ponto fraco: " + ROT[pior].toLowerCase() + " (" + f1(g.p[pior]) + ").";
     var wrap = el("div", "hs-det"); wrap.appendChild(r); wrap.appendChild(ul);
-    var mais = el("a", "hs-mais", "Ver a conta e as fontes"); mais.href = "#metodo";
+    var mais = el("a", "hs-mais", "Ver a fórmula completa"); mais.href = "#a-formula";
     wrap.appendChild(mais);
     return wrap;
   }
@@ -99,6 +99,7 @@
     });
     raiz.appendChild(gr);
     var fino = el("a", "hs-mais", "Ajuste fino, peso por peso"); fino.href = "#regua"; raiz.appendChild(fino);
+    var fm = el("a", "hs-mais", "A fórmula completa"); fm.href = "#a-formula"; fm.style.marginLeft = "18px"; raiz.appendChild(fm);
   }
 
   function iniciar() {

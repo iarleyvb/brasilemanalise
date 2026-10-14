@@ -207,7 +207,7 @@
       bom: function () {
         var k = kappa();
         return "Não existe força melhor ou pior: a tabela dá contexto. A regra é igual para todos: quem tinha base maior precisava entregar mais, então a nota daqueles dois pilares é multiplicada por um número menor que 1; quem tinha base menor recebe um número maior que 1. " +
-          "O ajuste é moderado: a força entra elevada a " + (k ? k : "0,25") + " na sua régua (0,25 no padrão).";
+          "A força entra elevada a " + (k ? k : "0,5") + " na sua régua (0,5 no padrão).";
       },
       cuidado: "Vários números do Senado e dos fins de mandato são estimativas, com margem de 5 a 10 pontos. A base formal não mede tudo: governos com ministérios entregues ao Centrão também perderam votações, " +
         "e governos com base pequena conseguiram apoio com emendas. Ser indicado ao STF por um presidente não quer dizer votar com ele."

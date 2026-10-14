@@ -31,6 +31,24 @@
 
   var ENTRADAS = [
     {
+      id: "neutra-por-indicador",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "5.0",
+      titulo: "Régua neutra por indicador e a fórmula completa à vista",
+      resumo: "Cada um dos 30 indicadores passa a valer o mesmo na nota final (3,3%). Controles que estavam em zero ou perto disso subiram. A expressão inteira da nota, com todas as variáveis, ganhou uma seção própria.",
+      itens: [
+        "Antes, com os dez temas de peso igual, inflação, desemprego e PIB valiam 1,7% cada e homicídios valia 10%. Agora todos valem 3,3%.",
+        "Peso padrão de cada pilar = 3 × número de indicadores: Economia 18, Direitos 18, Contas para o futuro 12, Meio ambiente 9, Pobreza, Saúde, Educação, Feitos e promessas e Integridade 6, Segurança 3.",
+        "Vidas impactadas por um caso de corrupção: de 0 para 1 ponto por milhão de pessoas lesadas.",
+        "Força política: Câmara, Senado e STF com o mesmo peso (o STF tinha 0,25) e multiplicador com expoente 0,5 (era 0,25).",
+        "Regra de efeito: medida sem efeito verificável passa a valer metade (era um quarto).",
+        "Nova seção “A fórmula completa”, em Como calculamos, com a nota inteira numa expressão e uma tabela de todas as variáveis, com o padrão e o valor na sua régua."
+      ],
+      impacto: { texto: "No padrão novo: Lula 2 6,9; Lula 1 6,8; Lula 3 5,9; Dilma 1 5,8; Bolsonaro 5,6; Dilma 2 3,6; PT, todos 6,1." },
+      links: [{ href: "#a-formula", texto: "Ver a fórmula completa" }]
+    },
+    {
       id: "saude-seguranca-educacao",
       data: "2026-10-14",
       tipo: "Modelo",

@@ -237,7 +237,7 @@ var TERMOS = [
   {k:"stf", t:"STF", p:["Supremo Tribunal Federal","STF"], cs:true,
    d:"Supremo Tribunal Federal, o tribunal mais alto do país e guardião da Constituição. Tem 11 ministros, indicados pelo presidente da República e aprovados pelo Senado.",
    e:"Quando surge uma vaga, o presidente indica um nome e o Senado vota para aprovar ou rejeitar.",
-   s:"Na força política, o STF pesa um quarto da Câmara por padrão, porque ministro indicado não vota como bloco.",
+   s:"Na força política, Câmara, Senado e STF pesam igual por padrão. Quem acha que ministro indicado não vota em bloco pode diminuir o peso do STF.",
    l:[["As cadeiras do STF","#stf"],["Apoio no Congresso e no STF","#forca"]]},
 
   {k:"congresso", t:"Congresso", p:["Congresso Nacional","Congresso"], cs:true,

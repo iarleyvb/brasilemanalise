@@ -236,7 +236,7 @@
       lista([
         "Casos sem valor em reais ficavam fora da conta por padrão. Agora entram, pela mesma escala de estrelas dos dois lados.",
         "A conta dos anos de choque dobrava as taxas de Bolsonaro. Agora os anos de crise e de recuperação saem da média para todos.",
-        "O multiplicador de força dava vantagem a Bolsonaro. Agora é moderado, e o STF pesa um quarto da Câmara."
+        "O multiplicador de força dava vantagem a Bolsonaro (×1,29). A revisão o moderou; desde a versão 5 o padrão é o meio-termo (expoente 0,5, Câmara, Senado e STF com o mesmo peso), e quem quiser volta aos valores da revisão nos controles."
       ]),
       el("h4", null, "Puxavam para o PT"),
       lista([
