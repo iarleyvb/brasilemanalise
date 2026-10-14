@@ -31,6 +31,38 @@
 
   var ENTRADAS = [
     {
+      id: "regua-neutra",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "3.0",
+      titulo: "Régua padrão neutra: todos os pilares valem o mesmo",
+      resumo: "A nota geral padrão passa a ser a média simples dos oito pilares. Dentro de cada pilar, todos os indicadores também valem o mesmo.",
+      itens: [
+        "Os oito pilares têm peso 10 cada (12,5% da nota). Antes, Economia e Serviços públicos pesavam 19, Contas para o futuro 14, Pobreza e Integridade 12, e os outros três 8.",
+        "Renda, carga tributária, mortalidade infantil e expectativa de vida deixam de valer meio ponto e passam a valer um, como os demais indicadores.",
+        "A regra de efeito das medidas continua ligada, e a corrupção continua pesada pelo grau de prova.",
+        "Quem já tinha mudado os pesos mantém os seus. Quem estava no padrão antigo passa para o novo."
+      ],
+      impacto: { texto: "No padrão novo: Lula 2 6,9; Lula 1 6,8; Lula 3 6,2; Dilma 1 5,9; Bolsonaro 5,4; Dilma 2 3,6; PT, todos 6,2." },
+      links: [{ href: "#regua", texto: "Ajustar os pesos" }]
+    },
+    {
+      id: "inicio-simples",
+      data: "2026-10-14",
+      tipo: "Site",
+      versao: null,
+      titulo: "Início mais simples e navegação nova no celular",
+      resumo: "O Início virou um placar visual, e os detalhes ficam recolhidos para quem quiser ler.",
+      itens: [
+        "Placar em 10 segundos: a nota de cada governo em barras; toque para ver o ponto forte e o ponto fraco.",
+        "Ênfases em um toque (Meu bolso, Honestidade, Saúde e escola…), com a mesma régua para todos.",
+        "No celular, uma barra fixa embaixo com Início, Temas, Régua, Quiz e Mais.",
+        "Textos longos ficam recolhidos com “+ Ler mais”."
+      ],
+      impacto: { texto: "Não muda nenhuma nota." },
+      links: [{ href: "#inicio", texto: "Ver o Início" }]
+    },
+    {
       id: "dados-abertos",
       data: "2026-10-08",
       tipo: "Site",
