@@ -1341,7 +1341,7 @@ p.swipe.cc-swipe{display:none}
 <link rel="stylesheet" href="css/historia.css">
 <link rel="stylesheet" href="css/navmovel.css">
 <link rel="stylesheet" href="css/visual.css">
-<style>.cc-expr{white-space:pre-wrap;word-break:break-word;font-size:13px;line-height:1.55}.ser-sub{font-size:16px;margin:14px 0 2px}.ser-sub:first-child{margin-top:0}</style>
+<style>.rm-tbl{min-width:0!important}.rm-tbl td{vertical-align:top;font-size:14px}.cc-expr{white-space:pre-wrap;word-break:break-word;font-size:13px;line-height:1.55}.ser-sub{font-size:16px;margin:14px 0 2px}.ser-sub:first-child{margin-top:0}</style>
 <link rel="stylesheet" href="css/dados.css">
 </head><body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -2322,6 +2322,39 @@ p.swipe.cc-swipe{display:none}
         <li>Legado: pontos dos feitos de cada governo, com os descontos de mérito de terceiros e da ótica de 2026.</li>
         <li>A nota geral é a média ponderada de dez pilares (economia, pobreza e desigualdade, direitos e minorias, saúde, segurança, educação, meio ambiente, contas para o futuro, feitos e promessas e integridade), com os pesos da sua régua. Na régua padrão, o peso de cada pilar vem das prioridades da população: metade é a média das pesquisas Datafolha (mar/2026) e Quaest (set/2026) sobre o principal problema do país, e metade é igual para os dez pilares, para nenhum tema ficar zerado. Nada é descontado depois da média. A expressão inteira, com todas as variáveis, está em A fórmula completa, e os pesos e valores em A conta completa, no fim desta página.</li><li>Força política: a média da base do governo na Câmara e no Senado (partidos com ministérios) e dos ministros do STF indicados pelo mesmo partido vira um índice de força. Sociedade e Promessas e legado são multiplicados pela razão entre a força média e a do governo, elevada a 0,5 na régua padrão: quem tinha mais força precisava entregar mais.</li><li>Saúde, Segurança e Educação: variação por ano de mortalidade infantil e expectativa de vida (Banco Mundial), homicídios (UNODC), Ideb (Inep) e Pisa (OCDE). Meio ambiente: nível e tendência do desmatamento (Prodes/Inpe). A nota geral cobre só os governos do PT e do PL, os únicos com dados em todos os pilares. “PT, todos” é a média dos cinco governos do partido, ponderada pelo tempo de mandato.</li><li>Choques externos: na régua padrão, os anos da crise global (2009–10) e da pandemia (2020–21) ficam fora da economia e da pobreza, para todos os governos. O boom das commodities (cerca de 2003–2011) ajudou os governos da época e não é descontado, porque durou quase uma década.</li>
       </ul>
+    </div>
+  </div>
+</section>
+<section class="wrap" id="regras-mudanca" aria-labelledby="rm-h">
+  <div class="sec-head"><h2 id="rm-h">Como mudamos as regras</h2><p class="lead">Mudar o cálculo muda as notas. Para que nenhuma mudança seja feita para ajudar um lado, toda mudança segue este protocolo e fica registrada aqui e em Novidades.</p></div>
+  <div class="method">
+    <div class="mbox">
+      <h3>O protocolo</h3>
+      <ol>
+        <li><b>Regra geral, sem nome.</b> A mudança é escrita para todos os governos (“medida sem efeito verificável vale metade”), nunca para um caso (“tal programa vale metade”).</li>
+        <li><b>Teste de simetria.</b> Antes de aplicar, a pergunta: faríamos a mesma mudança se ela ajudasse o outro lado? Se a resposta for não, a mudança não entra.</li>
+        <li><b>Regra antes do resultado.</b> A regra e os números dela (pesos, pisos, metas) são fixados antes de calcular o efeito nas notas. Se algum número for mexido depois de ver o efeito, isso é dito no registro.</li>
+        <li><b>Referência de fora.</b> Pesos, pisos e metas vêm de fontes externas (pesquisas, metas legais, ODS, séries oficiais) sempre que existirem. Quando não existem, a escolha é marcada como convenção do site em A conta completa.</li>
+        <li><b>Pedido com direção é registrado como tal.</b> Quando o pedido de mudança vem junto com uma opinião sobre um governo, isso fica escrito, e a regra resultante é testada nos dois sentidos.</li>
+        <li><b>A versão anterior fica disponível.</b> Sempre que possível, o padrão antigo vira uma opção nos controles, para quem quiser comparar.</li>
+        <li><b>Erro de dado não é mudança de regra.</b> Número errado ou fonte melhor entram direto, com registro em Novidades.</li>
+      </ol>
+    </div>
+    <div class="mbox">
+      <h3>O protocolo aplicado às mudanças de 14/10/2026</h3>
+      <p>Todas foram pedidas pelo dono do site. A tabela diz se cada uma passou em cada passo e o efeito na nota de cada lado, na régua padrão do momento.</p>
+      <div class="tblwrap"><table class="rm-tbl">
+        <thead><tr><th>Versão e mudança</th><th>Pedido com direção?</th><th>Regra geral e simétrica?</th><th>Fixada antes do efeito?</th><th>Efeito</th></tr></thead>
+        <tbody>
+          <tr><td>3.0 · Régua padrão neutra (todos os pilares iguais)</td><td>Não</td><td>Sim</td><td>Sim</td><td>Lula 2 7,3 → 6,9; Bolsonaro 5,7 → 5,4</td></tr>
+          <tr><td>3.1 · Queimadas no Meio ambiente</td><td>Sim (“Lula 3 está ruim e estamos omitindo”)</td><td>Sim: mesmo indicador e mesma faixa para todos</td><td>Sim</td><td>Lula 3 6,2 → 6,0; Lula 1 cai mais; Bolsonaro quase igual</td></tr>
+          <tr><td>4.0 · Saúde, Segurança e Educação separados</td><td>Não</td><td>Sim</td><td>Sim</td><td>Bolsonaro 5,5 → 5,7; Lula 3 6,0 → 5,9</td></tr>
+          <tr><td>5.0 · Cada indicador com o mesmo peso; controles que estavam perto de zero sobem</td><td>Não</td><td><b>Em parte.</b> STF na força e expoente do multiplicador voltaram atrás de uma escolha da revisão de imparcialidade, e o padrão novo dá ×1,34 a Bolsonaro. O peso por indicador tinha um defeito, corrigido na 7.0</td><td>Sim</td><td>Lula 1 6,6 → 6,8; Bolsonaro 5,7 → 5,6</td></tr>
+          <tr><td>6.0 e 6.1 · Maré da América Latina</td><td>Sim (“Bolsonaro não teve culpa da pandemia; Lula teve o boom das commodities”)</td><td>Sim: a mesma regra vale para sorte e azar de todos</td><td>Sim</td><td>Bolsonaro 5,6 → 5,9; Lula 1 6,8 → 6,7; Lula 3 5,9 → 6,1</td></tr>
+          <tr><td>7.0 · Pesos vindos das prioridades da população</td><td>Não</td><td>Sim</td><td>Sim: a regra (metade pesquisas, metade igual) foi fixada antes do cálculo</td><td>Bolsonaro 5,9 → 6,5; Lula 3 6,1 → 6,4; Dilma 1 5,7 → 5,2</td></tr>
+        </tbody>
+      </table></div>
+      <p><b>Efeito somado no dia:</b> Bolsonaro foi de 5,7 para 6,5; “PT, todos”, de 6,4 para 6,3; Lula 3, de 6,3 para 6,4. Cada mudança passou pela regra geral, mas a sequência foi puxada por pedidos do dono do site, e as que mais mexeram nas notas subiram Bolsonaro. Por isso o próximo passo é a revisão externa, por pessoas de lados diferentes (veja Sobre).</p>
     </div>
   </div>
 </section>

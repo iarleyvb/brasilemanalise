@@ -3,7 +3,7 @@
   "use strict";
   var W = window, D = document, mq = W.matchMedia ? W.matchMedia("(max-width: 820px)") : null;
   var TEMAS = [["economia", "Economia e pobreza", "Renda, emprego, inflação, dívida"], ["servicos", "Serviços e ambiente", "Saúde, escola, segurança, Amazônia"], ["sociedade", "Direitos e minorias", "O que cada governo fez"], ["pt-x-pl", "Placar PT × PL", "Corrupção, feitos e promessas"], ["falas", "Falas e gastos", "O que disseram e o que gastaram"], ["poderes", "Três Poderes", "Quem manda em quê"], ["eleicao", "Eleição 2026", "2º turno, 25 de outubro"], ["regua-politica", "Régua política", "De 0 a 100, autor por autor"]];
-  var MAIS = [["a-formula", "A fórmula completa", "Todas as variáveis e os pesos em uso"], ["metodo", "Como calculamos", "A conta completa"], ["dados", "Dados abertos", "CSV e JSON"], ["fontes", "Fontes", "De onde vem cada número"], ["sobre", "Sobre e correções", "Quem faz e como corrigir"], ["novidades", "Novidades", "O que mudou"]];
+  var MAIS = [["a-formula", "A fórmula completa", "Todas as variáveis e os pesos em uso"], ["regras-mudanca", "Como mudamos as regras", "Protocolo e registro de cada mudança"], ["metodo", "Como calculamos", "A conta completa"], ["dados", "Dados abertos", "CSV e JSON"], ["fontes", "Fontes", "De onde vem cada número"], ["sobre", "Sobre e correções", "Quem faz e como corrigir"], ["novidades", "Novidades", "O que mudou"]];
   var barra, gaveta, fundo, titulo, lista, ultimoFoco = null;
 
   function el(t, c, x) { var e = D.createElement(t); if (c) { e.className = c; } if (x != null) { e.textContent = x; } return e; }
@@ -81,7 +81,7 @@
   }
   /* computador: páginas secundárias saem da linha do menu e vão para "Mais" */
   var SEC = ["poderes", "eleicao", "metodo", "fontes"];
-  var EXTRA = [["a-formula", "A fórmula completa", "Todas as variáveis e os pesos"], ["quiz", "Quiz", "Qual é a sua régua?"], ["dados", "Dados abertos", "CSV e JSON"], ["sobre", "Sobre e correções", "Quem faz e como corrigir"], ["novidades", "Novidades", "O que mudou"]];
+  var EXTRA = [["a-formula", "A fórmula completa", "Todas as variáveis e os pesos"], ["regras-mudanca", "Como mudamos as regras", "Protocolo e registro"], ["quiz", "Quiz", "Qual é a sua régua?"], ["dados", "Dados abertos", "CSV e JSON"], ["sobre", "Sobre e correções", "Quem faz e como corrigir"], ["novidades", "Novidades", "O que mudou"]];
   var DESC = { poderes: "Quem manda em quê", eleicao: "2º turno, 25 de outubro", metodo: "A conta completa", fontes: "De onde vem cada número" };
   var snBtn = null, snPop = null, snNav = null, snBox = null;
   var AUTO = ["regua", "regua-politica", "falas", "sociedade", "servicos", "economia", "pt-x-pl"];
