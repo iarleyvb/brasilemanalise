@@ -31,6 +31,23 @@
 
   var ENTRADAS = [
     {
+      id: "mare-da-regiao",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "6.0",
+      titulo: "Sorte e azar de fora: a maré da América Latina",
+      resumo: "O crescimento do PIB por pessoa e da renda passa a ser medido descontando o quanto os vizinhos cresceram acima ou abaixo do normal no mesmo ano. A regra tira o vento a favor do boom das commodities e devolve o vento contra das crises mundiais, igual para todos.",
+      itens: [
+        "Maré = mediana do crescimento do PIB por pessoa de 17 países da América Latina, sem o Brasil (Banco Mundial). Normal = média dessa mediana de 1995 a 2025 (2,1% ao ano).",
+        "Vento a favor, em pontos por ano: Lula 1 +1,1, Lula 2 +1,6, Dilma 1 +1,0. Vento contra: FHC −0,6, Bolsonaro −0,4, Temer −0,2.",
+        "Crescimento do PIB por pessoa, sem e com o desconto: Lula 1 2,4% → 1,2%; Lula 2 4,6% → 2,9%; Bolsonaro 1,6% → 2,0%; FHC 0,7% → 1,3%.",
+        "Os anos de crise (2009–10 e pandemia) continuam fora da conta, como antes.",
+        "Dá para desligar em Ajuste os pesos, no painel da economia."
+      ],
+      impacto: { texto: "Nota geral: Lula 1 6,75 → 6,66; Lula 2 6,88 → 6,83; Dilma 1 5,76 → 5,69; Bolsonaro 5,57 → 5,64; Lula 3 5,93 → 5,94. A diferença é pequena porque PIB e renda são 2 dos 30 indicadores; no pilar Economia ela é maior." },
+      links: [{ href: "#regua", texto: "Ligar ou desligar" }]
+    },
+    {
       id: "neutra-por-indicador",
       data: "2026-10-14",
       tipo: "Modelo",
