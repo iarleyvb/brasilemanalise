@@ -38,7 +38,7 @@ melhorou: d > tol      parado: |d| ≤ tol      piorou: d < −tol
 Retrocessos (medidas que tiram direitos) recebem o mesmo fator, para a regra ser simétrica: um retrocesso que não se consegue verificar também vale 1/4.
 
 ## 3. Classificação das medidas
-Cada medida recebe: lista de resultados que ela pretende mover diretamente (0 a 3 dos 18 indicadores do site) e verificabilidade. A classificação foi feita por dois classificadores independentes, cegos a governo e partido, e um juiz que, na dúvida, adota o nível mais conservador igual para todos. O mapa completo é público em "A conta completa".
+Cada medida recebe: lista de resultados que ela pretende mover diretamente (0 a 3 dos indicadores de resultado do site) e verificabilidade. A classificação foi feita por dois classificadores independentes, cegos a governo e partido, e um juiz que, na dúvida, adota o nível mais conservador igual para todos. O mapa completo é público em "A conta completa".
 
 ## 4. Controles do visitante
 Interruptor "Regra de efeito" (padrão ligado) e quatro controles de 0 a 1: F_melhorou, F_parado, F_piorou, F_naoverif. Com o interruptor desligado, o site volta a contar as medidas pelo que foram.

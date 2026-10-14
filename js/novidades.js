@@ -31,6 +31,23 @@
 
   var ENTRADAS = [
     {
+      id: "queimadas",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "3.1",
+      titulo: "Queimadas entram no pilar Meio ambiente",
+      resumo: "O pilar Meio ambiente passa a ter três indicadores com o mesmo peso: desmatamento médio na Amazônia, tendência do desmatamento e focos de queimada no Brasil.",
+      itens: [
+        "Queimadas: média anual de focos de calor no Brasil, todos os biomas, pelo satélite de referência do Inpe. A série comparável começa em 2003, então FHC fica sem esse dado.",
+        "Nota 0 com 400 mil focos por ano (acima do pior ano, 2007) e nota 10 com 100 mil (abaixo do melhor, 2013).",
+        "Médias por governo: Lula 1 333 mil; Lula 2 270 mil; Dilma 1 170 mil; Dilma 2 217 mil; Temer 175 mil; Bolsonaro 201 mil; Lula 3 202 mil (2023 a 2025; 2024 teve 278 mil, o maior número desde 2010).",
+        "Dívida bruta e dívida líquida passam a valer um ponto cada, como os demais indicadores.",
+        "Gráfico ano a ano das queimadas na página Serviços e ambiente."
+      ],
+      impacto: { texto: "No padrão novo: Lula 2 6,7; Lula 1 6,7; Lula 3 6,0; Dilma 1 5,9; Bolsonaro 5,5; Dilma 2 3,5; PT, todos 6,1." },
+      links: [{ href: "#nota-ambiente", texto: "Ver o Meio ambiente" }]
+    },
+    {
       id: "regua-neutra",
       data: "2026-10-14",
       tipo: "Modelo",

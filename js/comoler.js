@@ -386,7 +386,7 @@
         return BARRAS + ORDEM + " O nível é a média de km² desmatados por ano nos anos de governo. A tendência é a variação por ano, do ano anterior à posse ao fim do mandato. Assim conta tanto quem herdou um desmatamento alto e o reduziu quanto quem deixou subir.";
       },
       bom: function () {
-        return ancoras(["amb.niv", "amb.var"]);
+        return ancoras(["amb.niv", "amb.var", "amb.fogo"]);
       },
       cuidado: "O ano do Prodes vai de agosto a julho. O preço da soja e do gado, o câmbio e a fiscalização dos estados também pesam. Lula 3 usa dados até 2025. A meta do nível vem da Política Nacional sobre Mudança do Clima; o piso e a faixa da tendência são escolhas do site."
     },

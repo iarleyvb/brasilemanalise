@@ -1730,10 +1730,10 @@ p.swipe.cc-swipe{display:none}
 <section class="wrap" id="nota-ambiente" aria-labelledby="amb-h">
   <div class="sec-head">
     <h2 id="amb-h">Meio ambiente, de 0 a 10</h2>
-    <p class="lead">Dois números do desmatamento na Amazônia (Prodes, do Inpe): a média por ano nos anos de governo e a tendência, do ano anterior à posse ao fim do mandato. Assim conta tanto quem herdou um desmatamento alto e o reduziu quanto quem deixou subir.</p>
+    <p class="lead">Três números, todos do Inpe: o desmatamento médio na Amazônia por ano de governo, a tendência do desmatamento e as queimadas (focos de calor por ano, no Brasil todo). Os três valem o mesmo.</p>
   </div>
   <figure class="chart" style="margin-inline:0"><div id="chartAmb"></div></figure>
-  <p class="note">O ano do Prodes vai de agosto a julho. Preço da soja e do gado, câmbio e a fiscalização dos estados também pesam. Lula 3 usa dados até 2025.</p>
+  <p class="note">O ano do Prodes vai de agosto a julho; as queimadas contam o ano civil. Seca, El Niño, preço da soja e do gado e a fiscalização dos estados também pesam. A série de queimadas comparável começa em 2003, então FHC fica sem esse dado. Lula 3 usa dados até 2025: 2024 teve 278 mil focos, o maior número desde 2010.</p>
   <details class="tbl"><summary>Os números por trás de cada nota</summary><div class="tblwrap" id="tblAmb"></div></details>
 </section>
 <section class="wrap" id="series-servicos" aria-labelledby="ss-h">
@@ -3186,7 +3186,7 @@ function istarsOf(item){ var o = S.istars[item.id]; return (typeof o === "number
 var EFE_LEG = {"salario":{"r":["eco.sm"],"v":"v"},"liberdade":{"r":["eco.pib"],"v":"n"},"bolsafamilia":{"r":["pov.pob","pov.gini"],"v":"v"},"auxbrasil":{"r":["pov.pob","pov.gini"],"v":"v"},"pedemeia":{"r":["ser.ideb"],"v":"n"},"pix":{"r":[],"v":"v"},"prouni":{"r":[],"v":"v"},"luz":{"r":[],"v":"v"},"desemprego":{"r":["eco.des"],"v":"v"},"bc":{"r":["eco.inf"],"v":"n"},"vacinacao":{"r":["ser.ev"],"v":"v"},"eletrobras":{"r":[],"v":"e"},"reuni":{"r":[],"v":"v"},"tributaria":{"r":["eco.carga"],"v":"n"},"farmacia":{"r":["ser.ev"],"v":"v"},"previdencia":{"r":["fut.dbgg","fut.div","fut.prim"],"v":"v"},"bem":{"r":["eco.des"],"v":"e"},"desmat1":{"r":["amb.niv","amb.var"],"v":"v"},"auxilio":{"r":["pov.pob","pov.gini"],"v":"v"},"fome2014":{"r":["pov.pob"],"v":"v"},"ir5mil":{"r":["eco.renda","pov.gini"],"v":"v"},"anticorrupcao":{"r":[],"v":"v"},"maismedicos":{"r":["ser.mi","ser.ev"],"v":"v"},"desmat2":{"r":["amb.niv","amb.var"],"v":"v"},"fome2025":{"r":["pov.pob"],"v":"v"},"mcmv":{"r":[],"v":"v"},"saneamento":{"r":[],"v":"n"}};
 var EFE_SOC = "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeenneeeeeeeeeeeeeeenneeeeeeeeeeeeeeeeeeeeeeeee";
 var EFC = null;
-var EF_NIVEL = {"eco.inf":1, "amb.niv":1, "fut.prim":1};
+var EF_NIVEL = {"eco.inf":1, "amb.niv":1, "amb.fogo":1, "fut.prim":1};
 function efNome(k){
   var p = k.split(".")[0], q = k.split(".")[1], L = ({eco:ECO_IND, pov:POV_IND, ser:SER_IND, amb:AMB_IND, fut:FUT_IND})[p] || [], i;
   for(i = 0; i < L.length; i++){ if(L[i].k === q) return L[i].t; } return k;
@@ -4347,6 +4347,7 @@ var EXT = {
         cien:{2006:390,2009:405,2012:402,2015:401,2018:404,2022:403,2025:409}},
   // desmatamento na Amazônia Legal, km² por ano (Inpe, Prodes; ano de ago a jul)
   prodes:{1995:29059,1996:18161,1997:13227,1998:17383,1999:17259,2000:18226,2001:18165,2002:21651,2003:25396,2004:27772,2005:19014,2006:14286,2007:11651,2008:12911,2009:7464,2010:7000,2011:6418,2012:4571,2013:5891,2014:5012,2015:6207,2016:7893,2017:6947,2018:7536,2019:10129,2020:10851,2021:13038,2022:11594,2023:9064,2024:6518,2025:5731},
+  focos:{2003:341237,2004:380445,2005:362563,2006:249179,2007:393915,2008:211933,2009:155102,2010:319383,2011:158099,2012:217234,2013:128145,2014:175892,2015:216778,2016:184217,2017:207508,2018:132870,2019:197632,2020:222797,2021:184081,2022:200763,2023:189901,2024:278299,2025:136393},  // focos de calor no Brasil, satélite de referência do INPE (AQUA, desde jul/2002), ano civil
   // resultado primário do setor público consolidado, % do PIB (Banco Central, SGS 5793; superávit positivo)
   prim:{2002:3.19,2003:3.24,2004:3.69,2005:3.74,2006:3.15,2007:3.24,2008:3.33,2009:1.94,2010:2.62,2011:2.94,2012:2.18,2013:1.71,2014:-0.56,2015:-1.86,2016:-2.48,2017:-1.68,2018:-1.55,2019:-0.84,2020:-9.24,2021:0.72,2022:1.25,2023:-2.28,2024:-0.40,2025:-0.43},
   // carga tributária bruta, % do PIB: Tesouro Nacional de 2010 a 2025; antes, UNU-WIDER ajustada ao nível do Tesouro em 2010 (−0,24 ponto)
@@ -4365,6 +4366,7 @@ var EXT_SRC = {
   ideb:[["Inep: Ideb avança em todas as etapas (ago/2026)","https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica"],["Inep: resultados do Ideb","https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb/resultados"]],
   pisa:[["OCDE: Pisa 2025, nota do Brasil","https://www.oecd.org/en/publications/2026/09/pisa-2025-results-volume-i-country-notes_88d1164e/brazil_6cc1576c.html"],["Agência Gov: resultados do Pisa 2025","https://agenciagov.ebc.com.br/noticias/202609/pisa-brasil-esta-entre-os-paises-que-mais-avancaram-em-educacao-nos-ultimos-20-anos"],["Inep: histórico do Pisa","https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/pisa/historico"]],
   prodes:[["Inpe: taxa consolidada de 2025 (5.731 km²)","https://www.gov.br/inpe/pt-br/assuntos/ultimas-noticias/sistema-do-inpe-aponta-5-731-km2-de-desmatamento-na-amazonia-em-2025"],["Inpe: painel TerraBrasilis do Prodes","https://terrabrasilis.dpi.inpe.br/app/dashboard/deforestation/biomes/legal_amazon/rates"]],
+  focos:[["Inpe: Programa Queimadas, focos ativos por ano (satélite de referência)","https://terrabrasilis.dpi.inpe.br/queimadas/situacao-atual/estatisticas/estatisticas_paises/"],["Inpe: dados abertos do Programa Queimadas (arquivos anuais)","https://data.inpe.br/queimadas/dados-abertos/"],["WWF-Brasil: 136.393 focos em 2025, 51% menos que em 2024","https://www.wwf.org.br/nossosconteudos/notas_e_releases/saladeimprensa/?94300%2FBrasil-tem-queda-de-23-na-area-queimada-em-2025-mas-Caatinga-registra-aumento-no-fogo="],["Agência Brasil: 2024 com o maior número de focos desde 2010 (319.383)","https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2024-09/registro-de-queimadas-em-setembro-e-30-maior-que-media-do-mes"]],
   prim:[["Banco Central: resultado primário do setor público (SGS 5793)","https://api.bcb.gov.br/dados/serie/bcdata.sgs.5793/dados?formato=json"]],
   carga:[["Tesouro Nacional: carga tributária bruta de 2025","https://static.poder360.com.br/2026/04/carga-tributaria-10abr2026.pdf"],["Our World in Data: receita de impostos (UNU-WIDER)","https://ourworldindata.org/grapher/tax-revenues-as-a-share-of-gdp-unu-wider?country=~BRA"]],
   renda:[["Our World in Data: renda média diária (Banco Mundial, PIP)","https://ourworldindata.org/grapher/daily-mean-income?country=~BRA"]],
@@ -4397,21 +4399,21 @@ function socPts(it){
    Nota de indicador (0 a 10) = 10 · limitar((x − piso) / (meta − piso), 0, 1). O piso vale 0 e a meta vale 10;
    para "quanto menor, melhor" a meta fica abaixo do piso e a mesma fórmula serve. As âncoras não dependem dos governos comparados. */
 var NG = {
-  ver: "3.0",
+  ver: "3.1",
   anc: {
     eco:{pib:[-5,3], renda:[-5,5], sm:[-1,5], inf:[13.5,4.5], des:[2,-1], carga:[0.5,-0.5]},
     pov:{gini:[1,-1], pob:[25,-25]},
     ser:{hom:[1,-1.5], mi:[0,-5], ev:[0,0.4], ideb:[0,0.15], pisa:[-6,6]},
-    amb:{niv:[30000,3925], "var":[25,-25]},
+    amb:{niv:[30000,3925], "var":[25,-25], fogo:[400000,100000]},
     fut:{dbgg:[3,-3], div:[3,-3], prim:[-2,2.5], contas:[500,0]}
   },
   /* peso fixo de cada indicador nos pilares sem controle na tela (os demais usam os controles: ecoW, serW, socW) */
-  vFix: {pov:{gini:1, pob:1}, amb:{niv:1, "var":1}, fut:{dbgg:0.5, div:0.5, prim:1, contas:1}},
+  vFix: {pov:{gini:1, pob:1}, amb:{niv:1, "var":1, fogo:1}, fut:{dbgg:1, div:1, prim:1, contas:1}},
   /* tipo da âncora: E = referência externa numérica; A = aritmética; C = convenção do site; D = calibrada olhando a série observada */
   tipo: {
     "eco.pib":"C","eco.renda":"C","eco.sm":"A","eco.inf":"E","eco.des":"C","eco.carga":"C",
     "pov.gini":"D","pov.pob":"D","ser.hom":"C","ser.mi":"C","ser.ev":"C","ser.ideb":"E","ser.pisa":"D",
-    "amb.niv":"E","amb.var":"D","fut.dbgg":"C","fut.div":"C","fut.prim":"E","fut.contas":"D",
+    "amb.niv":"E","amb.var":"D","amb.fogo":"D","fut.dbgg":"C","fut.div":"C","fut.prim":"E","fut.contas":"D",
     "int.c":"D","int.wgi":"C","leg":"D","soc":"D"
   },
   ref: {
@@ -4420,7 +4422,7 @@ var NG = {
     "eco.sm":"Meta: o mínimo real dobra em cerca de 14 anos. Piso: perda real de 1% ao ano.",
     "eco.inf":"Centro da meta de inflação do Conselho Monetário Nacional de 2005 a 2018 (4,5%); a meta atual é 3% (desde 2024). Usamos 4,5% para todos os governos. Piso: 13,5%, a mesma largura da faixa.",
     "eco.des":"Meta: queda de 1 ponto ao ano na taxa de desemprego. Piso: alta de 2 pontos ao ano.",
-    "eco.carga":"Juízo de valor do site: carga menor é melhor. Faixa simétrica em torno de zero; peso reduzido (0,5) por ser a única direção normativa.",
+    "eco.carga":"Juízo de valor do site: carga menor é melhor. Faixa simétrica em torno de zero. Se você discorda da direção, zere o peso deste indicador.",
     "pov.gini":"Sem referência externa: faixa simétrica de 1 ponto por ano, cerca de 1,25 vez o melhor ritmo observado (−0,8 ponto ao ano, Lula 2).",
     "pov.pob":"Sem referência externa: faixa simétrica de 25% ao ano, para conter a variação observada (de −21% a +13% ao ano).",
     "ser.hom":"Escolha do site. Os ODS (meta 16.1) pedem reduzir significativamente a violência e não fixam número. Piso: alta de 1 por 100 mil ao ano.",
@@ -4430,7 +4432,8 @@ var NG = {
     "ser.pisa":"Sem referência externa: faixa simétrica de 6 pontos por ano, para conter a variação observada (de −1,4 a +5,6).",
     "amb.niv":"Meta legal da Política Nacional sobre Mudança do Clima: −80% sobre a média de 1996–2005 (19.625 km²), ou 3.925 km² por ano. Piso: perto do maior nível da série do Prodes (cerca de 29 mil km², 1995).",
     "amb.var":"Sem referência externa: faixa simétrica de 25% ao ano, para conter a variação observada (de −21% a +24%).",
-    "fut.dbgg":"Faixa simétrica de 3 pontos do PIB por ano, a mesma da dívida líquida (as duas medem a mesma dinâmica e pesam meio ponto cada).",
+    "amb.fogo":"Sem referência externa: piso de 400 mil focos por ano, acima do pior ano da série (393.915 em 2007); meta de 100 mil, abaixo do melhor ano (128.145 em 2013). Seca e El Niño pesam muito nas queimadas.",
+    "fut.dbgg":"Faixa simétrica de 3 pontos do PIB por ano, a mesma da dívida líquida.",
     "fut.div":"Faixa simétrica de 3 pontos do PIB por ano.",
     "fut.prim":"Referência aproximada do superávit que estabiliza a dívida hoje (cerca de 2,5% do PIB, estimativa da IFI); varia com juros e crescimento. Piso: déficit de 2% do PIB.",
     "fut.contas":"Meta: nenhuma conta deixada aos sucessores. Piso: 1,18 vez o maior valor observado (R$ 422 bi). Governo sem item no catálogo fica sem dado neste indicador (ausência no catálogo não prova que não houve conta).",
@@ -4488,7 +4491,7 @@ var PIL = [
   {k:"pov", t:"Pobreza e desigualdade", l:["Pobreza e","desigualdade"], d:"Queda da pobreza extrema e do índice de Gini", href:"#pobreza"},
   {k:"soc", t:"Direitos e minorias", l:["Direitos e","minorias"], d:"Medidas do governo para mulheres, população negra, indígenas, PcD, LGBT+, idosos e crianças, com o multiplicador de força", href:"#nota-sociedade"},
   {k:"ser", t:"Serviços públicos", l:["Serviços","públicos"], d:"Homicídios, mortalidade infantil, expectativa de vida, Ideb e Pisa", href:"#nota-servicos"},
-  {k:"amb", t:"Meio ambiente", l:["Meio","ambiente"], d:"Nível e tendência do desmatamento na Amazônia", href:"#nota-ambiente"},
+  {k:"amb", t:"Meio ambiente", l:["Meio","ambiente"], d:"Nível e tendência do desmatamento na Amazônia e focos de queimada no Brasil", href:"#nota-ambiente"},
   {k:"fut", t:"Contas para o futuro", l:["Contas para","o futuro"], d:"Dívida bruta e líquida, resultado primário e contas deixadas para os governos seguintes", href:"#contas-futuro"},
   {k:"prl", t:"Feitos e promessas", l:["Feitos e","promessas"], d:"Promessas cumpridas e os cinco maiores feitos de cada governo que seguem valendo em 2026 (resultados como desemprego, fome e desmatamento já contam nos outros pilares), com o multiplicador de força", href:"#promessas"},
   {k:"int", t:"Integridade", l:["Integridade"], d:"Corrupção: pontos dos casos do placar por ano de governo e índice de controle da corrupção do Banco Mundial. Entra como pilar, com peso, e não como desconto", href:"#graficos"}
@@ -4966,19 +4969,22 @@ function weightedScores(IND, raw, W, pk){
 function serScores(){ return weightedScores(SER_IND, serRaw(), S.serW, "ser"); }
 var AMB_IND = [
   {k:"niv", t:"Desmatamento médio", u:"km² por ano", hi:false, d:"média anual do desmatamento na Amazônia nos anos de governo"},
-  {k:"var", t:"Tendência do desmatamento", u:"% ao ano", hi:false, d:"variação do desmatamento por ano, do ano anterior à posse ao fim do mandato"}
+  {k:"var", t:"Tendência do desmatamento", u:"% ao ano", hi:false, d:"variação do desmatamento por ano, do ano anterior à posse ao fim do mandato"},
+  {k:"fogo", t:"Queimadas", u:"focos por ano", hi:false, d:"média anual de focos de calor no Brasil, todos os biomas, detectados pelo satélite de referência do Inpe nos anos de governo (série comparável desde 2003)"}
 ];
 function ambRaw(){
   return GOVS.map(function(g, i){
     var s = 0, n = 0; for(var y = g.ys[0]; y <= g.ys[1]; y++){ var v = EXT.prodes[y]; if(v != null){ s += v; n++; } }
     var sp = ECO_SPANS[i].lv;
-    return {niv: n ? s/n : null, "var": perYear(getter(EXT.prodes), sp[0], Math.min(sp[1], 2025), true, [])};
+    var sf = 0, nf = 0; for(var yf = g.ys[0]; yf <= g.ys[1]; yf++){ var vf = EXT.focos[yf]; if(vf != null){ sf += vf; nf++; } }
+    return {niv: n ? s/n : null, "var": perYear(getter(EXT.prodes), sp[0], Math.min(sp[1], 2025), true, []), fogo: nf ? sf/nf : null};
   });
 }
 function ambScores(){ return weightedScores(AMB_IND, ambRaw(), null, "amb"); }
 function fmtInd(k, v){
   if(v == null) return "sem dado";
   if(k === "niv") return NF0.format(v) + " km²";
+  if(k === "fogo") return NF0.format(v) + " focos";
   if(k === "mi" || k === "var") return fmtSigned1(v) + "%";
   if(k === "ev" || k === "ideb") return (v > 0 ? "+" : (v < 0 ? MINUS : "")) + NF2.format(Math.abs(v));
   return fmtSigned1(v);
@@ -5070,7 +5076,8 @@ var SERIES_CFG = {
     {t:"Expectativa de vida", u:"anos, ao nascer", series:[{n:"Expectativa", d:EXT.ev}]},
     {t:"Ideb", u:"de 0 a 10, rede total", series:[{n:"Anos iniciais", d:EXT.ideb.ai},{n:"Anos finais", d:EXT.ideb.af},{n:"Ensino médio", d:EXT.ideb.em}], dots:true},
     {t:"Pisa", u:"nota média do Brasil", series:[{n:"Leitura", d:EXT.pisa.leit},{n:"Matemática", d:EXT.pisa.mat},{n:"Ciências", d:EXT.pisa.cien}], dots:true},
-    {t:"Desmatamento na Amazônia", u:"km² por ano (Prodes)", series:[{n:"Prodes", d:EXT.prodes}], zero:true}
+    {t:"Desmatamento na Amazônia", u:"km² por ano (Prodes)", series:[{n:"Prodes", d:EXT.prodes}], zero:true},
+    {t:"Queimadas no Brasil", u:"focos de calor por ano (Inpe, satélite de referência)", series:[{n:"Focos", d:EXT.focos}], zero:true}
   ],
   ecoSeries:[
     {t:"Renda média por pessoa", u:"US$ por dia, PPC de 2021", series:[{n:"Renda", d:EXT.renda}]},
@@ -6366,7 +6373,7 @@ window.BEA = {
 buildCases(); buildLegado(); buildPromessas(); buildCarteira(); buildCandidatos(); buildEcoPanel(); buildSocList(); buildSocPanel(); buildPilPanel(); buildSerPanel(); buildHexSelects(); bind(); bindTempo();
 $("socN").textContent = SOC.length;
 (function(){ function fill(id, keys){ var el = $(id); if(!el) return; keys.forEach(function(k){ var ul = srcList(EXT_SRC[k]); while(ul.firstChild) el.appendChild(ul.firstChild); }); }
-  fill("serSrc", ["hom","mi","ev","ideb","pisa","prodes"]); fill("ecoSrc", ["renda","prim","carga"]); fill("corrSrc", ["wgi","cpi"]); fill("forcaSrc", ["forca"]); })(); (function(){ var ps = $("povSrc"), ul = srcList(POV_SRC); while(ul.firstChild) ps.appendChild(ul.firstChild); })();
+  fill("serSrc", ["hom","mi","ev","ideb","pisa","prodes","focos"]); fill("ecoSrc", ["renda","prim","carga"]); fill("corrSrc", ["wgi","cpi"]); fill("forcaSrc", ["forca"]); })(); (function(){ var ps = $("povSrc"), ul = srcList(POV_SRC); while(ul.firstChild) ps.appendChild(ul.firstChild); })();
 buildFalas(); buildGastos(); buildPoderes(); buildFut();
 buildSources(); update(); route();
 })();
