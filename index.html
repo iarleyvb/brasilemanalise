@@ -2095,6 +2095,18 @@ p.swipe.cc-swipe{display:none}
 <section class="wrap" id="pesos-servicos" aria-labelledby="pse-h">
   <div class="sec-head"><h2 id="pse-h">Pesos dos serviços públicos</h2><p class="lead">Quanto cada número pesa na nota de serviços públicos, igual para os oito governos. Peso zero tira o item da conta.</p></div>
   <div class="panel" id="serPanel"></div>
+  <div class="panel">
+    <div class="field">
+      <div class="flabel" id="lb-fed">Só a parte do governo federal</div>
+      <div class="seg" role="group" aria-labelledby="lb-fed" data-key="fed"><button type="button" data-v="nao">Desligado</button><button type="button" data-v="sim">Ligado</button></div>
+      <p class="fhelp">Ligado, as notas de Segurança, Educação e Saúde na nota geral se aproximam de 5 na proporção do que não é do governo federal, pela parcela da União no gasto público: segurança 14% (Fórum Brasileiro de Segurança Pública, 2024), educação básica 14% (2018) e saúde 40% (Conass e Conasems, 2023). Desligado por padrão: parcela do gasto não é o mesmo que parcela da responsabilidade, e o governo federal também coordena, legisla e repassa recursos.</p>
+    </div>
+    <div class="field">
+      <div class="flabel" id="lb-defas">Saúde e educação com 1 ano de atraso</div>
+      <div class="seg" role="group" aria-labelledby="lb-defas" data-key="defas"><button type="button" data-v="nao">Desligado</button><button type="button" data-v="sim">Ligado</button></div>
+      <p class="fhelp">Ligado, mortalidade infantil, expectativa de vida, Ideb e Pisa de cada governo são medidos um ano depois (do primeiro ano de governo ao primeiro ano do sucessor), porque políticas de saúde e de escola demoram a aparecer. Desligado por padrão: o tamanho do atraso varia de política para política.</p>
+    </div>
+  </div>
   <div class="row-actions"><button type="button" class="btn" id="resetSer">Pesos iguais</button><a class="btn" href="#nota-servicos">Ver as notas</a></div>
 </section>
 <section class="wrap" id="pesos-soc" aria-labelledby="ps-h">
@@ -3175,7 +3187,7 @@ var TL = {"anos":[1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,20
 
 /* ---------- estado ---------- */
 var KEY = "placar-pt-pl-v3";
-var DEF = {est:"central", ipca:true, preset:"equilibrado", wVid:1, wLeg:1, merito:true, hoje:true, inst:true, wInst:1, porAno:"0", excl:{}, stars:{}, istars:{}, filtro:"todos", ordem:"data", ordemB:"data", legFiltro:"todos", notas:{}, wProm:5, promFiltro:"todos", tlSM:"usd", tlPIB:"usd", ecoW:{pib:1, renda:1, sm:1, inf:1, des:1, carga:1}, ecoOrd:"tempo", socW:{mul:1, neg:1, ind:1, pcd:1, lgb:1, ger:1}, socCon:0.5, socRe:1, pilW:{eco:16, pov:7, soc:5, sau:16, seg:18, edu:9, amb:5, fut:5, prl:5, int:14}, intW:{c:0.5, w:0.5}, ef:{on:true, mel:1, par:0.5, pio:0, nv:0.5}, nv:8, socGrp:"todos", socLado:"todos", hexA:"ptall", hexB:"bolso", choque:"tirar", viz:"sim", forK:0.5, forW:{cam:1, sen:1, stf:1}, serW:{hom:1, mi:1, ev:1, ideb:1, pisa:1}};
+var DEF = {est:"central", ipca:true, preset:"equilibrado", wVid:1, wLeg:1, merito:true, hoje:true, inst:true, wInst:1, porAno:"0", excl:{}, stars:{}, istars:{}, filtro:"todos", ordem:"data", ordemB:"data", legFiltro:"todos", notas:{}, wProm:5, promFiltro:"todos", tlSM:"usd", tlPIB:"usd", ecoW:{pib:1, renda:1, sm:1, inf:1, des:1, carga:1}, ecoOrd:"tempo", socW:{mul:1, neg:1, ind:1, pcd:1, lgb:1, ger:1}, socCon:0.5, socRe:1, pilW:{eco:16, pov:7, soc:5, sau:16, seg:18, edu:9, amb:5, fut:5, prl:5, int:14}, intW:{c:0.5, w:0.5}, ef:{on:true, mel:1, par:0.5, pio:0, nv:0.5}, nv:8, socGrp:"todos", socLado:"todos", hexA:"ptall", hexB:"bolso", choque:"tirar", viz:"sim", fed:"nao", defas:"nao", forK:0.5, forW:{cam:1, sen:1, stf:1}, serW:{hom:1, mi:1, ev:1, ideb:1, pisa:1}};
 function clone(o){ return JSON.parse(JSON.stringify(o)); }
 function load(){
   var s = clone(DEF);
@@ -3233,6 +3245,8 @@ function load(){
   if(hx.indexOf(s.hexB) < 0 || s.hexB === s.hexA) s.hexB = s.hexA === "bolso" ? "ptall" : "bolso";
   if(s.choque !== "contar") s.choque = "tirar";
   if(s.viz !== "nao") s.viz = "sim";
+  if(s.fed !== "sim") s.fed = "nao";
+  if(s.defas !== "sim") s.defas = "nao";
   var ew = {}; ["pib","renda","sm","inf","des","carga"].forEach(function(k){ var v = s.ecoW && s.ecoW[k]; ew[k] = (typeof v === "number" && v >= 0 && v <= 3) ? v : DEF.ecoW[k]; }); s.ecoW = ew;
   if(!s.notas || typeof s.notas !== "object" || Array.isArray(s.notas)) s.notas = {};
   function isObj(v){ return !!v && typeof v === "object" && !Array.isArray(v); }
@@ -4539,7 +4553,7 @@ function socPts(it){
    Nota de indicador (0 a 10) = 10 · limitar((x − piso) / (meta − piso), 0, 1). O piso vale 0 e a meta vale 10;
    para "quanto menor, melhor" a meta fica abaixo do piso e a mesma fórmula serve. As âncoras não dependem dos governos comparados. */
 var NG = {
-  ver: "7.1",
+  ver: "7.2",
   anc: {
     eco:{pib:[-5,3], renda:[-5,5], sm:[-1,5], inf:[13.5,4.5], des:[2,-1], carga:[0.5,-0.5]},
     pov:{gini:[1,-1], pob:[25,-25]},
@@ -4735,7 +4749,7 @@ function geralScores(R){
     var dur = FR.filter(function(x){ return x.id === g.fr; })[0].dur;
     if(camp && camp.items.length){ var net = 0; camp.items.forEach(function(it){ net += PST[it.st].f; }); pro = 5*(1 + net/camp.items.length); }
     return {g:g, i:i, fr:g.fr, dur:dur, corr:f.corr, din:f.din, cAno:f.corr/dur, legPts:legNota(g.fr), pro:pro, wgi:wgiAvg(i), forca:FV[i].f, mult:FV[i].m,
-      p:{eco:E[i].nota, pov:P[i].nota, soc:ngMult(So[i].nota, FV[i].m), sau:Sa[i].nota, seg:Sg[i].nota, edu:Sd[i].nota, amb:Am[i].nota, fut:Fu[i].nota, prl:null, int:null}};
+      p:{eco:E[i].nota, pov:P[i].nota, soc:ngMult(So[i].nota, FV[i].m), sau:fedParte("sau", Sa[i].nota), seg:fedParte("seg", Sg[i].nota), edu:fedParte("edu", Sd[i].nota), amb:Am[i].nota, fut:Fu[i].nota, prl:null, int:null}};
   });
   var sCorr = 0, sDur = 0; out.forEach(function(x){ sCorr += x.corr; sDur += x.dur; });
   NG.cPisoAtivo = Math.max(0.5, NG.intCfac*(sDur ? sCorr/sDur : 0));
@@ -5089,13 +5103,13 @@ var SER_IND = [
 ];
 function serRaw(){
   return GOVS.map(function(g, i){
-    var sp = ECO_SPANS[i].lv, a = sp[0], b = sp[1];
+    var sp = ECO_SPANS[i].lv, a = sp[0], b = sp[1], dz = S.defas === "sim" ? 1 : 0, ad = a + dz, bd = b + dz;
     return {
       hom: perYear(vizAjusta(getter(EXT.hom), "hom", false), a, b, false, []),
-      mi: perYear(vizAjusta(getter(EXT.mi), "mi", true), a, b, true, shockWin(getter(EXT.mi), false), false),
-      ev: perYear(vizAjusta(getter(EXT.ev), "ev", false), a, b, false, shockWin(getter(EXT.ev), true), true),
-      ideb: meanRate([EXT.ideb.ai, EXT.ideb.af, EXT.ideb.em], a, b, PAND),
-      pisa: meanRate([EXT.pisa.leit, EXT.pisa.mat, EXT.pisa.cien], a, b, PAND)
+      mi: perYear(vizAjusta(getter(EXT.mi), "mi", true), ad, bd, true, shockWin(getter(EXT.mi), false), false),
+      ev: perYear(vizAjusta(getter(EXT.ev), "ev", false), ad, bd, false, shockWin(getter(EXT.ev), true), true),
+      ideb: meanRate([EXT.ideb.ai, EXT.ideb.af, EXT.ideb.em], ad, bd, PAND),
+      pisa: meanRate([EXT.pisa.leit, EXT.pisa.mat, EXT.pisa.cien], ad, bd, PAND)
     };
   });
 }
@@ -5111,6 +5125,9 @@ function weightedScores(IND, raw, W, pk){
 function serScores(){ return weightedScores(SER_IND, serRaw(), S.serW, "ser"); }
 /* os cinco indicadores de serviços viram três pilares: Saúde, Segurança e Educação */
 var SER_GRP = {sau:["mi","ev"], seg:["hom"], edu:["ideb","pisa"]};
+/* parcela da União no gasto público (opção "só a parte do governo federal"): a nota se aproxima de 5 na proporção do resto */
+var FED_PARTE = {seg:0.14, edu:0.14, sau:0.40};
+function fedParte(k, v){ if(v == null || S.fed !== "sim") return v; return 5 + FED_PARTE[k]*(v - 5); }
 function serGrpInd(k){ return SER_IND.filter(function(ind){ return SER_GRP[k].indexOf(ind.k) >= 0; }); }
 function serGrpScores(k, raw){ return weightedScores(serGrpInd(k), raw || serRaw(), S.serW, "ser"); }
 var AMB_IND = [
@@ -6287,6 +6304,8 @@ function ccWhatIf(){
     ["Contando as pessoas lesadas (1 ponto por milhão)", function(s){ s.wVid = 1; }],
     ["Contando os anos de crise como os outros", function(s){ s.choque = "contar"; }],
     ["Sem descontar a maré da América Latina", function(s){ s.viz = "nao"; }],
+    ["Só a parte do governo federal em Segurança, Educação e Saúde", function(s){ s.fed = "sim"; }],
+    ["Saúde e educação medidas com 1 ano de atraso", function(s){ s.defas = "sim"; }],
     ["Sem multiplicador de força", function(s){ s.forK = 0; }],
     ["Sem a regra de efeito das medidas (conta as medidas pelo que foram)", function(s){ s.ef.on = false; }]
   ];
@@ -6463,6 +6482,8 @@ function ccVariaveis(){
   rows.push(lin("grau A, B, C, D", "Quanto conta um caso conforme a prova (padrão: equilibrado)", "1; 0,75; 0,5; 0,25", ccEsc(["A","B","C","D"].map(function(k){ return f2(PRESETS[S.preset][k]); }).join("; "))));
   rows.push(lin("estimativa", "Valor de cada caso usado na conta", "central", ({min:"mínima", central:"central", max:"máxima"})[S.est]));
   rows.push(lin("choques", "Anos de crise na variação por ano", "tirar", S.choque));
+  rows.push(lin("parte federal", "Segurança, Educação e Saúde só pela parcela da União no gasto (14%, 14% e 40%)", "nao", S.fed));
+  rows.push(lin("atraso", "Saúde e educação medidas com 1 ano de atraso", "nao", S.defas));
   rows.push(lin("maré", "Descontar a maré da América Latina em PIB, renda, desemprego, mortalidade infantil, expectativa de vida e homicídios", "sim", S.viz));
   rows.push(lin("tol", "Faixa de “parado” na regra de efeito (fração de |meta − piso|)", f2(NG.efTol), f2(NG.efTol)));
   rows.push(lin("2,4 e 0,5", "Piso de corrupção por ano: fator sobre a média e mínimo", "2,4; 0,5", "2,4; 0,5"));
@@ -6577,7 +6598,7 @@ function bind(){
   $("merito").addEventListener("change", function(e){ S.merito = e.target.checked; save(); update(); });
   $("hoje").addEventListener("change", function(e){ S.hoje = e.target.checked; save(); update(); });
   [["wVid","wVid"],["wLeg","wLeg"],["wInst","wInst"],["wProm","wProm"]].forEach(function(p){ $(p[0]).addEventListener("input", function(e){ S[p[1]] = parseFloat(e.target.value); save(); update(); }); });
-  $("reset").addEventListener("click", function(){ var keep = {filtro:S.filtro, ordem:S.ordem, ordemB:S.ordemB, legFiltro:S.legFiltro, notas:S.notas, promFiltro:S.promFiltro, tlSM:S.tlSM, tlPIB:S.tlPIB, ecoW:S.ecoW, ecoOrd:S.ecoOrd, socW:S.socW, socCon:S.socCon, socRe:S.socRe, pilW:S.pilW, intW:S.intW, ef:S.ef, socGrp:S.socGrp, socLado:S.socLado, hexA:S.hexA, hexB:S.hexB, choque:S.choque, viz:S.viz, forK:S.forK, forW:S.forW, serW:S.serW}; S = clone(DEF); for(var k in keep) S[k] = keep[k]; save(); update(); });
+  $("reset").addEventListener("click", function(){ var keep = {filtro:S.filtro, ordem:S.ordem, ordemB:S.ordemB, legFiltro:S.legFiltro, notas:S.notas, promFiltro:S.promFiltro, tlSM:S.tlSM, tlPIB:S.tlPIB, ecoW:S.ecoW, ecoOrd:S.ecoOrd, socW:S.socW, socCon:S.socCon, socRe:S.socRe, pilW:S.pilW, intW:S.intW, ef:S.ef, socGrp:S.socGrp, socLado:S.socLado, hexA:S.hexA, hexB:S.hexB, choque:S.choque, viz:S.viz, fed:S.fed, defas:S.defas, forK:S.forK, forW:S.forW, serW:S.serW}; S = clone(DEF); for(var k in keep) S[k] = keep[k]; save(); update(); });
   var rt, lastVW = window.innerWidth; window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(function(){ setNavH(); if(window.innerWidth === lastVW) return; lastVW = window.innerWidth; var R = compute(); if(curPage === "pt-x-pl"){ renderA(R); renderB(); renderSeries("corrSeries"); } if(curPage === "economia"){ renderEco(); renderPov(); renderFut(); renderSeries("ecoSeries"); renderTempo(); } if(curPage === "servicos"){ renderSer(); renderSeries("serSeries"); } if(curPage === "inicio") renderHome(R); fixTables(); }, 120); });
   window.addEventListener("scroll", hideTip, {passive:true});
   window.addEventListener("scroll", syncStick, {passive:true});

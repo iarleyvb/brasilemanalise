@@ -31,6 +31,22 @@
 
   var ENTRADAS = [
     {
+      id: "parte-federal-atraso",
+      data: "2026-10-14",
+      tipo: "Modelo",
+      versao: "7.2",
+      titulo: "Opções: só a parte federal e 1 ano de atraso em saúde e educação",
+      resumo: "Duas opções novas, desligadas por padrão, para quem quer separar o que é do governo federal e esperar o efeito das políticas de saúde e de escola.",
+      itens: [
+        "Só a parte federal: Segurança, Educação e Saúde se aproximam de 5 na proporção do que não é da União no gasto público (14%, 14% e 40% são da União).",
+        "1 ano de atraso: mortalidade infantil, expectativa de vida, Ideb e Pisa de cada governo são medidos um ano depois.",
+        "Ficam desligadas porque parcela do gasto não é parcela da responsabilidade e o tamanho do atraso varia; decisão tomada antes de calcular o efeito.",
+        "Efeito, se ligadas: só a parte federal deixa Bolsonaro 5,5, Lula 3 6,0, Lula 2 6,4; o atraso deixa Bolsonaro 5,9, Lula 3 6,6."
+      ],
+      impacto: { texto: "Não muda as notas no padrão." },
+      links: [{ href: "#pesos-servicos", texto: "Ligar as opções" }]
+    },
+    {
       id: "empate-tecnico",
       data: "2026-10-14",
       tipo: "Site",
